@@ -1,0 +1,75 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;11.&nbsp; JPA Criteria</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="jpa_overview.html" title="Part&nbsp;2.&nbsp;Java Persistence API"><link rel="prev" href="jpa_langref.html" title="2.&nbsp; JPQL Language Reference"><link rel="next" href="ch13s02.html" title="2.&nbsp;Executing a CriteriaQuery"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;11.&nbsp;
+        JPA Criteria
+    </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="jpa_langref.html">Prev</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;2.&nbsp;Java Persistence API</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch13s02.html">Next</a></td></tr></table><hr></div><div class="chapter" lang="en" id="jpa_overview_criteria"><div class="titlepage"><div><div><h2 class="title"><a name="jpa_overview_criteria"></a>Chapter&nbsp;11.&nbsp;
+        JPA Criteria
+    </h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="jpa_overview_criteria.html#d0e11015">1. Constructing a CriteriaQuery</a></span></dt><dt><span class="section"><a href="ch13s02.html">2. Executing a CriteriaQuery</a></span></dt><dt><span class="section"><a href="ch13s03.html">3. Extension to Criteria API</a></span></dt><dt><span class="section"><a href="ch13s04.html">4. Generation of Canonical MetaModel classes</a></span></dt></dl></div><a class="indexterm" name="d0e10997"></a><a class="indexterm" name="d0e11002"></a><p>
+    JPA 2.0 Specification introduces a new API to define queries dynamically
+    via construction of an object-based 
+    <code class="classname">javax.persistence.CriteriaQuery</code> instance, rather
+    than string-based approach used in JPQL (Java Persistence Query Language).
+    This dynamic query definition capability, referred as Criteria API, is 
+    based on the abstract persistent schema of the entities, their embedded
+    objects and their relationships. The syntax is designed to construct a
+    <span class="emphasis"><em>Query Tree</em></span> whose nodes represent the semantic query
+    elements such as projections, conditional predicates of WHERE clause or
+    GROUP BY elements etc. 
+    </p><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e11015"></a>1.&nbsp;Constructing a CriteriaQuery</h2></div></div></div><p>
+    	The CriteriaBuilder interface is the factory for CriteriaQuery. A
+    	CriteriaBuilder is obtained from either an EntityManagerFactory or 
+    	an EntityManager as follows:
+    	</p><pre class="programlisting">
+EntityManager em = ... ; 
+CriteriaBuilder queryBuilder = em.getCriteriaBuilder();
+CriteriaQuery qdef = queryBuilder.createCriteriaQuery();
+    	</pre><p>
+    	The first step in constructing a query definition is specification of 
+    	query roots.  Query roots specify the domain objects on which the query 
+    	is evaluated. Query root is an instance of the Root&lt;T&gt; interface. A
+    	query root is added to a CriteriaQuery by 
+    	<code class="methodname">addRoot(Class c)</code> method.
+    	</p><pre class="programlisting">
+    	Root&lt;Customer&gt; customer = qdef.from(Customer.class);
+    	</pre><p>
+    	A query domain can be further refined by joining to other domain objects.
+    	For example, for the above query definition to operate over customers 
+    	and their orders, use <code class="methodname">join(String attribute)</code>:
+		</p><pre class="programlisting">
+Root&lt;Order&gt; order = customer.join(customer.get(Customer_.orders));
+		</pre><p>  
+		where Customer_.orders represent a field of canonical metamodel class for Customer.
+		These canonical metamodel classes are generated during compilation by processing
+		the persistent annotation in the source code of Customer.java.
+		</p><p>
+		The condition of a query definition is set via 
+		<code class="methodname">where(Predicate p)</code> where the argument 
+		designates a conditional predicate. Conditional predicates are often
+		composed of one or more comparisons between the attribute values of
+		the domain objects and some variable. For example, to select the
+		Customer whose name is <span class="emphasis"><em>"John Doe"</em></span> and has 
+		orders that are not yet delivered, you can build the predicate and set  
+		it to the query definition as:
+		</p><pre class="programlisting">
+           qdef.where(customer.get(Customer_.name).equal("John Doe")
+               .and(order.get(Order_.status).equal(OrderStatus.DELIVERED).not()));
+		</pre><p>
+		The <code class="methodname">select()</code> method defines the result of the
+		query. If left unspecified, the select projection is assumed to be the
+		root domain object. However, you can specify the selected projections
+		explicitly as a list:
+		</p><pre class="programlisting">
+            qdef.select(customer.get(Customer_.name), order.get(Order_.status));
+		</pre><p>
+    	</p><p>
+    	An attribute of a domain object can also be specified by navigating via 
+		<code class="methodname">get(String attr)</code>. The attribute 
+		<span class="emphasis"><em>should</em></span> refer
+		to a valid persistent property of the receiving domain object, however
+		no such validation is enforced during the construction of the query 
+		definition. All validation is deferred until the query is actually executed.
+		On the other hand, using canonical metamodel for path navigate enforces
+		compile type checking. 
+    	</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="jpa_langref.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="jpa_overview.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch13s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">2.&nbsp;
+            JPQL Language Reference
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;2.&nbsp;Executing a CriteriaQuery</td></tr></table></div></body></html>

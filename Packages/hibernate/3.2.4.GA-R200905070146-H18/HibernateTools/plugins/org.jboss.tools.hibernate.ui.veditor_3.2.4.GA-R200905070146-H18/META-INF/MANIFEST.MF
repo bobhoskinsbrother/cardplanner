@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Export-Package: org.jboss.tools.hibernate.ui.veditor,org.jboss.tools.h
+ ibernate.ui.veditor.editors,org.jboss.tools.hibernate.ui.veditor.edit
+ ors.command,org.jboss.tools.hibernate.ui.veditor.editors.figures,org.
+ jboss.tools.hibernate.ui.veditor.editors.model,org.jboss.tools.hibern
+ ate.ui.veditor.editors.parts
+Require-Bundle: org.eclipse.ui,org.eclipse.ui.views,org.eclipse.core.r
+ untime,org.eclipse.gef,org.eclipse.ui.editors,org.eclipse.core.resour
+ ces,org.hibernate.eclipse,org.eclipse.jdt.core,org.jboss.tools.hibern
+ ate.ui.view,org.hibernate.eclipse.console
+Bundle-Vendor: %providerName
+Eclipse-LazyStart: true
+Bundle-ClassPath: orm2-veditor.jar
+Bundle-Version: 3.2.4.GA-R200905070146-H18
+Bundle-Localization: plugin
+Bundle-Name: %pluginName
+Bundle-ManifestVersion: 2
+Bundle-Activator: org.jboss.tools.hibernate.ui.veditor.VisualEditorPlu
+ gin
+Bundle-SymbolicName: org.jboss.tools.hibernate.ui.veditor;singleton:=t
+ rue
+

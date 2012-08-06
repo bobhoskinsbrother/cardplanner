@@ -1,0 +1,278 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;13.&nbsp; Mapping Metadata</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="jpa_overview.html" title="Part&nbsp;2.&nbsp;Java Persistence API"><link rel="prev" href="jpa_overview_sqlquery_obj.html" title="2.&nbsp; Retrieving Persistent Objects with SQL"><link rel="next" href="jpa_overview_mapping_unq.html" title="2.&nbsp; Unique Constraints"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;13.&nbsp;
+        Mapping Metadata
+    </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="jpa_overview_sqlquery_obj.html">Prev</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;2.&nbsp;Java Persistence API</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_mapping_unq.html">Next</a></td></tr></table><hr></div><div class="chapter" lang="en" id="jpa_overview_mapping"><div class="titlepage"><div><div><h2 class="title"><a name="jpa_overview_mapping"></a>Chapter&nbsp;13.&nbsp;
+        Mapping Metadata
+    </h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="jpa_overview_mapping.html#jpa_overview_mapping_table">1. 
+            Table
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_unq.html">2. 
+            Unique Constraints
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_column.html">3. 
+            Column
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_id.html">4. 
+            Identity Mapping
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_sequence.html">5. 
+            Generators
+        </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping_sequence.html#jpa_overview_mapping_sequence_seqgen">5.1. 
+                Sequence Generator
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_sequence.html#jpa_overview_mapping_sequence_tablegen">5.2. 
+                TableGenerator
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_sequence.html#jpa_overview_mapping_sequence_genex">5.3. 
+                Example
+            </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_mapping_inher.html">6. 
+            Inheritance
+        </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_single">6.1. 
+                Single Table
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_single_adv">6.1.1. 
+                    Advantages
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_single_disadv">6.1.2. 
+                    Disadvantages
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_joined">6.2. 
+                Joined
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_joined_adv">6.2.1. 
+                    Advantages
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_joined_disadv">6.2.2. 
+                    Disadvantages
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_tpc">6.3. 
+                Table Per Class
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_tpc_adv">6.3.1. 
+                    Advantages
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_tpc_disadv">6.3.2. 
+                    Disadvantages
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_together">6.4. 
+                Putting it All Together
+            </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_mapping_discrim.html">7. 
+            Discriminator
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html">8. 
+            Field Mapping
+        </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_basic">8.1. 
+                Basic Mapping
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_lob">8.1.1. 
+                    LOBs
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_enum">8.1.2. 
+                    Enumerated
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_temporal">8.1.3. 
+                    Temporal Types
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_basic_example">8.1.4. 
+                    The Updated Mappings
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_secondary">8.2. 
+                Secondary Tables
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_embed">8.3. 
+                Embedded Mapping
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_rel">8.4. 
+                Direct Relations
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_assoccoll">8.5. 
+                Join Table
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_bidi">8.6. 
+                Bidirectional Mapping
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_map">8.7. 
+                Map Mapping
+            </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_mapping_full.html">9. 
+            The Complete Mappings
+        </a></span></dt></dl></div><a class="indexterm" name="d0e11333"></a><a class="indexterm" name="d0e11336"></a><a class="indexterm" name="d0e11343"></a><a class="indexterm" name="d0e11350"></a><a class="indexterm" name="d0e11355"></a><p>
+<span class="emphasis"><em>Object-relational mapping</em></span> is the process of mapping
+entities to relational database tables. In JPA, you perform
+object/relational mapping through <span class="emphasis"><em>mapping metadata</em></span>.
+Mapping metadata uses annotations to describe how to link your object model to
+your relational model.
+    </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+OpenJPA offers tools to automate mapping and schema creation. See
+<a href="ref_guide_mapping.html" title="Chapter&nbsp;7.&nbsp; Mapping">Chapter&nbsp;7, <i xmlns:xlink="http://www.w3.org/1999/xlink">
+        Mapping
+    </i></a> in the Reference Guide.
+        </p></div><p>
+Throughout this chapter, we will draw on the object model introduced in
+<a href="jpa_overview_meta.html" title="Chapter&nbsp;5.&nbsp; Metadata">Chapter&nbsp;5, <i xmlns:xlink="http://www.w3.org/1999/xlink">
+        Metadata
+    </i></a>. We present that model again below.
+As we discuss various aspects of mapping metadata, we will zoom in on specific
+areas of the model and show how we map the object layer to the relational layer.
+    </p><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="369"><tr><td><img src="img/jpa-meta-model.png"></td></tr></table></div><p>
+All mapping metadata is optional. Where no explicit mapping metadata is given,
+JPA uses the defaults defined by the specification. As we present
+each mapping throughout this chapter, we also describe the defaults that apply
+when the mapping is absent.
+    </p><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="jpa_overview_mapping_table"></a>1.&nbsp;
+            Table
+        </h2></div></div></div><a class="indexterm" name="d0e11388"></a><p>
+The <code class="classname">Table</code> annotation specifies the table for an entity
+class. If you omit the <code class="classname">Table</code> annotation, base entity
+classes default to a table with their unqualified class name. The default table
+of an entity subclass depends on the inheritance strategy, as you will see in
+<a href="jpa_overview_mapping_inher.html" title="6.&nbsp; Inheritance">Section&nbsp;6, &#8220;
+            Inheritance
+        &#8221;</a>.
+        </p><p>
+<code class="classname">Table</code>s have the following properties:
+        </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">String name</code>: The name of the table. Defaults to the
+unqualified entity class name.
+                </p></li><li><p>
+<code class="literal">String schema</code>: The table's schema. If you do not name a
+schema, JPA uses the default schema for the database connection.
+                </p></li><li><p>
+<code class="literal">String catalog</code>: The table's catalog. If you do not name a
+catalog, JPA uses the default catalog for the database connection.
+                </p></li><li><p>
+<code class="literal">UniqueConstraint[] uniqueConstraints</code>: An array of unique
+constraints to place on the table. We cover unique constraints below. Defaults
+to an empty array.
+                </p></li></ul></div><p>
+The equivalent XML element is <code class="literal">table</code>. It has the following
+attributes, which correspond to the annotation properties above:
+        </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">name</code>
+                </p></li><li><p>
+<code class="literal">schema</code>
+                </p></li><li><p>
+<code class="literal">catalog</code>
+                </p></li></ul></div><p>
+The <code class="literal">table</code> element also accepts nested <code class="literal">
+unique-constraint</code> elements representing unique constraints. We will
+detail unique constraints shortly.
+        </p><p>
+Sometimes, some of the fields in a class are mapped to secondary tables. In that
+case, use the class' <code class="classname">Table</code> annotation to name what you
+consider the class' primary table. Later, we will see how to map certain fields
+to other tables.
+        </p><p>
+The example below maps classes to tables to separate schemas. The
+<code class="literal">CONTRACT</code>, <code class="literal">SUB</code>, and <code class="literal">LINE_ITEM
+</code> tables are in the <code class="literal">CNTRCT</code> schema; all other tables
+are in the default schema.
+        </p><div class="example"><a name="jpa_overview_mapping_classex"></a><p class="title"><b>Example&nbsp;13.1.&nbsp;
+                Mapping Classes
+            </b></p><div class="example-contents"><pre class="programlisting">
+package org.mag;
+
+@Entity
+@IdClass(Magazine.MagazineId.class)
+@Table(name="MAG")
+public class Magazine {
+    ...
+
+    public static class MagazineId {
+        ...
+    }
+}
+
+@Entity
+@Table(name="ART")
+public class Article {
+    ...
+}
+
+
+package org.mag.pub;
+
+@Entity
+@Table(name="COMP")
+public class Company {
+    ...
+}
+
+@Entity
+@Table(name="AUTH")
+public class Author {
+    ...
+}
+
+@Embeddable
+public class Address {
+    ...
+}
+
+
+package org.mag.subscribe;
+
+@MappedSuperclass
+public abstract class Document {
+    ...
+}
+
+@Entity
+@Table(schema="CNTRCT")
+public class Contract
+    extends Document {
+    ...
+}
+
+@Entity
+@Table(name="SUB", schema="CNTRCT")
+public class Subscription {
+    ...
+
+    @Entity
+    @Table(name="LINE_ITEM", schema="CNTRCT")
+    public static class LineItem
+        extends Contract {
+        ...
+    }
+}
+
+@Entity(name="Lifetime")
+public class LifetimeSubscription
+    extends Subscription {
+    ...
+}
+
+@Entity(name="Trial")
+public class TrialSubscription
+    extends Subscription {
+    ...
+}
+</pre><p>
+The same mapping information expressed in XML:
+            </p><pre class="programlisting">
+&lt;entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_1_0.xsd"
+    version="1.0"&gt;
+    &lt;mapped-superclass class="org.mag.subscribe.Document"&gt;
+        ...
+    &lt;/mapped-superclass&gt;
+    &lt;entity class="org.mag.Magazine"&gt;
+        &lt;table name="MAG"/&gt;
+        &lt;id-class="org.mag.Magazine.MagazineId"/&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.Article"&gt;
+        &lt;table name="ART"/&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.pub.Company"&gt;
+        &lt;table name="COMP"/&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.pub.Author"&gt;
+        &lt;table name="AUTH"/&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subcribe.Contract"&gt;
+        &lt;table schema="CNTRCT"/&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subcribe.Subscription"&gt;
+        &lt;table name="SUB" schema="CNTRCT"/&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subscribe.Subscription.LineItem"&gt;
+        &lt;table name="LINE_ITEM" schema="CNTRCT"/&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subscribe.LifetimeSubscription" name="Lifetime"&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subscribe.TrialSubscription" name="Trial"&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;embeddable class="org.mag.pub.Address"&gt;
+        ...
+    &lt;/embeddable&gt;
+&lt;/entity-mappings&gt;
+</pre></div></div><br class="example-break"></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="jpa_overview_sqlquery_obj.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="jpa_overview.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_mapping_unq.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">2.&nbsp;
+            Retrieving Persistent Objects with SQL
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;2.&nbsp;
+            Unique Constraints
+        </td></tr></table></div></body></html>

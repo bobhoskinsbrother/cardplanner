@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CardPlanner - Print Cards</title>
+${tagBuilder.showCss("general.css")}
+</head>
+<body>
+<#assign count = 0 />
+
+<#list cards as card>
+<#if (count % 4) == 0 && count != 0><div style="page-break-after:always; clear:both;"><!-- page --></div></#if>
+
+<div id="showContainer${count}" class="card_print centre" style="background-color: ${card.type.colour}; float: left; font-size:13px; text-align: left; ">
+	<div style="float:left;">
+		<span style="float:left;margin-top: -10px;"><h3>${card.title?html}</h3></span>
+	</div>
+	<div style="clear:both;height:180px;overflow:hidden;">${wikifier.manipulate(card.body)}</div>
+	<div id="bottomCards" style="clear:both;padding-top: 30px; font-size: 10px;">
+		<div id="effortDiv" style="float:left;"><strong>Effort:</strong><br/> ${card.effort.amount} ${card.effort.type.title?html}</div>
+		<div id="valueDiv" style="float: right;margin-right: 10px"><strong>Value:</strong><br/> ${card.value.amount} ${card.value.type.title?html}</div>
+		<div id="centreDiv" style="margin-left: 90px;float:left">
+			<div style="float:left;clear:both">
+				<span style="float:left; width: 65px;font-weight:bold;">Type:</span> ${card.type.title?html}
+			</div>
+			<div style="float:left;clear:both">
+				<span style="float:left; width: 65px;font-weight:bold;">Status:</span> ${card.status.title?html}
+			</div>
+			<div style="float:left;clear:both">
+			<span style="float:left; width: 65px;font-weight:bold;">Parent:</span> ${card.parent.title?html}
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<#assign count = count + 1 />
+</#list>
+
+
+
+
+
+
+</body></html>

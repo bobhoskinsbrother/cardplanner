@@ -1,0 +1,323 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;7.&nbsp; Mapping</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="ref_guide.html" title="Part&nbsp;3.&nbsp;Reference Guide"><link rel="prev" href="ref_guide_meta_ext.html" title="4.&nbsp; Metadata Extensions"><link rel="next" href="ref_guide_pc_reverse.html" title="2.&nbsp; Reverse Mapping"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;7.&nbsp;
+        Mapping
+    </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ref_guide_meta_ext.html">Prev</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;3.&nbsp;Reference Guide</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ref_guide_pc_reverse.html">Next</a></td></tr></table><hr></div><div class="chapter" lang="en" id="ref_guide_mapping"><div class="titlepage"><div><div><h2 class="title"><a name="ref_guide_mapping"></a>Chapter&nbsp;7.&nbsp;
+        Mapping
+    </h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="ref_guide_mapping.html#ref_guide_mapping_mappingtool">1. 
+            Forward Mapping
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping.html#ref_guide_mapping_mappingtool_examples">1.1. 
+                Using the Mapping Tool
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping.html#ref_guide_ddl_examples">1.2. 
+                Generating DDL SQL
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping.html#ref_guide_mapping_synch">1.3. 
+                Runtime Forward Mapping
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_pc_reverse.html">2. 
+            Reverse Mapping
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_pc_reverse.html#ref_guide_pc_reverse_custom">2.1. 
+                Customizing Reverse Mapping
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_mapping_middle.html">3. 
+            Meet-in-the-Middle Mapping
+        </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_defaults.html">4. 
+            Mapping Defaults
+        </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_factory.html">5. 
+            Mapping Factory
+        </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_notes_nonstdjoins.html">6. 
+            Non-Standard Joins
+        </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html">7. 
+            Additional JPA Mappings
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_datastoreid">7.1. 
+                Datastore Identity Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_version">7.2. 
+                Surrogate Version Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_columns">7.3. 
+                Multi-Column Mappings
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_fieldjoin">7.4. 
+                Join Column Attribute Targets
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_embed">7.5. 
+                Embedded Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll">7.6. 
+                Collections
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll_table">7.6.1. 
+                    Container Table
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll_joincols">7.6.2. 
+                    Element Join Columns
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll_order">7.6.3. 
+                    Order Column
+                </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_onemany">7.7. 
+                One-Sided One-Many Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map">7.8. 
+                Maps
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map_keycols">7.8.1. Key Columns</a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map_keyjoincols">7.8.2. Key Join Columns</a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map_embedkey">7.8.3. Key Embedded Mapping</a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map_ex">7.8.4. Examples</a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_constraints">7.9. 
+                Indexes and Constraints
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_index">7.9.1. 
+                    Indexes
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_fk">7.9.2. 
+                    Foreign Keys
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_unique">7.9.3. 
+                    Unique Constraints
+                </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_xmlmapping">7.10. 
+              XML Column Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_streamsupport">7.11. 
+                LOB Streaming
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_mapping_limits.html">8. 
+            Mapping Limitations
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_limits.html#ref_guide_mapping_limits_tpc">8.1. 
+                Table Per Class
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_mapping_ext.html">9. 
+            Mapping Extensions
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_ext.html#ref_guide_mapping_ext_cls">9.1. 
+                Class Extensions
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_ext.html#subclass-fetch-mode">9.1.1. 
+                    Subclass Fetch Mode
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#class-strategy">9.1.2. 
+                    Strategy
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#discriminator-strategy">9.1.3. 
+                    Discriminator Strategy
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#version-strategy">9.1.4. 
+                    Version Strategy
+                </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_mapping_ext.html#ref_guide_mapping_ext_field">9.2. 
+                Field Extensions
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_ext.html#eager-fetch-mode">9.2.1. 
+                    Eager Fetch Mode
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#nonpolymorphic">9.2.2. 
+                    Nonpolymorphic
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#class-criteria">9.2.3. 
+                    Class Criteria
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#strategy">9.2.4. 
+                    Strategy
+                </a></span></dt></dl></dd></dl></dd><dt><span class="section"><a href="ref_guide_mapping_custom.html">10. 
+            Custom Mappings
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_custom.html#ref_guide_mapping_custom_class">10.1. 
+                Custom Class Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_custom.html#ref_guide_mapping_custom_versdiscrim">10.2. 
+                Custom Discriminator and Version Strategies
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_custom.html#ref_guide_mapping_custom_field">10.3. 
+                Custom Field Mapping
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_custom.html#ref_guide_mapping_custom_vhandler">10.3.1. 
+                    Value Handlers
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_custom.html#ref_guide_mapping_custom_fieldstrat">10.3.2. 
+                    Field Strategies
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_custom.html#ref_guide_mapping_custom_field_conf">10.3.3. 
+                    Configuration
+                </a></span></dt></dl></dd></dl></dd><dt><span class="section"><a href="ref_guide_orphan.html">11. 
+            Orphaned Keys
+        </a></span></dt></dl></div><a class="indexterm" name="d0e27837"></a><p>
+The JPA Overview's <a href="jpa_overview_mapping.html" title="Chapter&nbsp;13.&nbsp; Mapping Metadata">Chapter&nbsp;13, <i xmlns:xlink="http://www.w3.org/1999/xlink">
+        Mapping Metadata
+    </i></a> explains
+object-relational mapping under JPA. This chapter reviews the mapping utilities
+OpenJPA provides and examines OpenJPA features that go beyond the JPA
+specification.
+    </p><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ref_guide_mapping_mappingtool"></a>1.&nbsp;
+            Forward Mapping
+        </h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ref_guide_mapping.html#ref_guide_mapping_mappingtool_examples">1.1. 
+                Using the Mapping Tool
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping.html#ref_guide_ddl_examples">1.2. 
+                Generating DDL SQL
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping.html#ref_guide_mapping_synch">1.3. 
+                Runtime Forward Mapping
+            </a></span></dt></dl></div><a class="indexterm" name="d0e27847"></a><a class="indexterm" name="d0e27850"></a><a class="indexterm" name="d0e27855"></a><p>
+<span class="emphasis"><em>Forward mapping</em></span> is the process of creating mappings and
+their corresponding database schema from your object model. OpenJPA supports
+forward mapping through the <span class="emphasis"><em>mapping tool</em></span>. The next section
+presents several common mapping tool use cases. You can invoke the tool through
+its Java class,
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/jdbc/meta/MappingTool" target="_top"><code class="classname">
+org.apache.openjpa.jdbc.meta.MappingTool</code></a>.
+        </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+<a href="ref_guide_integration.html#ref_guide_integration_mappingtool" title="1.4.&nbsp; Mapping Tool Ant Task">Section&nbsp;1.4, &#8220;
+                Mapping Tool Ant Task
+            &#8221;</a> describes the mapping
+tool Ant task.
+            </p></div><div class="example"><a name="ref_guide_mapping_mappingtool_typical"></a><p class="title"><b>Example&nbsp;7.1.&nbsp;
+                Using the Mapping Tool
+            </b></p><div class="example-contents"><pre class="programlisting">
+java org.apache.openjpa.jdbc.meta.MappingTool Magazine.java
+</pre></div></div><br class="example-break"><p>
+In addition to the universal flags of the
+<a href="ref_guide_conf_devtools.html" title="3.&nbsp; Command Line Configuration">configuration framework</a>, the
+mapping tool accepts the following command line arguments:
+        </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">-schemaAction/-sa &lt;add | refresh | drop | build | retain | reflect | createDB | dropDB | import | export | none&gt;
+</code>: The action to take on the schema. These options correspond to the
+same-named actions on the schema tool described in
+<a href="ref_guide_schema_schematool.html" title="13.&nbsp; Schema Tool">Section&nbsp;13, &#8220;
+            Schema Tool
+        &#8221;</a>. Actions can be composed in a
+comma-separated list. Unless you are running the mapping tool on all of
+your persistent types at once or dropping a mapping, we strongly
+recommend you use the default <code class="literal">add</code> action or the
+<code class="literal">build</code> action. Otherwise you may end up inadvertently
+dropping schema components that are used by classes you are not
+currently running the tool over.
+                </p></li><li><p>
+<code class="literal">-schemaFile/-sf &lt;stdout | output file&gt;</code>: Use this
+option to write the planned schema to an XML document rather than modify the
+database. The document can then be manipulated and committed to the database
+with the <a href="ref_guide_schema_schematool.html" title="13.&nbsp; Schema Tool"> schema tool</a>.
+                </p></li><li><p>
+<code class="literal">-sqlFile/-sql &lt;stdout | output file&gt;</code>: Use this option
+to write the planned schema modifications to a SQL script rather than modify the
+database. Combine this with a <code class="literal">schemaAction</code> of <code class="literal">build
+</code> to generate a script that recreates the schema for the current
+mappings, even if the schema already exists.
+                </p></li><li><p>
+<code class="literal">-dropTables/-dt &lt;true/t | false/f&gt;</code>: Corresponds to the
+same-named option on the schema tool.
+                </p></li><li><p>
+<code class="literal">-dropSequences/-dsq &lt;true/t | false/f&gt;</code>: Corresponds to
+the same-named option on the schema tool.
+                </p></li><li><p>
+<code class="literal">-openjpaTables/-ot &lt;true/t | false/f&gt;</code>: Corresponds to
+the same-named option on the schema tool.
+                </p></li><li><p>
+<code class="literal">-ignoreErrors/-i &lt;true/t | false/f&gt;</code>: Corresponds to
+the same-named option on the schema tool.
+                </p></li><li><p>
+<code class="literal">-schemas/-s &lt;schema and table names&gt;</code>: Corresponds to
+the same-named option on the schema tool. This option is ignored if <code class="literal">
+readSchema</code> is not set to <code class="literal">true</code>.
+                </p></li><li><p>
+<code class="literal">-readSchema/-rs &lt;true/t | false/f&gt;</code>: Set this option to
+<code class="literal">true</code> to read the entire existing schema when the tool runs.
+Reading the existing schema ensures that OpenJPA does not generate any mappings
+that use table, index, primary key, or foreign key names that conflict with
+existing names. Depending on the JDBC driver, though, it can be a slow process
+for large schemas.
+                </p></li><li><p>
+<code class="literal">-primaryKeys/-pk &lt;true/t | false/f&gt;</code>: Whether to read
+and manipulate primary key information of existing tables. Defaults to false.
+                </p></li><li><p>
+<code class="literal">-foreignKeys/-fk &lt;true/t | false/f&gt;</code>: Whether to read
+and manipulate foreign key information of existing tables. Defaults to false.
+This means that to add any new foreign keys to a class that has already been
+mapped, you must explicitly set this flag to true.
+                </p></li><li><p>
+<code class="literal">-indexes/-ix &lt;true/t | false/f&gt;</code>: Whether to read and
+manipulate index information of existing tables. Defaults to false. This means
+that to add any new indexes to a class that has already been mapped once, you
+must explicitly set this flag to true.
+                </p></li><li><p>
+<code class="literal">-sequences/-sq &lt;true/t | false/f&gt;</code>: Whether to
+manipulate sequences. Defaults to true.
+                </p></li><li><p>
+<code class="literal">-meta/-m &lt;true/t | false/f&gt;</code>: Whether the given action
+applies to metadata rather than or in addition to mappings.
+                </p></li></ul></div><p>
+The mapping tool also uses an <code class="literal">-action/-a</code> argument to specify
+the action to take on each class. The available actions are:
+        </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">buildSchema</code>: This is the default action. It
+makes the database schema match your existing mappings. If your provided
+mappings conflict with your class definitions, OpenJPA will fail with an
+informative exception.
+                </p></li><li><p>
+<code class="literal">validate</code>: Ensure that the mappings for the given classes are
+valid and that they match the schema. No mappings or tables will be changed. An
+exception is thrown if any mappings are invalid.
+                </p></li></ul></div><p>
+Each additional argument to the tool should be one of:
+        </p><div class="itemizedlist"><ul type="disc"><li><p>
+The full name of a persistent class.
+                </p></li><li><p>
+The .java file for a persistent class.
+                </p></li><li><p>
+The <code class="filename">.class</code> file of a persistent class.
+                </p></li></ul></div><p>
+If you do not supply any arguments to the mapping tool, it will run on the
+classes in your persistent classes list (see
+<a href="ref_guide_pc.html#ref_guide_pc_pcclasses" title="1.&nbsp; Persistent Class List">Section&nbsp;1, &#8220;
+            Persistent Class List
+        &#8221;</a>).
+        </p><p>
+The mappings generated by the mapping tool are stored by the system <span class="emphasis"><em>
+mapping factory</em></span>. <a href="ref_guide_mapping_factory.html" title="5.&nbsp; Mapping Factory">Section&nbsp;5, &#8220;
+            Mapping Factory
+        &#8221;</a>
+discusses your mapping factory options.
+        </p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_mapping_mappingtool_examples"></a>1.1.&nbsp;
+                Using the Mapping Tool
+            </h3></div></div></div><a class="indexterm" name="d0e28047"></a><p>
+The JPA specification defines a comprehensive set of defaults for missing
+mapping information. Thus, forward mapping in JPA is virtually automatic. After
+using the mapping annotations covered in <a href="jpa_overview_mapping.html" title="Chapter&nbsp;13.&nbsp; Mapping Metadata">Chapter&nbsp;13, <i xmlns:xlink="http://www.w3.org/1999/xlink">
+        Mapping Metadata
+    </i></a>
+of the JPA Overview to override any unsatisfactory defaults, run the
+mapping tool on your persistent classes.  The default <code class="literal">buildSchema
+</code> mapping tool action manipulates the database schema to
+match your mappings. It fails if any of your mappings don't match your object
+model.
+            </p><div class="example"><a name="ref_guide_mapping_mappingtool_buildschema"></a><p class="title"><b>Example&nbsp;7.2.&nbsp;
+                    Creating the Relational Schema from Mappings
+                </b></p><div class="example-contents"><pre class="programlisting">
+java org.apache.openjpa.jdbc.meta.MappingTool Magazine.java
+</pre></div></div><br class="example-break"><p>
+To drop the schema for a persistent class, set the mapping tool's <code class="literal">
+schemaAction</code> to <code class="literal">drop</code>.
+            </p><div class="example"><a name="ref_guide_mapping_mappingtool_cleanup_tables"></a><p class="title"><b>Example&nbsp;7.3.&nbsp;
+                    Refreshing entire schema and cleaning out tables
+                </b></p><div class="example-contents"><a class="indexterm" name="d0e28075"></a><pre class="programlisting">
+java org.apache.openjpa.jdbc.meta.MappingTool -schemaAction add,deleteTableContents
+</pre></div></div><br class="example-break"><div class="example"><a name="ref_guide_mapping_mappingtool_dropschema"></a><p class="title"><b>Example&nbsp;7.4.&nbsp;
+                    Dropping Mappings and Association Schema
+                </b></p><div class="example-contents"><pre class="programlisting">
+java org.apache.openjpa.jdbc.meta.MappingTool -schemaAction drop Magazine.java
+</pre></div></div><br class="example-break"></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_ddl_examples"></a>1.2.&nbsp;
+                Generating DDL SQL
+            </h3></div></div></div><a class="indexterm" name="d0e28090"></a><a class="indexterm" name="d0e28095"></a><p>
+The examples below show how to use the mapping tool to generate DDL SQL scripts,
+rather than modifying the database directly.
+            </p><div class="example"><a name="ref_guid_mapping_ddl_full_ddl"></a><p class="title"><b>Example&nbsp;7.5.&nbsp;
+                    Create DDL for Current Mappings
+                </b></p><div class="example-contents"><p>
+This example uses your existing mappings to determine the needed schema, then
+writes the SQL to create that schema to <code class="filename">create.sql</code>.
+                </p><pre class="programlisting">
+java org.apache.openjpa.jdbc.meta.MappingTool -schemaAction build -sql create.sql Magazine.java
+</pre></div></div><br class="example-break"><div class="example"><a name="ref_guid_mapping_ddl_part_ddl"></a><p class="title"><b>Example&nbsp;7.6.&nbsp;
+                    Create DDL to Update Database for Current Mappings
+                </b></p><div class="example-contents"><p>
+This example uses your existing mappings to determine the needed schema. It then
+writes the SQL to add any missing tables and columns to the current schema to
+<code class="filename">update.sql</code>.
+                </p><pre class="programlisting">
+java org.apache.openjpa.jdbc.meta.MappingTool -sql update.sql Magazine.java
+</pre></div></div><br class="example-break"></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_mapping_synch"></a>1.3.&nbsp;
+                Runtime Forward Mapping
+            </h3></div></div></div><a class="indexterm" name="d0e28125"></a><a class="indexterm" name="d0e28130"></a><p>
+You can configure OpenJPA to automatically run the mapping tool at runtime
+through the <a href="ref_guide_conf_jdbc.html#openjpa.jdbc.SynchronizeMappings" title="6.17.&nbsp; openjpa.jdbc.SynchronizeMappings"><code class="literal">
+openjpa.jdbc.SynchronizeMappings</code></a> configuration property. Using
+this property saves you the trouble of running the mapping tool manually, and is
+meant for use during rapid test/debug cycles.
+            </p><p>
+In order to enable automatic runtime mapping, you must first list all your
+persistent classes as described in <a href="ref_guide_pc.html#ref_guide_pc_pcclasses" title="1.&nbsp; Persistent Class List">Section&nbsp;1, &#8220;
+            Persistent Class List
+        &#8221;</a>.
+            </p><p>
+OpenJPA will run the mapping tool on these classes when your application obtains
+its first <code class="classname">EntityManager</code>.
+            </p><p>
+The <code class="literal">openjpa.jdbc.SynchronizeMappings</code> property is a plugin
+string (see <a href="ref_guide_conf_plugins.html" title="4.&nbsp; Plugin Configuration">Section&nbsp;4, &#8220;
+            Plugin Configuration
+        &#8221;</a>) where the class
+name is the mapping tool action to invoke, and the properties are the
+<code class="classname">MappingTool</code> class' JavaBean properties. These properties
+correspond go the long versions of the tool's command line flags.
+            </p><div class="example"><a name="ref_guide_mapping_synchex"></a><p class="title"><b>Example&nbsp;7.7.&nbsp;
+                    Configuring Runtime Forward Mapping
+                </b></p><div class="example-contents"><pre class="programlisting">
+&lt;property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/&gt;
+</pre><p>
+The setting above corresponds to running the following command:
+                </p><pre class="programlisting">
+java org.apache.openjpa.jdbc.meta.MappingTool -action buildSchema -foreignKeys true
+</pre></div></div><br class="example-break"></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ref_guide_meta_ext.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ref_guide.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ref_guide_pc_reverse.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">4.&nbsp;
+            Metadata Extensions
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;2.&nbsp;
+            Reverse Mapping
+        </td></tr></table></div></body></html>

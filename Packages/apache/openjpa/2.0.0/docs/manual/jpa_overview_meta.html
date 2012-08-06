@@ -1,0 +1,372 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;5.&nbsp; Metadata</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="jpa_overview.html" title="Part&nbsp;2.&nbsp;Java Persistence API"><link rel="prev" href="jpa_overview_pc_conclusion.html" title="4.&nbsp; Conclusions"><link rel="next" href="jpa_overview_meta_field.html" title="2.&nbsp; Field and Property Metadata"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;5.&nbsp;
+        Metadata
+    </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="jpa_overview_pc_conclusion.html">Prev</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;2.&nbsp;Java Persistence API</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_meta_field.html">Next</a></td></tr></table><hr></div><div class="chapter" lang="en" id="jpa_overview_meta"><div class="titlepage"><div><div><h2 class="title"><a name="jpa_overview_meta"></a>Chapter&nbsp;5.&nbsp;
+        Metadata
+    </h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_class">1. 
+            Class Metadata
+        </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_entity">1.1. 
+                Entity
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_idclass">1.2. 
+                Id Class
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_embeddablesuper">1.3. 
+                Mapped Superclass
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_embeddable">1.4. 
+                Embeddable
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_entity_listeners">1.5. 
+                EntityListeners
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_classex">1.6. 
+                Example
+            </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_meta_field.html">2. 
+            Field and Property Metadata
+        </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_explicit_access">2.1. 
+            Explicit Access
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_transient">2.2. 
+                Transient
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_id">2.3. 
+                Id
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_gen">2.4. 
+                Generated Value
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_embedid">2.5. 
+                Embedded Id
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_version">2.6. 
+                Version
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_basic">2.7. 
+                Basic
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_fetch">2.7.1. 
+                    Fetch Type
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_embedded">2.8. 
+                Embedded
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_manytoone">2.9. 
+                Many To One
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_cascade">2.9.1. 
+                    Cascade Type
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_onetomany">2.10. 
+                One To Many
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_mappedby">2.10.1. 
+                    Bidirectional Relations
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_onetoone">2.11. 
+                One To One
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_manytomany">2.12. 
+                Many To Many
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_orderby">2.13. 
+                Order By
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_mapkey">2.14. 
+                Map Key
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_fielddefaults">2.15. 
+                Persistent Field Defaults
+            </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_meta_xml.html">3. 
+            XML Schema
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_complete.html">4. 
+            Conclusion
+        </a></span></dt></dl></div><a class="indexterm" name="d0e2010"></a><a class="indexterm" name="d0e2013"></a><p>
+JPA requires that you accompany each persistent class with persistence metadata.
+This metadata serves three primary purposes:
+    </p><div class="orderedlist"><ol type="1"><li><p>
+To identify persistent classes.
+            </p></li><li><p>
+To override default JPA behavior.
+            </p></li><li><p>
+To provide the JPA implementation with information that it cannot glean from
+simply reflecting on the persistent class.
+            </p></li></ol></div><p>
+    <a class="indexterm" name="d0e2034"></a>
+Persistence metadata is specified using either the Java 5 annotations defined in
+the <code class="literal">javax.persistence</code> package, XML mapping files, or a
+mixture of both. In the latter case, XML declarations override conflicting
+annotations. If you choose to use XML metadata, the XML files must be available
+at development and runtime, and must be discoverable via either of two
+strategies:
+    </p><div class="orderedlist"><ol type="1"><li><p>
+In a resource named <code class="filename">orm.xml</code> placed in a <code class="filename">
+META-INF</code> directory within a directory in your classpath or within a 
+jar archive containing your persistent classes.
+            </p></li><li><p>
+Declared in your <a href="jpa_overview_persistence.html#jpa_overview_persistence_xml" title="1.&nbsp; persistence.xml"><code class="filename">
+persistence.xml</code></a> configuration file. In this case, each XML
+metadata file must be listed in a <code class="literal">mapping-file</code> element whose
+content is either a path to the given file or a resource location available to
+the class' class loader.
+            </p></li></ol></div><p>
+We describe the standard metadata annotations and XML equivalents throughout
+this chapter. The full schema for XML mapping files is available in
+<a href="jpa_overview_meta_xml.html" title="3.&nbsp; XML Schema">Section&nbsp;3, &#8220;
+            XML Schema
+        &#8221;</a>. JPA also standardizes relational
+mapping metadata and named query metadata, which we discuss in
+<a href="jpa_overview_mapping.html" title="Chapter&nbsp;13.&nbsp; Mapping Metadata">Chapter&nbsp;13, <i xmlns:xlink="http://www.w3.org/1999/xlink">
+        Mapping Metadata
+    </i></a> and
+<a href="jpa_overview_query.html#jpa_overview_query_named" title="1.11.&nbsp; Named Queries">Section&nbsp;1.11, &#8220;
+                Named Queries
+            &#8221;</a> respectively.
+    </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+OpenJPA defines many useful annotations beyond the standard set. See
+<a href="ref_guide_meta_jpa.html" title="3.&nbsp; Additional JPA Metadata">Section&nbsp;3, &#8220;
+            Additional JPA Metadata
+        &#8221;</a> and
+<a href="ref_guide_meta_ext.html" title="4.&nbsp; Metadata Extensions">Section&nbsp;4, &#8220;
+            Metadata Extensions
+        &#8221;</a>
+in the Reference Guide for details. There are currently no XML equivalents for
+these extension annotations.
+        </p></div><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="369"><tr><td><img src="img/jpa-meta-model.png"></td></tr></table></div><p>
+Through the course of this chapter, we will create the persistent object model
+above.
+    </p><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="jpa_overview_meta_class"></a>1.&nbsp;
+            Class Metadata
+        </h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_entity">1.1. 
+                Entity
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_idclass">1.2. 
+                Id Class
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_embeddablesuper">1.3. 
+                Mapped Superclass
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_embeddable">1.4. 
+                Embeddable
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_entity_listeners">1.5. 
+                EntityListeners
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_classex">1.6. 
+                Example
+            </a></span></dt></dl></div><p>
+The following metadata annotations and XML elements apply to persistent class
+declarations.
+        </p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_entity"></a>1.1.&nbsp;
+                Entity
+            </h3></div></div></div><a class="indexterm" name="d0e2090"></a><a class="indexterm" name="d0e2095"></a><a class="indexterm" name="d0e2100"></a><p>
+The <code class="classname">Entity</code> annotation denotes an entity class. All entity
+classes must have this annotation. The <code class="classname">Entity</code> annotation
+takes one optional property:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">String name</code>: Name used to refer to the entity in queries.
+Must not be a reserved literal in JPQL. Defaults to the unqualified name of the
+entity class.
+                    </p></li></ul></div><p>
+The equivalent XML element is <code class="literal">entity</code>. It has the following
+attributes:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">class</code>: The entity class. This attribute is required.
+                    </p></li><li><p>
+<code class="literal">name</code>: Named used to refer to the class in queries. See the
+name property above.
+                    </p></li><li><p>
+<code class="literal">access</code>: The access type to use for the class. Must either be
+<code class="literal">FIELD</code> or <code class="literal">PROPERTY</code>. For details on access
+types, see <a href="jpa_overview_meta_field.html" title="2.&nbsp; Field and Property Metadata">Section&nbsp;2, &#8220;
+            Field and Property Metadata
+        &#8221;</a>.
+                    </p></li></ul></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+OpenJPA uses a process called <span class="emphasis"><em>enhancement</em></span> to modify the
+bytecode of entities for transparent lazy loading and immediate dirty tracking.
+See <a href="ref_guide_pc_enhance.html" title="2.&nbsp; Enhancement">Section&nbsp;2, &#8220;
+            Enhancement
+        &#8221;</a> in the Reference Guide for
+details on enhancement.
+                </p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_idclass"></a>1.2.&nbsp;
+                Id Class
+            </h3></div></div></div><a class="indexterm" name="d0e2163"></a><a class="indexterm" name="d0e2166"></a><a class="indexterm" name="d0e2171"></a><p>
+As we discussed in <a href="jpa_overview_pc_identity.html#jpa_overview_pc_identitycls" title="2.1.&nbsp; Identity Class">Section&nbsp;2.1, &#8220;
+                Identity Class
+            &#8221;</a>,
+entities with multiple identity fields must use an <span class="emphasis"><em> identity class
+</em></span> to encapsulate their persistent identity. The <code class="classname">IdClass
+</code> annotation specifies this class. It accepts a single <code class="classname">
+java.lang.Class</code> value.
+            </p><p>
+The equivalent XML element is <code class="literal">id-class</code>, which has a single
+attribute:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">class</code>: Set this required attribute to the name of the
+identity class.
+                    </p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_embeddablesuper"></a>1.3.&nbsp;
+                Mapped Superclass
+            </h3></div></div></div><a class="indexterm" name="d0e2204"></a><a class="indexterm" name="d0e2207"></a><a class="indexterm" name="d0e2212"></a><p>
+A <span class="emphasis"><em>mapped superclass</em></span> is a non-entity class that can define
+persistent state and mapping information for entity subclasses. Mapped
+superclasses are usually abstract. Unlike true entities, you cannot query a
+mapped superclass, pass a mapped superclass instance to any <code class="classname">
+EntityManager</code> or <code class="classname">Query</code> methods, or declare a
+persistent relation with a mapped superclass target. You denote a mapped
+superclass with the <code class="classname">MappedSuperclass</code> marker annotation.
+            </p><p>
+The equivalent XML element is <code class="literal">mapped-superclass</code>. It expects
+the following attributes:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">class</code>: The entity class. This attribute is required.
+                    </p></li><li><p>
+<code class="literal">access</code>: The access type to use for the class. Must either be
+<code class="literal">FIELD</code> or <code class="literal">PROPERTY</code>. For details on access
+types, see <a href="jpa_overview_meta_field.html" title="2.&nbsp; Field and Property Metadata">Section&nbsp;2, &#8220;
+            Field and Property Metadata
+        &#8221;</a>.
+                    </p></li></ul></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+OpenJPA allows you to query on mapped superclasses. A query on a mapped
+superclass will return all matching subclass instances. OpenJPA also allows you
+to declare relations to mapped superclass types; however, you cannot query
+across these relations.
+                </p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_embeddable"></a>1.4.&nbsp;
+                Embeddable
+            </h3></div></div></div><a class="indexterm" name="d0e2263"></a><a class="indexterm" name="d0e2266"></a><a class="indexterm" name="d0e2271"></a><p>
+The <code class="classname">Embeddable</code> annotation designates an embeddable
+persistent class. Embeddable instances are stored as part of the record of their
+owning instance. All embeddable classes must have this annotation.
+            </p><p>
+A persistent class can either be an entity or an embeddable class, but not both.
+            </p><p>
+The equivalent XML element is <code class="literal">embeddable</code>. It understands the
+following attributes:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">class</code>: The entity class. This attribute is required.
+                    </p></li><li><p>
+<code class="literal">access</code>: The access type to use for the class. Must either be
+<code class="literal">FIELD</code> or <code class="literal">PROPERTY</code>. For details on access
+types, see <a href="jpa_overview_meta_field.html" title="2.&nbsp; Field and Property Metadata">Section&nbsp;2, &#8220;
+            Field and Property Metadata
+        &#8221;</a>.
+                    </p></li></ul></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+OpenJPA allows a persistent class to be both an entity and an embeddable class.
+Instances of the class will act as entities when persisted explicitly or assigned
+to non-embedded fields of entities. Instances will act as embedded values when
+assigned to embedded fields of entities.
+                </p><p>
+To signal that a class is both an entity and an embeddable class in OpenJPA,
+simply add both the <code class="literal">@Entity</code> and the <code class="literal">@Embeddable
+</code> annotations to the class.
+                </p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_entity_listeners"></a>1.5.&nbsp;
+                EntityListeners
+            </h3></div></div></div><a class="indexterm" name="d0e2323"></a><a class="indexterm" name="d0e2326"></a><a class="indexterm" name="d0e2329"></a><a class="indexterm" name="d0e2334"></a><p>
+An entity may list its lifecycle event listeners in the <code class="classname">
+EntityListeners</code> annotation. This value of this annotation is an
+array of the listener <code class="classname">Class</code> es for the entity. The
+equivalent XML element is <code class="literal">entity-listeners</code>. For more details
+on entity listeners, see <a href="jpa_overview_pc_callbacks.html" title="3.&nbsp; Lifecycle Callbacks">Section&nbsp;3, &#8220;
+            Lifecycle Callbacks
+        &#8221;</a>.
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_classex"></a>1.6.&nbsp;
+                Example
+            </h3></div></div></div><p>
+Here are the class declarations for our persistent object model, annotated with
+the appropriate persistence metadata. Note that <code class="classname">Magazine</code>
+declares an identity class, and that <code class="classname">Document</code> and
+<code class="classname">Address</code> are a mapped superclass and an embeddable class,
+respectively. <code class="classname">LifetimeSubscription</code> and <code class="classname">
+TrialSubscription</code> override the default entity name to supply a
+shorter alias for use in queries.
+            </p><div class="example"><a name="jpa_overview_meta_classlisting"></a><p class="title"><b>Example&nbsp;5.1.&nbsp;
+                    Class Metadata
+                </b></p><div class="example-contents"><pre class="programlisting">
+package org.mag;
+
+@Entity
+@IdClass(Magazine.MagazineId.class)
+public class Magazine {
+    ...
+
+    public static class MagazineId {
+        ...
+    }
+}
+
+@Entity
+public class Article {
+    ...
+}
+
+
+package org.mag.pub;
+
+@Entity
+public class Company {
+    ...
+}
+
+@Entity
+public class Author {
+    ...
+}
+
+@Embeddable
+public class Address {
+    ...
+}
+
+
+package org.mag.subscribe;
+
+@MappedSuperclass
+public abstract class Document {
+    ...
+}
+
+@Entity
+public class Contract
+    extends Document {
+    ...
+}
+
+@Entity
+public class Subscription {
+    ...
+
+    @Entity
+    public static class LineItem
+        extends Contract {
+        ...
+    }
+}
+
+@Entity(name="Lifetime")
+public class LifetimeSubscription
+    extends Subscription {
+    ...
+}
+
+@Entity(name="Trial")
+public class TrialSubscription
+    extends Subscription {
+    ...
+}
+</pre><p>
+The equivalent declarations in XML:
+                </p><pre class="programlisting">
+&lt;entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_1_0.xsd"
+    version="1.0"&gt;
+    &lt;mapped-superclass class="org.mag.subscribe.Document"&gt;
+        ...
+    &lt;/mapped-superclass&gt;
+    &lt;entity class="org.mag.Magazine"&gt;
+        &lt;id-class class="org.mag.Magazine$MagazineId"/&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.Article"&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.pub.Company"&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.pub.Author"&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subscribe.Contract"&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subscribe.LineItem"&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subscribe.LifetimeSubscription" name="Lifetime"&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subscribe.TrialSubscription" name="Trial"&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;embeddable class="org.mag.pub.Address"&gt;
+        ...
+    &lt;/embeddable&gt;
+&lt;/entity-mappings&gt;
+</pre></div></div><br class="example-break"></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="jpa_overview_pc_conclusion.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="jpa_overview.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_meta_field.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">4.&nbsp;
+            Conclusions
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;2.&nbsp;
+            Field and Property Metadata
+        </td></tr></table></div></body></html>

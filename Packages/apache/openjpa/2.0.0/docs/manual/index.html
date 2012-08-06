@@ -1,0 +1,1527 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Apache OpenJPA 2.0 User's Guide</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base target="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="next" href="introduction.html" title="Part&nbsp;1.&nbsp;Introduction"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Apache OpenJPA 2.0 User's Guide</th></tr><tr><td width="20%" align="left">&nbsp;</td><th width="60%" align="center">&nbsp;</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="introduction.html">Next</a></td></tr></table><hr></div><div class="book" lang="en" id="manual"><div class="titlepage"><div><div><h1 class="title"><a name="manual"></a>Apache OpenJPA 2.0 User's Guide</h1></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="part"><a href="introduction.html">1. Introduction</a></span></dt><dd><dl><dt><span class="chapter"><a href="openjpa_intro.html">1. 
+        About
+    </a></span></dt><dt><span class="chapter"><a href="openjpa_legal.html">2. 
+        Legal
+    </a></span></dt><dd><dl><dt><span class="section"><a href="openjpa_legal.html#openjpa_legal_license">1. 
+            License
+        </a></span></dt><dt><span class="section"><a href="openjpa_legal_notice.html">2. 
+            Notice
+        </a></span></dt><dt><span class="section"><a href="openjpa_legal_copyright.html">3. 
+            Copyrights
+        </a></span></dt><dd><dl><dt><span class="section"><a href="openjpa_legal_copyright.html#openjpa_legal_copyright_apache">3.1. Apache</a></span></dt><dt><span class="section"><a href="openjpa_legal_copyright.html#openjpa_legal_copyright_serp">3.2. Serp</a></span></dt><dt><span class="section"><a href="openjpa_legal_copyright.html#openjpa_legal_copyright_sun">3.3. Sun</a></span></dt><dt><span class="section"><a href="openjpa_legal_copyright.html#openjpa_legal_copyright_other">3.4. Other</a></span></dt></dl></dd></dl></dd></dl></dd><dt><span class="part"><a href="jpa_overview.html">2. Java Persistence API</a></span></dt><dd><dl><dt><span class="chapter"><a href="jpa_overview_intro.html">1. 
+        Introduction
+    </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_intro.html#jpa_overview_intro_audience">1. 
+            Intended Audience
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_intro_transpers.html">2. 
+            Lightweight Persistence
+        </a></span></dt></dl></dd><dt><span class="chapter"><a href="jpa_overview_why.html">2. 
+        Why JPA?
+    </a></span></dt><dt><span class="chapter"><a href="jpa_overview_arch.html">3. 
+        Java Persistence API Architecture
+    </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_arch.html#jpa_overview_arch_exceptions">1. 
+            JPA Exceptions
+        </a></span></dt></dl></dd><dt><span class="chapter"><a href="jpa_overview_pc.html">4. 
+        Entity
+    </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_pc.html#jpa_overview_pc_restrict">1. 
+            Restrictions on Persistent Classes
+        </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_pc.html#jpa_overview_pc_no_arg">1.1. 
+                Default or No-Arg Constructor
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_pc.html#jpa_overview_pc_final">1.2. 
+                Final
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_pc.html#jpa_overview_pc_id">1.3. 
+                Identity Fields
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_pc.html#jpa_overview_pc_version">1.4. 
+                Version Field
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_pc.html#jpa_overview_pc_restrict_inheritance">1.5. 
+                Inheritance
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_pc.html#jpa_overview_pc_restrict_fields">1.6. 
+                Persistent Fields
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_pc.html#jpa_overview_pc_restrict_conclusion">1.7. 
+                Conclusions
+            </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_pc_identity.html">2. 
+            Entity Identity
+        </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_pc_identity.html#jpa_overview_pc_identitycls">2.1. 
+                Identity Class
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_pc_identity.html#jpa_overview_pc_identity_hierarchy">2.1.1. 
+                    Identity Hierarchies
+                </a></span></dt></dl></dd></dl></dd><dt><span class="section"><a href="jpa_overview_pc_callbacks.html">3. 
+            Lifecycle Callbacks
+        </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_pc_callbacks.html#jpa_overview_pc_callbacks_methods">3.1. 
+                Callback Methods
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_pc_callbacks.html#jpa_overview_callbacks_using">3.2. 
+                Using Callback Methods
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_pc_callbacks.html#jpa_overview_entity_listeners_using">3.3. 
+                Using Entity Listeners
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_pc_callbacks.html#jpa_overview_entity_listeners_exclude">3.4. 
+                Entity Listeners Hierarchy
+            </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_pc_conclusion.html">4. 
+            Conclusions
+        </a></span></dt></dl></dd><dt><span class="chapter"><a href="jpa_overview_meta.html">5. 
+        Metadata
+    </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_class">1. 
+            Class Metadata
+        </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_entity">1.1. 
+                Entity
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_idclass">1.2. 
+                Id Class
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_embeddablesuper">1.3. 
+                Mapped Superclass
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_embeddable">1.4. 
+                Embeddable
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_entity_listeners">1.5. 
+                EntityListeners
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta.html#jpa_overview_meta_classex">1.6. 
+                Example
+            </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_meta_field.html">2. 
+            Field and Property Metadata
+        </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_explicit_access">2.1. 
+            Explicit Access
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_transient">2.2. 
+                Transient
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_id">2.3. 
+                Id
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_gen">2.4. 
+                Generated Value
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_embedid">2.5. 
+                Embedded Id
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_version">2.6. 
+                Version
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_basic">2.7. 
+                Basic
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_fetch">2.7.1. 
+                    Fetch Type
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_embedded">2.8. 
+                Embedded
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_manytoone">2.9. 
+                Many To One
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_cascade">2.9.1. 
+                    Cascade Type
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_onetomany">2.10. 
+                One To Many
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_mappedby">2.10.1. 
+                    Bidirectional Relations
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_onetoone">2.11. 
+                One To One
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_manytomany">2.12. 
+                Many To Many
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_orderby">2.13. 
+                Order By
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_mapkey">2.14. 
+                Map Key
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_fielddefaults">2.15. 
+                Persistent Field Defaults
+            </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_meta_xml.html">3. 
+            XML Schema
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_complete.html">4. 
+            Conclusion
+        </a></span></dt></dl></dd><dt><span class="chapter"><a href="jpa_overview_persistence.html">6. 
+        Persistence
+    </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_persistence.html#jpa_overview_persistence_xml">1. 
+            persistence.xml
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_persistence_use.html">2. 
+            Non-EE Use
+        </a></span></dt></dl></dd><dt><span class="chapter"><a href="jpa_overview_emfactory.html">7. 
+        EntityManagerFactory
+    </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_emfactory.html#jpa_overview_emfactory_obtain">1. 
+            Obtaining an EntityManagerFactory
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_emfactory_em.html">2. 
+            Obtaining EntityManagers
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_emfactory_perscontext.html">3. 
+            Persistence Context
+        </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_emfactory_perscontext.html#jpa_overview_emfactory_perscontext_trans">3.1. 
+                Transaction Persistence Context
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_emfactory_perscontext.html#jpa_overview_emfactory_perscontext_extend">3.2. 
+                Extended Persistence Context
+            </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_emf_properties.html">4. 
+			Retrieving Properties Information
+		</a></span></dt><dt><span class="section"><a href="jpa_overview_emfactory_close.html">5. 
+            Closing the EntityManagerFactory
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_emfactory_puutil.html">6. 
+            PersistenceUnitUtil
+        </a></span></dt></dl></dd><dt><span class="chapter"><a href="jpa_overview_em.html">8. 
+        EntityManager
+    </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_em.html#jpa_overview_em_trans">1. 
+            Transaction Association
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_em_lifecycle.html">2. 
+            Entity Lifecycle Management
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_em_lifeexamples.html">3. 
+            Lifecycle Examples
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_em_identity.html">4. 
+            Entity Identity Management
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_em_cache.html">5. 
+            Cache Management
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_em_query.html">6. 
+            Query Factory
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_em_properties.html">7. 
+			Retrieving Properties Information
+		</a></span></dt><dt><span class="section"><a href="jpa_overview_em_closing.html">8. 
+            Closing
+        </a></span></dt></dl></dd><dt><span class="chapter"><a href="jpa_overview_trans.html">9. 
+        Transaction
+    </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_trans.html#jpa_overview_trans_types">1. 
+            Transaction Types
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_trans_local.html">2. 
+            The EntityTransaction Interface
+        </a></span></dt></dl></dd><dt><span class="chapter"><a href="jpa_overview_query.html">10. 
+        JPA Query
+    </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_query.html#jpa_query_api">1. 
+            JPQL API
+        </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_query.html#jpa_overview_query_basic">1.1. 
+                Query Basics
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#jpa_overview_query_relations">1.2. 
+                Relation Traversal
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#jpa_overview_query_embeddables">1.3. 
+                Embeddable Traversal
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#jpa_overview_join_fetch">1.4. 
+                Fetch Joins
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#jpa_overview_query_functions">1.5. 
+                JPQL Functions
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#jpa_overview_query_inheritance">1.6. 
+                Polymorphic Queries
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#jpa_overview_query_params">1.7. 
+                Query Parameters
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#jpa_overview_query_hints">1.8. 
+                Query Hints
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_query.html#jpa_hints_locking">1.8.1. 
+                    Locking Hints
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#jpa_hints_locktimeout">1.8.2. 
+                    Lock Timeout Hint
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#jpa_hints_querytimeout">1.8.3. 
+                    Query Timeout Hint
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#jpa_hints_resultset">1.8.4. 
+                    Result Set Size Hint
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#jpa_hints_isolation">1.8.5. 
+                    Isolation Level Hint
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#jpa_hints_fetchplan">1.8.6. 
+                    Other Fetchplan Hints
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#d0e6949">1.8.7. 
+                    Database-Specific Hints
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#jpa_hints_named">1.8.8. 
+                    Named Query Hints
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#multi-hints-handling">1.8.9. 
+                    Handling of Multiple Similar Query Hints 
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_query.html#jpa_overview_query_ordering">1.9. 
+                Ordering
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#jpa_overview_query_aggregates">1.10. 
+                Aggregates
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#jpa_overview_query_named">1.11. 
+                Named Queries
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#jpa_overview_query_delete">1.12. 
+                Delete By Query
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_query.html#jpa_overview_query_update">1.13. 
+                Update By Query
+            </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_langref.html">2. 
+            JPQL Language Reference
+        </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_langref.html#jpa_langref_stmnttypes">2.1. 
+                JPQL Statement Types
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_langref.html#jpa_langref_select">2.1.1. 
+                    JPQL Select Statement
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_bulk">2.1.2. 
+                    JPQL Update and Delete Statements
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_langref.html#jpa_langref_schematypes">2.2. 
+                JPQL Abstract Schema Types and Query Domains
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_langref.html#jpa_langref_schemanaming">2.2.1. 
+                    JPQL Entity Naming
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_schemaexample">2.2.2. 
+                    JPQL Schema Example
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_langref.html#jpa_langref_fromclause">2.3. 
+                JPQL FROM Clause and Navigational Declarations
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_langref.html#jpa_langref_from_identifiers">2.3.1. 
+                    JPQL FROM Identifiers
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_from_vars">2.3.2. 
+                    JPQL Identification Variables
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_range">2.3.3. 
+                    JPQL Range Declarations
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_path">2.3.4. 
+                    JPQL Path Expressions
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_Joins">2.3.5. 
+                    JPQL Joins
+                </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_langref.html#jpa_langref_inner_joins">2.3.5.1. 
+                        JPQL Inner Joins (Relationship Joins)
+                    </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_outer_joins">2.3.5.2. 
+                        JPQL Outer Joins
+                    </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_fetch_joins">2.3.5.3. 
+                        JPQL Fetch Joins
+                    </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_langref.html#jpa_langref_collection_dec">2.3.6. 
+                    JPQL Collection Member Declarations
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_from_clause_and_sql">2.3.7. 
+                    JPQL FROM Clause and SQL
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_polymorph">2.3.8. 
+                    JPQL Polymorphism
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_langref.html#jpa_langref_where">2.4. 
+                JPQL WHERE Clause
+            </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_cond">2.5. 
+                JPQL Conditional Expressions
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_langref.html#jpa_langref_lit">2.5.1. 
+                    JPQL Literals
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_idvar">2.5.2. 
+                    JPQL Identification Variables
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_path_exp">2.5.3. 
+                    JPQL Path Expressions
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_input_params">2.5.4. 
+                    JPQL Input Parameters
+                </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_langref.html#jpa_langref_pos_params">2.5.4.1. 
+                        JPQL Positional Parameters
+                    </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_named_params">2.5.4.2. 
+                        JPQL Named Parameters
+                    </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_langref.html#jpa_langref_cond_comp">2.5.5. 
+                    JPQL Conditional Expression Composition
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_operators">2.5.6. 
+                    JPQL Operators and Operator Precedence
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_comparison_expressions">2.5.7. 
+                    JPQL Comparison Expressions
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_between">2.5.8. 
+                    JPQL Between Expressions
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_in_expressions">2.5.9. 
+                    JPQL In Expressions
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_like">2.5.10. 
+                    JPQL Like Expressions
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_null">2.5.11. 
+                    JPQL Null Comparison Expressions
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_empty_comp">2.5.12. 
+                    JPQL Empty Collection Comparison Expressions
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_collection_member">2.5.13. 
+                    JPQL Collection Member Expressions
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_exists">2.5.14. 
+                    JPQL Exists Expressions
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_all_any">2.5.15. 
+                    JPQL All or Any Expressions
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_subqueries">2.5.16. 
+                    JPQL Subqueries
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_langref.html#jpa_langref_scalar_expressions">2.6. 
+                    JPQL Scalar Expressions
+                </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_langref.html#jpa_langref_math_expressions">2.6.1. 
+                    Arithmetic Expressions
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_functional_expressions">2.6.2. 
+                    String, Arithmetic, and Datetime Functional Expressions
+                </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_langref.html#jpa_langref_string_fun">2.6.2.1. 
+                        JPQL String Functions
+                    </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_arithmetic">2.6.2.2. 
+                        JPQL Arithmetic Functions
+                    </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_datetime">2.6.2.3. 
+                        JPQL Datetime Functions
+                    </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_langref.html#jpa_langref_case_expressions">2.6.3. 
+                    Case Expressions
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_entity_type_expressions">2.6.4. 
+                    Entity Type Expressions
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_langref.html#jpa_langref_group">2.7. 
+                JPQL GROUP BY, HAVING
+            </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_select_clause">2.8. 
+                JPQL SELECT Clause
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_langref.html#jpa_langref_resulttype">2.8.1. 
+                    JPQL Result Type of the SELECT Clause
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_constructor">2.8.2. 
+                    JPQL Constructor Expressions
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_null_select">2.8.3. 
+                    JPQL Null Values in the Query Result
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_embeddables">2.8.4. 
+                    JPQL Embeddables in the Query Result
+                </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_aggregates">2.8.5. 
+                    JPQL Aggregate Functions
+                </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_langref.html#jpa_langref_agg_examples">2.8.5.1. 
+                        JPQL Aggregate Examples
+                    </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_numeric_expressions_in_select">2.8.5.2. 
+                        JPQL Numeric Expressions in the SELECT Clause
+                    </a></span></dt></dl></dd></dl></dd><dt><span class="section"><a href="jpa_langref.html#jpa_langref_orderby">2.9. 
+                JPQL ORDER BY Clause
+            </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_bulk_ops">2.10. 
+                JPQL Bulk Update and Delete
+            </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_null_values">2.11. 
+                JPQL Null Values
+            </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_equality">2.12. 
+                JPQL Equality and Comparison Semantics
+            </a></span></dt><dt><span class="section"><a href="jpa_langref.html#jpa_langref_bnf">2.13. 
+                JPQL BNF
+            </a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="jpa_overview_criteria.html">11. 
+        JPA Criteria
+    </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_criteria.html#d0e11015">1. Constructing a CriteriaQuery</a></span></dt><dt><span class="section"><a href="ch13s02.html">2. Executing a CriteriaQuery</a></span></dt><dt><span class="section"><a href="ch13s03.html">3. Extension to Criteria API</a></span></dt><dt><span class="section"><a href="ch13s04.html">4. Generation of Canonical MetaModel classes</a></span></dt></dl></dd><dt><span class="chapter"><a href="jpa_overview_sqlquery.html">12. 
+        SQL Queries
+    </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_sqlquery.html#jpa_overview_sqlquery_create">1. 
+            Creating SQL Queries
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_sqlquery_obj.html">2. 
+            Retrieving Persistent Objects with SQL
+        </a></span></dt></dl></dd><dt><span class="chapter"><a href="jpa_overview_mapping.html">13. 
+        Mapping Metadata
+    </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping.html#jpa_overview_mapping_table">1. 
+            Table
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_unq.html">2. 
+            Unique Constraints
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_column.html">3. 
+            Column
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_id.html">4. 
+            Identity Mapping
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_sequence.html">5. 
+            Generators
+        </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping_sequence.html#jpa_overview_mapping_sequence_seqgen">5.1. 
+                Sequence Generator
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_sequence.html#jpa_overview_mapping_sequence_tablegen">5.2. 
+                TableGenerator
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_sequence.html#jpa_overview_mapping_sequence_genex">5.3. 
+                Example
+            </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_mapping_inher.html">6. 
+            Inheritance
+        </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_single">6.1. 
+                Single Table
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_single_adv">6.1.1. 
+                    Advantages
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_single_disadv">6.1.2. 
+                    Disadvantages
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_joined">6.2. 
+                Joined
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_joined_adv">6.2.1. 
+                    Advantages
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_joined_disadv">6.2.2. 
+                    Disadvantages
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_tpc">6.3. 
+                Table Per Class
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_tpc_adv">6.3.1. 
+                    Advantages
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_tpc_disadv">6.3.2. 
+                    Disadvantages
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_together">6.4. 
+                Putting it All Together
+            </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_mapping_discrim.html">7. 
+            Discriminator
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html">8. 
+            Field Mapping
+        </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_basic">8.1. 
+                Basic Mapping
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_lob">8.1.1. 
+                    LOBs
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_enum">8.1.2. 
+                    Enumerated
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_temporal">8.1.3. 
+                    Temporal Types
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_basic_example">8.1.4. 
+                    The Updated Mappings
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_secondary">8.2. 
+                Secondary Tables
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_embed">8.3. 
+                Embedded Mapping
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_rel">8.4. 
+                Direct Relations
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_assoccoll">8.5. 
+                Join Table
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_bidi">8.6. 
+                Bidirectional Mapping
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_map">8.7. 
+                Map Mapping
+            </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_mapping_full.html">9. 
+            The Complete Mappings
+        </a></span></dt></dl></dd><dt><span class="chapter"><a href="jpa_overview_conclusion.html">14. 
+        Conclusion
+    </a></span></dt></dl></dd><dt><span class="part"><a href="ref_guide.html">3. Reference Guide</a></span></dt><dd><dl><dt><span class="chapter"><a href="ref_guide_intro.html">1. 
+        Introduction
+    </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_intro.html#ref_guide_intro_audience">1. 
+            Intended Audience
+        </a></span></dt></dl></dd><dt><span class="chapter"><a href="ref_guide_conf.html">2. 
+        Configuration
+    </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_conf.html#ref_guide_conf_intro">1. 
+            Introduction
+        </a></span></dt><dt><span class="section"><a href="ref_guide_conf_specify.html">2. 
+            Runtime Configuration
+        </a></span></dt><dt><span class="section"><a href="ref_guide_conf_devtools.html">3. 
+            Command Line Configuration
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_conf_devtools.html#ref_guide_conf_devtools_format">3.1. 
+                Code Formatting
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_conf_plugins.html">4. 
+            Plugin Configuration
+        </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html">5. 
+            OpenJPA Properties
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.AutoClear">5.1. 
+                openjpa.AutoClear
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.AutoDetach">5.2. 
+                openjpa.AutoDetach
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.BrokerFactory">5.3. 
+                openjpa.BrokerFactory
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.BrokerImpl">5.4. 
+                openjpa.BrokerImpl
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Callbacks">5.5. openjpa.Callbacks</a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ClassResolver">5.6. 
+                openjpa.ClassResolver
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Compatibility">5.7. 
+                openjpa.Compatibility
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionDriverName">5.8. 
+                openjpa.ConnectionDriverName
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Connection2DriverName">5.9. 
+                openjpa.Connection2DriverName
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionFactory">5.10. 
+                openjpa.ConnectionFactory
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionFactory2">5.11. 
+                openjpa.ConnectionFactory2
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionFactoryName">5.12. 
+                openjpa.ConnectionFactoryName
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionFactory2Name">5.13. 
+                openjpa.ConnectionFactory2Name
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionFactoryMode">5.14. 
+                openjpa.ConnectionFactoryMode
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionFactoryProperties">5.15. 
+                openjpa.ConnectionFactoryProperties
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionFactory2Properties">5.16. 
+                openjpa.ConnectionFactory2Properties
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionPassword">5.17. 
+                openjpa.ConnectionPassword
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Connection2Password">5.18. 
+                openjpa.Connection2Password
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionProperties">5.19. 
+                openjpa.ConnectionProperties
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Connection2Properties">5.20. 
+                openjpa.Connection2Properties
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionURL">5.21. 
+                openjpa.ConnectionURL
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Connection2URL">5.22. 
+                openjpa.Connection2URL
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionUserName">5.23. 
+                openjpa.ConnectionUserName
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Connection2UserName">5.24. 
+                openjpa.Connection2UserName
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionRetainMode">5.25. 
+                openjpa.ConnectionRetainMode
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.DataCache">5.26. 
+                openjpa.DataCache
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.DataCacheManager">5.27. 
+                openjpa.DataCacheManager
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.DataCacheMode">5.28. 
+                openjpa.DataCacheMode
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.DataCacheTimeout">5.29. 
+                openjpa.DataCacheTimeout
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.DetachState">5.30. 
+                openjpa.DetachState
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.DynamicDataStructs">5.31. 
+                openjpa.DynamicDataStructs
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.FetchBatchSize">5.32. 
+                openjpa.FetchBatchSize
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.EncryptionProvider">5.33. 
+                openjpa.EncryptionProvider
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.FetchGroups">5.34. 
+                openjpa.FetchGroups
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.FlushBeforeQueries">5.35. 
+                openjpa.FlushBeforeQueries
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.IgnoreChanges">5.36. 
+                openjpa.IgnoreChanges
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Id">5.37. openjpa.Id</a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.InitializeEagerly">5.38. 
+                openjpa.InitializeEagerly
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.InverseManager">5.39. 
+                openjpa.InverseManager
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.LockManager">5.40. 
+                openjpa.LockManager
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.LockTimeout">5.41. 
+                openjpa.LockTimeout
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Log">5.42. 
+                openjpa.Log
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ManagedRuntime">5.43. 
+                openjpa.ManagedRuntime
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Mapping">5.44. 
+                openjpa.Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.MaxFetchDepth">5.45. 
+                openjpa.MaxFetchDepth
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.MetaDataFactory">5.46. 
+                openjpa.MetaDataFactory
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.MetaDataRepository">5.47. 
+                openjpa.MetaDataRepository
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Multithreaded">5.48. 
+                openjpa.Multithreaded
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Optimistic">5.49. 
+                openjpa.Optimistic
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.OrphanedKeyAction">5.50. 
+                openjpa.OrphanedKeyAction
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.NontransactionalRead">5.51. 
+                openjpa.NontransactionalRead
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.NontransactionalWrite">5.52. 
+                openjpa.NontransactionalWrite
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ProxyManager">5.53. 
+                openjpa.ProxyManager
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.QueryCache">5.54. 
+                openjpa.QueryCache
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.QueryCompilationCache">5.55. 
+                openjpa.QueryCompilationCache
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ReadLockLevel">5.56. 
+                openjpa.ReadLockLevel
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.RemoteCommitProvider">5.57. 
+                openjpa.RemoteCommitProvider
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.RestoreState">5.58. 
+                openjpa.RestoreState
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.RetainState">5.59. 
+                openjpa.RetainState
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.RetryClassRegistration">5.60. 
+                openjpa.RetryClassRegistration
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.RuntimeUnenhancedClasses">5.61. openjpa.RuntimeUnenhancedClasses</a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.DynamicEnhancementAgent">5.62. openjpa.DynamicEnhancementAgent</a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.SavepointManager">5.63. 
+                openjpa.SavepointManager
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Sequence">5.64. 
+                openjpa.Sequence
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Specification">5.65. 
+                openjpa.Specification
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.TransactionMode">5.66. 
+                openjpa.TransactionMode
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.WriteLockLevel">5.67. 
+                openjpa.WriteLockLevel
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_conf_jdbc.html">6. 
+            OpenJPA JDBC Properties
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.ConnectionDecorators">6.1. 
+                openjpa.jdbc.ConnectionDecorators
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.DBDictionary">6.2. 
+                openjpa.jdbc.DBDictionary
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.DriverDataSource">6.3. 
+                openjpa.jdbc.DriverDataSource
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.EagerFetchMode">6.4. 
+                openjpa.jdbc.EagerFetchMode
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.FetchDirection">6.5. 
+                openjpa.jdbc.FetchDirection
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.JDBCListeners">6.6. 
+                openjpa.jdbc.JDBCListeners
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.LRSSize">6.7. 
+                openjpa.jdbc.LRSSize
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.MappingDefaults">6.8. 
+                openjpa.jdbc.MappingDefaults
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.MappingFactory">6.9. 
+                openjpa.jdbc.MappingFactory
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.QuerySQLCache">6.10. 
+                openjpa.jdbc.QuerySQLCache
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.ResultSetType">6.11. 
+                openjpa.jdbc.ResultSetType
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.Schema">6.12. 
+                openjpa.jdbc.Schema
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.SchemaFactory">6.13. 
+                openjpa.jdbc.SchemaFactory
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.Schemas">6.14. 
+                openjpa.jdbc.Schemas
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.SQLFactory">6.15. 
+                openjpa.jdbc.SQLFactory
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.SubclassFetchMode">6.16. 
+                openjpa.jdbc.SubclassFetchMode
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.SynchronizeMappings">6.17. 
+                openjpa.jdbc.SynchronizeMappings
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.TransactionIsolation">6.18. 
+                openjpa.jdbc.TransactionIsolation
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.UpdateManager">6.19. 
+                openjpa.jdbc.UpdateManager
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#ref_guide_spec_compatibility">6.20. Compatibility with Specification</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="ref_guide_logging.html">3. 
+        Logging
+    </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_logging.html#ref_guide_logging_channels">1. 
+            Logging Channels
+        </a></span></dt><dt><span class="section"><a href="ref_guide_logging_openjpa.html">2. 
+            OpenJPA Logging
+        </a></span></dt><dt><span class="section"><a href="ref_guide_logging_noop.html">3. 
+            Disabling Logging
+        </a></span></dt><dt><span class="section"><a href="ref_guide_logging_log4j.html">4. 
+            Log4J
+        </a></span></dt><dt><span class="section"><a href="ref_guide_logging_commons.html">5. 
+            Apache Commons Logging
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_logging_commons.html#ref_guide_logging_jdk14">5.1. 
+                JDK java.util.logging
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_logging_custom.html">6. 
+            Custom Log
+        </a></span></dt></dl></dd><dt><span class="chapter"><a href="ref_guide_dbsetup.html">4. 
+        JDBC
+    </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_dbsetup.html#ref_guide_dbsetup_builtin">1. 
+            Using the OpenJPA DataSource
+        </a></span></dt><dt><span class="section"><a href="ref_guide_dbsetup_thirdparty.html">2. 
+            Using a Third-Party DataSource
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_dbsetup_thirdparty.html#ref_guide_dbsetup_thirdparty_enlist">2.1. 
+                Managed and XA DataSources
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_dbsetup_sqlconn.html">3. 
+            Runtime Access to DataSource
+        </a></span></dt><dt><span class="section"><a href="ref_guide_dbsetup_dbsupport.html">4. 
+            Database Support
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_dbsetup_dbsupport.html#ref_guide_dbsetup_dbdictprops">4.1. 
+                DBDictionary Properties
+            </a></span></dt><dt><span class="section"><a href="ref_guide_dbsetup_dbsupport.html#ref_guide_dbsetup_dbsupport_firebird">4.2. 
+                FirebirdDictionary Properties
+            </a></span></dt><dt><span class="section"><a href="ref_guide_dbsetup_dbsupport.html#ref_guide_dbsetup_dbsupport_mysql">4.3. 
+                MySQLDictionary Properties
+            </a></span></dt><dt><span class="section"><a href="ref_guide_dbsetup_dbsupport.html#ref_guide_dbsetup_dbsupport_oracle">4.4. 
+                OracleDictionary Properties
+            </a></span></dt><dt><span class="section"><a href="ref_guide_dbsetup_dbsupport.html#ref_guide_dbsetup_dbsupport_sybase">4.5. 
+                SybaseDictionary Properties
+            </a></span></dt><dt><span class="section"><a href="ref_guide_dbsetup_dbsupport.html#ref_guide_dbsetup_dbsupport_delim_id">4.6. 
+        		Delimited Identifiers Support
+        	</a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_dbsetup_isolation.html">5. 
+            Setting the Transaction Isolation
+        </a></span></dt><dt><span class="section"><a href="ref_guide_dbsetup_sql92.html">6. 
+            Setting the SQL Join Syntax
+        </a></span></dt><dt><span class="section"><a href="ref_guide_dbsetup_multidb.html">7. 
+            Accessing Multiple Databases
+        </a></span></dt><dt><span class="section"><a href="ref_guide_dbsetup_retain.html">8. 
+            Configuring the Use of JDBC Connections
+        </a></span></dt><dt><span class="section"><a href="ref_guide_dbsetup_stmtbatch.html">9. 
+            Statement Batching
+        </a></span></dt><dt><span class="section"><a href="ref_guide_dbsetup_lrs.html">10. 
+            Large Result Sets
+        </a></span></dt><dt><span class="section"><a href="ref_guide_schema_def.html">11. 
+            Default Schema
+        </a></span></dt><dt><span class="section"><a href="ref_guide_schema_info.html">12. 
+            Schema Reflection
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_schema_info.html#ref_guide_schema_info_list">12.1. 
+                Schemas List
+            </a></span></dt><dt><span class="section"><a href="ref_guide_schema_info.html#ref_guide_schema_info_factory">12.2. 
+                Schema Factory
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_schema_schematool.html">13. 
+            Schema Tool
+        </a></span></dt><dt><span class="section"><a href="ref_guide_schema_xml.html">14. 
+            XML Schema Format
+        </a></span></dt></dl></dd><dt><span class="chapter"><a href="ref_guide_pc.html">5. 
+        Persistent Classes
+    </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_pc.html#ref_guide_pc_pcclasses">1. 
+            Persistent Class List
+        </a></span></dt><dt><span class="section"><a href="ref_guide_pc_enhance.html">2. 
+            Enhancement
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_pc_enhance.html#ref_guide_pc_enhance_build">2.1. 
+                Enhancing at Build Time
+            </a></span></dt><dt><span class="section"><a href="ref_guide_pc_enhance.html#ref_guide_pc_enhance_runtime_container">2.2. 
+                Enhancing JPA Entities on Deployment
+            </a></span></dt><dt><span class="section"><a href="ref_guide_pc_enhance.html#ref_guide_pc_enhance_runtime">2.3. 
+                Enhancing at Runtime
+            </a></span></dt><dt><span class="section"><a href="ref_guide_pc_enhance.html#ref_guide_pc_enhance_dynamic">2.4. 
+		Enhancing Dynamically at Runtime
+	</a></span></dt><dt><span class="section"><a href="ref_guide_pc_enhance.html#ref_guide_pc_enhance_unenhanced_types">2.5. 
+                Omitting the OpenJPA enhancer
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_pc_interfaces.html">3. Managed Interfaces</a></span></dt><dt><span class="section"><a href="ref_guide_pc_oid.html">4. 
+            Object Identity
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_pc_oid.html#ref_guide_pc_oid_datastore">4.1. 
+                Datastore Identity
+            </a></span></dt><dt><span class="section"><a href="ref_guide_pc_oid.html#ref_guide_pc_oid_entitypk">4.2. 
+                Entities as Identity Fields
+            </a></span></dt><dt><span class="section"><a href="ref_guide_pc_oid.html#ref_guide_pc_oid_application">4.3. 
+                Application Identity Tool
+            </a></span></dt><dt><span class="section"><a href="ref_guide_pc_oid.html#ref_guide_pc_oid_pkgen_autoinc">4.4. 
+                Autoassign / Identity Strategy Caveats
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_inverses.html">5. 
+            Managed Inverses
+        </a></span></dt><dt><span class="section"><a href="ref_guide_pc_scos.html">6. 
+            Persistent Fields
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_pc_scos.html#ref_guide_pc_scos_restore">6.1. 
+                Restoring State
+            </a></span></dt><dt><span class="section"><a href="ref_guide_pc_scos.html#ref_guide_pc_scos_order">6.2. 
+                Typing and Ordering
+            </a></span></dt><dt><span class="section"><a href="ref_guide_pc_scos.html#ref_guide_pc_calendar_timezone">6.3. 
+                Calendar Fields and TimeZones
+            </a></span></dt><dt><span class="section"><a href="ref_guide_pc_scos.html#ref_guide_pc_scos_proxy">6.4. 
+                Proxies
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_pc_scos.html#ref_guide_pc_scos_proxy_smart">6.4.1. 
+                    Smart Proxies
+                </a></span></dt><dt><span class="section"><a href="ref_guide_pc_scos.html#ref_guide_pc_scos_proxy_lrs">6.4.2. 
+                    Large Result Set Proxies
+                </a></span></dt><dt><span class="section"><a href="ref_guide_pc_scos.html#ref_guide_pc_scos_proxy_custom">6.4.3. 
+                    Custom Proxies
+                </a></span></dt><dt><span class="section"><a href="ref_guide_pc_scos.html#ref_guide_pc_scos_proxy_serial">6.4.4. 
+                    Serialization
+                </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_pc_scos.html#ref_guide_pc_extern">6.5. 
+                Externalization
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_pc_scos.html#ref_guide_pc_extern_values">6.5.1. 
+                    External Values
+                </a></span></dt></dl></dd></dl></dd><dt><span class="section"><a href="ref_guide_fetch.html">7. 
+            Fetch Groups
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_fetch.html#ref_guide_fetch_custom">7.1. 
+                Custom Fetch Groups
+            </a></span></dt><dt><span class="section"><a href="ref_guide_fetch.html#ref_guide_fetch_conf">7.2. 
+                Custom Fetch Group Configuration
+            </a></span></dt><dt><span class="section"><a href="ref_guide_fetch.html#ref_guide_fetch_single_field">7.3. 
+                Per-field Fetch Configuration
+            </a></span></dt><dt><span class="section"><a href="ref_guide_fetch.html#ref_guide_fetch_impl">7.4. 
+                Implementation Notes
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_perfpack_eager.html">8. 
+            Eager Fetching
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_perfpack_eager.html#ref_guide_perfpack_eager_conf">8.1. 
+                Configuring Eager Fetching
+            </a></span></dt><dt><span class="section"><a href="ref_guide_perfpack_eager.html#ref_guide_perfpack_eager_consider">8.2. 
+                Eager Fetching Considerations and Limitations
+            </a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="ref_guide_meta.html">6. 
+        Metadata
+    </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_meta.html#ref_guide_meta_factory">1. 
+            Metadata Factory
+        </a></span></dt><dt><span class="section"><a href="ref_guide_meta_repository.html">2. Metadata Repository</a></span></dt><dt><span class="section"><a href="ref_guide_meta_jpa.html">3. 
+            Additional JPA Metadata
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_meta_jpa.html#ref_guide_meta_jpa_datastoreid">3.1. 
+                Datastore Identity
+            </a></span></dt><dt><span class="section"><a href="ref_guide_meta_jpa.html#ref_guide_meta_jpa_version">3.2. 
+                Surrogate Version
+            </a></span></dt><dt><span class="section"><a href="ref_guide_meta_jpa.html#ref_guide_meta_jpa_persistent">3.3. 
+                Persistent Field Values
+            </a></span></dt><dt><span class="section"><a href="ref_guide_meta_jpa.html#ref_guide_meta_jpa_persistent_coll">3.4. Persistent Collection Fields</a></span></dt><dt><span class="section"><a href="ref_guide_meta_jpa.html#ref_guide_meta_jpa_persistent_map">3.5. Persistent Map Fields</a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_meta_ext.html">4. 
+            Metadata Extensions
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_meta_ext.html#ref_guide_meta_class">4.1. 
+                Class Extensions
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_meta_ext.html#fetch-groups">4.1.1. 
+                    Fetch Groups
+                </a></span></dt><dt><span class="section"><a href="ref_guide_meta_ext.html#data-cache">4.1.2. 
+                    Data Cache
+                </a></span></dt><dt><span class="section"><a href="ref_guide_meta_ext.html#detached-state-field">4.1.3. 
+                    Detached State
+                </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_meta_ext.html#ref_guide_meta_field">4.2. 
+                Field Extensions
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_meta_ext.html#dependent">4.2.1. 
+                    Dependent
+                </a></span></dt><dt><span class="section"><a href="ref_guide_meta_ext.html#load-fetch-group">4.2.2. 
+                    Load Fetch Group
+                </a></span></dt><dt><span class="section"><a href="ref_guide_meta_ext.html#lrs">4.2.3. 
+                    LRS
+                </a></span></dt><dt><span class="section"><a href="ref_guide_meta_ext.html#inverse-logical">4.2.4. 
+                    Inverse-Logical
+                </a></span></dt><dt><span class="section"><a href="ref_guide_meta_ext.html#read-only">4.2.5. 
+                    Read-Only
+                </a></span></dt><dt><span class="section"><a href="ref_guide_meta_ext.html#type">4.2.6. 
+                    Type
+                </a></span></dt><dt><span class="section"><a href="ref_guide_meta_ext.html#externalizer">4.2.7. 
+                    Externalizer
+                </a></span></dt><dt><span class="section"><a href="ref_guide_meta_ext.html#factory">4.2.8. 
+                    Factory
+                </a></span></dt><dt><span class="section"><a href="ref_guide_meta_ext.html#external-values">4.2.9. 
+                    External Values
+                </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_meta_ext.html#ref_guide_meta_example">4.3. 
+                Example
+            </a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="ref_guide_mapping.html">7. 
+        Mapping
+    </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping.html#ref_guide_mapping_mappingtool">1. 
+            Forward Mapping
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping.html#ref_guide_mapping_mappingtool_examples">1.1. 
+                Using the Mapping Tool
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping.html#ref_guide_ddl_examples">1.2. 
+                Generating DDL SQL
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping.html#ref_guide_mapping_synch">1.3. 
+                Runtime Forward Mapping
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_pc_reverse.html">2. 
+            Reverse Mapping
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_pc_reverse.html#ref_guide_pc_reverse_custom">2.1. 
+                Customizing Reverse Mapping
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_mapping_middle.html">3. 
+            Meet-in-the-Middle Mapping
+        </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_defaults.html">4. 
+            Mapping Defaults
+        </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_factory.html">5. 
+            Mapping Factory
+        </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_notes_nonstdjoins.html">6. 
+            Non-Standard Joins
+        </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html">7. 
+            Additional JPA Mappings
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_datastoreid">7.1. 
+                Datastore Identity Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_version">7.2. 
+                Surrogate Version Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_columns">7.3. 
+                Multi-Column Mappings
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_fieldjoin">7.4. 
+                Join Column Attribute Targets
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_embed">7.5. 
+                Embedded Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll">7.6. 
+                Collections
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll_table">7.6.1. 
+                    Container Table
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll_joincols">7.6.2. 
+                    Element Join Columns
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll_order">7.6.3. 
+                    Order Column
+                </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_onemany">7.7. 
+                One-Sided One-Many Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map">7.8. 
+                Maps
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map_keycols">7.8.1. Key Columns</a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map_keyjoincols">7.8.2. Key Join Columns</a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map_embedkey">7.8.3. Key Embedded Mapping</a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map_ex">7.8.4. Examples</a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_constraints">7.9. 
+                Indexes and Constraints
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_index">7.9.1. 
+                    Indexes
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_fk">7.9.2. 
+                    Foreign Keys
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_unique">7.9.3. 
+                    Unique Constraints
+                </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_xmlmapping">7.10. 
+              XML Column Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_streamsupport">7.11. 
+                LOB Streaming
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_mapping_limits.html">8. 
+            Mapping Limitations
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_limits.html#ref_guide_mapping_limits_tpc">8.1. 
+                Table Per Class
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_mapping_ext.html">9. 
+            Mapping Extensions
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_ext.html#ref_guide_mapping_ext_cls">9.1. 
+                Class Extensions
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_ext.html#subclass-fetch-mode">9.1.1. 
+                    Subclass Fetch Mode
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#class-strategy">9.1.2. 
+                    Strategy
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#discriminator-strategy">9.1.3. 
+                    Discriminator Strategy
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#version-strategy">9.1.4. 
+                    Version Strategy
+                </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_mapping_ext.html#ref_guide_mapping_ext_field">9.2. 
+                Field Extensions
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_ext.html#eager-fetch-mode">9.2.1. 
+                    Eager Fetch Mode
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#nonpolymorphic">9.2.2. 
+                    Nonpolymorphic
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#class-criteria">9.2.3. 
+                    Class Criteria
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#strategy">9.2.4. 
+                    Strategy
+                </a></span></dt></dl></dd></dl></dd><dt><span class="section"><a href="ref_guide_mapping_custom.html">10. 
+            Custom Mappings
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_custom.html#ref_guide_mapping_custom_class">10.1. 
+                Custom Class Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_custom.html#ref_guide_mapping_custom_versdiscrim">10.2. 
+                Custom Discriminator and Version Strategies
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_custom.html#ref_guide_mapping_custom_field">10.3. 
+                Custom Field Mapping
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_custom.html#ref_guide_mapping_custom_vhandler">10.3.1. 
+                    Value Handlers
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_custom.html#ref_guide_mapping_custom_fieldstrat">10.3.2. 
+                    Field Strategies
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_custom.html#ref_guide_mapping_custom_field_conf">10.3.3. 
+                    Configuration
+                </a></span></dt></dl></dd></dl></dd><dt><span class="section"><a href="ref_guide_orphan.html">11. 
+            Orphaned Keys
+        </a></span></dt></dl></dd><dt><span class="chapter"><a href="ref_guide_deploy.html">8. 
+        Deployment
+    </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_deploy.html#ref_guide_deploy_factory">1. 
+            Factory Deployment
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_deploy.html#ref_guide_deploy_factory_standalone">1.1. 
+                Standalone Deployment
+            </a></span></dt><dt><span class="section"><a href="ref_guide_deploy.html#ref_guide_deploy_inject">1.2. 
+                EntityManager Injection
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_enterprise_trans.html">2. 
+            Integrating with the Transaction Manager
+        </a></span></dt><dt><span class="section"><a href="ref_guide_enterprise_xa.html">3. 
+            XA Transactions
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_enterprise_xa.html#ref_guide_enterprise_xa_req">3.1. 
+                Using OpenJPA with XA Transactions
+            </a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="ref_guide_runtime.html">9. 
+        Runtime Extensions
+    </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_runtime.html#ref_guide_runtime_arch">1. 
+            Architecture
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_runtime.html#ref_guide_runtime_broker_finalization">1.1. 
+                Broker Finalization
+            </a></span></dt><dt><span class="section"><a href="ref_guide_runtime.html#ref_guide_runtime_broker_extension">1.2. 
+                Broker Customization and Eviction
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_runtime_jpa.html">2. 
+            JPA Extensions
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_runtime_jpa.html#ref_guide_runtime_emfactory">2.1. 
+                OpenJPAEntityManagerFactory
+            </a></span></dt><dt><span class="section"><a href="ref_guide_runtime_jpa.html#ref_guide_runtime_em">2.2. 
+                OpenJPAEntityManager
+            </a></span></dt><dt><span class="section"><a href="ref_guide_runtime_jpa.html#ref_guide_runtime_jpaquery">2.3. 
+                OpenJPAQuery
+            </a></span></dt><dt><span class="section"><a href="ref_guide_runtime_jpa.html#ref_guide_runtime_jpaextent">2.4. 
+                Extent
+            </a></span></dt><dt><span class="section"><a href="ref_guide_runtime_jpa.html#ref_guide_runtime_jpacache">2.5. 
+                StoreCache
+            </a></span></dt><dt><span class="section"><a href="ref_guide_runtime_jpa.html#ref_guide_runtime_jpaquerycache">2.6. 
+                QueryResultCache
+            </a></span></dt><dt><span class="section"><a href="ref_guide_runtime_jpa.html#ref_guide_runtime_jpafetch">2.7. 
+                FetchPlan
+            </a></span></dt><dt><span class="section"><a href="ref_guide_runtime_jpa.html#ref_guide_runtime_openjpaentitytransaction">2.8. 
+                OpenJPAEntityTransaction
+            </a></span></dt><dt><span class="section"><a href="ref_guide_runtime_jpa.html#ref_guide_runtime_openjpapersistence">2.9. 
+                OpenJPAPersistence
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_locking.html">3. 
+            Object Locking
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_locking.html#ref_guide_locking_default">3.1. 
+                Configuring Default Locking
+            </a></span></dt><dt><span class="section"><a href="ref_guide_locking.html#ref_guide_locking_runtime">3.2. 
+                Configuring Lock Levels at Runtime
+            </a></span></dt><dt><span class="section"><a href="ref_guide_locking.html#ref_guide_locking_apis">3.3. 
+                Object Locking APIs
+            </a></span></dt><dt><span class="section"><a href="ref_guide_locking.html#ref_guide_locking_lockmgr">3.4. 
+                Lock Manager
+            </a></span></dt><dt><span class="section"><a href="ref_guide_locking.html#ref_guide_locking_rules">3.5. 
+                Rules for Locking Behavior
+            </a></span></dt><dt><span class="section"><a href="ref_guide_locking.html#ref_guide_locking_issues">3.6. 
+                Known Issues and Limitations
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_savepoints.html">4. 
+            Savepoints
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_savepoints.html#reg_guide_savepoints_using">4.1. 
+                Using Savepoints
+            </a></span></dt><dt><span class="section"><a href="ref_guide_savepoints.html#ref_guide_savepoints_conf">4.2. 
+                Configuring Savepoints
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_enterprise_methodql.html">5. 
+                MethodQL
+            </a></span></dt><dt><span class="section"><a href="ref_guide_sequence.html">6. 
+            Generators
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_sequence.html#ref_guide_sequence_runtime">6.1. 
+                Runtime Access
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_runtime_pm_event.html">7. 
+            Transaction Events
+        </a></span></dt><dt><span class="section"><a href="ref_guide_enterprise_abstractstore.html">8. 
+            Non-Relational Stores
+        </a></span></dt></dl></dd><dt><span class="chapter"><a href="ref_guide_caching.html">10. 
+        Caching
+    </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_caching.html#ref_guide_cache">1. 
+            Data Cache
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_caching.html#ref_guide_cache_conf">1.1. 
+                Data Cache Configuration
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_caching.html#ref_guide_cache_distribution">1.1.1. Distributing instances across cache partitions</a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_caching.html#ref_guide_cache_use">1.2. 
+                Data Cache Usage
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_caching.html#ref_guide_cache_use_JPA">1.2.1. Using the JPA standard Cache interface</a></span></dt><dt><span class="section"><a href="ref_guide_caching.html#ref_guide_cache_use_openJPA">1.2.2. Using the OpenJPA StoreCache extensions</a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_caching.html#ref_guide_cache_statistics">1.3. 
+        		Cache Statistics
+        	</a></span></dt><dt><span class="section"><a href="ref_guide_caching.html#ref_guide_cache_query">1.4. 
+                Query Cache
+            </a></span></dt><dt><span class="section"><a href="ref_guide_caching.html#ref_guide_cache_extension">1.5. 
+                Cache Extension
+            </a></span></dt><dt><span class="section"><a href="ref_guide_caching.html#ref_guide_cache_notes">1.6. 
+                Important Notes
+            </a></span></dt><dt><span class="section"><a href="ref_guide_caching.html#datastore_cache_issues">1.7. 
+                Known Issues and Limitations
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_cache_querycomp.html">2. 
+            Query Compilation Cache
+        </a></span></dt><dt><span class="section"><a href="ref_guide_cache_querysql.html">3. Prepared SQL Cache</a></span></dt></dl></dd><dt><span class="chapter"><a href="ref_guide_encryption.html">11. 
+        Encryption Provider
+    </a></span></dt><dt><span class="chapter"><a href="ref_guide_remote.html">12. 
+        Remote and Offline Operation
+    </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_detach">1. 
+            Detach and Attach
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_detach_behavior">1.1. 
+                Detach Behavior
+            </a></span></dt><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_attach_behavior">1.2. 
+                Attach Behavior
+            </a></span></dt><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_detach_graph">1.3. 
+                Defining the Detached Object Graph
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_detach_state">1.3.1. 
+                    Detached State
+                </a></span></dt><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_detach_field">1.3.2. 
+                    Detached State Field
+                </a></span></dt></dl></dd></dl></dd><dt><span class="section"><a href="ref_guide_event.html">2. 
+            Remote Event Notification Framework
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_event.html#ref_guide_event_conf">2.1. 
+                Remote Commit Provider Configuration
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_event.html#ref_guide_event_conf_jms">2.1.1. 
+                    JMS
+                </a></span></dt><dt><span class="section"><a href="ref_guide_event.html#ref_guide_event_conf_tcp">2.1.2. 
+                    TCP
+                </a></span></dt><dt><span class="section"><a href="ref_guide_event.html#ref_guide_event_conf_common">2.1.3. 
+                    Common Properties
+                </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_event.html#ref_guide_event_customization">2.2. 
+                Customization
+            </a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="ref_guide_slice.html">13. 
+    Distributed Persistence
+  </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_slice.html#slice_overview">1. Overview</a></span></dt><dt><span class="section"><a href="features_and_limitations.html">2. Salient Features</a></span></dt><dd><dl><dt><span class="section"><a href="features_and_limitations.html#d0e34616">2.1. Transparency</a></span></dt><dt><span class="section"><a href="features_and_limitations.html#d0e34629">2.2. Scaling</a></span></dt><dt><span class="section"><a href="features_and_limitations.html#d0e34642">2.3. Distributed Query</a></span></dt><dt><span class="section"><a href="features_and_limitations.html#d0e34684">2.4. Data Distribution</a></span></dt><dt><span class="section"><a href="features_and_limitations.html#d0e34731">2.5. Data Replication</a></span></dt><dt><span class="section"><a href="features_and_limitations.html#d0e34753">2.6. Heterogeneous Database</a></span></dt><dt><span class="section"><a href="features_and_limitations.html#d0e34758">2.7. Distributed Transaction</a></span></dt><dt><span class="section"><a href="features_and_limitations.html#collocation_constraint">2.8. Collocation Constraint</a></span></dt></dl></dd><dt><span class="section"><a href="slice_configuration.html">3. Usage</a></span></dt><dd><dl><dt><span class="section"><a href="slice_configuration.html#d0e34795">3.1. How to activate Slice Runtime?</a></span></dt><dt><span class="section"><a href="slice_configuration.html#d0e34803">3.2. How to configure each database slice?</a></span></dt><dt><span class="section"><a href="slice_configuration.html#distribution_policy">3.3. Implement DistributionPolicy interface</a></span></dt><dt><span class="section"><a href="slice_configuration.html#replication_policy">3.4. Implement ReplicationPolicy interface</a></span></dt></dl></dd><dt><span class="section"><a href="ch29s04.html">4. Configuration Properties</a></span></dt><dd><dl><dt><span class="section"><a href="ch29s04.html#d0e34942">4.1. Global Properties</a></span></dt><dd><dl><dt><span class="section"><a href="ch29s04.html#d0e34945">4.1.1. openjpa.slice.DistributionPolicy</a></span></dt><dt><span class="section"><a href="ch29s04.html#d0e34959">4.1.2. openjpa.slice.Lenient</a></span></dt><dt><span class="section"><a href="ch29s04.html#d0e34975">4.1.3. openjpa.slice.Master</a></span></dt><dt><span class="section"><a href="ch29s04.html#d0e34993">4.1.4. openjpa.slice.Names</a></span></dt><dt><span class="section"><a href="ch29s04.html#d0e35011">4.1.5. openjpa.slice.ThreadingPolicy</a></span></dt><dt><span class="section"><a href="ch29s04.html#d0e35082">4.1.6. openjpa.slice.TransactionPolicy</a></span></dt></dl></dd><dt><span class="section"><a href="ch29s04.html#d0e35128">4.2. Per-Slice Properties</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="ref_guide_integration.html">14. 
+        Third Party Integration
+    </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_integration.html#ref_guide_integration_ant">1. 
+            Apache Ant
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_integration.html#ref_guide_integration_conf">1.1. 
+                Common Ant Configuration Options
+            </a></span></dt><dt><span class="section"><a href="ref_guide_integration.html#ref_guide_integration_enhance">1.2. 
+                Enhancer Ant Task
+            </a></span></dt><dt><span class="section"><a href="ref_guide_integration.html#ref_guide_integration_appidtool">1.3. 
+                Application Identity Tool Ant Task
+            </a></span></dt><dt><span class="section"><a href="ref_guide_integration.html#ref_guide_integration_mappingtool">1.4. 
+                Mapping Tool Ant Task
+            </a></span></dt><dt><span class="section"><a href="ref_guide_integration.html#ref_guide_integration_revmappingtool">1.5. 
+                Reverse Mapping Tool Ant Task
+            </a></span></dt><dt><span class="section"><a href="ref_guide_integration.html#ref_guide_integration_schematool">1.6. 
+                Schema Tool Ant Task
+            </a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="ref_guide_optimization.html">15. 
+        Optimization Guidelines
+    </a></span></dt></dl></dd><dt><span class="part"><a href="appendices.html">4. Appendices</a></span></dt><dd><dl><dt><span class="appendix"><a href="jpa_resources.html">1. 
+        JPA Resources
+    </a></span></dt><dt><span class="appendix"><a href="supported_databases.html">2. 
+        Supported Databases
+    </a></span></dt><dd><dl><dt><span class="section"><a href="supported_databases.html#dbappendix">1. 
+        Overview
+    </a></span></dt><dt><span class="section"><a href="dbsupport.html">2. 
+        Verified Database Matrix
+    </a></span></dt><dt><span class="section"><a href="dbcompatible.html">3. 
+        Compatible Database Matrix
+    </a></span></dt><dt><span class="section"><a href="dbsupport_derby.html">4. 
+            Apache Derby
+        </a></span></dt><dt><span class="section"><a href="dbsupport_interbase.html">5. 
+            Borland Interbase
+        </a></span></dt><dd><dl><dt><span class="section"><a href="dbsupport_interbase.html#dbsupport_interbase_issues">5.1. 
+                Known issues with Interbase
+            </a></span></dt></dl></dd><dt><span class="section"><a href="dbsupport_jdatastore.html">6. 
+            JDataStore
+        </a></span></dt><dt><span class="section"><a href="dbsupport_db2.html">7. 
+            IBM DB2
+        </a></span></dt><dd><dl><dt><span class="section"><a href="dbsupport_db2.html#dbsupport_db2_issues">7.1. 
+                Known issues with DB2
+            </a></span></dt></dl></dd><dt><span class="section"><a href="dbsupport_empress.html">8. 
+            Empress
+        </a></span></dt><dd><dl><dt><span class="section"><a href="dbsupport_empress.html#dbsupport_empress_issues">8.1. 
+                Known issues with Empress
+            </a></span></dt></dl></dd><dt><span class="section"><a href="dbsupport_h2.html">9. 
+            H2 Database Engine
+        </a></span></dt><dd><dl><dt><span class="section"><a href="dbsupport_h2.html#dbsupport_h2_issues">9.1. 
+                Known issues with H2 Database Engine
+            </a></span></dt></dl></dd><dt><span class="section"><a href="dbsupport_hypersonic.html">10. 
+            Hypersonic
+        </a></span></dt><dd><dl><dt><span class="section"><a href="dbsupport_hypersonic.html#dbsupport_hypersonic_issues">10.1. 
+                Known issues with Hypersonic
+            </a></span></dt></dl></dd><dt><span class="section"><a href="dbsupport_firebird.html">11. 
+            Firebird
+        </a></span></dt><dd><dl><dt><span class="section"><a href="dbsupport_firebird.html#dbsupport_firebird_issues">11.1. 
+                Known issues with Firebird
+            </a></span></dt></dl></dd><dt><span class="section"><a href="dbsupport_informix.html">12. 
+            Informix
+        </a></span></dt><dd><dl><dt><span class="section"><a href="dbsupport_informix.html#dbsupport_informix_issues">12.1. 
+                Known issues with Informix
+            </a></span></dt></dl></dd><dt><span class="section"><a href="dbsupport_ingres.html">13. 
+            Ingres Database
+        </a></span></dt><dd><dl><dt><span class="section"><a href="dbsupport_ingres.html#dbsupport_ingres_issues">13.1. 
+                Known issues with Ingres
+            </a></span></dt></dl></dd><dt><span class="section"><a href="dbsupport_intersystems_cache.html">14. 
+            InterSystems Cache
+        </a></span></dt><dd><dl><dt><span class="section"><a href="dbsupport_intersystems_cache.html#dbsupport_intersystems_cache_issues">14.1. 
+                Known issues with InterSystems Cache
+            </a></span></dt></dl></dd><dt><span class="section"><a href="dbsupport_access.html">15. 
+            Microsoft Access
+        </a></span></dt><dd><dl><dt><span class="section"><a href="dbsupport_access.html#dbsupport_access_issues">15.1. 
+                Known issues with Microsoft Access
+            </a></span></dt></dl></dd><dt><span class="section"><a href="dbsupport_sqlserver.html">16. 
+            Microsoft SQL Server
+        </a></span></dt><dd><dl><dt><span class="section"><a href="dbsupport_sqlserver.html#dbsupport_sqlserver_issues">16.1. 
+                Known issues with SQL Server
+            </a></span></dt></dl></dd><dt><span class="section"><a href="dbsupport_foxpro.html">17. 
+            Microsoft FoxPro
+        </a></span></dt><dd><dl><dt><span class="section"><a href="dbsupport_foxpro.html#dbsupport_foxpro_issues">17.1. 
+                Known issues with Microsoft FoxPro
+            </a></span></dt></dl></dd><dt><span class="section"><a href="dbsupport_mysql.html">18. 
+            MySQL
+        </a></span></dt><dd><dl><dt><span class="section"><a href="dbsupport_mysql.html#dbsupport_mysql_query_hints">18.1. 
+                Using Query Hints with MySQL
+            </a></span></dt><dt><span class="section"><a href="dbsupport_mysql.html#dbsupport_mysql_issues">18.2. 
+                Known issues with MySQL
+            </a></span></dt></dl></dd><dt><span class="section"><a href="dbsupport_oracle.html">19. 
+            Oracle
+        </a></span></dt><dd><dl><dt><span class="section"><a href="dbsupport_oracle.html#dbsupport_oracle_query_hints">19.1. 
+                Using Query Hints with Oracle
+            </a></span></dt><dt><span class="section"><a href="dbsupport_oracle.html#dbsupport_oracle_issues">19.2. 
+                Known issues with Oracle
+            </a></span></dt></dl></dd><dt><span class="section"><a href="dbsupport_pointbase.html">20. 
+            Pointbase
+        </a></span></dt><dd><dl><dt><span class="section"><a href="dbsupport_pointbase.html#dbsupport_pointbase_issues">20.1. 
+                Known issues with Pointbase
+            </a></span></dt></dl></dd><dt><span class="section"><a href="dbsupport_postgresql.html">21. 
+            PostgreSQL
+        </a></span></dt><dd><dl><dt><span class="section"><a href="dbsupport_postgresql.html#dbsupport_postgresql_issues">21.1. 
+                Known issues with PostgreSQL
+            </a></span></dt></dl></dd><dt><span class="section"><a href="dbsupport_sybase.html">22. 
+            Sybase Adaptive Server
+        </a></span></dt><dd><dl><dt><span class="section"><a href="dbsupport_sybase.html#dbsupport_sybase_issues">22.1. 
+                Known issues with Sybase
+            </a></span></dt></dl></dd></dl></dd><dt><span class="appendix"><a href="migration_considerations.html">3. 
+        Migration Considerations
+    </a></span></dt><dd><dl><dt><span class="section"><a href="migration_considerations.html#jpa_2.0">1. 
+            JPA 2.0
+        </a></span></dt><dd><dl><dt><span class="section"><a href="migration_considerations.html#jpa_2.0_incompatibilities">1.1. 
+                Incompatibilities
+            </a></span></dt><dd><dl><dt><span class="section"><a href="migration_considerations.html#getProperties">1.1.1. 
+                    getProperties()
+                </a></span></dt><dt><span class="section"><a href="migration_considerations.html#migration_detach_behavior">1.1.2. 
+                    Detach Behavior
+                </a></span></dt><dt><span class="section"><a href="migration_considerations.html#private_persistent_properties">1.1.3. 
+                    Use of private persistent properties
+                </a></span></dt><dt><span class="section"><a href="migration_considerations.html#setParameters">1.1.4. 
+                    Query.setParameteres()
+                </a></span></dt><dt><span class="section"><a href="migration_considerations.html#serialization">1.1.5. 
+                    Serialization of Entities
+                </a></span></dt><dt><span class="section"><a href="migration_considerations.html#QuerySQLCache">1.1.6. 
+                    openjpa.jdbc.QuerySQLCache
+                </a></span></dt></dl></dd><dt><span class="section"><a href="migration_considerations.html#Disabling AutoOff Collection Tracking">1.2. 
+                Disabling AutoOff Collection Tracking
+            </a></span></dt><dt><span class="section"><a href="migration_considerations.html#internal_differences">1.3. 
+                Internal Behavioral Differences
+            </a></span></dt><dd><dl><dt><span class="section"><a href="migration_considerations.html#getStrategy">1.3.1. 
+                    FieldMapping.getStrategy()
+                </a></span></dt><dt><span class="section"><a href="migration_considerations.html#prePostUpdate">1.3.2. 
+                    PreUpdate/PostUpdate Life Cycle Callbacks
+                </a></span></dt><dt><span class="section"><a href="migration_considerations.html#createemf">1.3.3. 
+                    createEntityManagerFactory Exceptions
+                </a></span></dt><dt><span class="section"><a href="migration_considerations.html#querycache">1.3.4. 
+                    openjpa.QueryCache default
+                </a></span></dt></dl></dd></dl></dd></dl></dd></dl></dd></dl></div><div class="list-of-tables"><p><b>List of Tables</b></p><dl><dt>2.1. <a href="jpa_overview_why.html#d0e238">
+            Persistence Mechanisms
+        </a></dt><dt>10.1. <a href="jpa_overview_query.html#d0e6863">
+                        Interaction of ReadLockMode hint and LockManager
+                    </a></dt><dt>2.1. <a href="ref_guide_conf_openjpa.html#d0e14410">
+            Standard JPA Properties and OpenJPA equivalents
+        </a></dt><dt>4.1. <a href="ref_guide_dbsetup_dbsupport.html#d0e23535">
+        			Default delimiters for delimited identifiers
+        		</a></dt><dt>4.2. <a href="ref_guide_dbsetup_retain.html#d0e23855">
+                OpenJPA Automatic Flush Behavior
+            </a></dt><dt>5.1. <a href="ref_guide_pc_scos.html#d0e26021">
+                    Externalizer Options
+                </a></dt><dt>5.2. <a href="ref_guide_pc_scos.html#d0e26093">
+                    Factory Options
+                </a></dt><dt>10.1. <a href="ref_guide_caching.html#d0e32947">
+                Data access methods
+            </a></dt><dt>10.2. <a href="ref_guide_cache_querycomp.html#d0e33681">
+                Pre-defined aliases
+            </a></dt><dt>10.3. <a href="ref_guide_cache_querysql.html#d0e33778">
+                Pre-defined aliases
+            </a></dt><dt>15.1. <a href="ref_guide_optimization.html#d0e35525">
+            Optimization Guidelines
+        </a></dt><dt>2.1. <a href="dbsupport.html#d0e36152">
+            Supported Databases and JDBC Drivers
+        </a></dt><dt>2.2. <a href="dbcompatible.html#d0e36275">
+            Compatible Databases and JDBC Drivers
+        </a></dt></dl></div><div class="list-of-examples"><p><b>List of Examples</b></p><dl><dt>3.1. <a href="jpa_overview_arch.html#jpa_overview_arch_interact_outside">
+            Interaction of Interfaces Outside Container
+        </a></dt><dt>3.2. <a href="jpa_overview_arch.html#jpa_overview_arch_interact_inside">
+            Interaction of Interfaces Inside Container
+        </a></dt><dt>4.1. <a href="jpa_overview_pc.html#jpa_overview_pc_pcclass">
+            Persistent Class
+        </a></dt><dt>4.2. <a href="jpa_overview_pc_identity.html#jpa_overview_pc_identity_appidcode">
+                    Identity Class
+                </a></dt><dt>5.1. <a href="jpa_overview_meta.html#jpa_overview_meta_classlisting">
+                    Class Metadata
+                </a></dt><dt>5.2. <a href="jpa_overview_meta_complete.html#jpa_overview_meta_complete_ex">
+                Complete Metadata
+            </a></dt><dt>6.1. <a href="jpa_overview_persistence.html#jpa_overview_persistence_xmlex">
+                persistence.xml
+            </a></dt><dt>6.2. <a href="jpa_overview_persistence_use.html#jpa_overview_persistence_getemfactory">
+                Obtaining an EntityManagerFactory
+            </a></dt><dt>7.1. <a href="jpa_overview_emfactory_perscontext.html#jpa_overview_emfactory_perscontext_transex">
+                    Behavior of Transaction Persistence Context
+                </a></dt><dt>7.2. <a href="jpa_overview_emfactory_perscontext.html#jpa_overview_emfactory_perscontext_extendex">
+                    Behavior of Extended Persistence Context
+                </a></dt><dt>8.1. <a href="jpa_overview_em_lifeexamples.html#jpa_overview_em_lifecycle_persist">
+                Persisting Objects
+            </a></dt><dt>8.2. <a href="jpa_overview_em_lifeexamples.html#jpa_overview_em_lifecycle_update">
+                Updating Objects
+            </a></dt><dt>8.3. <a href="jpa_overview_em_lifeexamples.html#jpa_overview_em_lifecycle_delete">
+                Removing Objects
+            </a></dt><dt>8.4. <a href="jpa_overview_em_lifeexamples.html#jpa_overview_em_detachex">
+                Detaching and Merging
+            </a></dt><dt>9.1. <a href="jpa_overview_trans_local.html#jpa_overview_trans_group">
+                Grouping Operations with Transactions
+            </a></dt><dt>10.1. <a href="jpa_overview_query.html#jpa_query_hint1">
+                    Query Hints  
+                </a></dt><dt>10.2. <a href="jpa_overview_query.html#jpa_query_hint2">
+                    Named Query using Hints
+                 </a></dt><dt>10.3. <a href="jpa_overview_query.html#multi-hints-example"></a></dt><dt>10.4. <a href="jpa_overview_query.html#jpa_overview_query_deleteex">
+                    Delete by Query
+                </a></dt><dt>10.5. <a href="jpa_overview_query.html#jpa_overview_query_updateex">
+                    Update by Query
+                </a></dt><dt>12.1. <a href="jpa_overview_sqlquery.html#jpa_overview_sqlquery_createex">
+                Creating a SQL Query
+            </a></dt><dt>12.2. <a href="jpa_overview_sqlquery_obj.html#jpa_overview_sqlquery_objex">
+                Retrieving Persistent Objects
+            </a></dt><dt>12.3. <a href="jpa_overview_sqlquery_obj.html#jpa_overview_sqlquery_obj_paramex">
+                SQL Query Parameters
+            </a></dt><dt>13.1. <a href="jpa_overview_mapping.html#jpa_overview_mapping_classex">
+                Mapping Classes
+            </a></dt><dt>13.2. <a href="jpa_overview_mapping_unq.html#jpa_overview_mapping_unq_attrex">
+                Defining a Unique Constraint
+            </a></dt><dt>13.3. <a href="jpa_overview_mapping_id.html#jpa_overview_mapping_identityex">
+                Identity Mapping
+            </a></dt><dt>13.4. <a href="jpa_overview_mapping_sequence.html#jpa_overview_mapping_sequenceex">
+                    Generator Mapping
+                </a></dt><dt>13.5. <a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_singleex">
+                    Single Table Mapping
+                </a></dt><dt>13.6. <a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_joinedex">
+                    Joined Subclass Tables
+                </a></dt><dt>13.7. <a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_tpcex">
+                    Table Per Class Mapping
+                </a></dt><dt>13.8. <a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_togetherex">
+                    Inheritance Mapping
+                </a></dt><dt>13.9. <a href="jpa_overview_mapping_discrim.html#jpa_overview_mapping_discrimex">
+                Discriminator Mapping
+            </a></dt><dt>13.10. <a href="jpa_overview_mapping_field.html#jpa_overview_mapping_basicex">
+                        Basic Field Mapping
+                    </a></dt><dt>13.11. <a href="jpa_overview_mapping_field.html#jpa_overview_mapping_secondaryex">
+                    Secondary Table Field Mapping
+                </a></dt><dt>13.12. <a href="jpa_overview_mapping_field.html#jpa_overview_mapping_embedex">
+                    Embedded Field Mapping
+                </a></dt><dt>13.13. <a href="jpa_overview_mapping_field.html#jpa_overview_mapping_joined_overex">
+                    Mapping Mapped Superclass Field
+                </a></dt><dt>13.14. <a href="jpa_overview_mapping_field.html#jpa_overview_mapping_relex">
+                    Direct Relation Field Mapping
+                </a></dt><dt>13.15. <a href="jpa_overview_mapping_field.html#jpa_overview_mapping_assoccollex">
+                    Join Table Mapping
+                </a></dt><dt>13.16. <a href="jpa_overview_mapping_field.html#jpa_overview_mapping_mapex">
+                    Join Table Map Mapping
+                </a></dt><dt>13.17. <a href="jpa_overview_mapping_full.html#jpa_overview_mapping_fullex">
+                Full Entity Mappings
+            </a></dt><dt>2.1. <a href="ref_guide_conf_devtools.html#ref_guide_conf_devtools_format_ex">
+                    Code Formatting with the Application Id Tool
+                </a></dt><dt>3.1. <a href="ref_guide_logging_openjpa.html#ref_guide_logging_openjpa_std_ex">
+                Standard OpenJPA Log Configuration
+            </a></dt><dt>3.2. <a href="ref_guide_logging_openjpa.html#ref_guide_logging_openjpa_sql_ex">
+                Standard OpenJPA Log Configuration + All SQL Statements
+            </a></dt><dt>3.3. <a href="ref_guide_logging_openjpa.html#ref_guide_logging_openjpa_file">
+                Logging to a File
+            </a></dt><dt>3.4. <a href="ref_guide_logging_log4j.html#ref_guide_logging_log4j_ex">
+                Standard Log4J Logging
+            </a></dt><dt>3.5. <a href="ref_guide_logging_commons.html#ref_guide_logging_jdk14_propfile">
+                    JDK Log Properties
+                </a></dt><dt>3.6. <a href="ref_guide_logging_custom.html#ref_guide_logging_custom_ex">
+                Custom Logging Class
+            </a></dt><dt>4.1. <a href="ref_guide_dbsetup.html#ref_guide_dbsetup_builtin_ex">
+                Properties for the OpenJPA DataSource
+            </a></dt><dt>4.2. <a href="ref_guide_dbsetup_thirdparty.html#ref_guide_dbsetup_thirdparty_ex">
+                Properties File for a Third-Party DataSource
+            </a></dt><dt>4.3. <a href="ref_guide_dbsetup_thirdparty.html#ref_guide_enterprise_xa_conf_ex">
+                    Managed DataSource Configuration
+                </a></dt><dt>4.4. <a href="ref_guide_dbsetup_sqlconn.html#ref_guide_dbsetup_conn_jpa">
+                Using the EntityManager's Connection
+            </a></dt><dt>4.5. <a href="ref_guide_dbsetup_sqlconn.html#ref_guide_dbsetup_conn_from_factory_jpa">
+                Using the EntityManagerFactory's DataSource
+            </a></dt><dt>4.6. <a href="ref_guide_dbsetup_dbsupport.html#ref_guide_dbsetup_dbdict">
+                Specifying a DBDictionary
+            </a></dt><dt>4.7. <a href="ref_guide_dbsetup_isolation.html#ref_guide_dbsetup_isoex">
+                Specifying a Transaction Isolation
+            </a></dt><dt>4.8. <a href="ref_guide_dbsetup_sql92.html#ref_guide_dbsetup_sql92_conf">
+                Specifying the Join Syntax Default
+            </a></dt><dt>4.9. <a href="ref_guide_dbsetup_sql92.html#ref_guide_dbsetup_sql92_fetch">
+                Specifying the Join Syntax at Runtime
+            </a></dt><dt>4.10. <a href="ref_guide_dbsetup_retain.html#ref_guide_dbsetup_sql92_retain_conf">
+                Specifying Connection Usage Defaults
+            </a></dt><dt>4.11. <a href="ref_guide_dbsetup_retain.html#ref_guide_dbsetup_sql92_retain_runtime">
+                Specifying Connection Usage at Runtime
+            </a></dt><dt>4.12. <a href="ref_guide_dbsetup_stmtbatch.html#ref_guide_dbsetup_stmtbatch_exmple1">
+                Enable SQL statement batching
+            </a></dt><dt>4.13. <a href="ref_guide_dbsetup_stmtbatch.html#ref_guide_dbsetup_stmtbatch_exmple2">
+                Disable SQL statement batching
+            </a></dt><dt>4.14. <a href="ref_guide_dbsetup_stmtbatch.html#ref_guide_dbsetup_stmtbatch_exmple3">
+                Plug-in custom statement batching implementation
+            </a></dt><dt>4.15. <a href="ref_guide_dbsetup_lrs.html#ref_guide_dbsetup_lrs_def">
+                Specifying Result Set Defaults
+            </a></dt><dt>4.16. <a href="ref_guide_dbsetup_lrs.html#ref_guide_dbsetup_lrs_runtime">
+                Specifying Result Set Behavior at Runtime
+            </a></dt><dt>4.17. <a href="ref_guide_schema_schematool.html#ref_guide_schema_schematool_create">
+                Schema Creation
+            </a></dt><dt>4.18. <a href="ref_guide_schema_schematool.html#ref_guide_schema_schematool_script">
+                SQL Scripting
+            </a></dt><dt>4.19. <a href="ref_guide_schema_schematool.html#ref_guide_schema_schematool_table_cleanup">
+                Table Cleanup
+            </a></dt><dt>4.20. <a href="ref_guide_schema_schematool.html#ref_guide_schema_schematool_drop">
+                Schema Drop
+            </a></dt><dt>4.21. <a href="ref_guide_schema_schematool.html#ref_guide_schema_schematool_reflect">
+                Schema Reflection
+            </a></dt><dt>4.22. <a href="ref_guide_schema_xml.html#ref_guide_schema_xml_basic">
+                Basic Schema
+            </a></dt><dt>4.23. <a href="ref_guide_schema_xml.html#ref_guide_schema_xml_full">
+                Full Schema
+            </a></dt><dt>5.1. <a href="ref_guide_pc_enhance.html#ref_guide_pc_enhance_enhancer">
+                    Using the OpenJPA Enhancer
+                </a></dt><dt>5.2. <a href="ref_guide_pc_enhance.html#ref_guide_pc_enhance_runtime_ex">
+                    Using the OpenJPA Agent for Runtime Enhancement
+                </a></dt><dt>5.3. <a href="ref_guide_pc_enhance.html#ref_guide_pc_enhance_runtime_opt_ex">
+                    Passing Options to the OpenJPA Agent
+                </a></dt><dt>5.4. <a href="ref_guide_pc_oid.html#ref_guide_pc_oid_datastoreentityex">
+                    JPA Datastore Identity Metadata
+                </a></dt><dt>5.5. <a href="ref_guide_pc_oid.html#ref_guide_pc_oid_entitypk_simplefind">
+                    Finding an Entity with an Entity Identity Field
+                </a></dt><dt>5.6. <a href="ref_guide_pc_oid.html#ref_guide_pc_oid_entitypk_idcls">
+                    Id Class for Entity Identity Fields
+                </a></dt><dt>5.7. <a href="ref_guide_pc_oid.html#ref_guide_pc_oid_entitypk_embeded_id">
+                    Embedded Id for Entity Identity Fields
+                </a></dt><dt>5.8. <a href="ref_guide_pc_oid.html#ref_guide_pc_appid_appidtool">
+                    Using the Application Identity Tool
+                </a></dt><dt>5.9. <a href="ref_guide_inverses.html#ref_guide_inverses_logicalex">
+                Specifying Logical Inverses
+            </a></dt><dt>5.10. <a href="ref_guide_inverses.html#ref_guide_inversesex">
+                Enabling Managed Inverses
+            </a></dt><dt>5.11. <a href="ref_guide_inverses.html#ref_guide_inverses_logex">
+                Log Inconsistencies
+            </a></dt><dt>5.12. <a href="ref_guide_pc_scos.html#ref_guide_pc_scos_order_initialvals">
+                    Using Initial Field Values
+                </a></dt><dt>5.13. <a href="ref_guide_pc_scos.html#ref_guide_pc_scos_proxy_lrs_itr">
+                        Using a Large Result Set Iterator
+                    </a></dt><dt>5.14. <a href="ref_guide_pc_scos.html#ref_guide_pc_scos_proxy_lrs_extension">
+                        Marking a Large Result Set Field
+                    </a></dt><dt>5.15. <a href="ref_guide_pc_scos.html#ref_guide_pc_scos_proxy_custom_ex">
+                        Configuring the Proxy Manager
+                    </a></dt><dt>5.16. <a href="ref_guide_pc_scos.html#ref_guide_pc_externex">
+                    Using Externalization
+                </a></dt><dt>5.17. <a href="ref_guide_pc_scos.html#ref_guide_pc_extern_queryex">
+                    Querying Externalization Fields
+                </a></dt><dt>5.18. <a href="ref_guide_pc_scos.html#externvalues_ex">
+                        Using External Values
+                    </a></dt><dt>5.19. <a href="ref_guide_fetch.html#ref_guide_fetch_customgroups">
+                    Custom Fetch Group Metadata
+                </a></dt><dt>5.20. <a href="ref_guide_fetch.html#ref_guide_fetch_loadgroup">
+                    Load Fetch Group Metadata
+                </a></dt><dt>5.21. <a href="ref_guide_fetch.html#ref_guide_fetch_conf_query">
+                    Using the FetchPlan
+                </a></dt><dt>5.22. <a href="ref_guide_fetch.html#ref_guide_fetch-conf_per_field">
+                    Adding an Eager Field
+                </a></dt><dt>5.23. <a href="ref_guide_perfpack_eager.html#ref_guide_perfpack_eager_def">
+                    Setting the Default Eager Fetch Mode
+                </a></dt><dt>5.24. <a href="ref_guide_perfpack_eager.html#ref_guide_perfpack_eager_runtime">
+                    Setting the Eager Fetch Mode at Runtime
+                </a></dt><dt>6.1. <a href="ref_guide_meta.html#ref_guide_meta_stdfactoryex">
+                Setting a Standard Metadata Factory
+            </a></dt><dt>6.2. <a href="ref_guide_meta.html#ref_guide_meta_customfactoryex">
+                Setting a Custom Metadata Factory
+            </a></dt><dt>6.3. <a href="ref_guide_meta_repository.html#ref_guide_meta_repo"></a></dt><dt>6.4. <a href="ref_guide_meta_ext.html#ref_guide_metaex">
+                    OpenJPA Metadata Extensions
+                </a></dt><dt>7.1. <a href="ref_guide_mapping.html#ref_guide_mapping_mappingtool_typical">
+                Using the Mapping Tool
+            </a></dt><dt>7.2. <a href="ref_guide_mapping.html#ref_guide_mapping_mappingtool_buildschema">
+                    Creating the Relational Schema from Mappings
+                </a></dt><dt>7.3. <a href="ref_guide_mapping.html#ref_guide_mapping_mappingtool_cleanup_tables">
+                    Refreshing entire schema and cleaning out tables
+                </a></dt><dt>7.4. <a href="ref_guide_mapping.html#ref_guide_mapping_mappingtool_dropschema">
+                    Dropping Mappings and Association Schema
+                </a></dt><dt>7.5. <a href="ref_guide_mapping.html#ref_guid_mapping_ddl_full_ddl">
+                    Create DDL for Current Mappings
+                </a></dt><dt>7.6. <a href="ref_guide_mapping.html#ref_guid_mapping_ddl_part_ddl">
+                    Create DDL to Update Database for Current Mappings
+                </a></dt><dt>7.7. <a href="ref_guide_mapping.html#ref_guide_mapping_synchex">
+                    Configuring Runtime Forward Mapping
+                </a></dt><dt>7.8. <a href="ref_guide_pc_reverse.html#ref_guide_pc_reverse_schemagen">
+                        Reflection with the Schema Tool
+                    </a></dt><dt>7.9. <a href="ref_guide_pc_reverse.html#ref_guide_pc_reverse_reversemappingtool">
+                        Using the Reverse Mapping Tool
+                    </a></dt><dt>7.10. <a href="ref_guide_pc_reverse.html#ref_guide_pc_reverse_custom_ex">
+                    Customizing Reverse Mapping with Properties
+                </a></dt><dt>7.11. <a href="ref_guide_mapping_middle.html#ref_guide_mapping_mappingtool_validate">
+                Validating Mappings
+            </a></dt><dt>7.12. <a href="ref_guide_mapping_defaults.html#ref_guide_mapping_defaults_conf">
+                Configuring Mapping Defaults
+            </a></dt><dt>7.13. <a href="ref_guide_mapping_factory.html#ref_guide_mapping_factory_jpa">
+                Standard JPA Configuration
+            </a></dt><dt>7.14. <a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_datastoreidex">
+                    Datastore Identity Mapping
+                </a></dt><dt>7.15. <a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_embedex">
+                    Overriding Complex Mappings
+                </a></dt><dt>7.16. <a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_onemanyex">
+                    One-Sided One-Many Mapping
+                </a></dt><dt>7.17. <a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map_stringrelmap">String Key, Entity Value Map Mapping</a></dt><dt>7.18. <a href="ref_guide_mapping_jpa.html#ref_guide_xmlmapping_myaddress">
+                       myaddress.xsd
+                   </a></dt><dt>7.19. <a href="ref_guide_mapping_jpa.html#ref_guide_xmlmapping_address">
+                       Address.java
+                  </a></dt><dt>7.20. <a href="ref_guide_mapping_jpa.html#ref_guide_xmlmapping_usaaddress">
+                    USAAddress.java
+                </a></dt><dt>7.21. <a href="ref_guide_mapping_jpa.html#ref_guide_xmlmapping_canaddress">
+                    CANAddress.java
+                </a></dt><dt>7.22. <a href="ref_guide_mapping_jpa.html#ref_guide_xmlmapping_annorder">
+                    Showing annotated Order entity with XML mapping strategy
+                </a></dt><dt>7.23. <a href="ref_guide_mapping_jpa.html#ref_guide_xmlmapping_createorder">
+                 Showing creation of Order entity having shipAddress mapped to XML column
+             </a></dt><dt>7.24. <a href="ref_guide_mapping_jpa.html#ref_guide_xmlmapping_jpqlquery">
+                    Sample JPQL queries for XML column mapping
+                </a></dt><dt>7.25. <a href="ref_guide_mapping_jpa.html#ref_guide_streamsupport_example">
+                    Annotated InputStream and Reader
+                </a></dt><dt>7.26. <a href="ref_guide_orphan.html#ref_guide_orphan_logex">
+                Custom Logging Orphaned Keys
+            </a></dt><dt>8.1. <a href="ref_guide_enterprise_trans.html#ref_guide_enterprise_transex">Configuring Transaction Manager Integration</a></dt><dt>9.1. <a href="ref_guide_runtime.html#ref_guide_runtime_pm_evictex">
+                    Evict from Data Cache
+                </a></dt><dt>9.2. <a href="ref_guide_runtime_jpa.html#ref_guide_runtime_jpaextentex">
+                    Using a JPA Extent
+                </a></dt><dt>9.3. <a href="ref_guide_locking.html#ref_guide_locking_default_conf">
+                    Setting Default Lock Levels
+                </a></dt><dt>9.4. <a href="ref_guide_locking.html#ref_guide_locking_fetch">
+                    Setting Runtime Lock Levels
+                </a></dt><dt>9.5. <a href="ref_guide_locking.html#ref_guide_locking_explicit">
+                    Locking APIs
+                </a></dt><dt>9.6. <a href="ref_guide_locking.html#ref_guide_locking_disable">
+                    Disabling Locking
+                </a></dt><dt>9.7. <a href="ref_guide_savepoints.html#ref_guide_savepoints_example">
+                    Using Savepoints
+                </a></dt><dt>9.8. <a href="ref_guide_sequence.html#ref_guide_sequence_named">
+                Named Seq Sequence
+            </a></dt><dt>9.9. <a href="ref_guide_sequence.html#ref_guide_sequence_systemex">
+                System Sequence Configuration
+            </a></dt><dt>10.1. <a href="ref_guide_caching.html#ref_guide_cache_conf_sjvm">
+                    Single-JVM Data Cache
+                </a></dt><dt>10.2. <a href="ref_guide_caching.html#ref_guide_cache_conf_size">
+                    Data Cache Size
+                </a></dt><dt>10.3. <a href="ref_guide_caching.html#ex_timeout_cache">
+                    Data Cache Timeout
+                </a></dt><dt>10.4. <a href="ref_guide_caching.html#ex_exclude_types_from_cache">
+                    Excluding entities
+                </a></dt><dt>10.5. <a href="ref_guide_caching.html#ex_include_types_in_cache">
+                    Including entities
+                </a></dt><dt>10.6. <a href="ref_guide_caching.html#ref_guide_cache_conf_partition">
+                    Partitioned Data Cache
+                </a></dt><dt>10.7. <a href="ref_guide_caching.html#ref_guide_cache_access_jpa_standard">
+            Accessing the Cache
+        </a></dt><dt>10.8. <a href="ref_guide_caching.html#ref_guide_cache_use_jpa_standard">Using the javax.persistence.Cache interface</a></dt><dt>10.9. <a href="ref_guide_caching.html#ref_guide_cache_access_jpa">
+                    Accessing the StoreCache
+                </a></dt><dt>10.10. <a href="ref_guide_caching.html#ref_guide_cache_use_jpa">
+                    StoreCache Usage
+                </a></dt><dt>10.11. <a href="ref_guide_caching.html#ref_guide_cache_pmevict">
+                    Automatic Data Cache Eviction
+                </a></dt><dt>10.12. <a href="ref_guide_caching.html#ref_guide_cache_enablestats">
+                    Configuring CacheStatistics
+                </a></dt><dt>10.13. <a href="ref_guide_caching.html#ref_guide_cache_queryaccess">
+                    Accessing the QueryResultCache
+                </a></dt><dt>10.14. <a href="ref_guide_caching.html#ref_guide_cache_cachesize">
+                    Query Cache Size
+                </a></dt><dt>10.15. <a href="ref_guide_caching.html#ref_guide_cache_disablequery">
+                    Disabling the Query Cache
+                </a></dt><dt>10.16. <a href="ref_guide_caching.html#ref_guide_cache_evictionPolicy">
+                    Query Cache Eviction Policy
+                </a></dt><dt>10.17. <a href="ref_guide_caching.html#ref_guide_cache_query_classchange">
+                    Evicting Queries
+                </a></dt><dt>10.18. <a href="ref_guide_caching.html#ref_guide_cache_query_pin">
+                    Pinning, and Unpinning Query Results
+                </a></dt><dt>10.19. <a href="ref_guide_caching.html#ref_guide_cache_query_disable">
+                    Disabling and Enabling Query Caching
+                </a></dt><dt>10.20. <a href="ref_guide_caching.html#ref_guide_cache_limits_extent">
+                            Query Replaces Extent
+                        </a></dt><dt>10.21. <a href="ref_guide_cache_querysql.html#jpa_caching_hardcode_jpql">Hardcoded Selection Value in JPQL Query</a></dt><dt>10.22. <a href="ref_guide_cache_querysql.html#jpa_caching_parametrize_jpql">Parameterized Selection Value in JPQL Query</a></dt><dt>12.1. <a href="ref_guide_remote.html#ref_guide_detach_graph_confex">
+                        Configuring Detached State
+                    </a></dt><dt>12.2. <a href="ref_guide_event.html#ref_guide_event_conf_jmsex">
+                        JMS Remote Commit Provider Configuration
+                    </a></dt><dt>12.3. <a href="ref_guide_event.html#ref_guide_event_conf_tcpex">
+                        TCP Remote Commit Provider Configuration
+                    </a></dt><dt>12.4. <a href="ref_guide_event.html#ref_guide_event_conf_jms2ex">
+                        JMS Remote Commit Provider transmitting Persisted Object Ids
+                    </a></dt><dt>14.1. <a href="ref_guide_integration.html#ref_guide_integration_conf_config">
+                    Using the &lt;config&gt; Ant Tag
+                </a></dt><dt>14.2. <a href="ref_guide_integration.html#ref_guide_integration_props">
+                    Using the Properties Attribute of the &lt;config&gt; Tag
+                </a></dt><dt>14.3. <a href="ref_guide_integration.html#ref_guide_integration_propsfile">
+                    Using the PropertiesFile Attribute of the &lt;config&gt; Tag
+                </a></dt><dt>14.4. <a href="ref_guide_integration.html#ref_guide_integration_conf_classpath">
+                    Using the &lt;classpath&gt; Ant Tag
+                </a></dt><dt>14.5. <a href="ref_guide_integration.html#ref_guide_integration_conf_codeformat">
+                    Using the &lt;codeformat&gt; Ant Tag
+                </a></dt><dt>14.6. <a href="ref_guide_integration.html#ref_guide_integration_enhance_task">
+                    Invoking the Enhancer from Ant
+                </a></dt><dt>14.7. <a href="ref_guide_integration.html#ref_guide_integration_appidtool_task">
+                    Invoking the Application Identity Tool from Ant
+                </a></dt><dt>14.8. <a href="ref_guide_integration.html#ref_guide_integration_mappingtool_task">
+                    Invoking the Mapping Tool from Ant
+                </a></dt><dt>14.9. <a href="ref_guide_integration.html#ref_guide_integration_revmappingtool_task">
+                    Invoking the Reverse Mapping Tool from Ant
+                </a></dt><dt>14.10. <a href="ref_guide_integration.html#ref_guide_integration_schematool_task">
+                    Invoking the Schema Tool from Ant
+                </a></dt><dt>2.1. <a href="dbsupport_derby.html#example_props_derby">
+                Example properties for Derby
+            </a></dt><dt>2.2. <a href="dbsupport_interbase.html#example_props_interbase">
+                Example properties for Interbase
+            </a></dt><dt>2.3. <a href="dbsupport_jdatastore.html#example_props_jdatastore">
+                Example properties for JDataStore
+            </a></dt><dt>2.4. <a href="dbsupport_db2.html#example_props_db2">
+                Example properties for IBM DB2
+            </a></dt><dt>2.5. <a href="dbsupport_empress.html#example_props_empress">
+                Example properties for Empress
+            </a></dt><dt>2.6. <a href="dbsupport_h2.html#example_props_h2">
+                Example properties for H2 Database Engine
+            </a></dt><dt>2.7. <a href="dbsupport_hypersonic.html#example_props_hypersonic">
+                Example properties for Hypersonic
+            </a></dt><dt>2.8. <a href="dbsupport_firebird.html#example_props_firebird">
+                Example properties for Firebird
+            </a></dt><dt>2.9. <a href="dbsupport_informix.html#example_props_informix">
+                Example properties for Informix Dynamic Server
+            </a></dt><dt>2.10. <a href="dbsupport_ingres.html#example_props_ingres">
+                Example properties for Ingres
+            </a></dt><dt>2.11. <a href="dbsupport_intersystems_cache.html#example_props_intersystems_cache">
+                Example properties for InterSystems Cache
+            </a></dt><dt>2.12. <a href="dbsupport_access.html#example_props_access">
+                Example properties for Microsoft Access
+            </a></dt><dt>2.13. <a href="dbsupport_sqlserver.html#example_props_sqlserver">
+                Example properties for Microsoft SQL Server
+            </a></dt><dt>2.14. <a href="dbsupport_foxpro.html#example_props_foxpro">
+                Example properties for Microsoft FoxPro
+            </a></dt><dt>2.15. <a href="dbsupport_mysql.html#example_props_mysql">
+                Example properties for MySQL
+            </a></dt><dt>2.16. <a href="dbsupport_mysql.html#dbsupport_mysql_query_hints_ex">
+                    Using MySQL Hints
+                </a></dt><dt>2.17. <a href="dbsupport_oracle.html#example_props_oracle">
+                Example properties for Oracle
+            </a></dt><dt>2.18. <a href="dbsupport_oracle.html#dbsupport_oracle_query_hints_ex">
+                    Using Oracle Hints
+                </a></dt><dt>2.19. <a href="dbsupport_oracle.html#dbsupport_oracle_disable_batch_updates">
+                    Property to disable statement batching for Oracle
+                </a></dt><dt>2.20. <a href="dbsupport_oracle.html#dbsupport_oracle_retain_connection">
+                    Property to retain connection over the lifetime of the entity manager
+                </a></dt><dt>2.21. <a href="dbsupport_pointbase.html#example_props_pointbase">
+                Example properties for Pointbase
+            </a></dt><dt>2.22. <a href="dbsupport_postgresql.html#example_props_postgresql">
+                Example properties for PostgreSQL
+            </a></dt><dt>2.23. <a href="dbsupport_sybase.html#example_props_sybase">
+                Example properties for Sybase
+            </a></dt></dl></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left">&nbsp;</td><td width="20%" align="center">&nbsp;</td><td width="40%" align="right">&nbsp;<a accesskey="n" href="introduction.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">&nbsp;</td><td width="20%" align="center">&nbsp;</td><td width="40%" align="right" valign="top">&nbsp;Part&nbsp;1.&nbsp;Introduction</td></tr></table></div></body></html>

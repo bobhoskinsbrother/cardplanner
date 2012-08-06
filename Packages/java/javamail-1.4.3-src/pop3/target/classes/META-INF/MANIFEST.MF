@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Export-Package: com.sun.mail.pop3;uses:="javax.mail,com.sun.mail.util,
+ javax.mail.internet,javax.mail.util";version="1.4.3"
+Implementation-Title: com.sun.mail.pop3
+Implementation-Version: 1.4.3
+Specification-Vendor: Sun Microsystems, Inc.
+Tool: Bnd-0.0.357
+Bundle-Name: JavaMail API pop3 provider
+Created-By: 1.6.0_20 (Apple Inc.)
+Bundle-Vendor: Sun Microsystems, Inc.
+Implementation-Vendor: Sun Microsystems, Inc.
+Implementation-Vendor-Id: com.sun
+Bundle-Version: 1.4.3
+Bnd-LastModified: 1286197695689
+Bundle-ManifestVersion: 2
+Specification-Title: com.sun.mail.pop3
+Bundle-Description: JavaMail API pop3 provider
+Bundle-License: http://www.sun.com/cddl, https://glassfish.dev.java.ne
+ t/public/CDDL+GPL.html
+Specification-Version: 1.4
+Import-Package: com.sun.mail.pop3;version="1.4",com.sun.mail.util,java
+ x.mail,javax.mail.internet,javax.mail.util,javax.security.sasl;resolu
+ tion:=optional,jcifs.ntlmssp;resolution:=optional,sun.security.util;r
+ esolution:=optional
+Bundle-SymbolicName: com.sun.mail.pop3
+Bundle-DocURL: http://www.sun.com
+Originally-Created-By: 1.6.0_20 (Apple Inc.)
+Extension-Name: com.sun.mail.pop3
+

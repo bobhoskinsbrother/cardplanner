@@ -1,0 +1,50 @@
+package uk.co.itstherules.cardplanner.model;
+
+import java.util.Map;
+import java.util.Properties;
+import java.util.UUID;
+
+import uk.co.itstherules.collections.PropertiesMap;
+import uk.co.itstherules.yawf.PropertiesHandler;
+import uk.co.itstherules.yawf.inbound.MapValuesProvider;
+import uk.co.itstherules.yawf.inbound.ValuesProvider;
+import uk.co.itstherules.yawf.inbound.annotations.processor.BasicValuesProviderBinder;
+import uk.co.itstherules.yawf.model.Entity;
+import uk.co.itstherules.yawf.model.Identity;
+import uk.co.itstherules.yawf.model.IdentityDeleteable;
+import uk.co.itstherules.yawf.model.instantiator.Instantiator;
+import uk.co.itstherules.yawf.model.persistence.ObjectCache;
+
+public final class SpecialInstances {
+
+	private final ObjectCache objectCache;
+
+	public SpecialInstances(final ObjectCache objectCache) { this.objectCache = objectCache; }
+	
+	public void persistIfNotExists(Identity identity) {
+		if(SpecialInstances.retrieve(this.objectCache, identity)==null) { 
+			IdentityDeleteable<?> built = SpecialInstances.buildFrom(this.objectCache, identity);
+			this.objectCache.save(built); 
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+    public static <T extends IdentityDeleteable<?>> T retrieve(ObjectCache objectCache, Identity identity) {
+		return (T) objectCache.retrieveByIdentity(identity.toInstantiate(), identity.getIdentity()); 
+	}
+
+	private static IdentityDeleteable<?> buildFrom(ObjectCache objectCache, String identity, Class<? extends IdentityDeleteable<?>> instance, Map<String, Object> values) { 
+		ValuesProvider provider = new MapValuesProvider(values);
+		IdentityDeleteable<?> newInstance = new Instantiator().instantiate(instance);
+		newInstance.defaultSetup(objectCache);
+		new BasicValuesProviderBinder().bind(provider, newInstance, objectCache);
+		newInstance.setIdentity(identity);
+		return newInstance; 
+	}
+
+	private static IdentityDeleteable<?> buildFrom(ObjectCache objectCache, Identity identity) {
+		Properties properties = PropertiesHandler.provide("uk/co/itstherules/cardplanner/model/defaults", identity.getIdentity());
+		return buildFrom(objectCache, identity.getIdentity(), identity.toInstantiate(), new PropertiesMap(properties));
+	}
+
+}

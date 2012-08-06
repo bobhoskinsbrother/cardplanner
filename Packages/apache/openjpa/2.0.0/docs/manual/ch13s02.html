@@ -1,0 +1,26 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>2.&nbsp;Executing a CriteriaQuery</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="jpa_overview_criteria.html" title="Chapter&nbsp;11.&nbsp; JPA Criteria"><link rel="prev" href="jpa_overview_criteria.html" title="Chapter&nbsp;11.&nbsp; JPA Criteria"><link rel="next" href="ch13s03.html" title="3.&nbsp;Extension to Criteria API"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.&nbsp;Executing a CriteriaQuery</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="jpa_overview_criteria.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;11.&nbsp;
+        JPA Criteria
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch13s03.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e11060"></a>2.&nbsp;Executing a CriteriaQuery</h2></div></div></div><p>
+    A CriteriaQuery is executed in a similar fashion of a string-based JPQL
+    query via the EntityManager and Query interfaces.
+    </p><pre class="programlisting">
+EntityManager em = ...
+Query query = em.createQuery(qdef);
+List result = query.getResultList();    
+    </pre><p>
+    </p><p>
+    A query definition can use named parameters, and the parameter values are
+    set as usual in the Query instance. 
+    </p><p>
+    The JPA 2.0 Specification on Criteria API can be found at 
+    <a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://jcp.org/aboutJava/communityprocess/pr/jsr317/index.html" target="_top">
+    public draft</a>.
+    </p><p>
+    
+    <a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://www.ibm.com/developerworks/java/library/j-typesafejpa/" target="_top">A developerworks article</a>
+    explains details and further usage of Criteria API and its OpenJPA extensions.  
+    </p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="jpa_overview_criteria.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="jpa_overview_criteria.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch13s03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;11.&nbsp;
+        JPA Criteria
+    &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;3.&nbsp;Extension to Criteria API</td></tr></table></div></body></html>

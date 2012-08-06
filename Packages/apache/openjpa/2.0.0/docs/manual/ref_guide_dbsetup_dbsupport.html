@@ -1,0 +1,1277 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>4.&nbsp; Database Support</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="ref_guide_dbsetup.html" title="Chapter&nbsp;4.&nbsp; JDBC"><link rel="prev" href="ref_guide_dbsetup_sqlconn.html" title="3.&nbsp; Runtime Access to DataSource"><link rel="next" href="ref_guide_dbsetup_isolation.html" title="5.&nbsp; Setting the Transaction Isolation"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.&nbsp;
+            Database Support
+        </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ref_guide_dbsetup_sqlconn.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;4.&nbsp;
+        JDBC
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ref_guide_dbsetup_isolation.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ref_guide_dbsetup_dbsupport"></a>4.&nbsp;
+            Database Support
+        </h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ref_guide_dbsetup_dbsupport.html#ref_guide_dbsetup_dbdictprops">4.1. 
+                DBDictionary Properties
+            </a></span></dt><dt><span class="section"><a href="ref_guide_dbsetup_dbsupport.html#ref_guide_dbsetup_dbsupport_firebird">4.2. 
+                FirebirdDictionary Properties
+            </a></span></dt><dt><span class="section"><a href="ref_guide_dbsetup_dbsupport.html#ref_guide_dbsetup_dbsupport_mysql">4.3. 
+                MySQLDictionary Properties
+            </a></span></dt><dt><span class="section"><a href="ref_guide_dbsetup_dbsupport.html#ref_guide_dbsetup_dbsupport_oracle">4.4. 
+                OracleDictionary Properties
+            </a></span></dt><dt><span class="section"><a href="ref_guide_dbsetup_dbsupport.html#ref_guide_dbsetup_dbsupport_sybase">4.5. 
+                SybaseDictionary Properties
+            </a></span></dt><dt><span class="section"><a href="ref_guide_dbsetup_dbsupport.html#ref_guide_dbsetup_dbsupport_delim_id">4.6. 
+        		Delimited Identifiers Support
+        	</a></span></dt></dl></div><a class="indexterm" name="d0e20134"></a><a class="indexterm" name="d0e20137"></a><p>
+OpenJPA can take advantage of any JDBC 2.x compliant
+driver, making almost any major database a candidate for use. See our officially
+supported database list in <a href="supported_databases.html" title="Appendix&nbsp;2.&nbsp; Supported Databases">Appendix&nbsp;2, <i xmlns:xlink="http://www.w3.org/1999/xlink">
+        Supported Databases
+    </i></a> for more
+information. Typically, OpenJPA auto-configures its JDBC behavior and SQL
+dialect for your database, based on the values of your connection-related
+configuration properties.
+        </p><p>
+If OpenJPA cannot detect what type of database you are using, or if you are
+using an unsupported database, you will have to tell OpenJPA what
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/jdbc/sql/DBDictionary.html" target="_top">
+<code class="classname">org.apache.openjpa.jdbc.sql.DBDictionary</code></a> to use.
+The <code class="classname">DBDictionary</code> abstracts away the differences between
+databases. You can plug a dictionary into OpenJPA using the
+<a href="ref_guide_conf_jdbc.html#openjpa.jdbc.DBDictionary" title="6.2.&nbsp; openjpa.jdbc.DBDictionary"><code class="literal">openjpa.jdbc.DBDictionary
+</code></a> configuration property. The built-in dictionaries are listed
+below. If you are using an unsupported database, you may have to write your own
+<code class="classname">DBDictionary</code> subclass, a simple process.
+        </p><div class="itemizedlist"><ul type="disc"><li><p>
+                <a class="indexterm" name="d0e20169"></a>
+<code class="literal">access</code>: Dictionary for Microsoft Access. This is an alias
+for the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/jdbc/sql/AccessDictionary.html" target="_top">
+<code class="classname">org.apache.openjpa.jdbc.sql.AccessDictionary</code></a>
+class.
+                </p></li><li><p>
+                <a class="indexterm" name="d0e20184"></a>
+<code class="literal">db2</code>: Dictionary for IBM's DB2 database. This is an alias for
+the <a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/jdbc/sql/DB2Dictionary.html" target="_top">
+<code class="classname">org.apache.openjpa.jdbc.sql.DB2Dictionary</code></a> class.
+                </p></li><li><p>
+                <a class="indexterm" name="d0e20199"></a>
+<code class="literal">derby</code>: Dictionary for the Apache Derby database. This is an
+alias for the 
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/jdbc/sql/DerbyDictionary.html" target="_top">
+<code class="classname">org.apache.openjpa.jdbc.sql.DerbyDictionary</code> class.
+</a>
+                </p></li><li><p>
+                <a class="indexterm" name="d0e20215"></a>
+<code class="literal">empress</code>: Dictionary for Empress database This is an alias
+for the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/jdbc/sql/EmpressDictionary.html" target="_top">
+<code class="classname">org.apache.openjpa.jdbc.sql.EmpressDictionary</code></a>
+class.
+                </p></li><li><p>
+                <a class="indexterm" name="d0e20230"></a>
+<code class="literal">foxpro</code>: Dictionary for Microsoft Visual FoxPro. This is an
+alias for the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/jdbc/sql/FoxProDictionary.html" target="_top">
+<code class="classname">org.apache.openjpa.jdbc.sql.FoxProDictionary</code></a>
+class.
+                </p></li><li><p>
+                <a class="indexterm" name="d0e20245"></a>
+<code class="literal">hsql</code>: Dictionary for the Hypersonic SQL database. This is an
+alias for the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/jdbc/sql/HSQLDictionary.html" target="_top">
+<code class="classname">org.apache.openjpa.jdbc.sql.HSQLDictionary</code></a> class.
+                </p></li><li><p>
+                <a class="indexterm" name="d0e20260"></a>
+<code class="literal">informix</code>: Dictionary for the Informix database. This is an
+alias for the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/jdbc/sql/InformixDictionary.html" target="_top">
+<code class="classname">org.apache.openjpa.jdbc.sql.InformixDictionary</code></a>
+class.
+                </p></li><li><p>
+                <a class="indexterm" name="d0e20275"></a>
+<code class="literal">ingres</code>: Dictionary for Ingres. This is an alias for the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/jdbc/sql/IngresDictionary.html" target="_top">
+<code class="classname">org.apache.openjpa.jdbc.sql.IngresDictionary</code></a>
+class.
+                </p></li><li><p>
+                <a class="indexterm" name="d0e20290"></a>
+<code class="literal">jdatastore</code>: Dictionary for Borland JDataStore. This is an
+alias for the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/jdbc/sql/JDataStoreDictionary.html" target="_top">
+<code class="classname">org.apache.openjpa.jdbc.sql.JDataStoreDictionary</code></a>
+class.
+                </p></li><li><p>
+                <a class="indexterm" name="d0e20305"></a>
+<code class="literal">mysql</code>: Dictionary for the MySQL database. This is an alias
+for the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/jdbc/sql/MySQLDictionary.html" target="_top">
+<code class="classname">org.apache.openjpa.jdbc.sql.MySQLDictionary</code></a>
+class.
+                </p></li><li><p>
+                <a class="indexterm" name="d0e20320"></a>
+<code class="literal">oracle</code>: Dictionary for Oracle. This is an alias for the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/jdbc/sql/OracleDictionary.html" target="_top">
+<code class="classname">org.apache.openjpa.jdbc.sql.OracleDictionary</code></a>
+class.
+                </p></li><li><p>
+                <a class="indexterm" name="d0e20335"></a>
+<code class="literal">pointbase</code>: Dictionary for Pointbase Embedded database. This
+is an alias for the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/jdbc/sql/PointbaseDictionary.html" target="_top">
+<code class="classname">org.apache.openjpa.jdbc.sql.PointbaseDictionary</code></a>
+class.
+                </p></li><li><p>
+                <a class="indexterm" name="d0e20350"></a>
+<code class="literal">postgres</code>: Dictionary for PostgreSQL. This is an alias for
+the <a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/jdbc/sql/PostgresDictionary.html" target="_top">
+<code class="classname">org.apache.openjpa.jdbc.sql.PostgresDictionary</code></a>
+class.
+                </p></li><li><p>
+                <a class="indexterm" name="d0e20365"></a>
+<code class="literal">sqlserver</code>: Dictionary for Microsoft's SQL Server database.
+This is an alias for the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/jdbc/sql/SQLServerDictionary.html" target="_top">
+<code class="classname">org.apache.openjpa.jdbc.sql.SQLServerDictionary</code></a>
+class.
+                </p></li><li><p>
+                <a class="indexterm" name="d0e20380"></a>
+<code class="literal">sybase</code>: Dictionary for Sybase. This is an alias for the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/jdbc/sql/SybaseDictionary.html" target="_top">
+<code class="classname">org.apache.openjpa.jdbc.sql.SybaseDictionary</code></a>
+class.
+                </p></li></ul></div><p>
+The example below demonstrates how to set a dictionary and configure its
+properties in your configuration file. The <code class="literal">DBDictionary</code>
+property uses OpenJPA's <a href="ref_guide_conf_plugins.html" title="4.&nbsp; Plugin Configuration">plugin syntax
+</a>.
+        </p><div class="example"><a name="ref_guide_dbsetup_dbdict"></a><p class="title"><b>Example&nbsp;4.6.&nbsp;
+                Specifying a DBDictionary
+            </b></p><div class="example-contents"><pre class="programlisting">
+&lt;property name="openjpa.jdbc.DBDictionary" value="hsql(SimulateLocking=true)"/&gt;
+</pre></div></div><br class="example-break"><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_dbsetup_dbdictprops"></a>4.1.&nbsp;
+                DBDictionary Properties
+            </h3></div></div></div><p>
+The standard dictionaries all recognize the following properties. These
+properties will usually not need to be overridden, since the dictionary
+implementation should use the appropriate default values for your database. You
+typically won't use these properties unless you are designing your own
+<code class="classname">DBDictionary</code> for an unsupported database.
+            </p><div class="itemizedlist"><ul type="disc"><li><p><a name="DBDictionary.AllowsAliasInBulkClause"></a>
+                    <a class="indexterm" name="d0e20418"></a>
+<code class="literal">AllowsAliasInBulkClause</code>: 
+When true, SQL delete and update statements may use table aliases.
+                    </p></li><li><p><a name="DBDictionary.ArrayTypeName"></a>
+                    <a class="indexterm" name="d0e20430"></a>
+<code class="literal">ArrayTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.ARRAY</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.AutoAssignClause"></a>
+                    <a class="indexterm" name="d0e20448"></a>
+<code class="literal">AutoAssignClause</code>: The column definition clause to append to
+a creation statement. For example, <code class="literal">"AUTO_INCREMENT"</code> for
+MySQL. This property is set automatically in the dictionary, and should not need
+to be overridden, and is only used when the schema is generated using the
+<code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.AutoAssignTypeName"></a>
+                    <a class="indexterm" name="d0e20468"></a>
+                    <a class="indexterm" name="d0e20474"></a>
+<code class="literal">AutoAssignTypeName</code>: 
+The column type name for auto-increment
+columns. For example, <code class="literal">"BIGSERIAL"</code> for PostgreSQL. This
+property is set automatically in the dictionary and should not need to be
+overridden.  It is used only when the schema is generated using the 
+<code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.BatchLimit"></a>
+                    <a class="indexterm" name="d0e20494"></a>
+<code class="literal">BatchLimit</code>: 
+The default batch limit for sending multiple SQL statements at once to the
+database.  A value of -1 indicates unlimited batching, and any positive integer
+indicates the maximum number of SQL statements to batch together.  
+Defaults to 0 which disables batching.
+                    </p></li><li><p><a name="DBDictionary.BigintTypeName"></a>
+                    <a class="indexterm" name="d0e20506"></a>
+<code class="literal">BigintTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.BIGINT</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.BinaryTypeName"></a>
+                    <a class="indexterm" name="d0e20524"></a>
+<code class="literal">BinaryTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.BINARY</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.BitTypeName"></a>
+                    <a class="indexterm" name="d0e20542"></a>
+<code class="literal">BitTypeName</code>: The overridden default column type for 
+<code class="literal">java.sql.Types.BIT</code>. This is used only when the schema is generated by
+the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.BlobBufferSize"></a>
+                    <a class="indexterm" name="d0e20560"></a>
+<code class="literal">BlobBufferSize</code>: This property establishes the buffer size in
+the <code class="literal">INSERT/UPDATE</code> operations with an 
+<code class="literal">java.io.InputStream</code>. This is only used with OpenJPA's
+<a href="ref_guide_mapping_jpa.html#ref_guide_streamsupport" title="7.11.&nbsp; LOB Streaming">Section&nbsp;7.11, &#8220;
+                LOB Streaming
+            &#8221;</a>. Defaults to 50000.
+                    </p></li><li><p><a name="DBDictionary.BlobTypeName"></a>
+                    <a class="indexterm" name="d0e20580"></a>
+                    <a class="indexterm" name="d0e20586"></a>
+<code class="literal">BlobTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.BLOB</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.BooleanTypeName"></a>
+                    <a class="indexterm" name="d0e20604"></a>
+<code class="literal">BooleanTypeName</code>: 
+The overridden default column type for 
+<code class="literal">java.sql.Types.BOOLEAN</code>. This is used only when the schema 
+is generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.CastFunction"></a>
+                    <a class="indexterm" name="d0e20622"></a>
+<code class="literal">CastFunction</code>: 
+The SQL function call to cast a value to another SQL type. 
+Use the tokens <code class="literal">{0}</code> and <code class="literal">{1}</code> to represent 
+the two arguments.  The result of the function is convert the 
+<code class="literal">{0}</code> value to a <code class="literal">{1}</code> type.
+The default is <code class="literal">"CAST({0} AS {1})"</code>.
+                    </p></li><li><p><a name="DBDictionary.CatalogSeparator"></a>
+                    <a class="indexterm" name="d0e20649"></a>
+<code class="literal">CatalogSeparator</code>: The string the database uses to delimit
+between the schema name and the table name. This is typically <code class="literal">"."
+</code>, which is the default.
+                    </p></li><li><p><a name="DBDictionary.CharTypeName"></a>
+                    <a class="indexterm" name="d0e20664"></a>
+<code class="literal">CharTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.CHAR</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.CharacterColumnSize"></a>
+                    <a class="indexterm" name="d0e20682"></a>
+<code class="literal">CharacterColumnSize</code>: The default size of <code class="literal">varchar
+</code> and <code class="literal">char</code> columns. Typically 255.
+                    </p></li><li><p><a name="DBDictionary.ClobBufferSize"></a>
+                    <a class="indexterm" name="d0e20700"></a>
+<code class="literal">ClobBufferSize</code>: This property establish the buffer size in 
+the <code class="literal">INSERT/UPDATE</code> operations with a 
+<code class="literal">java.io.Reader</code>. This is only used with OpenJPA's
+<a href="ref_guide_mapping_jpa.html#ref_guide_streamsupport" title="7.11.&nbsp; LOB Streaming">Section&nbsp;7.11, &#8220;
+                LOB Streaming
+            &#8221;</a>. Defaults to 50000.
+                    </p></li><li><p><a name="DBDictionary.ClobTypeName"></a>
+                    <a class="indexterm" name="d0e20720"></a>
+                    <a class="indexterm" name="d0e20726"></a>
+<code class="literal">ClobTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.CLOB</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.ClosePoolSQL"></a>
+                    <a class="indexterm" name="d0e20744"></a>
+<code class="literal">ClosePoolSQL</code>: 
+A special command to issue to the database when shutting down the pool.
+Usually the pool of connections to the database is closed when the 
+application is ending.  For embedded databases, whose lifecycle is 
+coterminous with the application, there may be a special
+command, usually <code class="literal">"SHUTDOWN"</code>, 
+that will cause the embedded database to close cleanly.  
+Defaults to <code class="literal">null</code>.
+                    </p></li><li><p><a name="DBDictionary.ConcatenateFunction"></a>
+                    <a class="indexterm" name="d0e20762"></a>
+<code class="literal">ConcatenateFunction</code>:
+The SQL function call or operation to concatenate two strings. 
+Use the tokens <code class="literal">{0}</code> and <code class="literal">{1}</code> to represent 
+the two arguments.  The result of the function or operation is to concatenate 
+the <code class="literal">{1}</code> string to the end of the <code class="literal">{0}</code> 
+string.  Defaults to <code class="literal">"({0}||{1})"</code>.  
+                    </p></li><li><p><a name="DBDictionary.ConstraintNameMode"></a>
+                    <a class="indexterm" name="d0e20789"></a>
+<code class="literal">ConstraintNameMode</code>: When creating constraints, whether to
+put the constraint name before the definition (<code class="literal">"before"</code>),
+just after the constraint type name (<code class="literal">"mid"</code>), or after the
+constraint definition (<code class="literal">"after"</code>). 
+Defaults to <code class="literal">"before"</code>.
+                    </p></li><li><p><a name="DBDictionary.CreatePrimaryKeys"></a>
+                    <a class="indexterm" name="d0e20813"></a>
+<code class="literal">CreatePrimaryKeys</code>: When false, do not
+create database primary keys for identifiers. Defaults to <code class="literal">true
+</code>.
+                    </p></li><li><p><a name="DBDictionary.CrossJoinClause"></a>
+                    <a class="indexterm" name="d0e20828"></a>
+<code class="literal">CrossJoinClause</code>: The clause to use for a cross join
+(cartesian product). Defaults to <code class="literal">"CROSS JOIN"</code>.
+                    </p></li><li><p><a name="DBDictionary.CurrentDateFunction"></a>
+                    <a class="indexterm" name="d0e20843"></a>
+<code class="literal">CurrentDateFunction</code>:
+The SQL function call to obtain the current date from the database.
+Defaults to <code class="literal">"CURRENT_DATE"</code>.
+                    </p></li><li><p><a name="DBDictionary.CurrentTimeFunction"></a>
+                    <a class="indexterm" name="d0e20858"></a>
+<code class="literal">CurrentTimeFunction</code>:
+The SQL function call to obtain the current time from the database.
+Defaults to <code class="literal">"CURRENT_TIME"</code>.
+                    </p></li><li><p><a name="DBDictionary.CurrentTimestampFunction"></a>
+                    <a class="indexterm" name="d0e20873"></a>
+<code class="literal">CurrentTimestampFunction</code>:
+The SQL function call to obtain the current timestamp from the database.
+Defaults to <code class="literal">"CURRENT_TIMESTAMP"</code>.
+                    </p></li><li><p><a name="DBDictionary.DatePrecision"></a>
+                    <a class="indexterm" name="d0e20888"></a>
+<code class="literal">DatePrecision</code>:
+The database is able to store time values to this degree of precision,
+which is expressed in nanoseconds.
+This value is usually one million, meaning that the database is able
+to store time values with a precision of one millisecond.  Particular
+databases may have more or less precision.
+OpenJPA will round all time values to this degree of precision
+before storing them in the database.
+Defaults to 1000000.
+                    </p></li><li><p><a name="DBDictionary.DateTypeName"></a>
+                    <a class="indexterm" name="d0e20900"></a>
+<code class="literal">DateTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.DATE</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.DecimalTypeName"></a>
+                    <a class="indexterm" name="d0e20918"></a>
+<code class="literal">DecimalTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.DECIMAL</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.DelimitedCase"></a>
+                	<a class="indexterm" name="d0e20936"></a>
+<code class="literal">DelimitedCase</code>: The case to use when querying the database 
+about identifiers that have been delimited. It defaults to preserving the
+case of the originally specified name. Available values are:
+<code class="literal">upper, lower, preserve.</code>                	
+                	</p></li><li><p><a name="DBDictionary.DistinctCountColumnSeparator"></a>
+                    <a class="indexterm" name="d0e20951"></a>
+<code class="literal">DistinctCountColumnSeparator</code>: The string the database uses
+to delimit between column expressions in a <code class="literal">SELECT COUNT(DISTINCT
+column-list)</code> clause. Defaults to <code class="literal">null</code> 
+for most databases, meaning that
+multiple columns in a distinct COUNT clause are not supported.
+                    </p></li><li><p><a name="DBDictionary.DistinctTypeName"></a>
+                    <a class="indexterm" name="d0e20969"></a>
+<code class="literal">DistinctTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.DISTINCT</code>. This is used only when the schema
+is generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.DoubleTypeName"></a>
+                    <a class="indexterm" name="d0e20987"></a>
+<code class="literal">DoubleTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.DOUBLE</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.DriverVendor"></a>
+                    <a class="indexterm" name="d0e21005"></a>
+<code class="literal">DriverVendor</code>: The vendor of the particular JDBC driver you
+are using. Some dictionaries must alter their behavior depending on the driver
+vendor. Dictionaries usually detect the driver vendor and set this property
+themselves.  See the <code class="literal">VENDOR_XXX</code> constants defined in the 
+<code class="classname">DBDictionary</code> Javadoc for available options.
+                    </p></li><li><p><a name="DBDictionary.DropTableSQL"></a>
+                    <a class="indexterm" name="d0e21023"></a>
+<code class="literal">DropTableSQL</code>: 
+The SQL statement used to drop a table.  Use the token <code class="literal">{0}</code>
+as the argument for the table name.  
+Defaults to <code class="literal">"DROP TABLE {0}"</code>.
+                    </p></li><li><p><a name="DBDictionary.FixedSizeTypeNames"></a>
+                    <a class="indexterm" name="d0e21041"></a>
+<code class="literal">FixedSizeTypeNames</code>: 
+A comma separated list of additional database types that have a size 
+defined by the database.  In other words, when a column of a fixed
+size type is declared, its size cannot be defined by the user.  Common
+examples would be <code class="literal">DATE</code>, <code class="literal">FLOAT</code>, 
+and <code class="literal">INTEGER</code>.
+Each database dictionary has its own internal set of fixed size type names 
+that include the names mentioned here and many others.
+Names added to this property are added to the dictionary's internal set.
+Defaults to <code class="literal">null</code>.
+                    </p></li><li><p><a name="DBDictionary.FloatTypeName"></a>
+                    <a class="indexterm" name="d0e21065"></a>
+<code class="literal">FloatTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.FLOAT</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.ForUpdateClause"></a>
+                    <a class="indexterm" name="d0e21083"></a>
+                    <a class="indexterm" name="d0e21089"></a>
+<code class="literal">ForUpdateClause</code>: The clause to append to <code class="literal">SELECT
+</code> statements to issue queries that obtain pessimistic locks. Defaults
+to <code class="literal">"FOR UPDATE"</code>.
+                    </p></li><li><p><a name="DBDictionary.GetStringVal"></a>
+                    <a class="indexterm" name="d0e21107"></a>
+                    <a class="indexterm" name="d0e21113"></a>
+<code class="literal">GetStringVal</code>: 
+A special function to return the value of an XML 
+column in a select statement.  For example, Oracle uses 
+<code class="literal">".getStringVal()"</code>, as in, 
+<code class="literal">"select t0.xmlcol.getStringVal() from xmltab t0"</code>.
+Defaults to the empty string.
+                    </p></li><li><p><a name="DBDictionary.InClauseLimit"></a>
+                    <a class="indexterm" name="d0e21131"></a>
+                    <a class="indexterm" name="d0e21137"></a>
+<code class="literal">InClauseLimit</code>: 
+The maximum number of elements in an <code class="literal">IN</code> clause.  OpenJPA
+works around cases where the limit is exceeded.  Defaults to -1 meaning 
+no limit.
+                    </p></li><li><p><a name="DBDictionary.InitializationSQL"></a>
+                    <a class="indexterm" name="d0e21152"></a>
+                    <a class="indexterm" name="d0e21158"></a>
+<code class="literal">InitializationSQL</code>: A piece of SQL to issue against the
+database whenever a connection is retrieved from the <code class="classname">DataSource
+</code>.
+                    </p></li><li><p><a name="DBDictionary.InnerJoinClause"></a>
+                    <a class="indexterm" name="d0e21173"></a>
+<code class="literal">InnerJoinClause</code>: The clause to use for an inner join.
+Defaults to <code class="literal">"INNER JOIN"</code>.
+                    </p></li><li><p><a name="DBDictionary.IntegerTypeName"></a>
+                    <a class="indexterm" name="d0e21188"></a>
+<code class="literal">IntegerTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.INTEGER</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.JavaObjectTypeName"></a>
+                    <a class="indexterm" name="d0e21206"></a>
+<code class="literal">JavaObjectTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.JAVAOBJECT</code>. This is used only when the schema
+is generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.JoinSyntax"></a>
+                    <a class="indexterm" name="d0e21224"></a>
+<code class="literal">JoinSyntax</code>: The SQL join syntax to use in select statements.
+See <a href="ref_guide_dbsetup_sql92.html" title="6.&nbsp; Setting the SQL Join Syntax">Section&nbsp;6, &#8220;
+            Setting the SQL Join Syntax
+        &#8221;</a>.
+                    </p></li><li><p><a name="DBDictionary.LastGeneratedKeyQuery"></a>
+                    <a class="indexterm" name="d0e21238"></a>
+<code class="literal">LastGeneratedKeyQuery</code>: The query to issue to obtain the last
+automatically generated key for an auto-increment column. For example, 
+<code class="literal">"SELECT LAST_INSERT_ID()"</code> for MySQL. This property is set
+automatically in the dictionary, and should not need to be overridden.
+If <code class="literal">SupportsGetGeneratedKeys</code> is true, the query will not
+be issued but a more efficient JDBC 3.0 mechanism for obtaining generated
+keys will be used instead.
+                    </p></li><li><p><a name="DBDicationary.LeadingDelimiter"></a>
+                	<a class="indexterm" name="d0e21258"></a>
+<code class="literal">LeadingDelimiter</code>: The characters to use as the leading delimiter
+for a delimited identifier. The default value is a double quote,
+<code class="literal">(")</code>. See
+<a href="ref_guide_dbsetup_dbsupport.html#ref_guide_dbsetup_dbsupport_delim_id" title="4.6.&nbsp; Delimited Identifiers Support">Section&nbsp;4.6, &#8220;
+        		Delimited Identifiers Support
+        	&#8221;</a> for
+the default value for some specific databases.                              	
+                	</p></li><li><p><a name="DBDictionary.LongVarbinaryTypeName"></a>
+                    <a class="indexterm" name="d0e21275"></a>
+<code class="literal">LongVarbinaryTypeName</code>: The overridden default column type
+for <code class="literal">java.sql.Types.LONGVARBINARY</code>. This is used only when the
+schema is generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.LongVarcharTypeName"></a>
+                    <a class="indexterm" name="d0e21293"></a>
+<code class="literal">LongVarcharTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.LONGVARCHAR</code>. This is used only when the
+schema is generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.MaxAutoAssignNameLength"></a>
+                    <a class="indexterm" name="d0e21311"></a>
+<code class="literal">MaxAutoAssignNameLength</code>: Set this property to the maximum
+length of the sequence name used for auto-increment columns. Names longer than
+this value are truncated. Defaults to 31.
+                    </p></li><li><p><a name="DBDictionary.MaxColumnNameLength"></a>
+                    <a class="indexterm" name="d0e21323"></a>
+<code class="literal">MaxColumnNameLength</code>: The maximum number of characters in a
+column name. Defaults to 128.
+                    </p></li><li><p><a name="DBDictionary.MaxConstraintNameLength"></a>
+                    <a class="indexterm" name="d0e21335"></a>
+<code class="literal">MaxConstraintNameLength</code>: The maximum number of characters in
+a constraint name. Defaults to 128.
+                    </p></li><li><p><a name="DBDictionary.MaxEmbeddedBlobSize"></a>
+                    <a class="indexterm" name="d0e21347"></a>
+<code class="literal">MaxEmbeddedBlobSize</code>: 
+When greater than -1, the maximum size of a <code class="literal">BLOB</code> value 
+that can be sent directly to the database within an insert or update statement.  
+Values whose size is greater than <code class="literal">MaxEmbeddedBlobSize</code> force 
+OpenJPA to work around this limitation.  A value of -1 means that there is 
+no limitation. Defaults to -1.
+                    </p></li><li><p><a name="DBDictionary.MaxEmbeddedClobSize"></a>
+                    <a class="indexterm" name="d0e21365"></a>
+<code class="literal">MaxEmbeddedClobSize</code>: 
+When greater than -1, the maximum size of a <code class="literal">CLOB</code> value 
+that can be sent directly to the database within an insert or update statement.  
+Values whose size is greater than <code class="literal">MaxEmbeddedClobSize</code> force 
+OpenJPA to work around this limitation.  A value of -1 means that there is 
+no limitation. Defaults to -1.
+                    </p></li><li><p><a name="DBDictionary.MaxIndexNameLength"></a>
+                    <a class="indexterm" name="d0e21383"></a>
+                    <a class="indexterm" name="d0e21389"></a>
+<code class="literal">MaxIndexNameLength</code>: The maximum number of characters in an
+index name. Defaults to 128.
+                    </p></li><li><p><a name="DBDictionary.MaxIndexesPerTable"></a>
+                    <a class="indexterm" name="d0e21401"></a>
+<code class="literal">MaxIndexesPerTable</code>: The maximum number of indexes that can
+be placed on a single table. Defaults to no limit.
+                    </p></li><li><p><a name="DBDictionary.MaxTableNameLength"></a>
+                    <a class="indexterm" name="d0e21413"></a>
+<code class="literal">MaxTableNameLength</code>: The maximum number of characters in a
+table name. Defaults to 128.
+                    </p></li><li><p><a name="DBDictionary.NameConcatenator"></a>
+                	<a class="indexterm" name="d0e21425"></a>
+<code class="literal">NameConcatenator</code>: The value used when names are concatenated to 
+create a generated name. The default value is the underscore <code class="literal">"_"</code>.                	
+                	</p></li><li><p><a name="DBDictionary.NextSequenceQuery"></a>
+                    <a class="indexterm" name="d0e21440"></a>
+<code class="literal">NextSequenceQuery</code>: A SQL string for obtaining a native
+sequence value. May use a placeholder of <code class="literal">{0}</code> for the variable
+sequence name. Defaults to a database-appropriate value.  For example, 
+<code class="literal">"SELECT {0}.NEXTVAL FROM DUAL"</code> for Oracle.
+                    </p></li><li><p><a name="DBDictionary.NullTypeName"></a>
+                    <a class="indexterm" name="d0e21458"></a>
+<code class="literal">NullTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.NULL</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.NumericTypeName"></a>
+                    <a class="indexterm" name="d0e21476"></a>
+<code class="literal">NumericTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.NUMERIC</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.OtherTypeName"></a>
+                    <a class="indexterm" name="d0e21494"></a>
+<code class="literal">OtherTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.OTHER</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.OuterJoinClause"></a>
+                    <a class="indexterm" name="d0e21512"></a>
+<code class="literal">OuterJoinClause</code>: The clause to use for an left outer join.
+Defaults to <code class="literal">"LEFT OUTER JOIN"</code>.
+                    </p></li><li><p><a name="DBDictionary.Platform"></a>
+                    <a class="indexterm" name="d0e21527"></a>
+<code class="literal">Platform</code>: 
+The name of the database that this dictionary targets.
+Defaults to <code class="literal">"Generic"</code>, but all dictionaries override this 
+value.
+                    </p></li><li><p><a name="DBDictionary.RangePosition"></a>
+                    <a class="indexterm" name="d0e21542"></a>
+<code class="literal">RangePosition</code>: 
+Indicates where to specify in the SQL select statement the range, if any,
+of the result rows to be returned.  
+When limiting the number of returned result rows to a subset of all those
+that satisfy the query's conditions, the position of the range clause 
+varies by database.
+Defaults to 0, meaning that the range 
+is expressed at the end of the select statement but before any locking clause.
+See the RANGE_XXX constants defined in <code class="classname">DBDictionary</code>.
+                    </p></li><li><p><a name="DBDictionary.RealTypeName"></a>
+                    <a class="indexterm" name="d0e21557"></a>
+<code class="literal">RealTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.REAL</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.RefTypeName"></a>
+                    <a class="indexterm" name="d0e21575"></a>
+<code class="literal">RefTypeName</code>: The overridden default column type for 
+<code class="literal">java.sql.Types.REF</code>. This is used only when the schema is generated by
+the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.RequiresAliasForSubselect"></a>
+                    <a class="indexterm" name="d0e21593"></a>
+                    <a class="indexterm" name="d0e21599"></a>
+<code class="literal">RequiresAliasForSubselect</code>: When true, the database
+requires that subselects in a FROM clause be assigned an alias.
+                    </p></li><li><p><a name="DBDictionary.RequiresAutoCommitForMetadata"></a>
+                    <a class="indexterm" name="d0e21613"></a>
+<code class="literal">RequiresAutoCommitForMetadata</code>: When true, the JDBC driver
+requires that autocommit be enabled before any schema interrogation operations
+can take place.
+                    </p></li><li><p><a name="DBDictionary.RequiresCastForComparisons"></a>
+                    <a class="indexterm" name="d0e21627"></a>
+<code class="literal">RequiresCastForComparisons</code>: 
+When true, comparisons of two values of different types or 
+of two literals requires a cast in the generated SQL.   
+Defaults to <code class="literal">false</code>.
+                    </p></li><li><p><a name="DBDictionary.RequiresCastForMathFunctions"></a>
+                    <a class="indexterm" name="d0e21642"></a>
+<code class="literal">RequiresCastForMathFunctions</code>: 
+When true, math operations on two values of different types or 
+on two literals requires a cast in the generated SQL.   
+Defaults to <code class="literal">false</code>.
+                    </p></li><li><p><a name="DBDictionary.RequiresConditionForCrossJoin"></a>
+                    <a class="indexterm" name="d0e21657"></a>
+<code class="literal">RequiresConditionForCrossJoin</code>: Some databases require that
+there always be a conditional statement for a cross join. If set, this parameter
+ensures that there will always be some condition to the join clause.
+                    </p></li><li><p><a name="DBDictionary.RequiresTargetForDelete"></a>
+                    <a class="indexterm" name="d0e21669"></a>
+<code class="literal">RequiresTargetForDelete</code>:
+When true, the database requires a target for delete statements.  Defaults
+to <code class="literal">false</code>.
+                    </p></li><li><p><a name="DBDictionary.ReservedWords"></a>
+                    <a class="indexterm" name="d0e21684"></a>
+<code class="literal">ReservedWords</code>: A comma-separated list of reserved words for
+this database, beyond the standard SQL92 keywords.
+                    </p></li><li><p><a name="DBDictionary.SchemaCase"></a>
+                    <a class="indexterm" name="d0e21696"></a>
+<code class="literal">SchemaCase</code>: The case to use when querying the database
+metadata about schema components. Defaults to making all names upper case.
+Available values are: <code class="literal">upper, lower, preserve</code>.
+                    </p></li><li><p><a name="DBDictionary.SearchStringEscape"></a>
+                    <a class="indexterm" name="d0e21713"></a>
+<code class="literal">SearchStringEscape</code>: 
+The default escape character used when generating SQL <code class="literal">LIKE</code>
+clauses.  The escape character is used to escape the wildcard meaning of the 
+<code class="literal">_</code> and <code class="literal">%</code> characters.
+Note: since JPQL provides the ability to define the escape character in
+the query, this setting is primarily used when translating other query
+languages, such as JDOQL.  Defaults to <code class="literal">"\\"</code> 
+(a single backslash in Java speak).
+                    </p></li><li><p><a name="DBDictionary.RequiresSearchStringEscapeForLike"></a>
+                    <a class="indexterm" name="d0e21737"></a>
+<code class="literal">RequiresSearchStringEscapeForLike</code>:
+When true, the database requires an escape string for queries that use
+<code class="literal">LIKE</code>.  The escape string can be specified using
+<code class="literal">searchStringEscape</code>.  Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SelectWords"></a>
+                    <a class="indexterm" name="d0e21758"></a>
+<code class="literal">SelectWords</code>: A comma-separated list of keywords which may be
+used to start a SELECT statement for this database. If an application executes 
+a native SQL statement which begins with SelectWords OpenJPA will treat the 
+statement as a SELECT statement rather than an UPDATE statement. 
+                    </p></li><li><p><a name="DBDictionary.SequenceNameSQL"></a>
+                    <a class="indexterm" name="d0e21770"></a>
+<code class="literal">SequenceNameSQL</code>:
+Additional phrasing to use with <code class="literal">SequenceSQL</code>.  
+Defaults to <code class="literal">null</code>.
+                    </p></li><li><p><a name="DBDictionary.SequenceSQL"></a>
+                    <a class="indexterm" name="d0e21790"></a>
+<code class="literal">SequenceSQL</code>: 
+General structure of the SQL query to use when interrogating the database 
+for sequence names.
+As there is no standard way to obtain sequence names, 
+it defaults to <code class="literal">null</code>.
+                    </p></li><li><p><a name="DBDictionary.SequenceSchemaSQL"></a>
+                    <a class="indexterm" name="d0e21807"></a>
+<code class="literal">SequenceSchemaSQL</code>: 
+Additional phrasing to use with <code class="literal">SequenceSQL</code>.  
+Defaults to <code class="literal">null</code>.
+                    </p></li><li><p><a name="DBDictionary.SimulateLocking"></a>
+                    <a class="indexterm" name="d0e21827"></a>
+<code class="literal">SimulateLocking</code>: Some databases do not support pessimistic
+locking, which will result in an exception when you attempt a 
+transaction while using the pessimistic lock manager. 
+Setting this property to <code class="literal">true</code> suppresses the
+locking of rows in the database, thereby allowing pessimistic transactions 
+even on databases that do not support locking. At the same time, setting this
+property to <code class="literal">true</code> means that you do not obtain the semantics 
+of a pessimistic
+transaction with the database. Defaults to <code class="literal">false</code>.
+                    </p></li><li><p><a name="DBDictionary.SmallintTypeName"></a>
+                    <a class="indexterm" name="d0e21848"></a>
+<code class="literal">SmallintTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.SMALLINT</code>. This is used only when the schema
+is generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.StorageLimitationsFatal"></a>
+                    <a class="indexterm" name="d0e21866"></a>
+<code class="literal">StorageLimitationsFatal</code>: When true, any data
+truncation/rounding that is performed by the dictionary in order to store a
+value in the database will be treated as a fatal error, rather than just issuing
+a warning.
+                    </p></li><li><p><a name="DBDictionary.StoreCharsAsNumbers"></a>
+                    <a class="indexterm" name="d0e21878"></a>
+<code class="literal">StoreCharsAsNumbers</code>: Set this property to <code class="literal">false
+</code> to store Java <code class="literal">char</code> fields as <code class="literal">CHAR
+</code> values rather than numbers. Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.StoreLargeNumbersAsStrings"></a>
+                    <a class="indexterm" name="d0e21902"></a>
+<code class="literal">StoreLargeNumbersAsStrings</code>: When true, the dictionary 
+prefers to store Java fields of 
+type <code class="classname">BigInteger</code> and <code class="classname">BigDecimal</code>
+as string values in the database.  Likewise, the dictionary will instruct
+the mapping tool to map these Java types to character columns.   
+Because some databases have limitations on the number of digits that can 
+be stored in a numeric column (for example, Oracle can only store 38 
+digits), this option may be necessary for some applications.
+Note that this option may prevent OpenJPA from executing meaningful numeric 
+queries against the columns. Defaults to <code class="literal">false</code>.
+                    </p></li><li><p><a name="DBDictionary.StringLengthFunction"></a>
+                    <a class="indexterm" name="d0e21923"></a>
+<code class="literal">StringLengthFunction</code>: Name of the SQL function for getting
+the length of a string. Use the token <code class="literal">{0}</code> to represent the
+argument.
+                    </p></li><li><p><a name="DBDictionary.StructTypeName"></a>
+                    <a class="indexterm" name="d0e21938"></a>
+<code class="literal">StructTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.STRUCT</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.SubstringFunctionName"></a>
+                    <a class="indexterm" name="d0e21956"></a>
+<code class="literal">SubstringFunctionName</code>: Name of the SQL function for getting
+the substring of a string.
+                    </p></li><li><p><a name="DBDictionary.SupportsAlterTableWithAddColumn"></a>
+                    <a class="indexterm" name="d0e21968"></a>
+<code class="literal">SupportsAlterTableWithAddColumn</code>: When true, the database
+supports adding a new column in an ALTER TABLE statement. 
+Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsAlterTableWithDropColumn"></a>
+                    <a class="indexterm" name="d0e21983"></a>
+<code class="literal">SupportsAlterTableWithDropColumn</code>: When true, the database
+supports dropping a column in an ALTER TABLE statement. 
+Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsAutoAssign"></a>
+                    <a class="indexterm" name="d0e21998"></a>
+<code class="literal">SupportsAutoAssign</code>: 
+When true, the database supports auto-assign columns, where the value of 
+column is assigned upon insertion of the row into the database.
+Defaults to <code class="literal">false</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsCascadeDeleteAction"></a>
+                    <a class="indexterm" name="d0e22013"></a>
+<code class="literal">SupportsCascadeDeleteAction</code>: When true, the database supports
+the <code class="literal">CASCADE</code> delete action on foreign keys. 
+Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsCascadeUpdateAction"></a>
+                    <a class="indexterm" name="d0e22031"></a>
+<code class="literal">SupportsCascadeUpdateAction</code>: 
+When true, the database supports the <code class="literal">CASCADE</code> 
+update action on foreign keys.  Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsComments"></a>
+                    <a class="indexterm" name="d0e22049"></a>
+<code class="literal">SupportsComments</code>: 
+When true, comments can be associated with the table in the table creation 
+statement.  Defaults to <code class="literal">false</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsCorrelatedSubselect"></a>
+                    <a class="indexterm" name="d0e22064"></a>
+<code class="literal">SupportsCorrelatedSubselect</code>: 
+When true, the database supports correlated subselects.  Correlated 
+subselects are select statements nested within select statements that 
+refers to a column in the outer select statement.  For performance 
+reasons, correlated subselects are generally a last resort.
+Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsDefaultDeleteAction"></a>
+                    <a class="indexterm" name="d0e22079"></a>
+<code class="literal">SupportsDefaultDeleteAction</code>: When true, the database supports
+the <code class="literal">SET DEFAULT</code> delete action on foreign keys. 
+Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsDefaultUpdateAction"></a>
+                    <a class="indexterm" name="d0e22097"></a>
+<code class="literal">SupportsDefaultUpdateAction</code>: 
+When true, the database supports the <code class="literal">SET DEFAULT</code> update 
+action on foreign keys.  Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsDeferredConstraints"></a>
+                    <a class="indexterm" name="d0e22115"></a>
+<code class="literal">SupportsDeferredConstraints</code>: When true, the database 
+supports deferred constraints.  The
+database supports deferred constraints by checking for constraint 
+violations when the transaction commits, rather than checking for 
+violations immediately after receiving each SQL statement within the
+transaction. Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsDelimitedIdentifiers"></a>
+					<a class="indexterm" name="d0e22130"></a>
+<code class="literal">SupportsDelimitedIdentifiers</code>: When true, the database
+supports delimited identifiers. It defaults to <code class="literal">true</code>.					
+                	</p></li><li><p><a name="DBDictionary.SupportsForeignKeys"></a>
+                    <a class="indexterm" name="d0e22145"></a>
+<code class="literal">SupportsForeignKeys</code>: When true, the database supports foreign
+keys. Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsForeignKeysComposite"></a>
+                    <a class="indexterm" name="d0e22160"></a>
+<code class="literal">SupportsForeignKeysComposite</code>: When true, the database supports
+composite foreign keys. Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsGetGeneratedKeys"></a>
+                    <a class="indexterm" name="d0e22175"></a>
+<code class="literal">SupportsGetGeneratedKeys</code>: When true, OpenJPA will use
+<code class="methodname">java.sql.Statement.getGeneratedKeys</code> method to obtain
+values of auto-increment columns. When false, a query specified by
+<code class="literal">LastGeneratedKeyQuery</code> will be used for that purpose.
+If not set, the value will be auto-detected by querying the JDBC driver.
+Setting the value to true requires that the JDBC
+driver supports version 3.0 or higher of the JDBC specification
+and supports the <code class="methodname">java.sql.Statement.getGeneratedKeys</code>
+method.
+                    </p></li><li><p><a name="DBDictionary.SupportsHaving"></a>
+                    <a class="indexterm" name="d0e22198"></a>
+<code class="literal">SupportsHaving</code>: When true, the database supports HAVING
+clauses in selects.
+                    </p></li><li><p><a name="DBDictionary.SupportsLockingWithDistinctClause"></a>
+                    <a class="indexterm" name="d0e22212"></a>
+<code class="literal">SupportsLockingWithDistinctClause</code>: When true, the
+database supports <code class="literal">FOR UPDATE</code> select clauses with 
+<code class="literal">DISTINCT</code> clauses.
+                    </p></li><li><p><a name="DBDictionary.SupportsLockingWithInnerJoin"></a>
+                    <a class="indexterm" name="d0e22230"></a>
+<code class="literal">SupportsLockingWithInnerJoin</code>: When true, the database
+supports <code class="literal">FOR UPDATE</code> select clauses with inner join queries.
+                    </p></li><li><p><a name="DBDictionary.SupportsLockingWithMultipleTables"></a>
+                    <a class="indexterm" name="d0e22245"></a>
+<code class="literal">SupportsLockingWithMultipleTables</code>: When true, the
+database supports <code class="literal">FOR UPDATE</code> select clauses that select from
+multiple tables.
+                    </p></li><li><p><a name="DBDictionary.SupportsLockingWithOrderClause"></a>
+                    <a class="indexterm" name="d0e22260"></a>
+<code class="literal">SupportsLockingWithOrderClause</code>: When true, the database
+supports <code class="literal">FOR UPDATE</code> select clauses with <code class="literal">ORDER BY
+</code> clauses.
+                    </p></li><li><p><a name="DBDictionary.SupportsLockingWithOuterJoin"></a>
+                    <a class="indexterm" name="d0e22278"></a>
+<code class="literal">SupportsLockingWithOuterJoin</code>: When true, the database
+supports <code class="literal">FOR UPDATE</code> select clauses with outer join queries.
+                    </p></li><li><p><a name="DBDictionary.SupportsLockingWithSelectRange"></a>
+                    <a class="indexterm" name="d0e22293"></a>
+<code class="literal">SupportsLockingWithSelectRange</code>: When true, the database
+supports <code class="literal">FOR UPDATE</code> select clauses with queries that select a
+range of data using <code class="literal">LIMIT</code>, <code class="literal">TOP</code> or the
+database equivalent. Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsModOperator"></a>
+                    <a class="indexterm" name="d0e22317"></a>
+<code class="literal">SupportsModOperator</code>: 
+When true, the database supports the modulus operator (<code class="literal">%</code>) 
+instead of the <code class="literal">MOD</code> function.  
+Defaults to <code class="literal">false</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsMultipleNontransactionalResultSets"></a>
+<code class="literal">SupportsMultipleNontransactionalResultSets</code>: When true, a
+nontransactional connection is capable of having multiple open 
+<code class="classname">ResultSet</code> instances.
+                    </p></li><li><p><a name="DBDictionary.SupportsNullDeleteAction"></a>
+                    <a class="indexterm" name="d0e22347"></a>
+<code class="literal">SupportsNullDeleteAction</code>: When true, the database supports 
+the <code class="literal">SET NULL</code> delete action on foreign keys. 
+Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsNullTableForGetColumns"></a>
+                    <a class="indexterm" name="d0e22365"></a>
+<code class="literal">SupportsNullTableForGetColumns</code>: When true, the database
+supports passing a <code class="literal">null</code> parameter to <code class="methodname">
+DatabaseMetaData.getColumns</code> as an optimization to get information
+about all the tables. Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsNullTableForGetImportedKeys"></a>
+                    <a class="indexterm" name="d0e22388"></a>
+<code class="literal">SupportsNullTableForGetImportedKeys</code>: When true, the
+database supports passing a <code class="literal">null</code> parameter to <code class="methodname">
+DatabaseMetaData.getImportedKeys</code> as an optimization to get
+information about all the tables. Defaults to <code class="literal">false</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsNullTableForGetIndexInfo"></a>
+                    <a class="indexterm" name="d0e22411"></a>
+<code class="literal">SupportsNullTableForGetIndexInfo</code>: When true, the database
+supports passing a <code class="literal">null</code> parameter to <code class="methodname">
+DatabaseMetaData.getIndexInfo</code> as an optimization to get information
+about all the tables. Defaults to <code class="literal">false</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsNullTableForGetPrimaryKeys"></a>
+                    <a class="indexterm" name="d0e22434"></a>
+<code class="literal">SupportsNullTableForGetPrimaryKeys</code>: When true, the
+database supports passing a <code class="literal">null</code> parameter to <code class="methodname">
+DatabaseMetaData.getPrimaryKeys</code> as an optimization to get
+information about all the tables. Defaults to <code class="literal">false</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsNullUpdateAction"></a>
+                    <a class="indexterm" name="d0e22457"></a>
+<code class="literal">SupportsNullUpdateAction</code>: 
+When true, the database supports the <code class="literal">SET NULL</code> update 
+action on foreign keys.  Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsQueryTimeout"></a>
+                    <a class="indexterm" name="d0e22475"></a>
+<code class="literal">SupportsQueryTimeout</code>: When true, the JDBC driver supports
+calls to <code class="methodname"> java.sql.Statement.setQueryTimeout</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsRestrictDeleteAction"></a>
+                    <a class="indexterm" name="d0e22492"></a>
+<code class="literal">SupportsRestrictDeleteAction</code>: When true, the database 
+supports the <code class="literal">RESTRICT</code> delete action on foreign keys. 
+Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsRestrictUpdateAction"></a>
+                    <a class="indexterm" name="d0e22510"></a>
+<code class="literal">SupportsRestrictUpdateAction</code>: 
+When true, the database supports the <code class="literal">RESTRICT</code> update 
+action on foreign keys.  Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsSchemaForGetColumns"></a>
+                    <a class="indexterm" name="d0e22528"></a>
+<code class="literal">SupportsSchemaForGetColumns</code>: When false, the database
+driver does not support using the schema name for schema reflection on column
+names.
+                    </p></li><li><p><a name="DBDictionary.SupportsSchemaForGetTables"></a>
+                    <a class="indexterm" name="d0e22542"></a>
+<code class="literal">SupportsSchemaForGetTables</code>: If false, then the database
+driver does not support using the schema name for schema reflection on table
+names.
+                    </p></li><li><p><a name="DBDictionary.SupportsSelectEndIndex"></a>
+                    <a class="indexterm" name="d0e22556"></a>
+<code class="literal">SupportsSelectEndIndex</code>: When true, the database can create a
+select that is limited to the first N results.
+                    </p></li><li><p><a name="DBDictionary.SupportsSelectForUpdate"></a>
+                    <a class="indexterm" name="d0e22570"></a>
+<code class="literal">SupportsSelectForUpdate</code>: When true, the database supports
+<code class="literal">SELECT</code> statements with a pessimistic locking 
+(<code class="literal">FOR UPDATE</code>) clause. Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsSelectStartIndex"></a>
+                    <a class="indexterm" name="d0e22591"></a>
+<code class="literal">SupportsSelectStartIndex</code>: When true, the database can create a
+select that skips the first N results.
+                    </p></li><li><p><a name="DBDictionary.SupportsSimpleCaseExpression"></a>
+                    <a class="indexterm" name="d0e22605"></a>
+<code class="literal">SupportsSimpleCaseExpression</code>: When true, the database supports
+the simple form of <code class="literal">CASE</code> expression:
+<code class="literal">CASE &lt;a&gt; WHEN &lt;b&gt; THEN &lt;c&gt; WHEN &lt;d&gt; THEN &lt;e&gt; ELSE &lt;f&gt; END</code>.
+When false, the general form of <code class="literal">CASE</code> expression will be used:
+<code class="literal">CASE WHEN &lt;a&gt; = &lt;b&gt; THEN &lt;c&gt; WHEN &lt;a&gt; = &lt;d&gt; THEN &lt;e&gt; ELSE &lt;f&gt; END</code>.
+Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsSubselect"></a>
+                    <a class="indexterm" name="d0e22632"></a>
+                    <a class="indexterm" name="d0e22638"></a>
+<code class="literal">SupportsSubselect</code>: When true, the database supports subselects
+in queries.
+                    </p></li><li><p><a name="DBDictionary.SupportsTimestampNanos"></a>
+                    <a class="indexterm" name="d0e22652"></a>
+<code class="literal">SupportsTimestampNanos</code>: When true, the database supports 
+nanoseconds with TIMESTAMP columns.  
+Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsUniqueConstraints"></a>
+                    <a class="indexterm" name="d0e22665"></a>
+<code class="literal">SupportsUniqueConstraints</code>: When true, the database supports
+unique constraints. Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="DBDictionary.SupportsXMLColumn"></a>
+                    <a class="indexterm" name="d0e22680"></a>
+<code class="literal">SupportsXMLColumn</code>:
+When true, the database supports an XML column type.  See 
+<a href="ref_guide_mapping_jpa.html#ref_guide_xmlmapping" title="7.10.&nbsp; XML Column Mapping">Section&nbsp;7.10, &#8220;
+              XML Column Mapping
+            &#8221;</a>
+for information on using this capability.  Defaults to <code class="literal">false</code>.
+                    </p></li><li><p><a name="DBDictionary.SystemSchemas"></a>
+                    <a class="indexterm" name="d0e22697"></a>
+<code class="literal">SystemSchemas</code>: A comma-separated list of schema names that
+should be ignored.
+                    </p></li><li><p><a name="DBDictionary.SystemTables"></a>
+                    <a class="indexterm" name="d0e22711"></a>
+<code class="literal">SystemTables</code>: A comma-separated list of table names that
+should be ignored.
+                    </p></li><li><p><a name="DBDictionary.TableForUpdateClause"></a>
+                    <a class="indexterm" name="d0e22725"></a>
+                    <a class="indexterm" name="d0e22731"></a>
+<code class="literal">TableForUpdateClause</code>: The clause to append to the end of
+each table alias in queries that obtain pessimistic locks. 
+Defaults to <code class="literal">null</code>.
+                    </p></li><li><p><a name="DBDictionary.TableTypes"></a>
+                    <a class="indexterm" name="d0e22746"></a>
+<code class="literal">TableTypes</code>: Comma-separated list of table types to use when
+looking for tables during schema reflection, as defined in the <code class="methodname">
+java.sql.DatabaseMetaData.getTableInfo</code> JDBC method. An example is:
+<code class="literal">"TABLE,VIEW,ALIAS"</code>. Defaults to <code class="literal">"TABLE"</code>.
+                    </p></li><li><p><a name="DBDictionary.TimeTypeName"></a>
+                    <a class="indexterm" name="d0e22769"></a>
+<code class="literal">TimeTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.TIME</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.TimestampTypeName"></a>
+                    <a class="indexterm" name="d0e22787"></a>
+<code class="literal">TimestampTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.TIMESTAMP</code>. This is used only when the schema
+is generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.TinyintTypeName"></a>
+                    <a class="indexterm" name="d0e22805"></a>
+<code class="literal">TinyintTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.TINYINT</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.ToLowerCaseFunction"></a>
+                    <a class="indexterm" name="d0e22823"></a>
+<code class="literal">ToLowerCaseFunction</code>: Name of the SQL function for converting
+a string to lower case. Use the token <code class="literal">{0}</code> to represent the
+argument.
+                    </p></li><li><p><a name="DBDictionary.ToUpperCaseFunction"></a>
+                    <a class="indexterm" name="d0e22838"></a>
+<code class="literal">ToUpperCaseFunction</code>: SQL function call for converting a
+string to upper case. Use the token <code class="literal">{0}</code> to represent the
+argument.
+                    </p></li><li><p><a name="DBDicationary.TrailingDelimiter"></a>
+                	<a class="indexterm" name="d0e22853"></a>
+<code class="literal">TrailingDelimiter</code>: The characters to use as the trailing delimiter
+for a delimited identifier. The default value is a double quote,
+<code class="literal">(")</code>. See
+<a href="ref_guide_dbsetup_dbsupport.html#ref_guide_dbsetup_dbsupport_delim_id" title="4.6.&nbsp; Delimited Identifiers Support">Section&nbsp;4.6, &#8220;
+        		Delimited Identifiers Support
+        	&#8221;</a> for
+the default value for some specific databases.               	
+                	</p></li><li><p><a name="DBDictionary.TrimBothFunction"></a>
+                    <a class="indexterm" name="d0e22870"></a>
+<code class="literal">TrimBothFunction</code>: 
+The SQL function call to trim any number of a particular character 
+from both the start and end of a string.
+Note: some databases do not support specifying the character in which
+case only spaces or whitespace can be trimmed.
+Use the token <code class="literal">{1}</code> when possible to represent the character, 
+and the token <code class="literal">{0}</code> to represent the string.  
+Defaults to <code class="literal">"TRIM(BOTH {1} FROM {0})"</code>.
+                    </p></li><li><p><a name="DBDictionary.TrimLeadingFunction"></a>
+                    <a class="indexterm" name="d0e22891"></a>
+<code class="literal">TrimLeadingFunction</code>: 
+The SQL function call to trim any number of a particular character 
+from the start of a string.
+Note: some databases do not support specifying the character in which
+case only spaces or whitespace can be trimmed.
+Use the token <code class="literal">{1}</code> when possible to represent the character, 
+and the token <code class="literal">{0}</code> to represent the string.  
+Defaults to <code class="literal">"TRIM(LEADING {1} FROM {0})"</code>.
+                    </p></li><li><p><a name="DBDictionary.TrimTrailingFunction"></a>
+                    <a class="indexterm" name="d0e22912"></a>
+<code class="literal">TrimTrailingFunction</code>: 
+The SQL function call to trim any number of a particular character 
+from the end of a string.
+Note: some databases do not support specifying the character in which
+case only spaces or whitespace can be trimmed.
+Use the token <code class="literal">{1}</code> when possible to represent the character, 
+and the token <code class="literal">{0}</code> to represent the string.  
+Defaults to <code class="literal">"TRIM(TRAILING {1} FROM {0})"</code>.
+                    </p></li><li><p><a name="DBDictionary.UseGetBestRowIdentifierForPrimaryKeys"></a>
+                    <a class="indexterm" name="d0e22933"></a>
+<code class="literal">UseGetBestRowIdentifierForPrimaryKeys</code>: When true, 
+metadata queries will use <code class="methodname">DatabaseMetaData.getBestRowIdentifier
+</code> to obtain information about primary keys, rather than <code class="methodname">
+DatabaseMetaData.getPrimaryKeys</code>.
+                    </p></li><li><p><a name="DBDictionary.UseGetBytesForBlobs"></a>
+                    <a class="indexterm" name="d0e22953"></a>
+<code class="literal">UseGetBytesForBlobs</code>: When true, <code class="methodname">
+ResultSet.getBytes</code> will be used to obtain blob data rather than
+<code class="methodname">ResultSet.getBinaryStream</code>.
+                    </p></li><li><p><a name="DBDictionary.UseGetObjectForBlobs"></a>
+                    <a class="indexterm" name="d0e22971"></a>
+<code class="literal">UseGetObjectForBlobs</code>: When true, <code class="methodname">
+ResultSet.getObject</code> will be used to obtain blob data rather than
+<code class="methodname">ResultSet.getBinaryStream</code>.
+                    </p></li><li><p><a name="DBDictionary.UseGetStringForClobs"></a>
+                    <a class="indexterm" name="d0e22989"></a>
+<code class="literal">UseGetStringForClobs</code>: When true, <code class="methodname">
+ResultSet.getString</code> will be used to obtain clob data rather than
+<code class="methodname">ResultSet.getCharacterStream</code>.
+                    </p></li><li><p><a name="DBDictionary.UseSchemaName"></a>
+                    <a class="indexterm" name="d0e23007"></a>
+<code class="literal">UseSchemaName</code>: If <code class="literal">false</code>, then avoid
+including the schema name in table name references. Defaults to <code class="literal">true
+</code>.
+                    </p></li><li><p><a name="DBDictionary.UseSetBytesForBlobs"></a>
+                    <a class="indexterm" name="d0e23025"></a>
+<code class="literal">UseSetBytesForBlobs</code>: When true, <code class="methodname">
+PreparedStatement.setBytes</code> will be used to set blob data, rather
+than <code class="methodname">PreparedStatement.setBinaryStream</code>.
+                    </p></li><li><p><a name="DBDictionary.UseSetStringForClobs"></a>
+                    <a class="indexterm" name="d0e23043"></a>
+<code class="literal">UseSetStringForClobs</code>: When true, <code class="methodname">
+PreparedStatement.setString</code> will be used to set clob data, rather
+than <code class="methodname">PreparedStatement.setCharacterStream</code>.
+                    </p></li><li><p><a name="DBDictionary.UseWildCardForCount"></a>
+                    <a class="indexterm" name="d0e23061"></a>
+<code class="literal">UseWildCardForCount</code>: When true, the JPQL <code class="literal">COUNT</code>
+aggregate function will be translated into SQL <code class="literal">COUNT(*)</code> expression
+if the SQL query does not involve joins. Defaults to <code class="literal">false</code>.
+                    </p></li><li><p><a name="DBDictionary.ValidationSQL"></a>
+                    <a class="indexterm" name="d0e23082"></a>
+                    <a class="indexterm" name="d0e23088"></a>
+<code class="literal">ValidationSQL</code>: The SQL used to validate that a connection is
+still in a valid state. For example, <code class="literal">"SELECT SYSDATE FROM DUAL"
+</code> for Oracle.
+                    </p></li><li><p><a name="DBDictionary.VarbinaryTypeName"></a>
+                    <a class="indexterm" name="d0e23103"></a>
+<code class="literal">VarbinaryTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.VARBINARY</code>. This is used only when the schema
+is generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.VarcharTypeName"></a>
+                    <a class="indexterm" name="d0e23121"></a>
+<code class="literal">VarcharTypeName</code>: The overridden default column type for
+<code class="literal">java.sql.Types.VARCHAR</code>. This is used only when the schema is
+generated by the <code class="literal">mappingtool</code>.
+                    </p></li><li><p><a name="DBDictionary.XmlTypeName"></a>
+                    <a class="indexterm" name="d0e23139"></a>
+<code class="literal">XmlTypeName</code>:
+The column type name for XML columns.  This
+property is set automatically in the dictionary and should not need to be
+overridden.  It is used only when the schema is generated using the 
+<code class="literal">mappingtool</code>.  Defaults to <code class="literal">"XML"</code>.
+                    </p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_dbsetup_dbsupport_firebird"></a>4.2.&nbsp;
+                FirebirdDictionary Properties
+            </h3></div></div></div><a class="indexterm" name="d0e23158"></a><p>
+The <code class="literal">firebird</code> dictionary understands the following additional
+properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p><a name="FirebirdDictionary.FirebirdVersion"></a>
+                    <a class="indexterm" name="d0e23172"></a>
+<code class="literal">FirebirdVersion</code>: The database version OpenJPA connects to.
+This property affects the SQL statements executed by OpenJPA.
+Available values are: 15, 20 and 21
+- they indicate Firebird versions 1.5, 2.0 and 2.1 respectively.
+If not set, the value will be auto-detected.
+                    </p></li><li><p><a name="FirebirdDictionary.IndexedVarcharMaxSizeFB15"></a>
+                    <a class="indexterm" name="d0e23184"></a>
+<code class="literal">IndexedVarcharMaxSizeFB15</code>: Firebird 1.5 imposes
+tight limits on index size. In particular, an indexed
+<code class="literal">VARCHAR</code> column size cannot exceed 252.
+When <a href="ref_guide_mapping.html#ref_guide_mapping_mappingtool" title="1.&nbsp; Forward Mapping">schema is created</a>,
+OpenJPA will use this property to reduce the size
+of indexed <code class="literal">VARCHAR</code> columns.
+Defaults to 252 but you might want to decrease this value if multi-column
+indexes are used. If the Firebird version is 2.0 or later or
+schema creation is not used, this property does not matter.
+                    </p></li><li><p><a name="FirebirdDictionary.RangeSyntax"></a>
+                    <a class="indexterm" name="d0e23205"></a>
+<code class="literal">RangeSyntax</code>: Firebird 2.0 and later support two
+ways of handling queries that select a range of data:
+<code class="literal">"FIRST &lt;p&gt; SKIP &lt;q&gt;"</code> and
+<code class="literal">"ROWS &lt;m&gt; TO &lt;n&gt;"</code>. Earlier versions support only
+<code class="literal">"FIRST &lt;p&gt; SKIP &lt;q&gt;"</code> syntax.
+This property determines the syntax to be used.
+Available values are:
+<code class="literal">"firstskip"</code> and <code class="literal">"rows"</code>.
+Defaults to using <code class="literal">"ROWS &lt;m&gt; TO &lt;n&gt;"</code> if the
+Firebird version is 2.0 or later, and
+<code class="literal">"FIRST &lt;p&gt; SKIP &lt;q&gt;"</code> otherwise.
+                    </p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_dbsetup_dbsupport_mysql"></a>4.3.&nbsp;
+                MySQLDictionary Properties
+            </h3></div></div></div><a class="indexterm" name="d0e23238"></a><p>
+The <code class="literal">mysql</code> dictionary also understands the following
+properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p><a name="MySQLDictionary.DriverDeserializesBlobs"></a>
+                    <a class="indexterm" name="d0e23252"></a>
+<code class="literal">DriverDeserializesBlobs</code>: Many older MySQL drivers
+automatically deserialize BLOBs on calls to
+<code class="methodname">ResultSet.getObject</code>. The
+<code class="classname">MySQLDictionary</code> overrides the standard <code class="methodname">
+DBDictionary.getBlobObject</code> method to take this into account.
+Defaults to <code class="literal">true</code> if driver version is less than 5.0,
+<code class="literal">false</code> otherwise. If your driver deserializes
+automatically, you may want to set this property to <code class="literal">true</code>.
+                    </p></li><li><p><a name="MySQLDictionary.TableType"></a>
+                    <a class="indexterm" name="d0e23282"></a>
+<code class="literal">TableType</code>: The MySQL table type to use when creating tables.
+Defaults to <code class="literal">"innodb"</code>.
+                    </p></li><li><p><a name="MySQLDictionary.UseClobs"></a>
+                    <a class="indexterm" name="d0e23297"></a>
+<code class="literal">UseClobs</code>: Some older versions of MySQL do not handle CLOBs
+correctly. To disable CLOB functionality, set this to <code class="literal">false</code>. 
+Defaults to <code class="literal">true</code>.
+                    </p></li><li><p><a name="MySQLDictionary.OptimizeMultiTableDeletes"></a>
+                    <a class="indexterm" name="d0e23315"></a>
+<code class="literal">OptimizeMultiTableDeletes</code>: MySQL as of version 4.0.0
+supports multiple tables in <code class="literal">DELETE</code> statements. When
+this option is set, OpenJPA will use that syntax when doing bulk deletes
+from multiple tables. This can happen when the
+<code class="literal">deleteTableContents</code> <code class="literal">SchemaTool</code>
+action is used. (See <a href="ref_guide_schema_schematool.html" title="13.&nbsp; Schema Tool">Section&nbsp;13, &#8220;
+            Schema Tool
+        &#8221;</a> for
+more info about <code class="literal">deleteTableContents</code>.) Defaults to
+<code class="literal">false</code>, since the statement may fail if using InnoDB
+tables and delete constraints.
+                    </p></li></ul></div><p>
+Starting with Connector/J 3.1.7, MySQL supports a variant of the driver 
+<code class="literal">com.mysql.jdbc.ReplicationDriver</code> that automatically sends 
+queries to a read/write master, or a failover or round-robin load balanced set 
+of slaves based on the state of read-only status of the connection. 
+See  <a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://dev.mysql.com/doc/refman/5.1/en/connector-j-reference-replication-connection.html" target="_top">
+MySQL Reference</a> for more details. 
+                    </p><p>
+This replication feature can be used transparently with OpenJPA application by
+following configuration:
+                    </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">openjpa.ConnectionDriverName: com.mysql.jdbc.ReplicationDriver</code>
+             </p></li><li><p>
+<code class="literal">openjpa.ConnectionFactoryProperties: autoReconnect=true,roundRobinLoadBalance=true</code>
+             </p><p>
+OpenJPA will use a read-only connection with replicated database configuration
+and will automatically switch the connection to a non-readonly mode if the
+transaction is writing to the database.             
+             </p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_dbsetup_dbsupport_oracle"></a>4.4.&nbsp;
+                OracleDictionary Properties
+            </h3></div></div></div><a class="indexterm" name="d0e23369"></a><p>
+The <code class="literal">oracle</code> dictionary understands the following additional
+properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p><a name="OracleDictionary.UseTriggersForAutoAssign"></a>
+                    <a class="indexterm" name="d0e23383"></a>
+                    <a class="indexterm" name="d0e23389"></a>
+<code class="literal">UseTriggersForAutoAssign</code>: When true, OpenJPA will allow
+simulation of auto-increment columns by the use of Oracle triggers. OpenJPA will
+assume that the current sequence value from the sequence specified in the
+<code class="literal">AutoAssignSequenceName</code> parameter will hold the value of the
+new primary key for rows that have been inserted. For more details on
+auto-increment support, see <a href="ref_guide_pc_oid.html#ref_guide_pc_oid_pkgen_autoinc" title="4.4.&nbsp; Autoassign / Identity Strategy Caveats">Section&nbsp;4.4, &#8220;
+                Autoassign / Identity Strategy Caveats
+            &#8221;</a>
+.
+                    </p></li><li><p><a name="OracleDictionary.AutoAssignSequenceName"></a>
+                    <a class="indexterm" name="d0e23408"></a>
+                    <a class="indexterm" name="d0e23414"></a>
+<code class="literal">AutoAssignSequenceName</code>: The global name of the sequence that
+OpenJPA will assume to hold the value of primary key value for rows that use
+auto-increment. If left unset, OpenJPA will use a sequence named <code class="literal">
+"&lt;table name&gt;_&lt;column name&gt;_SEQ"</code>.
+                    </p></li><li><p><a name="OracleDictionary.MaxEmbeddedBlobSize"></a>
+                    <a class="indexterm" name="d0e23431"></a>
+                    <a class="indexterm" name="d0e23437"></a>
+<code class="literal">MaxEmbeddedBlobSize</code>: Oracle is unable to persist BLOBs using
+the embedded update method when BLOBs get over a certain size. The size depends
+on database configuration, e.g. encoding. This property defines the maximum size
+BLOB to persist with the embedded method. Defaults to 4000 bytes.
+                    </p></li><li><p><a name="OracleDictionary.MaxEmbeddedClobSize"></a>
+                    <a class="indexterm" name="d0e23449"></a>
+                    <a class="indexterm" name="d0e23455"></a>
+<code class="literal">MaxEmbeddedClobSize</code>: Oracle is unable to persist CLOBs using
+the embedded update method when CLOBs get over a certain size. The size depends
+on database configuration, e.g. encoding. This property defines the maximum size
+CLOB to persist with the embedded method. Defaults to 4000 characters.
+                    </p></li><li><p><a name="OracleDictionary.UseSetFormOfUseForUnicode"></a>
+<code class="literal">UseSetFormOfUseForUnicode</code>: Prior to Oracle 10i, statements
+executed against unicode capable columns (the <code class="literal">NCHAR</code>,
+<code class="literal">NVARCHAR</code>, <code class="literal">NCLOB</code> Oracle types) required
+special handling to be able to store unicode values. Setting this property to
+<code class="literal">true</code> (the default) will cause OpenJPA to attempt to detect when the column is
+one of these types, and if so, will attempt to correctly configure the statement
+using the <code class="methodname"> OraclePreparedStatement.setFormOfUse</code>. For
+more details, see the Oracle
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://www.oracle.com/technology/sample_code/tech/java/codesnippet/jdbc/nchar/readme.html" target="_top">
+Readme For NChar</a>. Note that this can only work if OpenJPA is able to
+access the underlying <code class="classname">OraclePreparedStatement</code> instance,
+which may not be possible when using some third-party datasources. If OpenJPA
+detects that this is the case, a warning will be logged.
+                    </p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_dbsetup_dbsupport_sybase"></a>4.5.&nbsp;
+                SybaseDictionary Properties
+            </h3></div></div></div><a class="indexterm" name="d0e23494"></a><p>
+The <code class="literal">sybase</code> dictionary understands the following additional
+properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p><a name="SybaseDictionary.IgnoreNumericTruncation"></a>
+                    <a class="indexterm" name="d0e23508"></a>
+<code class="literal">IgnoreNumericTruncation</code>: If true, Sybase will ignore numeric
+truncation on SQL operations.  Otherwise, if numeric truncation is detected, 
+the operation will fail.
+                    </p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_dbsetup_dbsupport_delim_id"></a>4.6.&nbsp;
+        		Delimited Identifiers Support
+        	</h3></div></div></div><p>
+OpenJPA provides support for delimited identifiers as defined in the 2.0 JPA specification. 
+Identifiers can either be automatically delimited or individually manually
+delimited. To have OpenJPA automatically delimit identifiers, add the
+<code class="literal">&lt;delimited-identifiers/&gt;</code> tag
+to the mapping file as documented in the JPA specification. 
+			</p><p>
+You can manually delimit individual identifiers either in the annotations or in the
+definitions in the mapping file. To delimit an identifier element in an annotation,
+surround it with double quotes. In a mapping file, add
+<code class="literal">&amp;quote;</code> to both the beginning and end of the element.	      	
+        	</p><p>
+When delimited identifiers has been specified, OpenJPA will delimit SQL identifiers
+in the generated SQL statements. It will use database-specific delimiters as defined
+in the appropriate database dictionary. By default, the leading and trailing
+delimiters are both double quotes, <code class="literal">(")</code>. Different defaults for other
+dictionaries provided by OpenJPA are in the following table.       	
+        	</p><div class="table"><a name="d0e23535"></a><p class="title"><b>Table&nbsp;4.1.&nbsp;
+        			Default delimiters for delimited identifiers
+        		</b></p><div class="table-contents"><table summary="&#xA;        Default delimiters for delimited identifiers&#xA;        " border="1"><colgroup><col align="left"><col align="left"><col align="left"></colgroup><thead><tr><th align="left">
+                        		Dictionary
+                    		</th><th align="left">
+                    			Leading Delimiter
+                    		</th><th align="left">
+                    			Trailing Delimiter
+                    		</th></tr></thead><tbody><tr><td align="left">
+                    			MySQLDictionary
+                    		</td><td align="center">
+                    			`
+                    		</td><td align="center">
+                    			`
+                    		</td></tr><tr><td align="left">
+                    			AccessDictionary
+                    		</td><td align="center">
+                    			[
+                    		</td><td align="center">
+                    			]
+                    		</td></tr></tbody></table></div></div><br class="table-break"><p>
+Some databases support more than one set of delimiters, often based on configuration.
+If you need values different than the default values, you can set the
+<a href="ref_guide_dbsetup_dbsupport.html#DBDicationary.LeadingDelimiter"><code class="literal">LeadingDelimiter</code></a>
+and the
+<a href="ref_guide_dbsetup_dbsupport.html#DBDicationary.TrailingDelimiter"><code class="literal">TrailingDelimiter</code></a>
+dictionary properties.
+        	</p><p>
+You can specify whether or not the particular database that you are using supports delimited
+identifiers by setting the 
+<a href="ref_guide_dbsetup_dbsupport.html#DBDictionary.SupportsDelimitedIdentifiers"><code class="literal">SupportsDelimitedIdentifiers</code></a> 
+dictionary property. If this value is set to <code class="literal">false</code>, identifiers will not be automatically
+delimited, even if the <code class="literal">&lt;delimited-identifiers/&gt;</code> tag is specified
+in the mapping file.      	
+        	</p><p>
+<code class="literal">Limitation:</code> The <code class="literal">columnDefinition</code> elements in identifiers
+are not automatically delimited by OpenJPA when using the 
+<code class="literal">&lt;delimited-identifiers/&gt;</code> tag
+in the mapping file. If you want these to be delimited, you must manually delimit them in
+the annotation or mapping file definitions.      	
+        	</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ref_guide_dbsetup_sqlconn.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ref_guide_dbsetup.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ref_guide_dbsetup_isolation.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">3.&nbsp;
+            Runtime Access to DataSource
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;5.&nbsp;
+            Setting the Transaction Isolation
+        </td></tr></table></div></body></html>

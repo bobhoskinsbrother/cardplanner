@@ -1,0 +1,99 @@
+package uk.co.itstherules.cardplanner.model;
+
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+import java.util.List;
+
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+import org.junit.Test;
+import org.junit.internal.matchers.TypeSafeMatcher;
+
+import uk.co.itstherules.cardplanner.model.CachedInstance.Identities;
+import uk.co.itstherules.cardplanner.model.type.EffortTypeModel;
+import uk.co.itstherules.cardplanner.model.type.ValueTypeModel;
+import uk.co.itstherules.yawf.model.PageModel;
+import uk.co.itstherules.yawf.model.ProcessStepModel;
+import uk.co.itstherules.yawf.model.ProcessStepReferenceModel;
+import uk.co.itstherules.yawf.model.RouteModel;
+import uk.co.itstherules.yawf.model.SimpleAttachmentModel;
+import uk.co.itstherules.yawf.model.TemplateModel;
+import uk.co.itstherules.yawf.security.objectcache.GroupModel;
+import uk.co.itstherules.yawf.security.objectcache.PermissionModel;
+
+public class CachedInstanceTest {
+	
+	@Test
+	public void checkThatDefaultObjectsAreStored() {
+		FakeObjectCache fakeObjectCache = new FakeObjectCache();
+		CachedInstance unit = new CachedInstance();
+		
+		unit.initialise(fakeObjectCache);
+		
+		List<Object> objects = fakeObjectCache.getObjects();
+		assertThat(objects, contains(1, ConfigurationModel.class));
+		ConfigurationModel configurationModel = findFirst(ConfigurationModel.class, objects);
+		assertFalse(configurationModel.getFirstRun().booleanValue());
+		
+		assertThat(objects, contains(1, ValueTypeModel.class));
+		ValueTypeModel valueTypeModel = findFirst(ValueTypeModel.class, objects);
+		assertThat(valueTypeModel.getIdentity(), is(Identities.CURRENCY_VALUE_TYPE));
+		
+		
+		assertThat(objects, contains(1, ValueModel.class));
+		assertThat(objects, contains(1, EffortTypeModel.class));
+		assertThat(objects, contains(1, EffortModel.class));
+		assertThat(objects, contains(1, SimpleAttachmentModel.class));
+		assertThat(objects, contains(1, CardModel.class));
+		assertThat(objects, contains(1, CardTypeModel.class));
+		assertThat(objects, contains(1, PermissionModel.class));
+		assertThat(objects, contains(1, EmailDetailsModel.class));
+		assertThat(objects, contains(2, PersonModel.class));
+		assertThat(objects, contains(2, GroupModel.class));
+		assertThat(objects, contains(3, RouteModel.class));
+		assertThat(objects, contains(4, StatusModel.class));
+		assertThat(objects, contains(7, PageModel.class));
+		assertThat(objects, contains(10, TemplateModel.class));
+		assertThat(objects, contains(12, ProcessStepModel.class));
+		assertThat(objects, contains(12, ProcessStepReferenceModel.class));
+	}
+	
+	
+	private <T> T findFirst(Class<T> theClass, List<Object> objects) {
+		for (Object object : objects) {
+			if(theClass.equals(object.getClass())) return theClass.cast(object);
+		}
+		throw new RuntimeException();
+	}
+
+
+	private Matcher<List<Object>> contains(int amount, Class<?> theClass) {
+		return new ContainsAmountOfInstancesOfClasses(amount, theClass);
+	}
+
+	private static class ContainsAmountOfInstancesOfClasses extends TypeSafeMatcher<List<Object>> {
+
+		private final int amount;
+		private final Class<?> theClass;
+
+		public ContainsAmountOfInstancesOfClasses(int amount, Class<?> theClass) {
+			this.amount = amount;
+			this.theClass = theClass;
+		}
+
+		public void describeTo(Description description) {
+			description.appendText(new StringBuilder(theClass.getCanonicalName()).append(" was expected ").append(amount).append(" of times in the list").toString());
+		}
+
+		@Override
+		public boolean matchesSafely(List<Object> objects) {
+			int count = 0;
+			for (Object object : objects) {
+		        if(theClass.equals(object.getClass())) count++;
+	        }
+			return count == amount;
+		}
+		
+	}
+}

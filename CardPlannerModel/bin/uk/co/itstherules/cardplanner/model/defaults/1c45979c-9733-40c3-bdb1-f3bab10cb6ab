@@ -1,0 +1,6 @@
+# SIGN_UP_SHOW_ROUTE, 1c45979c-9733-40c3-bdb1-f3bab10cb6ab, RouteModel.class
+
+title=SignUp Show
+routeController=SignUp
+routeAction=Show
+routeIdentity=0

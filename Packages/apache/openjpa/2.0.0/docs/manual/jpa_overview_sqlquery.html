@@ -1,0 +1,62 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;12.&nbsp; SQL Queries</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="jpa_overview.html" title="Part&nbsp;2.&nbsp;Java Persistence API"><link rel="prev" href="ch13s04.html" title="4.&nbsp;Generation of Canonical MetaModel classes"><link rel="next" href="jpa_overview_sqlquery_obj.html" title="2.&nbsp; Retrieving Persistent Objects with SQL"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;12.&nbsp;
+        SQL Queries
+    </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch13s04.html">Prev</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;2.&nbsp;Java Persistence API</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_sqlquery_obj.html">Next</a></td></tr></table><hr></div><div class="chapter" lang="en" id="jpa_overview_sqlquery"><div class="titlepage"><div><div><h2 class="title"><a name="jpa_overview_sqlquery"></a>Chapter&nbsp;12.&nbsp;
+        SQL Queries
+    </h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="jpa_overview_sqlquery.html#jpa_overview_sqlquery_create">1. 
+            Creating SQL Queries
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_sqlquery_obj.html">2. 
+            Retrieving Persistent Objects with SQL
+        </a></span></dt></dl></div><a class="indexterm" name="d0e11173"></a><a class="indexterm" name="d0e11178"></a><a class="indexterm" name="d0e11185"></a><a class="indexterm" name="d0e11192"></a><p>
+JPQL is a powerful query language, but there are times when it is not enough.
+Maybe you're migrating a JDBC application to JPA on a strict deadline, and you
+don't have time to translate your existing SQL selects to JPQL. Or maybe a
+certain query requires database-specific SQL your JPA implementation doesn't
+support. Or maybe your DBA has spent hours crafting the perfect select statement
+for a query in your application's critical path. Whatever the reason, SQL
+queries can remain an essential part of an application.
+    </p><p>
+You are probably familiar with executing SQL queries by obtaining a <code class="classname">
+java.sql.Connection</code>, using the JDBC APIs to create a <code class="classname">
+Statement</code>, and executing that <code class="classname">Statement</code> to
+obtain a <code class="classname">ResultSet</code>. And of course, you are free to
+continue using this low-level approach to SQL execution in your JPA
+applications. However, JPA also supports executing SQL queries through the
+<code class="classname">javax.persistence.Query</code> interface introduced in
+<a href="jpa_overview_query.html" title="Chapter&nbsp;10.&nbsp; JPA Query">Chapter&nbsp;10, <i xmlns:xlink="http://www.w3.org/1999/xlink">
+        JPA Query
+    </i></a>. Using a JPA SQL query, you can
+retrieve either persistent objects or projections of column values. The
+following sections detail each use.
+    </p><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="jpa_overview_sqlquery_create"></a>1.&nbsp;
+            Creating SQL Queries
+        </h2></div></div></div><a class="indexterm" name="d0e11223"></a><p>
+The <code class="classname">EntityManager</code> has two factory methods suitable for
+creating SQL queries:
+        </p><pre class="programlisting">
+public Query createNativeQuery(String sqlString, Class resultClass);
+public Query createNativeQuery(String sqlString, String resultSetMapping);
+</pre><p>
+The first method is used to create a new <code class="classname">Query</code> instance
+that will return instances of the specified class.
+        </p><p>
+The second method uses a <code class="literal">SqlResultSetMapping</code> to determine the
+type of object or objects to return. The example below shows these methods in
+action.
+        </p><div class="example"><a name="jpa_overview_sqlquery_createex"></a><p class="title"><b>Example&nbsp;12.1.&nbsp;
+                Creating a SQL Query
+            </b></p><div class="example-contents"><pre class="programlisting">
+EntityManager em = ...;
+Query query = em.createNativeQuery("SELECT * FROM MAG", Magazine.class);
+processMagazines(query.getResultList());
+</pre></div></div><br class="example-break"><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+            <a class="indexterm" name="d0e11253"></a>
+            <a class="indexterm" name="d0e11259"></a>
+In addition to SELECT statements, OpenJPA supports stored procedure invocations
+as SQL queries. OpenJPA will assume any SQL that does not begin with the
+<code class="literal">SELECT</code> keyword (ignoring case) is a stored procedure call,
+and invoke it as such at the JDBC level.
+            </p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch13s04.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="jpa_overview.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_sqlquery_obj.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">4.&nbsp;Generation of Canonical MetaModel classes&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;2.&nbsp;
+            Retrieving Persistent Objects with SQL
+        </td></tr></table></div></body></html>

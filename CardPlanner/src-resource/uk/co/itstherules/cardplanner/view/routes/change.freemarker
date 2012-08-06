@@ -1,0 +1,32 @@
+${tagBuilder.formStart("changeForm", "Routes", route.identity, action)}
+<fieldset class="gray_rounded">
+<h2>${action} Route</h2>
+<div style="clear:both; margin-top: 5px;">
+
+<strong>
+Title
+</strong>
+${tagBuilder.inputText({"name":"title", "class":"title", "maxlength":"500"}, route.title?html, violations.isViolated("title"), "Please input a title")}
+<br/>
+
+<strong>
+Controller
+</strong>
+${tagBuilder.inputText({"name":"routeController", "class":"title", "maxlength":"500"}, route.controller?html, violations.isViolated("controller"), "Please input a controller")}
+<br/>
+<strong>
+Action
+</strong>
+${tagBuilder.inputText({"name":"routeAction", "class":"title", "maxlength":"500"}, route.action?html, violations.isViolated("action"), "Please input an action")}
+<br/>
+
+<strong>
+Identity
+</strong>
+${tagBuilder.inputText({"name":"routeIdentity", "class":"title", "maxlength":"2"}, route.routeIdentity?html, violations.isViolated("routeIdentity"), "Please input an identity")}
+<br/>
+
+</div>
+<div style="float: left; margin-top: 10px;">${tagBuilder.submit(action)}</div>
+</fieldset>
+${tagBuilder.formEnd()}

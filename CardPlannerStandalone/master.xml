@@ -1,0 +1,62 @@
+<project name="CardPlannerStandaloneApplication" default="CardPlannerStandaloneApplication">
+
+    <import file="../Commons/common.xml" />
+    <property file="../Commons/environments/${computer.hostname}.properties" />
+    <property file="../CardPlanner/build.properties" />
+    <property file="../Commons/build.properties" />
+	<import file="${cardplanner.website.directory}/war.xml" />
+	<import file="${cardplanner.website.standalone.directory}/build.xml" />
+	<import file="${cardplanner.website.functional.directory}/build.xml" />
+
+	<target name="CardPlannerStandaloneApplication" depends="standalone.cardplanner.website.make,standalone.cardplanner.website.test" />
+
+	<target name="standalone.cardplanner.website.make">
+		<antcall target="WarCardPlanner.WarCardPlanner" />
+		<antcall target="CardPlannerStandalone.CardPlannerStandalone" />
+        <antcall target="standalone.cardplanner.website.make.zip"/>
+	</target>
+
+    <target name="standalone.cardplanner.website.test" unless="fudgeIt">
+        <antcall target="unzip.webapp" />
+        <antcall target="start.jetty" />
+        <antcall target="CardPlannerFunctionalTests.CardPlannerFunctionalTests" />
+    </target>
+
+	<target name="standalone.cardplanner.website.make.zip">
+		<zip destfile="${cardplanner.website.standalone.dist.directory}/${cardplanner.website.standalone}.zip">
+			<zipfileset dir="${cardplanner.website.standalone.directory}/sh" prefix="${cardplanner.website.standalone}" includes="**/*" />
+			<zipfileset file="${cardplanner.website.standalone.made.directory}/${cardplanner.website.standalone.jar}" prefix="${cardplanner.website.standalone}"/>
+			<zipfileset file="${cardplanner.website.dist.directory}/${instance.war}" prefix="${cardplanner.website.standalone}/lib"/>
+			<zipfileset file="${yawf.dist.directory}/${yawf.jar}" prefix="${cardplanner.website.standalone}/lib" />
+
+			<zipfileset file="${servlet-api.jar}" prefix="${cardplanner.website.standalone}/lib" />
+			<zipfileset file="${jetty-server.jar}" prefix="${cardplanner.website.standalone}/lib" />
+			<zipfileset file="${jetty-servlet.jar}" prefix="${cardplanner.website.standalone}/lib" />
+			<zipfileset file="${jetty-http.jar}" prefix="${cardplanner.website.standalone}/lib" />
+			<zipfileset file="${jetty-webapp.jar}" prefix="${cardplanner.website.standalone}/lib" />
+			<zipfileset file="${jetty-util.jar}" prefix="${cardplanner.website.standalone}/lib" />
+			<zipfileset file="${jetty-io.jar}" prefix="${cardplanner.website.standalone}/lib" />
+			<zipfileset file="${jetty-security.jar}" prefix="${cardplanner.website.standalone}/lib" />
+			<zipfileset file="${jetty-xml.jar}" prefix="${cardplanner.website.standalone}/lib" />
+			<zipfileset file="${jetty-plus.jar}" prefix="${cardplanner.website.standalone}/lib" />
+			<zipfileset file="${jetty-jndi.jar}" prefix="${cardplanner.website.standalone}/lib" />
+			<zipfileset file="${jetty-continuation.jar}" prefix="${cardplanner.website.standalone}/lib" />
+		</zip>
+	</target>
+
+    <target name="unzip.webapp">
+        <init.dir dir="${cardplanner.website.standalone.directory}/tmp-test-dir" />
+        <unzip src="${cardplanner.website.standalone.dist.directory}/${cardplanner.website.standalone}.zip" dest="${cardplanner.website.standalone.directory}/tmp-test-dir" />
+    </target>
+
+    <target name="start.jetty">
+        <exec osfamily="windows" dir="${cardplanner.website.standalone.directory}/tmp-test-dir/${cardplanner.website.standalone}" executable="cmd">
+            <arg value="./start_cardplanner.bat" />
+        </exec>
+        <exec osfamily="unix" dir="${cardplanner.website.standalone.directory}/tmp-test-dir/${cardplanner.website.standalone}" executable="sh">
+            <arg value="./start_cardplanner.sh" />
+            <arg value="&amp;"/>
+        </exec>
+    </target>
+
+</project>

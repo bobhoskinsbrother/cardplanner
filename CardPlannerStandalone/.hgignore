@@ -1,0 +1,11 @@
+
+syntax: regexp
+^classes$
+syntax: regexp
+^functional/made$
+syntax: regexp
+^made$
+syntax: regexp
+^dist$
+syntax: regexp
+^TEST-uk\.co\.itstherules\.ui\.UITestSuite\.xml$

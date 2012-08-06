@@ -1,0 +1,74 @@
+<style type="text/css">
+.form_title {
+	font-weight: bold;
+	width: 100px;
+}
+.field, .form_title {
+	float: left;
+	margin-bottom: 10px;
+}
+.line {
+	clear: both;
+}
+</style>
+
+<script>
+//<![CDATA[
+
+//]]>	
+</script>
+
+<div class="gray_rounded">
+<form method="post" action="${tagBuilder.url("Pages", action, page.identity, "index.xhtml")}" id="${action}Form">
+${tagBuilder.hidden({"name":"redirect"}, redirect)}
+
+<div class="line">
+<h2>${tagBuilder.showImage("pages_title.png")}</h2>
+	<h3>${action} Page</h3>
+</div>
+
+<div class="line">
+<div class="form_title">
+Title
+</div>
+<div class="field">
+${tagBuilder.inputText({"name":"title", "id":"title", "class":"title", "style":"width:592px"}, page.title?html, violations.isViolated("title"), "Please input a title")}
+</div>
+</div>
+
+
+<div class="line">
+<div class="form_title">
+Parent
+</div>
+<div class="field">
+${tagBuilder.select("parent.identity", parents, page.parent.identity,  {"style":"width:150px"})}
+</div>
+</div>
+
+<div class="line">
+<div class="form_title">
+Frame Template
+</div>
+<div class="field">
+${tagBuilder.select("template.identity", templates, page.template.identity,  {"style":"width:150px"})}
+</div>
+</div>
+
+<div class="line">
+<div class="form_title">
+Body Template:
+</div>
+<div class="field">
+${tagBuilder.select("body.identity", bodies, page.body.identity,  {"style":"width:150px", "id":"body.identity"})}
+</div>
+</div>
+
+
+<div class="line">
+${tagBuilder.submit(action)}
+</div>
+<div style="clear:both;"></div>
+</form>
+
+</div>

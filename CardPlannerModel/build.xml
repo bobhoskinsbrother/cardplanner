@@ -1,0 +1,73 @@
+<project name="CardPlannerModel" default="CardPlannerModel">
+
+    <import file="../Commons/common.xml" />
+    <property file="../Commons/environments/${computer.hostname}.properties" />
+    <property file="../Commons/build.properties" />
+    <property file="build.properties" />
+
+	<target name="CardPlannerModel" depends="make.cardplanner.website.model,test.cardplanner.website.model,save.cardplanner.website.model" />
+
+	<target name="make.cardplanner.website.model" depends="clean.cardplanner.website.model">
+		<make module="${cardplanner.website.model.directory}" jarname="${cardplanner.website.model.jar}" source="src" targetdir="made">
+			<make.classpath>
+				<classpath>
+					<path refid="cardplanner.website.model.classpath" />
+				</classpath>
+			</make.classpath>
+		</make>
+		<make module="${cardplanner.website.model.directory}" jarname="${cardplanner.website.model.test.jar}" source="test" targetdir="made">
+			<make.classpath>
+				<classpath>
+					<pathelement location="${cardplanner.website.model.made.directory}/${cardplanner.website.model.jar}" />
+					<path refid="cardplanner.website.model.classpath" />
+					<pathelement location="${junit.jar}" />
+				</classpath>
+			</make.classpath>
+		</make>
+	</target>
+
+
+	<target name="test.cardplanner.website.model">
+		<test jarname="${cardplanner.website.model.made.directory}/${cardplanner.website.model.test.jar}" basedir="${cardplanner.website.model.directory}">
+			<test.classpath>
+				<classpath>
+					<pathelement location="${cardplanner.website.model.made.directory}/${cardplanner.website.model.test.jar}" />
+					<pathelement location="${cardplanner.website.model.made.directory}/${cardplanner.website.model.jar}" />
+					<path refid="cardplanner.website.model.classpath" />
+					<pathelement location="${junit.jar}" />
+				</classpath>
+			</test.classpath>
+		</test>
+	</target>
+
+	<path id="cardplanner.website.model.classpath">
+		<pathelement location="${commons.dist.directory}/${commons.jar}" />
+		<pathelement location="${commons.string.dist.directory}/${commons.string.jar}" />
+		<pathelement location="${commons.image.dist.directory}/${commons.image.jar}" />
+		<pathelement location="${yawf.dist.directory}/${yawf.jar}" />
+		<pathelement location="${commons.fileupload.jar}" />
+		<pathelement location="${hibernate-jpa.jar}" />
+		<pathelement location="${antlr.jar}" />
+		<pathelement location="${dom4j.jar}" />
+		<pathelement location="${hibernate.jar}" />
+		<pathelement location="${shiro-core.jar}" />
+		<pathelement location="${shiro-web.jar}" />
+		<pathelement location="${oval.jar}" />
+		<pathelement location="${recaptcha4j.jar}" />
+		<pathelement location="${flexjson.jar}" />
+	</path>
+
+	<target name="save.cardplanner.website.model">
+		<save targetdir="${cardplanner.website.model.dist.directory}">
+			<save.fileset>
+				<fileset dir="${cardplanner.website.model.made.directory}" includes="${cardplanner.website.model.jar}" />
+			</save.fileset>
+		</save>
+	</target>
+
+	<target name="clean.cardplanner.website.model">
+		<init.dir dir="${cardplanner.website.model.made.directory}" />
+		<init.dir dir="${cardplanner.website.model.dist.directory}" />
+	</target>
+
+</project>

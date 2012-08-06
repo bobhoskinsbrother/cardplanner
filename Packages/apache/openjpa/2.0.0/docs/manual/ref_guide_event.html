@@ -1,0 +1,180 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>2.&nbsp; Remote Event Notification Framework</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="ref_guide_remote.html" title="Chapter&nbsp;12.&nbsp; Remote and Offline Operation"><link rel="prev" href="ref_guide_remote.html" title="Chapter&nbsp;12.&nbsp; Remote and Offline Operation"><link rel="next" href="ref_guide_slice.html" title="Chapter&nbsp;13.&nbsp; Distributed Persistence"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.&nbsp;
+            Remote Event Notification Framework
+        </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ref_guide_remote.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;12.&nbsp;
+        Remote and Offline Operation
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ref_guide_slice.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ref_guide_event"></a>2.&nbsp;
+            Remote Event Notification Framework
+        </h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ref_guide_event.html#ref_guide_event_conf">2.1. 
+                Remote Commit Provider Configuration
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_event.html#ref_guide_event_conf_jms">2.1.1. 
+                    JMS
+                </a></span></dt><dt><span class="section"><a href="ref_guide_event.html#ref_guide_event_conf_tcp">2.1.2. 
+                    TCP
+                </a></span></dt><dt><span class="section"><a href="ref_guide_event.html#ref_guide_event_conf_common">2.1.3. 
+                    Common Properties
+                </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_event.html#ref_guide_event_customization">2.2. 
+                Customization
+            </a></span></dt></dl></div><a class="indexterm" name="d0e34309"></a><a class="indexterm" name="d0e34314"></a><p>
+        <a class="indexterm" name="d0e34323"></a>
+        <a class="indexterm" name="d0e34331"></a>
+The remote event notification framework allows a subset of the information
+available through OpenJPA's transaction events (see
+<a href="ref_guide_runtime_pm_event.html" title="7.&nbsp; Transaction Events">Section&nbsp;7, &#8220;
+            Transaction Events
+        &#8221;</a>) to be broadcast to remote
+listeners. OpenJPA's <a href="ref_guide_caching.html#ref_guide_cache" title="1.&nbsp; Data Cache">data cache</a>, for
+example, uses remote events to remain synchronized when deployed in multiple
+JVMs.
+        </p><p>
+To enable remote events, you must configure the <code class="classname"> EntityManagerFactory
+</code> to use a <code class="literal">RemoteCommitProvider</code> (see below).
+        </p><p>
+When a <code class="literal">RemoteCommitProvider</code> is properly configured, you can
+register
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/event/RemoteCommitListener.html" target="_top">
+<code class="classname">RemoteCommitListener</code></a>s that will be alerted with
+a list of modified object ids whenever a transaction on a remote machine
+successfully commits.
+        </p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_event_conf"></a>2.1.&nbsp;
+                Remote Commit Provider Configuration
+            </h3></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ref_guide_event.html#ref_guide_event_conf_jms">2.1.1. 
+                    JMS
+                </a></span></dt><dt><span class="section"><a href="ref_guide_event.html#ref_guide_event_conf_tcp">2.1.2. 
+                    TCP
+                </a></span></dt><dt><span class="section"><a href="ref_guide_event.html#ref_guide_event_conf_common">2.1.3. 
+                    Common Properties
+                </a></span></dt></dl></div><a class="indexterm" name="d0e34365"></a><p>
+OpenJPA includes built in remote commit providers for JMS and TCP communication.
+            </p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ref_guide_event_conf_jms"></a>2.1.1.&nbsp;
+                    JMS
+                </h4></div></div></div><a class="indexterm" name="d0e34377"></a><p>
+The JMS remote commit provider can be configured by setting the
+<a href="ref_guide_conf_openjpa.html#openjpa.RemoteCommitProvider" title="5.57.&nbsp; openjpa.RemoteCommitProvider"><code class="literal">
+openjpa.RemoteCommitProvider</code></a> property to contain the
+appropriate configuration properties. The JMS provider understands the following
+properties:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">Topic</code>: The topic that the remote commit provider should
+publish notifications to and subscribe to for notifications sent from other
+JVMs. Defaults to <code class="literal">topic/OpenJPACommitProviderTopic</code>
+                        </p></li><li><p>
+<code class="literal">TopicConnectionFactory</code>: The JNDI name of a <code class="classname">
+javax.jms.TopicConnectionFactory</code> factory to use for finding topics.
+Defaults to <code class="literal"> java:/ConnectionFactory</code>. This setting may vary
+depending on the application server in use; consult the application server's
+documentation for details of the default JNDI name for the <code class="classname">
+javax.jms.TopicConnectionFactory</code> instance. For example, under
+Weblogic, the JNDI name for the TopicConnectionFactory is <code class="literal">
+javax.jms.TopicConnectionFactory</code>.
+                        </p></li><li><p>
+<code class="literal">ExceptionReconnectAttempts</code>: The number of times to attempt
+to reconnect if the JMS system notifies OpenJPA of a serious connection error.
+Defaults to 0, meaning OpenJPA will log the error but otherwise ignore it,
+hoping the connection is still valid.
+                        </p></li><li><p>
+<code class="literal">*</code>: All other configuration properties will be interpreted as
+settings to pass to the JNDI <code class="classname">InitialContext</code> on
+construction. For example, you might set the <code class="literal">java.naming.provider.url
+</code> property to the URL of the context provider.
+                        </p></li></ul></div><p>
+To configure a factory to use the JMS provider, your properties might look like
+the following:
+                </p><div class="example"><a name="ref_guide_event_conf_jmsex"></a><p class="title"><b>Example&nbsp;12.2.&nbsp;
+                        JMS Remote Commit Provider Configuration
+                    </b></p><div class="example-contents"><pre class="programlisting">
+&lt;property name="openjpa.RemoteCommitProvider"
+    value="jms(ExceptionReconnectAttempts=5)"/&gt;
+</pre></div></div><br class="example-break"><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+Because of the nature of JMS, it is important that you invoke <code class="methodname">
+EntityManagerFactory.close</code> when finished with a factory. If you do
+not do so, a daemon thread will stay up in the JVM, preventing the JVM from
+exiting.
+                    </p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ref_guide_event_conf_tcp"></a>2.1.2.&nbsp;
+                    TCP
+                </h4></div></div></div><a class="indexterm" name="d0e34452"></a><p>
+The TCP remote commit provider has several options that are defined as host
+specifications containing a host name or IP address and an optional port
+separated by a colon. For example, the host specification <code class="literal">
+saturn.bea.com:1234</code> represents an <code class="classname">InetAddress</code>
+retrieved by invoking <code class="methodname">InetAddress.getByName("saturn.bea.com")
+</code> and a port of 1234.
+                </p><p>
+                <a class="indexterm" name="d0e34472"></a>
+The TCP provider can be configured by setting the <code class="literal">
+openjpa.RemoteCommitProvider</code> plugin property to contain the
+appropriate configuration settings. The TCP provider understands the following
+properties:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">Port</code>: The TCP port that the provider should listen on for
+commit notifications. Defaults to 5636.
+                        </p></li><li><p>
+<code class="literal">Addresses</code>: A semicolon-separated list of IP addresses to
+which notifications should be sent. No default value.
+                        </p></li><li><p>
+<code class="literal">NumBroadcastThreads</code>: The number of threads to create for the
+purpose of transmitting events to peers. You should increase this value as the
+number of concurrent transactions increases. The maximum number of concurrent
+transactions is a function of the size of the connection pool. See the
+<code class="literal">MaxActive</code> property of <code class="literal">
+openjpa.ConnectionFactoryProperties</code> in
+<a href="ref_guide_dbsetup.html#ref_guide_dbsetup_builtin" title="1.&nbsp; Using the OpenJPA DataSource">Section&nbsp;1, &#8220;
+            Using the OpenJPA DataSource
+        &#8221;</a>. Setting a value of 0 will
+result in behavior where the thread invoking <code class="methodname">commit</code>
+will perform the broadcast directly. Defaults to 2.
+                        </p></li><li><p>
+<code class="literal">RecoveryTimeMillis</code>: Amount of time to wait in milliseconds
+before attempting to reconnect to a peer of the cluster when connectivity to the
+peer is lost. Defaults to 15000.
+                        </p></li><li><p>
+<code class="literal">MaxIdle</code>: The number of TCP sockets (channels) to keep open
+to each peer in the cluster for the transmission of events. Defaults to 2.
+                        </p></li><li><p>
+<code class="literal">MaxActive</code>: The maximum allowed number of TCP sockets
+(channels) to open simultaneously between each peer in the cluster. Defaults to
+2.
+                        </p></li></ul></div><p>
+To configure a factory to use the TCP provider, your properties might look like
+the following:
+                </p><div class="example"><a name="ref_guide_event_conf_tcpex"></a><p class="title"><b>Example&nbsp;12.3.&nbsp;
+                        TCP Remote Commit Provider Configuration
+                    </b></p><div class="example-contents"><pre class="programlisting">
+&lt;property name="openjpa.RemoteCommitProvider"
+    value="tcp(Addresses=10.0.1.10;10.0.1.11;10.0.1.12;10.0.1.13)"/&gt;
+</pre></div></div><br class="example-break"></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ref_guide_event_conf_common"></a>2.1.3.&nbsp;
+                    Common Properties
+                </h4></div></div></div><a class="indexterm" name="d0e34537"></a><p>
+In addition to the provider-specific configuration options above, all providers
+accept the following plugin properties:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">TransmitPersistedObjectIds</code>: Whether remote commit events
+will include the object ids of instances persisted in the transaction. By
+default only the class names of types persisted in the transaction are sent.
+This results in smaller events and more efficient network utilization. If you
+have registered your own remote commit listeners, however, you may require the
+persisted object ids as well.
+                        </p></li></ul></div><p>
+To transmit persisted object ids in our remote commit events using the JMS
+provider, we modify the previous example as follows:
+                </p><div class="example"><a name="ref_guide_event_conf_jms2ex"></a><p class="title"><b>Example&nbsp;12.4.&nbsp;
+                        JMS Remote Commit Provider transmitting Persisted Object Ids
+                    </b></p><div class="example-contents"><pre class="programlisting">
+&lt;property name="openjpa.RemoteCommitProvider"
+    value="jms(ExceptionReconnectAttempts=5, TransmitPersistedObjectIds=true)"/&gt;
+</pre></div></div><br class="example-break"></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_event_customization"></a>2.2.&nbsp;
+                Customization
+            </h3></div></div></div><a class="indexterm" name="d0e34563"></a><p>
+You can develop additional mechanisms for remote event notification be by
+creating an implementation of the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/event/RemoteCommitProvider.html" target="_top">
+<code class="classname"> RemoteCommitProvider</code></a> interface, possibly by
+extending the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/event/AbstractRemoteCommitProvider.html" target="_top">
+<code class="classname">AbstractRemoteCommitProvider</code></a> abstract class..
+            </p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ref_guide_remote.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ref_guide_remote.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ref_guide_slice.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;12.&nbsp;
+        Remote and Offline Operation
+    &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;13.&nbsp;
+    Distributed Persistence
+  </td></tr></table></div></body></html>

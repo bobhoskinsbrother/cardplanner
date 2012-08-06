@@ -1,0 +1,108 @@
+<project name="CardPlanner" default="CardPlanner">
+
+	<property file="../Commons/environments/${computer.hostname}.properties" />
+	<property file="../Commons/build.properties" />
+	<property file="build.properties" />
+	<import file="../Commons/common.xml" />
+
+	<target name="CardPlanner" depends="make.cardplanner.website,test.cardplanner.website,save.cardplanner.website" />
+
+	<target name="make.cardplanner.website" depends="clean.cardplanner.website">
+		<make module="${cardplanner.website.directory}" jarname="${cardplanner.website.jar}" source="src" targetdir="made">
+			<make.classpath>
+				<classpath>
+					<path refid="cardplanner.website.classpath" />
+				</classpath>
+			</make.classpath>
+		</make>
+		<make module="${cardplanner.website.directory}" jarname="${cardplanner.website.test.jar}" source="test" targetdir="made">
+			<make.classpath>
+				<classpath>
+					<pathelement location="${cardplanner.website.made.directory}/${cardplanner.website.jar}" />
+					<path refid="cardplanner.website.classpath" />
+					<pathelement location="${junit.jar}" />
+					<pathelement location="${mockito.jar}" />
+				</classpath>
+			</make.classpath>
+		</make>
+	</target>
+
+	<target name="test.cardplanner.website" depends="test.cardplanner.website.java,test.cardplanner.website.javascript" />
+	
+	<target name="test.cardplanner.website.java">
+		<test jarname="${cardplanner.website.made.directory}/${cardplanner.website.test.jar}" basedir="${cardplanner.website.directory}">
+			<test.classpath>
+				<classpath>
+					<pathelement location="${cardplanner.website.made.directory}/${cardplanner.website.test.jar}" />
+					<pathelement location="${cardplanner.website.made.directory}/${cardplanner.website.jar}" />
+					<path refid="cardplanner.website.classpath" />
+					<pathelement location="${junit.jar}" />
+					<pathelement location="${mockito.jar}" />
+				</classpath>
+			</test.classpath>
+		</test>
+	</target>
+	
+	<target name="test.cardplanner.website.javascript">
+		<java classname="uk.co.itstherules.cardplanner.javascript.runner.JSRunner" failonerror="true">
+			<classpath>
+				<pathelement location="${cardplanner.website.made.directory}/${cardplanner.website.test.jar}" />
+				<pathelement location="${cardplanner.website.made.directory}/${cardplanner.website.jar}" />
+				<pathelement location="${commons.string.dist.directory}/${commons.string.jar}" />
+				<pathelement location="${junit.jar}" />
+				<fileset dir="${java.home}" includes="**/*.jar" />
+			</classpath>
+			<arg value="uk.co.itstherules" />
+		</java>
+	</target>
+
+	<target name="save.cardplanner.website">
+		<save targetdir="${cardplanner.website.directory}/dist">
+			<save.fileset>
+				<fileset dir="${cardplanner.website.made.directory}" includes="${cardplanner.website.jar}" />
+			</save.fileset>
+		</save>
+	</target>
+
+	<target name="clean.cardplanner.website">
+		<init.dir dir="${cardplanner.website.made.directory}" />
+		<init.dir dir="${cardplanner.website.dist.directory}" />
+	</target>
+
+	<path id="cardplanner.website.classpath">
+		<pathelement location="${commons.string.dist.directory}/${commons.string.jar}" />
+		<pathelement location="${commons.crypto.dist.directory}/${commons.crypto.jar}" />
+		<pathelement location="${commons.dist.directory}/${commons.jar}" />
+		<pathelement location="${yawf.dist.directory}/${yawf.jar}" />
+		<pathelement location="${cardplanner.website.model.dist.directory}/${cardplanner.website.model.jar}" />
+		<pathelement location="${cardplanner.license.module.dist.directory}/${cardplanner.license.module.jar}" />
+
+		<pathelement location="${servlet-api.jar}" />
+		<pathelement location="${commons.io.jar}" />
+		<pathelement location="${commons.fileupload.jar}" />
+		<pathelement location="${commons.email.jar}" />
+		<pathelement location="${shiro-core.jar}" />
+		<pathelement location="${shiro-web.jar}" />
+
+		<pathelement location="${recaptcha4j.jar}" />
+		<pathelement location="${poi.contrib.jar}" />
+		<pathelement location="${poi.jar}" />
+		<pathelement location="${hibernate-jpa.jar}" />
+		<pathelement location="${antlr.jar}" />
+		<pathelement location="${dom4j.jar}" />
+		<pathelement location="${hibernate.jar}" />
+		<pathelement location="${freemarker.jar}" />
+		<pathelement location="${oval.jar}" />
+		<pathelement location="${batik.jar}" />
+		<pathelement location="${batik-rasterizer.jar}" />
+		<pathelement location="${batik-codec.jar}" />
+		<pathelement location="${pdf-transcoder.jar}" />
+		<pathelement location="${batik-transcoder.jar}" />
+		<pathelement location="${batik-util.jar}" />
+		<pathelement location="${jettison.jar}" />
+		<pathelement location="${flexjson.jar}" />
+		<pathelement location="${flyingsaucer.jar}" />
+		<pathelement location="${itext.jar}" />
+	</path>
+
+</project>

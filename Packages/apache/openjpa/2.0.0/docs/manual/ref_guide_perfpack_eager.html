@@ -1,0 +1,236 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>8.&nbsp; Eager Fetching</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="ref_guide_pc.html" title="Chapter&nbsp;5.&nbsp; Persistent Classes"><link rel="prev" href="ref_guide_fetch.html" title="7.&nbsp; Fetch Groups"><link rel="next" href="ref_guide_meta.html" title="Chapter&nbsp;6.&nbsp; Metadata"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">8.&nbsp;
+            Eager Fetching
+        </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ref_guide_fetch.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;5.&nbsp;
+        Persistent Classes
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ref_guide_meta.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ref_guide_perfpack_eager"></a>8.&nbsp;
+            Eager Fetching
+        </h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ref_guide_perfpack_eager.html#ref_guide_perfpack_eager_conf">8.1. 
+                Configuring Eager Fetching
+            </a></span></dt><dt><span class="section"><a href="ref_guide_perfpack_eager.html#ref_guide_perfpack_eager_consider">8.2. 
+                Eager Fetching Considerations and Limitations
+            </a></span></dt></dl></div><a class="indexterm" name="d0e26621"></a><a class="indexterm" name="d0e26624"></a><a class="indexterm" name="d0e26629"></a><a class="indexterm" name="d0e26636"></a><p>
+Eager fetching is the ability to efficiently load subclass data and related
+objects along with the base instances being queried. Typically, OpenJPA has to
+make a trip to the database whenever a relation is loaded, or when you first
+access data that is mapped to a table other than the least-derived superclass
+table. If you perform a query that returns 100 <code class="classname">Person</code>
+objects, and then you have to retrieve the <code class="classname">Address</code> for
+each person, OpenJPA may make as many as 101 queries (the initial query, plus
+one for the address of each person returned). Or if some of the <code class="classname">
+Person</code> instances turn out to be <code class="classname">Employee</code>s,
+where <code class="classname">Employee</code> has additional data in its own joined
+table, OpenJPA once again might need to make extra database trips to access the
+additional employee data. With eager fetching, OpenJPA can reduce these cases to
+a single query.
+        </p><p>
+Eager fetching only affects relations in the active fetch groups, and is limited
+by the declared maximum fetch depth and field recursion depth (see
+<a href="ref_guide_fetch.html" title="7.&nbsp; Fetch Groups">Section&nbsp;7, &#8220;
+            Fetch Groups
+        &#8221;</a>). In other words, relations that would
+not normally be loaded immediately when retrieving an object or accessing a
+field are not affected by eager fetching. In our example above, the address of
+each person would only be eagerly fetched if the query were configured to
+include the address field or its fetch group, or if the address were in the
+default fetch group. This allows you to control exactly which fields are eagerly
+fetched in different situations. Similarly, queries that exclude subclasses
+aren't affected by eager subclass fetching, described below.
+        </p><p>
+Eager fetching has three modes:
+        </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">none</code>: No eager fetching is performed. Related objects are
+always loaded in an independent select statement. No joined subclass data is
+loaded unless it is in the table(s) for the base type being queried. Unjoined
+subclass data is loaded using separate select statements rather than a SQL UNION
+operation.
+                </p></li><li><p>
+                <a class="indexterm" name="d0e26676"></a>
+<code class="literal">join</code>: In this mode, OpenJPA joins to to-one relations in the
+configured fetch groups. If OpenJPA is loading data for a single instance, then
+OpenJPA will also join to any collection field in the configured fetch groups.
+When loading data for multiple instances, though, (such as when executing a
+<code class="classname">Query</code>) OpenJPA will not join to collections by default.
+Instead, OpenJPA defaults to <code class="literal">parallel</code> mode for collections,
+as described below. You can force OpenJPA use a join rather than parallel mode
+for a collection field using the metadata extension described in
+<a href="ref_guide_mapping_ext.html#eager-fetch-mode" title="9.2.1.&nbsp; Eager Fetch Mode">Section&nbsp;9.2.1, &#8220;
+                    Eager Fetch Mode
+                &#8221;</a>.
+                </p><p>
+                <a class="indexterm" name="d0e26695"></a>
+Under <code class="literal">join</code> mode, OpenJPA uses a left outer join (or inner
+join, if the relations' field metadata declares the relation non-nullable) to
+select the related data along with the data for the target objects. This process
+works recursively for to-one joins, so that if <code class="classname">Person</code> has
+an <code class="classname">Address</code>, and <code class="classname">Address</code> has a
+<code class="classname">TelephoneNumber</code>, and the fetch groups are configured
+correctly, OpenJPA might issue a single select that joins across the tables for
+all three classes. To-many joins can not recursively spawn other to-many joins,
+but they can spawn recursive to-one joins.
+                </p><p>
+Under the <code class="literal">join</code> subclass fetch mode, subclass data in joined
+tables is selected by outer joining to all possible subclass tables of the type
+being queried. As you'll see below, subclass data fetching is configured 
+separately from relation fetching, and can be disabled for specific classes.
+                </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+Some databases may not support outer joins. Also, OpenJPA can not use
+outer joins if you have set the <a href="ref_guide_conf_jdbc.html#openjpa.jdbc.DBDictionary" title="6.2.&nbsp; openjpa.jdbc.DBDictionary">
+<code class="literal"> DBDictionary</code></a>'s <code class="literal">JoinSyntax</code> to
+<code class="literal">traditional</code>. See <a href="ref_guide_dbsetup_sql92.html" title="6.&nbsp; Setting the SQL Join Syntax">Section&nbsp;6, &#8220;
+            Setting the SQL Join Syntax
+        &#8221;</a>.
+                    </p></div></li><li><p>
+                <a class="indexterm" name="d0e26738"></a>
+<code class="literal">parallel</code>: Under this mode, OpenJPA selects to-one relations
+and joined collections as outlined in the <code class="literal">join</code> mode
+description above. Unjoined collection fields, however, are eagerly fetched
+using a separate select statement for each collection, executed in parallel with
+the select statement for the target objects. The parallel selects use the
+<code class="literal">WHERE</code> conditions from the primary select, but add their own
+joins to reach the related data. Thus, if you perform a query that returns 100
+<code class="classname">Company</code> objects, where each company has a list of
+<code class="classname">Employee</code> objects and <code class="classname">Department</code>
+objects, OpenJPA will make 3 queries. The first will select the company objects,
+the second will select the employees for those companies, and the third will
+select the departments for the same companies. Just as for joins, this process
+can be recursively applied to the objects in the relations being eagerly
+fetched. Continuing our example, if the <code class="classname">Employee</code> class
+had a list of <code class="classname">Projects</code> in one of the fetch groups being
+loaded, OpenJPA would execute a single additional select in parallel to load the
+projects of all employees of the matching companies.
+                </p><p>
+Using an additional select to load each collection avoids transferring more data
+than necessary from the database to the application. If eager joins were used
+instead of parallel select statements, each collection added to the configured
+fetch groups would cause the amount of data being transferred to rise
+dangerously, to the point that you could easily overwhelm the network.
+                </p><p>
+Polymorphic to-one relations to table-per-class mappings use parallel eager
+fetching because proper joins are impossible. You can force other to-one
+relations to use parallel rather than join mode eager fetching using the
+metadata extension described in <a href="ref_guide_mapping_ext.html#eager-fetch-mode" title="9.2.1.&nbsp; Eager Fetch Mode">Section&nbsp;9.2.1, &#8220;
+                    Eager Fetch Mode
+                &#8221;</a>.
+                </p><p>
+Parallel subclass fetch mode only applies to queries on joined inheritance
+hierarchies. Rather than outer-joining to
+subclass tables, OpenJPA will issue the query separately for each subclass. In
+all other situations, parallel subclass fetch mode acts just like join mode in
+regards to vertically-mapped subclasses.
+                </p><p>
+When OpenJPA knows that it is selecting for a single object only, it never uses
+<code class="literal">parallel</code> mode, because the additional selects can be made
+lazily just as efficiently. This mode only increases efficiency over <code class="literal">
+join</code> mode when multiple objects with eager relations are being loaded,
+or when multiple selects might be faster than joining to all possible
+subclasses.
+                </p></li></ul></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_perfpack_eager_conf"></a>8.1.&nbsp;
+                Configuring Eager Fetching
+            </h3></div></div></div><a class="indexterm" name="d0e26787"></a><p>
+            <a class="indexterm" name="d0e26794"></a>
+            <a class="indexterm" name="d0e26798"></a>
+            <a class="indexterm" name="d0e26802"></a>
+            <a class="indexterm" name="d0e26808"></a>
+You can control OpenJPA's default eager fetch mode through the
+<a href="ref_guide_conf_jdbc.html#openjpa.jdbc.EagerFetchMode" title="6.4.&nbsp; openjpa.jdbc.EagerFetchMode"><code class="literal">
+openjpa.jdbc.EagerFetchMode</code></a> and
+<a href="ref_guide_conf_jdbc.html#openjpa.jdbc.SubclassFetchMode" title="6.16.&nbsp; openjpa.jdbc.SubclassFetchMode"><code class="literal">
+openjpa.jdbc.SubclassFetchMode</code></a> configuration properties. Set
+each of these properties to one of the mode names described in the previous
+section: <code class="literal">none, join, parallel</code>. If left unset, the eager
+fetch mode defaults to <code class="literal">parallel</code> and the subclass fetch mode
+defaults to <code class="literal">join</code> These are generally the most robust and
+performant strategies.
+            </p><p>
+You can easily override the default fetch modes at runtime for any lookup or
+query through OpenJPA's fetch configuration APIs. See
+<a href="ref_guide_runtime.html" title="Chapter&nbsp;9.&nbsp; Runtime Extensions">Chapter&nbsp;9, <i xmlns:xlink="http://www.w3.org/1999/xlink">
+        Runtime Extensions
+    </i></a> for details.
+            </p><div class="example"><a name="ref_guide_perfpack_eager_def"></a><p class="title"><b>Example&nbsp;5.23.&nbsp;
+                    Setting the Default Eager Fetch Mode
+                </b></p><div class="example-contents"><pre class="programlisting">
+&lt;property name="openjpa.jdbc.EagerFetchMode" value="parallel"/&gt;
+&lt;property name="openjpa.jdbc.SubclassFetchMode" value="join"/&gt;
+</pre></div></div><br class="example-break"><div class="example"><a name="ref_guide_perfpack_eager_runtime"></a><p class="title"><b>Example&nbsp;5.24.&nbsp;
+                    Setting the Eager Fetch Mode at Runtime
+                </b></p><div class="example-contents"><pre class="programlisting">
+import org.apache.openjpa.persistence.*;
+import org.apache.openjpa.persistence.jdbc.*;
+
+...
+
+Query q = em.createQuery("select p from Person p where p.address.state = 'TX'");
+OpenJPAQuery kq = OpenJPAPersistence.cast(q);
+JDBCFetchPlan fetch = (JDBCFetchPlan) kq.getFetchPlan();
+fetch.setEagerFetchMode(FetchMode.PARALLEL);
+fetch.setSubclassFetchMode(FetchMode.JOIN);
+List results = q.getResultList();
+</pre></div></div><br class="example-break"><p>
+You can specify a default subclass fetch mode for an individual class with the
+metadata extension described in <a href="ref_guide_mapping_ext.html#subclass-fetch-mode" title="9.1.1.&nbsp; Subclass Fetch Mode">Section&nbsp;9.1.1, &#8220;
+                    Subclass Fetch Mode
+                &#8221;</a>.
+Note, however, that you cannot "upgrade" the runtime fetch mode with your class
+setting. If the runtime fetch mode is <code class="literal">none</code>, no eager
+subclass data fetching will take place, regardless of your metadata setting.
+            </p><p>
+This applies to the eager fetch mode metadata extension as well (see
+<a href="ref_guide_mapping_ext.html#eager-fetch-mode" title="9.2.1.&nbsp; Eager Fetch Mode">Section&nbsp;9.2.1, &#8220;
+                    Eager Fetch Mode
+                &#8221;</a>). You can use this extension to
+disable eager fetching on a field or to declare that a collection would rather
+use joins than parallel selects or vice versa. But an extension value of
+<code class="literal">join</code> won't cause any eager joining if the fetch
+configuration's setting is <code class="literal">none</code>.
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_perfpack_eager_consider"></a>8.2.&nbsp;
+                Eager Fetching Considerations and Limitations
+            </h3></div></div></div><p>
+There are several important points that you should consider when using eager
+fetching:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+                    <a class="indexterm" name="d0e26871"></a>
+                    <a class="indexterm" name="d0e26877"></a>
+When you are using <code class="literal">parallel</code> eager fetch mode and you have
+large result sets enabled (see <a href="ref_guide_dbsetup_lrs.html" title="10.&nbsp; Large Result Sets">Section&nbsp;10, &#8220;
+            Large Result Sets
+        &#8221;</a>)
+or you place a range on a query, OpenJPA performs the needed parallel selects on
+one page of results at a time. For example, suppose your <code class="literal">
+FetchBatchSize</code> is set to 20, and you perform a large result set query
+on a class that has collection fields in the configured fetch groups. OpenJPA
+will immediately cache the first <code class="literal">20</code> results of the query
+using <code class="literal">join</code> mode eager fetching only. Then, it will issue the
+extra selects needed to eager fetch your collection fields according to
+<code class="literal">parallel</code> mode. Each select will use a SQL <code class="literal">IN
+</code> clause (or multiple <code class="literal">OR</code> clauses if your class has a
+compound primary key) to limit the selected collection elements to those owned
+by the 20 cached results.
+                    </p><p>
+Once you iterate past the first 20 results, OpenJPA will cache the next 20 and
+again issue any needed extra selects for collection fields, and so on. This
+pattern ensures that you get the benefits of eager fetching without bringing
+more data into memory than anticipated.
+                    </p></li><li><p>
+Once OpenJPA eager-joins into a class, it cannot issue any further eager to-many
+joins or parallel selects from that class in the same query. To-one joins,
+however, can recurse to any level.
+                    </p></li><li><p>
+Using a to-many join makes it impossible to determine the number of instances
+the result set contains without traversing the entire set. This is because each
+result object might be represented by multiple rows. Thus, queries with a range
+specification or queries configured for lazy result set traversal automatically
+turn off eager to-many joining.
+                    </p></li><li><p>
+OpenJPA cannot eagerly join to polymorphic relations to non-leaf classes in a
+table-per-class inheritance hierarchy. You can work around this restriction
+using the mapping extensions described in <a href="ref_guide_mapping_ext.html#nonpolymorphic" title="9.2.2.&nbsp; Nonpolymorphic">Section&nbsp;9.2.2, &#8220;
+                    Nonpolymorphic
+                &#8221;</a>.
+                    </p></li></ul></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ref_guide_fetch.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ref_guide_pc.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ref_guide_meta.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">7.&nbsp;
+            Fetch Groups
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;6.&nbsp;
+        Metadata
+    </td></tr></table></div></body></html>

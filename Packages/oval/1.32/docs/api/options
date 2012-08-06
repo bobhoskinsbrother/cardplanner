@@ -1,0 +1,26 @@
+-classpath 'D:/workspaces/eclipse34/oval/target/classes;C:/Documents and Settings/Administrator/.m2/repository/org/codehaus/groovy/groovy-all/1.6.2/groovy-all-1.6.2.jar;C:/Documents and Settings/Administrator/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar;C:/Documents and Settings/Administrator/.m2/repository/trove/trove/2.0.3/trove-2.0.3.jar;C:/Documents and Settings/Administrator/.m2/repository/com/thoughtworks/xstream/xstream/1.3.1/xstream-1.3.1.jar;C:/Documents and Settings/Administrator/.m2/repository/rhino/js/1.7R1/js-1.7R1.jar;C:/Documents and Settings/Administrator/.m2/repository/javax/persistence/persistence-api/1.0/persistence-api-1.0.jar;C:/Documents and Settings/Administrator/.m2/repository/commons-jexl/commons-jexl/20070823/commons-jexl-20070823.jar;C:/Documents and Settings/Administrator/.m2/repository/jboss/javassist/3.7.ga/javassist-3.7.ga.jar;C:/Documents and Settings/Administrator/.m2/repository/org/javolution/javolution/5.2.6/javolution-5.2.6.jar;C:/Documents and Settings/Administrator/.m2/repository/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar;C:/Documents and Settings/Administrator/.m2/repository/org/aspectj/aspectjrt/1.6.2/aspectjrt-1.6.2.jar;C:/Documents and Settings/Administrator/.m2/repository/org/slf4j/slf4j-api/1.5.6/slf4j-api-1.5.6.jar;C:/Documents and Settings/Administrator/.m2/repository/org/mvel/mvel2/2.0.8/mvel2-2.0.8.jar;C:/Documents and Settings/Administrator/.m2/repository/ognl/ognl/2.7.3/ognl-2.7.3.jar;C:/Documents and Settings/Administrator/.m2/repository/com/thoughtworks/paranamer/paranamer/1.3/paranamer-1.3.jar;C:/Documents and Settings/Administrator/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar;C:/Documents and Settings/Administrator/.m2/repository/org/jruby/jruby/1.2.0/jruby-1.2.0.jar;C:/Documents and Settings/Administrator/.m2/repository/org/springframework/spring/2.5.6.SEC01/spring-2.5.6.SEC01.jar;C:/Documents and Settings/Administrator/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar;C:/Documents and Settings/Administrator/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar'
+ -encoding
+'ISO-8859-1'
+-protected
+-source
+'1.5'
+-sourcepath
+'D:/workspaces/eclipse34/oval/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2005-2009 <a href="http://oval.sf.net/">The OVal Development Team</a>. All Rights Reserved.'
+-charset
+'ISO-8859-1'
+-d
+'D:/workspaces/eclipse34/oval/target/site/api'
+-doctitle
+'OVal 1.32 API'
+-link
+'http://java.sun.com/j2se/1.5.0/docs/api'
+-linksource
+-stylesheetfile
+'D:/workspaces/eclipse34/oval/src/site/javadoc/oval-javadoc.css'
+-use
+-version
+-windowtitle
+'OVal 1.32 API'

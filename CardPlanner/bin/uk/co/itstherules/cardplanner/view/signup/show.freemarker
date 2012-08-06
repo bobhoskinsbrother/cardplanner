@@ -1,0 +1,9 @@
+<div id="mainarea" class="white_rounded centre">
+	<div class="shadow card_body">
+		<h2 class="card_header">Please Check Your Email</h2>
+		<div class="card_text">
+		An email has been sent to the email address registered.  <br/>
+		Please click on the confirm link to activate your account and login.
+		</div>
+	</div>
+</div>

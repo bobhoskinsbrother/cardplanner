@@ -1,0 +1,32 @@
+-classpath
+'/home/drwoods/openjpa/2.0.x/target/checkout/target/classes:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-lib/target/classes:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-kernel/target/classes:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-jdbc/target/classes:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-persistence/target/classes:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-persistence-jdbc/target/classes:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-persistence-locking/target/classes:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-xmlstore/target/classes:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-slice/target/classes:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa/target/classes:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-all/target/classes:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-project/target/classes:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-examples/target/classes:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-integration/target/classes:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-integration/daytrader/target/classes:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-integration/examples/target/classes:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-integration/tck/target/classes:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-integration/validation/target/classes:/home/drwoods/.m2/repository/org/apache/derby/derby/10.5.3.0_1/derby-10.5.3.0_1.jar:/home/drwoods/.m2/repository/log4j/log4j/1.2.13/log4j-1.2.13.jar:/home/drwoods/.m2/repository/org/apache/openjpa/openjpa-persistence-jdbc/2.0.0/openjpa-persistence-jdbc-2.0.0.jar:/home/drwoods/.m2/repository/commons-lang/commons-lang/2.1/commons-lang-2.1.jar:/home/drwoods/.m2/repository/javax/xml/bind/jaxb-api/2.0/jaxb-api-2.0.jar:/home/drwoods/.m2/repository/net/sourceforge/serp/serp/1.13.1/serp-1.13.1.jar:/home/drwoods/.m2/repository/com/sun/xml/bind/jaxb-impl/2.0.5/jaxb-impl-2.0.5.jar:/home/drwoods/.m2/repository/org/apache/openjpa/openjpa-xmlstore/2.0.0/openjpa-xmlstore-2.0.0.jar:/home/drwoods/.m2/repository/org/apache/geronimo/specs/geronimo-jms_1.1_spec/1.1.1/geronimo-jms_1.1_spec-1.1.1.jar:/home/drwoods/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar:/home/drwoods/.m2/repository/org/apache/geronimo/specs/geronimo-jpa_2.0_spec/1.0/geronimo-jpa_2.0_spec-1.0.jar:/home/drwoods/.m2/repository/org/apache/openjpa/openjpa-slice/2.0.0/openjpa-slice-2.0.0.jar:/home/drwoods/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar:/home/drwoods/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/home/drwoods/.m2/repository/org/apache/openjpa/openjpa/2.0.0/openjpa-2.0.0.jar:/home/drwoods/.m2/repository/com/ibm/websphere/websphere_uow_api/0.0.1/websphere_uow_api-0.0.1.jar:/home/drwoods/.m2/repository/org/apache/openjpa/openjpa-persistence/2.0.0/openjpa-persistence-2.0.0.jar:/home/drwoods/.m2/repository/commons-pool/commons-pool/1.5.3/commons-pool-1.5.3.jar:/home/drwoods/.m2/repository/hsqldb/hsqldb/1.8.0.10/hsqldb-1.8.0.10.jar:/home/drwoods/.m2/repository/org/apache/geronimo/specs/geronimo-jta_1.1_spec/1.1.1/geronimo-jta_1.1_spec-1.1.1.jar:/home/drwoods/.m2/repository/org/apache/geronimo/specs/geronimo-validation_1.0_spec/1.0/geronimo-validation_1.0_spec-1.0.jar:/home/drwoods/.m2/repository/org/apache/openjpa/openjpa-jdbc/2.0.0/openjpa-jdbc-2.0.0.jar:/home/drwoods/.m2/repository/org/apache/openjpa/openjpa-kernel/2.0.0/openjpa-kernel-2.0.0.jar:/home/drwoods/.m2/repository/ant/ant/1.6.5/ant-1.6.5.jar:/home/drwoods/.m2/repository/org/osgi/org.osgi.core/4.2.0/org.osgi.core-4.2.0.jar:/home/drwoods/.m2/repository/postgresql/postgresql/8.4-701.jdbc3/postgresql-8.4-701.jdbc3.jar:/home/drwoods/.m2/repository/javax/xml/bind/jsr173_api/1.0/jsr173_api-1.0.jar:/home/drwoods/.m2/repository/org/apache/openjpa/openjpa-all/2.0.0/openjpa-all-2.0.0.jar:/home/drwoods/.m2/repository/org/apache/openjpa/openjpa-lib/2.0.0/openjpa-lib-2.0.0.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-lib/src/main/java:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-kernel/src/main/java:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-jdbc/src/main/java:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-persistence/src/main/java:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-persistence-jdbc/src/main/java:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-xmlstore/src/main/java:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-slice/src/main/java:/home/drwoods/openjpa/2.0.x/target/checkout/openjpa-examples/src/main/java'
+-subpackages
+org.apache.openjpa
+-author
+-bottom
+'Copyright &#169; 2006-2010 <a href="http://www.apache.org">Apache Software Foundation</a>. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/home/drwoods/openjpa/2.0.x/target/checkout/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'OpenJPA Parent POM 2.0.0 API'
+-link
+'http://java.sun.com/j2se/1.5.0/docs/api'
+-link
+'http://java.sun.com/javaee/6/docs/api'
+-link
+'http://jakarta.apache.org/commons/collections/api-release'
+-link
+'http://java.sun.com/j2se/1.5.0/docs/api'
+-use
+-version
+-windowtitle
+'OpenJPA Parent POM 2.0.0 API'

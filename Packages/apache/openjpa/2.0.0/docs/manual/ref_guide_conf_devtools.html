@@ -1,0 +1,91 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>3.&nbsp; Command Line Configuration</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="ref_guide_conf.html" title="Chapter&nbsp;2.&nbsp; Configuration"><link rel="prev" href="ref_guide_conf_specify.html" title="2.&nbsp; Runtime Configuration"><link rel="next" href="ref_guide_conf_plugins.html" title="4.&nbsp; Plugin Configuration"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.&nbsp;
+            Command Line Configuration
+        </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ref_guide_conf_specify.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;2.&nbsp;
+        Configuration
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ref_guide_conf_plugins.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ref_guide_conf_devtools"></a>3.&nbsp;
+            Command Line Configuration
+        </h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ref_guide_conf_devtools.html#ref_guide_conf_devtools_format">3.1. 
+                Code Formatting
+            </a></span></dt></dl></div><a class="indexterm" name="d0e14200"></a><p>
+OpenJPA development tools share the same set of configuration defaults and
+overrides as the runtime system. They also allow you to specify property values
+on the command line:
+        </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">-properties/-p &lt;configuration file or resource&gt;</code>: Use
+the <code class="literal">-properties</code> flag, or its shorter <code class="literal">-p</code>
+form, to specify a configuration file to use. Note that OpenJPA always searches
+the default file locations described above, so this flag is only needed when you
+do not have a default resource in place, or when you wish to override the
+defaults. The given value can be the path to a file, or the resource name of a
+file somewhere in the <code class="literal">CLASSPATH</code>. OpenJPA will search the
+given location as well as the location prefixed by <code class="filename"> META-INF/
+</code>. Thus, to point an OpenJPA tool at <code class="filename">
+META-INF/my-persistence.xml</code>, you can use:
+                </p><pre class="programlisting">
+&lt;tool&gt; -p my-persistence.xml
+</pre><p>
+If you want to run a tool against just one particular persistence unit in
+a configuration file, you can do so by specifying an anchor along with the
+resource. If you do not specify an anchor, the tools will run against all
+the persistence units defined within the specified resource, or the default
+resource if none is specified. If the persistence unit is defined within
+the default resource location, then you can just specify the raw anchor itself:
+                </p><pre class="programlisting">
+&lt;tool&gt; -p my-persistence.xml#sales-persistence-unit
+&lt;tool&gt; -p #invoice-persistence-unit
+</pre></li><li><p>
+<code class="literal">-&lt;property name&gt; &lt;property value&gt;</code>: Any
+configuration property that you can specify in a configuration file can be
+overridden with a command line flag. The flag name is always the last token of
+the corresponding property name, with the first letter in either upper or lower
+case. For example, to override the <code class="literal">openjpa.ConnectionUserName</code>
+property, you could pass the <code class="literal">-connectionUserName &lt;value&gt;
+</code> flag to any tool. Values set this way override both the values in the
+configuration file and values set via System properties.
+                </p></li></ul></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_conf_devtools_format"></a>3.1.&nbsp;
+                Code Formatting
+            </h3></div></div></div><a class="indexterm" name="d0e14250"></a><p>
+Some OpenJPA development tools generate Java code. These tools share a common
+set of command-line flags for formatting their output to match your coding
+style. All code formatting flags can begin with either the <code class="literal">codeFormat
+</code> or <code class="literal">cf</code> prefix.
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">-codeFormat./-cf.tabSpaces &lt;spaces&gt;</code>: The number of
+spaces that make up a tab, or 0 to use tab characters. Defaults to using tab
+characters.
+                    </p></li><li><p>
+<code class="literal">-codeFormat./-cf.spaceBeforeParen &lt;true/t | false/f&gt;</code>:
+Whether or not to place a space before opening parentheses on method calls, if
+statements, loops, etc. Defaults to <code class="literal">false</code>.
+                    </p></li><li><p>
+<code class="literal">-codeFormat./-cf.spaceInParen &lt;true/t | false/f&gt;</code>:
+Whether or not to place a space within parentheses; i.e. <code class="literal">method( arg)
+</code>. Defaults to <code class="literal">false</code>.
+                    </p></li><li><p>
+<code class="literal">-codeFormat./-cf.braceOnSameLine &lt;true/t | false/f&gt;</code>:
+Whether or not to place opening braces on the same line as the declaration that
+begins the code block, or on the next line. Defaults to <code class="literal">true</code>
+.
+                    </p></li><li><p>
+<code class="literal">-codeFormat./-cf.braceAtSameTabLevel &lt;true/t | false/f&gt;</code>
+: When the <code class="literal">braceOnSameLine</code> option is disabled, you can choose
+whether to place the brace at the same tab level of the contained code. Defaults
+to <code class="literal">false</code>.
+                    </p></li><li><p>
+<code class="literal">-codeFormat./-cf.scoreBeforeFieldName &lt;true/t | false/f&gt;
+</code>: Whether to prefix an underscore to names of private member
+variables. Defaults to <code class="literal">false</code>.
+                    </p></li><li><p>
+<code class="literal">-codeFormat./-cf.linesBetweenSections &lt;lines&gt;</code>: The
+number of lines to skip between sections of code. Defaults to 1.
+                    </p></li></ul></div><div class="example"><a name="ref_guide_conf_devtools_format_ex"></a><p class="title"><b>Example&nbsp;2.1.&nbsp;
+                    Code Formatting with the Application Id Tool
+                </b></p><div class="example-contents"><pre class="programlisting">
+java org.apache.openjpa.enhance.ApplicationIdTool -cf.spaceBeforeParen true -cf.tabSpaces 4
+</pre></div></div><br class="example-break"></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ref_guide_conf_specify.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ref_guide_conf.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ref_guide_conf_plugins.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">2.&nbsp;
+            Runtime Configuration
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;4.&nbsp;
+            Plugin Configuration
+        </td></tr></table></div></body></html>

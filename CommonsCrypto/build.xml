@@ -1,0 +1,57 @@
+<project name="CommonsCrypto" default="CommonsCrypto">
+
+	<property file="../Commons/environments/${computer.hostname}.properties" />
+	<property file="../Commons/build.properties" />
+	<property file="build.properties" />
+	<import file="../Commons/common.xml" />
+
+	<target name="CommonsCrypto" depends="make.commons.crypto,test.commons.crypto,save.commons.crypto"/>
+	
+	<target name="make.commons.crypto" depends="clean.commons.crypto">
+		<make 
+			module="${commons.crypto.directory}" 
+			jarname="${commons.crypto.jar}"
+			source="src"
+			targetdir="made">
+			<make.classpath><classpath/></make.classpath>
+		</make>
+		<make 
+			module="${commons.crypto.directory}" 
+			jarname="${commons.crypto.test.jar}"
+			source="test"
+			targetdir="made">
+			<make.classpath>
+				<classpath>
+					<pathelement location="${commons.crypto.made.directory}/${commons.crypto.jar}"/>
+					<pathelement location="${junit.jar}"/>
+				</classpath>
+			</make.classpath>
+		</make>
+	</target>
+	
+	<target name="test.commons.crypto">
+		<test jarname="${commons.crypto.made.directory}/${commons.crypto.test.jar}" basedir="${commons.crypto.directory}">
+			<test.classpath>
+				<classpath>
+					<pathelement location="${commons.crypto.made.directory}/${commons.crypto.test.jar}"/>
+					<pathelement location="${commons.crypto.made.directory}/${commons.crypto.jar}"/>
+					<pathelement location="${junit.jar}"/>
+				</classpath>
+			</test.classpath>
+		</test>
+	</target>
+	
+	<target name="save.commons.crypto">
+		<save targetdir="${commons.crypto.directory}/dist">
+			<save.fileset>
+				<fileset dir="${commons.crypto.made.directory}" includes="${commons.crypto.jar}"/>
+			</save.fileset>
+		</save>
+	</target>
+	
+	<target name="clean.commons.crypto">
+		<init.dir dir="${commons.crypto.made.directory}"/>
+		<init.dir dir="${commons.crypto.dist.directory}"/>
+	</target>
+
+</project>

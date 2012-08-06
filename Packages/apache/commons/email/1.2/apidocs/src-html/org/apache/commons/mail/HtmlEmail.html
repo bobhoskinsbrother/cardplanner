@@ -1,0 +1,761 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    /*<a name="line.1"></a>
+<FONT color="green">002</FONT>     * Licensed to the Apache Software Foundation (ASF) under one or more<a name="line.2"></a>
+<FONT color="green">003</FONT>     * contributor license agreements.  See the NOTICE file distributed with<a name="line.3"></a>
+<FONT color="green">004</FONT>     * this work for additional information regarding copyright ownership.<a name="line.4"></a>
+<FONT color="green">005</FONT>     * The ASF licenses this file to You under the Apache License, Version 2.0<a name="line.5"></a>
+<FONT color="green">006</FONT>     * (the "License"); you may not use this file except in compliance with<a name="line.6"></a>
+<FONT color="green">007</FONT>     * the License.  You may obtain a copy of the License at<a name="line.7"></a>
+<FONT color="green">008</FONT>     *<a name="line.8"></a>
+<FONT color="green">009</FONT>     *     http://www.apache.org/licenses/LICENSE-2.0<a name="line.9"></a>
+<FONT color="green">010</FONT>     *<a name="line.10"></a>
+<FONT color="green">011</FONT>     * Unless required by applicable law or agreed to in writing, software<a name="line.11"></a>
+<FONT color="green">012</FONT>     * distributed under the License is distributed on an "AS IS" BASIS,<a name="line.12"></a>
+<FONT color="green">013</FONT>     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<a name="line.13"></a>
+<FONT color="green">014</FONT>     * See the License for the specific language governing permissions and<a name="line.14"></a>
+<FONT color="green">015</FONT>     * limitations under the License.<a name="line.15"></a>
+<FONT color="green">016</FONT>     */<a name="line.16"></a>
+<FONT color="green">017</FONT>    package org.apache.commons.mail;<a name="line.17"></a>
+<FONT color="green">018</FONT>    <a name="line.18"></a>
+<FONT color="green">019</FONT>    import java.io.File;<a name="line.19"></a>
+<FONT color="green">020</FONT>    import java.io.IOException;<a name="line.20"></a>
+<FONT color="green">021</FONT>    import java.io.InputStream;<a name="line.21"></a>
+<FONT color="green">022</FONT>    import java.net.MalformedURLException;<a name="line.22"></a>
+<FONT color="green">023</FONT>    import java.net.URL;<a name="line.23"></a>
+<FONT color="green">024</FONT>    import java.util.HashMap;<a name="line.24"></a>
+<FONT color="green">025</FONT>    import java.util.Iterator;<a name="line.25"></a>
+<FONT color="green">026</FONT>    import java.util.List;<a name="line.26"></a>
+<FONT color="green">027</FONT>    import java.util.Map;<a name="line.27"></a>
+<FONT color="green">028</FONT>    <a name="line.28"></a>
+<FONT color="green">029</FONT>    import javax.activation.DataHandler;<a name="line.29"></a>
+<FONT color="green">030</FONT>    import javax.activation.DataSource;<a name="line.30"></a>
+<FONT color="green">031</FONT>    import javax.activation.FileDataSource;<a name="line.31"></a>
+<FONT color="green">032</FONT>    import javax.activation.URLDataSource;<a name="line.32"></a>
+<FONT color="green">033</FONT>    import javax.mail.BodyPart;<a name="line.33"></a>
+<FONT color="green">034</FONT>    import javax.mail.MessagingException;<a name="line.34"></a>
+<FONT color="green">035</FONT>    import javax.mail.internet.MimeBodyPart;<a name="line.35"></a>
+<FONT color="green">036</FONT>    import javax.mail.internet.MimeMultipart;<a name="line.36"></a>
+<FONT color="green">037</FONT>    <a name="line.37"></a>
+<FONT color="green">038</FONT>    /**<a name="line.38"></a>
+<FONT color="green">039</FONT>     * An HTML multipart email.<a name="line.39"></a>
+<FONT color="green">040</FONT>     *<a name="line.40"></a>
+<FONT color="green">041</FONT>     * &lt;p&gt;This class is used to send HTML formatted email.  A text message<a name="line.41"></a>
+<FONT color="green">042</FONT>     * can also be set for HTML unaware email clients, such as text-based<a name="line.42"></a>
+<FONT color="green">043</FONT>     * email clients.<a name="line.43"></a>
+<FONT color="green">044</FONT>     *<a name="line.44"></a>
+<FONT color="green">045</FONT>     * &lt;p&gt;This class also inherits from {@link MultiPartEmail}, so it is easy to<a name="line.45"></a>
+<FONT color="green">046</FONT>     * add attachments to the email.<a name="line.46"></a>
+<FONT color="green">047</FONT>     *<a name="line.47"></a>
+<FONT color="green">048</FONT>     * &lt;p&gt;To send an email in HTML, one should create a &lt;code&gt;HtmlEmail&lt;/code&gt;, then<a name="line.48"></a>
+<FONT color="green">049</FONT>     * use the {@link #setFrom(String)}, {@link #addTo(String)} etc. methods.<a name="line.49"></a>
+<FONT color="green">050</FONT>     * The HTML content can be set with the {@link #setHtmlMsg(String)} method. The<a name="line.50"></a>
+<FONT color="green">051</FONT>     * alternative text content can be set with {@link #setTextMsg(String)}.<a name="line.51"></a>
+<FONT color="green">052</FONT>     *<a name="line.52"></a>
+<FONT color="green">053</FONT>     * &lt;p&gt;Either the text or HTML can be omitted, in which case the "main"<a name="line.53"></a>
+<FONT color="green">054</FONT>     * part of the multipart becomes whichever is supplied rather than a<a name="line.54"></a>
+<FONT color="green">055</FONT>     * &lt;code&gt;multipart/alternative&lt;/code&gt;.<a name="line.55"></a>
+<FONT color="green">056</FONT>     *<a name="line.56"></a>
+<FONT color="green">057</FONT>     * &lt;h3&gt;Embedding Images and Media&lt;/h3&gt;<a name="line.57"></a>
+<FONT color="green">058</FONT>     *<a name="line.58"></a>
+<FONT color="green">059</FONT>     * &lt;p&gt;It is also possible to embed URLs, files, or arbitrary<a name="line.59"></a>
+<FONT color="green">060</FONT>     * &lt;code&gt;DataSource&lt;/code&gt;s directly into the body of the mail:<a name="line.60"></a>
+<FONT color="green">061</FONT>     * &lt;pre&gt;&lt;code&gt;<a name="line.61"></a>
+<FONT color="green">062</FONT>     * HtmlEmail he = new HtmlEmail();<a name="line.62"></a>
+<FONT color="green">063</FONT>     * File img = new File("my/image.gif");<a name="line.63"></a>
+<FONT color="green">064</FONT>     * PNGDataSource png = new PNGDataSource(decodedPNGOutputStream); // a custom class<a name="line.64"></a>
+<FONT color="green">065</FONT>     * StringBuffer msg = new StringBuffer();<a name="line.65"></a>
+<FONT color="green">066</FONT>     * msg.append("&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;");<a name="line.66"></a>
+<FONT color="green">067</FONT>     * msg.append("&amp;lt;img src=cid:").append(he.embed(img)).append("&amp;gt;");<a name="line.67"></a>
+<FONT color="green">068</FONT>     * msg.append("&amp;lt;img src=cid:").append(he.embed(png)).append("&amp;gt;");<a name="line.68"></a>
+<FONT color="green">069</FONT>     * msg.append("&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;");<a name="line.69"></a>
+<FONT color="green">070</FONT>     * he.setHtmlMsg(msg.toString());<a name="line.70"></a>
+<FONT color="green">071</FONT>     * // code to set the other email fields (not shown)<a name="line.71"></a>
+<FONT color="green">072</FONT>     * &lt;/pre&gt;&lt;/code&gt;<a name="line.72"></a>
+<FONT color="green">073</FONT>     *<a name="line.73"></a>
+<FONT color="green">074</FONT>     * &lt;p&gt;Embedded entities are tracked by their name, which for &lt;code&gt;File&lt;/code&gt;s is<a name="line.74"></a>
+<FONT color="green">075</FONT>     * the filename itself and for &lt;code&gt;URL&lt;/code&gt;s is the canonical path. It is<a name="line.75"></a>
+<FONT color="green">076</FONT>     * an error to bind the same name to more than one entity, and this class will<a name="line.76"></a>
+<FONT color="green">077</FONT>     * attempt to validate that for &lt;code&gt;File&lt;/code&gt;s and &lt;code&gt;URL&lt;/code&gt;s. When<a name="line.77"></a>
+<FONT color="green">078</FONT>     * embedding a &lt;code&gt;DataSource&lt;/code&gt;, the code uses the &lt;code&gt;equals()&lt;/code&gt;<a name="line.78"></a>
+<FONT color="green">079</FONT>     * method defined on the &lt;code&gt;DataSource&lt;/code&gt;s to make the determination.<a name="line.79"></a>
+<FONT color="green">080</FONT>     *<a name="line.80"></a>
+<FONT color="green">081</FONT>     * @since 1.0<a name="line.81"></a>
+<FONT color="green">082</FONT>     * @author &lt;a href="mailto:unknown"&gt;Regis Koenig&lt;/a&gt;<a name="line.82"></a>
+<FONT color="green">083</FONT>     * @author &lt;a href="mailto:sean@informage.net"&gt;Sean Legassick&lt;/a&gt;<a name="line.83"></a>
+<FONT color="green">084</FONT>     * @version $Id: HtmlEmail.java 785383 2009-06-16 20:36:22Z sgoeschl $<a name="line.84"></a>
+<FONT color="green">085</FONT>     */<a name="line.85"></a>
+<FONT color="green">086</FONT>    public class HtmlEmail extends MultiPartEmail<a name="line.86"></a>
+<FONT color="green">087</FONT>    {<a name="line.87"></a>
+<FONT color="green">088</FONT>        /** Definition of the length of generated CID's */<a name="line.88"></a>
+<FONT color="green">089</FONT>        public static final int CID_LENGTH = 10;<a name="line.89"></a>
+<FONT color="green">090</FONT>    <a name="line.90"></a>
+<FONT color="green">091</FONT>        /** prefix for default HTML mail */<a name="line.91"></a>
+<FONT color="green">092</FONT>        private static final String HTML_MESSAGE_START = "&lt;html&gt;&lt;body&gt;&lt;pre&gt;";<a name="line.92"></a>
+<FONT color="green">093</FONT>        /** suffix for default HTML mail */<a name="line.93"></a>
+<FONT color="green">094</FONT>        private static final String HTML_MESSAGE_END = "&lt;/pre&gt;&lt;/body&gt;&lt;/html&gt;";<a name="line.94"></a>
+<FONT color="green">095</FONT>    <a name="line.95"></a>
+<FONT color="green">096</FONT>    <a name="line.96"></a>
+<FONT color="green">097</FONT>        /**<a name="line.97"></a>
+<FONT color="green">098</FONT>         * Text part of the message.  This will be used as alternative text if<a name="line.98"></a>
+<FONT color="green">099</FONT>         * the email client does not support HTML messages.<a name="line.99"></a>
+<FONT color="green">100</FONT>         */<a name="line.100"></a>
+<FONT color="green">101</FONT>        protected String text;<a name="line.101"></a>
+<FONT color="green">102</FONT>    <a name="line.102"></a>
+<FONT color="green">103</FONT>        /** Html part of the message */<a name="line.103"></a>
+<FONT color="green">104</FONT>        protected String html;<a name="line.104"></a>
+<FONT color="green">105</FONT>    <a name="line.105"></a>
+<FONT color="green">106</FONT>        /**<a name="line.106"></a>
+<FONT color="green">107</FONT>         * @deprecated As of commons-email 1.1, no longer used. Inline embedded<a name="line.107"></a>
+<FONT color="green">108</FONT>         * objects are now stored in {@link #inlineEmbeds}.<a name="line.108"></a>
+<FONT color="green">109</FONT>         */<a name="line.109"></a>
+<FONT color="green">110</FONT>        protected List inlineImages;<a name="line.110"></a>
+<FONT color="green">111</FONT>    <a name="line.111"></a>
+<FONT color="green">112</FONT>        /**<a name="line.112"></a>
+<FONT color="green">113</FONT>         * Embedded images Map&lt;String, InlineImage&gt; where the key is the<a name="line.113"></a>
+<FONT color="green">114</FONT>         * user-defined image name.<a name="line.114"></a>
+<FONT color="green">115</FONT>         */<a name="line.115"></a>
+<FONT color="green">116</FONT>        protected Map inlineEmbeds = new HashMap();<a name="line.116"></a>
+<FONT color="green">117</FONT>    <a name="line.117"></a>
+<FONT color="green">118</FONT>        /**<a name="line.118"></a>
+<FONT color="green">119</FONT>         * Set the text content.<a name="line.119"></a>
+<FONT color="green">120</FONT>         *<a name="line.120"></a>
+<FONT color="green">121</FONT>         * @param aText A String.<a name="line.121"></a>
+<FONT color="green">122</FONT>         * @return An HtmlEmail.<a name="line.122"></a>
+<FONT color="green">123</FONT>         * @throws EmailException see javax.mail.internet.MimeBodyPart<a name="line.123"></a>
+<FONT color="green">124</FONT>         *  for definitions<a name="line.124"></a>
+<FONT color="green">125</FONT>         * @since 1.0<a name="line.125"></a>
+<FONT color="green">126</FONT>         */<a name="line.126"></a>
+<FONT color="green">127</FONT>        public HtmlEmail setTextMsg(String aText) throws EmailException<a name="line.127"></a>
+<FONT color="green">128</FONT>        {<a name="line.128"></a>
+<FONT color="green">129</FONT>            if (EmailUtils.isEmpty(aText))<a name="line.129"></a>
+<FONT color="green">130</FONT>            {<a name="line.130"></a>
+<FONT color="green">131</FONT>                throw new EmailException("Invalid message supplied");<a name="line.131"></a>
+<FONT color="green">132</FONT>            }<a name="line.132"></a>
+<FONT color="green">133</FONT>    <a name="line.133"></a>
+<FONT color="green">134</FONT>            this.text = aText;<a name="line.134"></a>
+<FONT color="green">135</FONT>            return this;<a name="line.135"></a>
+<FONT color="green">136</FONT>        }<a name="line.136"></a>
+<FONT color="green">137</FONT>    <a name="line.137"></a>
+<FONT color="green">138</FONT>        /**<a name="line.138"></a>
+<FONT color="green">139</FONT>         * Set the HTML content.<a name="line.139"></a>
+<FONT color="green">140</FONT>         *<a name="line.140"></a>
+<FONT color="green">141</FONT>         * @param aHtml A String.<a name="line.141"></a>
+<FONT color="green">142</FONT>         * @return An HtmlEmail.<a name="line.142"></a>
+<FONT color="green">143</FONT>         * @throws EmailException see javax.mail.internet.MimeBodyPart<a name="line.143"></a>
+<FONT color="green">144</FONT>         *  for definitions<a name="line.144"></a>
+<FONT color="green">145</FONT>         * @since 1.0<a name="line.145"></a>
+<FONT color="green">146</FONT>         */<a name="line.146"></a>
+<FONT color="green">147</FONT>        public HtmlEmail setHtmlMsg(String aHtml) throws EmailException<a name="line.147"></a>
+<FONT color="green">148</FONT>        {<a name="line.148"></a>
+<FONT color="green">149</FONT>            if (EmailUtils.isEmpty(aHtml))<a name="line.149"></a>
+<FONT color="green">150</FONT>            {<a name="line.150"></a>
+<FONT color="green">151</FONT>                throw new EmailException("Invalid message supplied");<a name="line.151"></a>
+<FONT color="green">152</FONT>            }<a name="line.152"></a>
+<FONT color="green">153</FONT>    <a name="line.153"></a>
+<FONT color="green">154</FONT>            this.html = aHtml;<a name="line.154"></a>
+<FONT color="green">155</FONT>            return this;<a name="line.155"></a>
+<FONT color="green">156</FONT>        }<a name="line.156"></a>
+<FONT color="green">157</FONT>    <a name="line.157"></a>
+<FONT color="green">158</FONT>        /**<a name="line.158"></a>
+<FONT color="green">159</FONT>         * Set the message.<a name="line.159"></a>
+<FONT color="green">160</FONT>         *<a name="line.160"></a>
+<FONT color="green">161</FONT>         * &lt;p&gt;This method overrides {@link MultiPartEmail#setMsg(String)} in<a name="line.161"></a>
+<FONT color="green">162</FONT>         * order to send an HTML message instead of a plain text message in<a name="line.162"></a>
+<FONT color="green">163</FONT>         * the mail body. The message is formatted in HTML for the HTML<a name="line.163"></a>
+<FONT color="green">164</FONT>         * part of the message; it is left as is in the alternate text<a name="line.164"></a>
+<FONT color="green">165</FONT>         * part.<a name="line.165"></a>
+<FONT color="green">166</FONT>         *<a name="line.166"></a>
+<FONT color="green">167</FONT>         * @param msg the message text to use<a name="line.167"></a>
+<FONT color="green">168</FONT>         * @return this &lt;code&gt;HtmlEmail&lt;/code&gt;<a name="line.168"></a>
+<FONT color="green">169</FONT>         * @throws EmailException if msg is null or empty;<a name="line.169"></a>
+<FONT color="green">170</FONT>         * see javax.mail.internet.MimeBodyPart for definitions<a name="line.170"></a>
+<FONT color="green">171</FONT>         * @since 1.0<a name="line.171"></a>
+<FONT color="green">172</FONT>         */<a name="line.172"></a>
+<FONT color="green">173</FONT>        public Email setMsg(String msg) throws EmailException<a name="line.173"></a>
+<FONT color="green">174</FONT>        {<a name="line.174"></a>
+<FONT color="green">175</FONT>            if (EmailUtils.isEmpty(msg))<a name="line.175"></a>
+<FONT color="green">176</FONT>            {<a name="line.176"></a>
+<FONT color="green">177</FONT>                throw new EmailException("Invalid message supplied");<a name="line.177"></a>
+<FONT color="green">178</FONT>            }<a name="line.178"></a>
+<FONT color="green">179</FONT>    <a name="line.179"></a>
+<FONT color="green">180</FONT>            setTextMsg(msg);<a name="line.180"></a>
+<FONT color="green">181</FONT>    <a name="line.181"></a>
+<FONT color="green">182</FONT>            StringBuffer htmlMsgBuf = new StringBuffer(<a name="line.182"></a>
+<FONT color="green">183</FONT>                msg.length()<a name="line.183"></a>
+<FONT color="green">184</FONT>                + HTML_MESSAGE_START.length()<a name="line.184"></a>
+<FONT color="green">185</FONT>                + HTML_MESSAGE_END.length()<a name="line.185"></a>
+<FONT color="green">186</FONT>            );<a name="line.186"></a>
+<FONT color="green">187</FONT>    <a name="line.187"></a>
+<FONT color="green">188</FONT>            htmlMsgBuf.append(HTML_MESSAGE_START)<a name="line.188"></a>
+<FONT color="green">189</FONT>                .append(msg)<a name="line.189"></a>
+<FONT color="green">190</FONT>                .append(HTML_MESSAGE_END);<a name="line.190"></a>
+<FONT color="green">191</FONT>    <a name="line.191"></a>
+<FONT color="green">192</FONT>            setHtmlMsg(htmlMsgBuf.toString());<a name="line.192"></a>
+<FONT color="green">193</FONT>    <a name="line.193"></a>
+<FONT color="green">194</FONT>            return this;<a name="line.194"></a>
+<FONT color="green">195</FONT>        }<a name="line.195"></a>
+<FONT color="green">196</FONT>    <a name="line.196"></a>
+<FONT color="green">197</FONT>        /**<a name="line.197"></a>
+<FONT color="green">198</FONT>         * Attempts to parse the specified &lt;code&gt;String&lt;/code&gt; as a URL that will<a name="line.198"></a>
+<FONT color="green">199</FONT>         * then be embedded in the message.<a name="line.199"></a>
+<FONT color="green">200</FONT>         *<a name="line.200"></a>
+<FONT color="green">201</FONT>         * @param urlString String representation of the URL.<a name="line.201"></a>
+<FONT color="green">202</FONT>         * @param name The name that will be set in the filename header field.<a name="line.202"></a>
+<FONT color="green">203</FONT>         * @return A String with the Content-ID of the URL.<a name="line.203"></a>
+<FONT color="green">204</FONT>         * @throws EmailException when URL supplied is invalid or if &lt;code&gt; is null<a name="line.204"></a>
+<FONT color="green">205</FONT>         * or empty; also see {@link javax.mail.internet.MimeBodyPart} for definitions<a name="line.205"></a>
+<FONT color="green">206</FONT>         *<a name="line.206"></a>
+<FONT color="green">207</FONT>         * @see #embed(URL, String)<a name="line.207"></a>
+<FONT color="green">208</FONT>         * @since 1.1<a name="line.208"></a>
+<FONT color="green">209</FONT>         */<a name="line.209"></a>
+<FONT color="green">210</FONT>        public String embed(String urlString, String name) throws EmailException<a name="line.210"></a>
+<FONT color="green">211</FONT>        {<a name="line.211"></a>
+<FONT color="green">212</FONT>            try<a name="line.212"></a>
+<FONT color="green">213</FONT>            {<a name="line.213"></a>
+<FONT color="green">214</FONT>                return embed(new URL(urlString), name);<a name="line.214"></a>
+<FONT color="green">215</FONT>            }<a name="line.215"></a>
+<FONT color="green">216</FONT>            catch (MalformedURLException e)<a name="line.216"></a>
+<FONT color="green">217</FONT>            {<a name="line.217"></a>
+<FONT color="green">218</FONT>                throw new EmailException("Invalid URL", e);<a name="line.218"></a>
+<FONT color="green">219</FONT>            }<a name="line.219"></a>
+<FONT color="green">220</FONT>        }<a name="line.220"></a>
+<FONT color="green">221</FONT>    <a name="line.221"></a>
+<FONT color="green">222</FONT>        /**<a name="line.222"></a>
+<FONT color="green">223</FONT>         * Embeds an URL in the HTML.<a name="line.223"></a>
+<FONT color="green">224</FONT>         *<a name="line.224"></a>
+<FONT color="green">225</FONT>         * &lt;p&gt;This method embeds a file located by an URL into<a name="line.225"></a>
+<FONT color="green">226</FONT>         * the mail body. It allows, for instance, to add inline images<a name="line.226"></a>
+<FONT color="green">227</FONT>         * to the email.  Inline files may be referenced with a<a name="line.227"></a>
+<FONT color="green">228</FONT>         * &lt;code&gt;cid:xxxxxx&lt;/code&gt; URL, where xxxxxx is the Content-ID<a name="line.228"></a>
+<FONT color="green">229</FONT>         * returned by the embed function. It is an error to bind the same name<a name="line.229"></a>
+<FONT color="green">230</FONT>         * to more than one URL; if the same URL is embedded multiple times, the<a name="line.230"></a>
+<FONT color="green">231</FONT>         * same Content-ID is guaranteed to be returned.<a name="line.231"></a>
+<FONT color="green">232</FONT>         *<a name="line.232"></a>
+<FONT color="green">233</FONT>         * &lt;p&gt;While functionally the same as passing &lt;code&gt;URLDataSource&lt;/code&gt; to<a name="line.233"></a>
+<FONT color="green">234</FONT>         * {@link #embed(DataSource, String, String)}, this method attempts<a name="line.234"></a>
+<FONT color="green">235</FONT>         * to validate the URL before embedding it in the message and will throw<a name="line.235"></a>
+<FONT color="green">236</FONT>         * &lt;code&gt;EmailException&lt;/code&gt; if the validation fails. In this case, the<a name="line.236"></a>
+<FONT color="green">237</FONT>         * &lt;code&gt;HtmlEmail&lt;/code&gt; object will not be changed.<a name="line.237"></a>
+<FONT color="green">238</FONT>         *<a name="line.238"></a>
+<FONT color="green">239</FONT>         * &lt;p&gt;<a name="line.239"></a>
+<FONT color="green">240</FONT>         * NOTE: Clients should take care to ensure that different URLs are bound to<a name="line.240"></a>
+<FONT color="green">241</FONT>         * different names. This implementation tries to detect this and throw<a name="line.241"></a>
+<FONT color="green">242</FONT>         * &lt;code&gt;EmailException&lt;/code&gt;. However, it is not guaranteed to catch<a name="line.242"></a>
+<FONT color="green">243</FONT>         * all cases, especially when the URL refers to a remote HTTP host that<a name="line.243"></a>
+<FONT color="green">244</FONT>         * may be part of a virtual host cluster.<a name="line.244"></a>
+<FONT color="green">245</FONT>         *<a name="line.245"></a>
+<FONT color="green">246</FONT>         * @param url The URL of the file.<a name="line.246"></a>
+<FONT color="green">247</FONT>         * @param name The name that will be set in the filename header<a name="line.247"></a>
+<FONT color="green">248</FONT>         * field.<a name="line.248"></a>
+<FONT color="green">249</FONT>         * @return A String with the Content-ID of the file.<a name="line.249"></a>
+<FONT color="green">250</FONT>         * @throws EmailException when URL supplied is invalid or if &lt;code&gt; is null<a name="line.250"></a>
+<FONT color="green">251</FONT>         * or empty; also see {@link javax.mail.internet.MimeBodyPart} for definitions<a name="line.251"></a>
+<FONT color="green">252</FONT>         * @since 1.0<a name="line.252"></a>
+<FONT color="green">253</FONT>         */<a name="line.253"></a>
+<FONT color="green">254</FONT>        public String embed(URL url, String name) throws EmailException<a name="line.254"></a>
+<FONT color="green">255</FONT>        {<a name="line.255"></a>
+<FONT color="green">256</FONT>            if (EmailUtils.isEmpty(name))<a name="line.256"></a>
+<FONT color="green">257</FONT>            {<a name="line.257"></a>
+<FONT color="green">258</FONT>                throw new EmailException("name cannot be null or empty");<a name="line.258"></a>
+<FONT color="green">259</FONT>            }<a name="line.259"></a>
+<FONT color="green">260</FONT>    <a name="line.260"></a>
+<FONT color="green">261</FONT>            // check if a URLDataSource for this name has already been attached;<a name="line.261"></a>
+<FONT color="green">262</FONT>            // if so, return the cached CID value.<a name="line.262"></a>
+<FONT color="green">263</FONT>            if (inlineEmbeds.containsKey(name))<a name="line.263"></a>
+<FONT color="green">264</FONT>            {<a name="line.264"></a>
+<FONT color="green">265</FONT>                InlineImage ii = (InlineImage) inlineEmbeds.get(name);<a name="line.265"></a>
+<FONT color="green">266</FONT>                URLDataSource urlDataSource = (URLDataSource) ii.getDataSource();<a name="line.266"></a>
+<FONT color="green">267</FONT>                // make sure the supplied URL points to the same thing<a name="line.267"></a>
+<FONT color="green">268</FONT>                // as the one already associated with this name.<a name="line.268"></a>
+<FONT color="green">269</FONT>                // NOTE: Comparing URLs with URL.equals() is a blocking operation<a name="line.269"></a>
+<FONT color="green">270</FONT>                // in the case of a network failure therefore we use<a name="line.270"></a>
+<FONT color="green">271</FONT>                // url.toExternalForm().equals() here.<a name="line.271"></a>
+<FONT color="green">272</FONT>                if (url.toExternalForm().equals(urlDataSource.getURL().toExternalForm()))<a name="line.272"></a>
+<FONT color="green">273</FONT>                {<a name="line.273"></a>
+<FONT color="green">274</FONT>                    return ii.getCid();<a name="line.274"></a>
+<FONT color="green">275</FONT>                }<a name="line.275"></a>
+<FONT color="green">276</FONT>                else<a name="line.276"></a>
+<FONT color="green">277</FONT>                {<a name="line.277"></a>
+<FONT color="green">278</FONT>                    throw new EmailException("embedded name '" + name<a name="line.278"></a>
+<FONT color="green">279</FONT>                        + "' is already bound to URL " + urlDataSource.getURL()<a name="line.279"></a>
+<FONT color="green">280</FONT>                        + "; existing names cannot be rebound");<a name="line.280"></a>
+<FONT color="green">281</FONT>                }<a name="line.281"></a>
+<FONT color="green">282</FONT>            }<a name="line.282"></a>
+<FONT color="green">283</FONT>    <a name="line.283"></a>
+<FONT color="green">284</FONT>            // verify that the URL is valid<a name="line.284"></a>
+<FONT color="green">285</FONT>            InputStream is = null;<a name="line.285"></a>
+<FONT color="green">286</FONT>            try<a name="line.286"></a>
+<FONT color="green">287</FONT>            {<a name="line.287"></a>
+<FONT color="green">288</FONT>                is = url.openStream();<a name="line.288"></a>
+<FONT color="green">289</FONT>            }<a name="line.289"></a>
+<FONT color="green">290</FONT>            catch (IOException e)<a name="line.290"></a>
+<FONT color="green">291</FONT>            {<a name="line.291"></a>
+<FONT color="green">292</FONT>                throw new EmailException("Invalid URL", e);<a name="line.292"></a>
+<FONT color="green">293</FONT>            }<a name="line.293"></a>
+<FONT color="green">294</FONT>            finally<a name="line.294"></a>
+<FONT color="green">295</FONT>            {<a name="line.295"></a>
+<FONT color="green">296</FONT>                try<a name="line.296"></a>
+<FONT color="green">297</FONT>                {<a name="line.297"></a>
+<FONT color="green">298</FONT>                    if (is != null)<a name="line.298"></a>
+<FONT color="green">299</FONT>                    {<a name="line.299"></a>
+<FONT color="green">300</FONT>                        is.close();<a name="line.300"></a>
+<FONT color="green">301</FONT>                    }<a name="line.301"></a>
+<FONT color="green">302</FONT>                }<a name="line.302"></a>
+<FONT color="green">303</FONT>                catch (IOException ioe)<a name="line.303"></a>
+<FONT color="green">304</FONT>                { /* sigh */ }<a name="line.304"></a>
+<FONT color="green">305</FONT>            }<a name="line.305"></a>
+<FONT color="green">306</FONT>    <a name="line.306"></a>
+<FONT color="green">307</FONT>            return embed(new URLDataSource(url), name);<a name="line.307"></a>
+<FONT color="green">308</FONT>        }<a name="line.308"></a>
+<FONT color="green">309</FONT>    <a name="line.309"></a>
+<FONT color="green">310</FONT>        /**<a name="line.310"></a>
+<FONT color="green">311</FONT>         * Embeds a file in the HTML. This implementation delegates to<a name="line.311"></a>
+<FONT color="green">312</FONT>         * {@link #embed(File, String)}.<a name="line.312"></a>
+<FONT color="green">313</FONT>         *<a name="line.313"></a>
+<FONT color="green">314</FONT>         * @param file The &lt;code&gt;File&lt;/code&gt; object to embed<a name="line.314"></a>
+<FONT color="green">315</FONT>         * @return A String with the Content-ID of the file.<a name="line.315"></a>
+<FONT color="green">316</FONT>         * @throws EmailException when the supplied &lt;code&gt;File&lt;/code&gt; cannot be<a name="line.316"></a>
+<FONT color="green">317</FONT>         * used; also see {@link javax.mail.internet.MimeBodyPart} for definitions<a name="line.317"></a>
+<FONT color="green">318</FONT>         *<a name="line.318"></a>
+<FONT color="green">319</FONT>         * @see #embed(File, String)<a name="line.319"></a>
+<FONT color="green">320</FONT>         * @since 1.1<a name="line.320"></a>
+<FONT color="green">321</FONT>         */<a name="line.321"></a>
+<FONT color="green">322</FONT>        public String embed(File file) throws EmailException<a name="line.322"></a>
+<FONT color="green">323</FONT>        {<a name="line.323"></a>
+<FONT color="green">324</FONT>            String cid = EmailUtils.randomAlphabetic(HtmlEmail.CID_LENGTH).toLowerCase();<a name="line.324"></a>
+<FONT color="green">325</FONT>            return embed(file, cid);<a name="line.325"></a>
+<FONT color="green">326</FONT>        }<a name="line.326"></a>
+<FONT color="green">327</FONT>    <a name="line.327"></a>
+<FONT color="green">328</FONT>        /**<a name="line.328"></a>
+<FONT color="green">329</FONT>         * Embeds a file in the HTML.<a name="line.329"></a>
+<FONT color="green">330</FONT>         *<a name="line.330"></a>
+<FONT color="green">331</FONT>         * &lt;p&gt;This method embeds a file located by an URL into<a name="line.331"></a>
+<FONT color="green">332</FONT>         * the mail body. It allows, for instance, to add inline images<a name="line.332"></a>
+<FONT color="green">333</FONT>         * to the email.  Inline files may be referenced with a<a name="line.333"></a>
+<FONT color="green">334</FONT>         * &lt;code&gt;cid:xxxxxx&lt;/code&gt; URL, where xxxxxx is the Content-ID<a name="line.334"></a>
+<FONT color="green">335</FONT>         * returned by the embed function. Files are bound to their names, which is<a name="line.335"></a>
+<FONT color="green">336</FONT>         * the value returned by {@link java.io.File#getName()}. If the same file<a name="line.336"></a>
+<FONT color="green">337</FONT>         * is embedded multiple times, the same CID is guaranteed to be returned.<a name="line.337"></a>
+<FONT color="green">338</FONT>         *<a name="line.338"></a>
+<FONT color="green">339</FONT>         * &lt;p&gt;While functionally the same as passing &lt;code&gt;FileDataSource&lt;/code&gt; to<a name="line.339"></a>
+<FONT color="green">340</FONT>         * {@link #embed(DataSource, String, String)}, this method attempts<a name="line.340"></a>
+<FONT color="green">341</FONT>         * to validate the file before embedding it in the message and will throw<a name="line.341"></a>
+<FONT color="green">342</FONT>         * &lt;code&gt;EmailException&lt;/code&gt; if the validation fails. In this case, the<a name="line.342"></a>
+<FONT color="green">343</FONT>         * &lt;code&gt;HtmlEmail&lt;/code&gt; object will not be changed.<a name="line.343"></a>
+<FONT color="green">344</FONT>         *<a name="line.344"></a>
+<FONT color="green">345</FONT>         * @param file The &lt;code&gt;File&lt;/code&gt; to embed<a name="line.345"></a>
+<FONT color="green">346</FONT>         * @param cid the Content-ID to use for the embedded &lt;code&gt;File&lt;/code&gt;<a name="line.346"></a>
+<FONT color="green">347</FONT>         * @return A String with the Content-ID of the file.<a name="line.347"></a>
+<FONT color="green">348</FONT>         * @throws EmailException when the supplied &lt;code&gt;File&lt;/code&gt; cannot be used<a name="line.348"></a>
+<FONT color="green">349</FONT>         *  or if the file has already been embedded;<a name="line.349"></a>
+<FONT color="green">350</FONT>         *  also see {@link javax.mail.internet.MimeBodyPart} for definitions<a name="line.350"></a>
+<FONT color="green">351</FONT>         * @since 1.1<a name="line.351"></a>
+<FONT color="green">352</FONT>         */<a name="line.352"></a>
+<FONT color="green">353</FONT>        public String embed(File file, String cid) throws EmailException<a name="line.353"></a>
+<FONT color="green">354</FONT>        {<a name="line.354"></a>
+<FONT color="green">355</FONT>            if (EmailUtils.isEmpty(file.getName()))<a name="line.355"></a>
+<FONT color="green">356</FONT>            {<a name="line.356"></a>
+<FONT color="green">357</FONT>                throw new EmailException("file name cannot be null or empty");<a name="line.357"></a>
+<FONT color="green">358</FONT>            }<a name="line.358"></a>
+<FONT color="green">359</FONT>    <a name="line.359"></a>
+<FONT color="green">360</FONT>            // verify that the File can provide a canonical path<a name="line.360"></a>
+<FONT color="green">361</FONT>            String filePath = null;<a name="line.361"></a>
+<FONT color="green">362</FONT>            try<a name="line.362"></a>
+<FONT color="green">363</FONT>            {<a name="line.363"></a>
+<FONT color="green">364</FONT>                filePath = file.getCanonicalPath();<a name="line.364"></a>
+<FONT color="green">365</FONT>            }<a name="line.365"></a>
+<FONT color="green">366</FONT>            catch (IOException ioe)<a name="line.366"></a>
+<FONT color="green">367</FONT>            {<a name="line.367"></a>
+<FONT color="green">368</FONT>                throw new EmailException("couldn't get canonical path for "<a name="line.368"></a>
+<FONT color="green">369</FONT>                        + file.getName(), ioe);<a name="line.369"></a>
+<FONT color="green">370</FONT>            }<a name="line.370"></a>
+<FONT color="green">371</FONT>    <a name="line.371"></a>
+<FONT color="green">372</FONT>            // check if a FileDataSource for this name has already been attached;<a name="line.372"></a>
+<FONT color="green">373</FONT>            // if so, return the cached CID value.<a name="line.373"></a>
+<FONT color="green">374</FONT>            if (inlineEmbeds.containsKey(file.getName()))<a name="line.374"></a>
+<FONT color="green">375</FONT>            {<a name="line.375"></a>
+<FONT color="green">376</FONT>                InlineImage ii = (InlineImage) inlineEmbeds.get(file.getName());<a name="line.376"></a>
+<FONT color="green">377</FONT>                FileDataSource fileDataSource = (FileDataSource) ii.getDataSource();<a name="line.377"></a>
+<FONT color="green">378</FONT>                // make sure the supplied file has the same canonical path<a name="line.378"></a>
+<FONT color="green">379</FONT>                // as the one already associated with this name.<a name="line.379"></a>
+<FONT color="green">380</FONT>                String existingFilePath = null;<a name="line.380"></a>
+<FONT color="green">381</FONT>                try<a name="line.381"></a>
+<FONT color="green">382</FONT>                {<a name="line.382"></a>
+<FONT color="green">383</FONT>                    existingFilePath = fileDataSource.getFile().getCanonicalPath();<a name="line.383"></a>
+<FONT color="green">384</FONT>                }<a name="line.384"></a>
+<FONT color="green">385</FONT>                catch (IOException ioe)<a name="line.385"></a>
+<FONT color="green">386</FONT>                {<a name="line.386"></a>
+<FONT color="green">387</FONT>                    throw new EmailException("couldn't get canonical path for file "<a name="line.387"></a>
+<FONT color="green">388</FONT>                            + fileDataSource.getFile().getName()<a name="line.388"></a>
+<FONT color="green">389</FONT>                            + "which has already been embedded", ioe);<a name="line.389"></a>
+<FONT color="green">390</FONT>                }<a name="line.390"></a>
+<FONT color="green">391</FONT>                if (filePath.equals(existingFilePath))<a name="line.391"></a>
+<FONT color="green">392</FONT>                {<a name="line.392"></a>
+<FONT color="green">393</FONT>                    return ii.getCid();<a name="line.393"></a>
+<FONT color="green">394</FONT>                }<a name="line.394"></a>
+<FONT color="green">395</FONT>                else<a name="line.395"></a>
+<FONT color="green">396</FONT>                {<a name="line.396"></a>
+<FONT color="green">397</FONT>                    throw new EmailException("embedded name '" + file.getName()<a name="line.397"></a>
+<FONT color="green">398</FONT>                        + "' is already bound to file " + existingFilePath<a name="line.398"></a>
+<FONT color="green">399</FONT>                        + "; existing names cannot be rebound");<a name="line.399"></a>
+<FONT color="green">400</FONT>                }<a name="line.400"></a>
+<FONT color="green">401</FONT>            }<a name="line.401"></a>
+<FONT color="green">402</FONT>    <a name="line.402"></a>
+<FONT color="green">403</FONT>            // verify that the file is valid<a name="line.403"></a>
+<FONT color="green">404</FONT>            if (!file.exists())<a name="line.404"></a>
+<FONT color="green">405</FONT>            {<a name="line.405"></a>
+<FONT color="green">406</FONT>                throw new EmailException("file " + filePath + " doesn't exist");<a name="line.406"></a>
+<FONT color="green">407</FONT>            }<a name="line.407"></a>
+<FONT color="green">408</FONT>            if (!file.isFile())<a name="line.408"></a>
+<FONT color="green">409</FONT>            {<a name="line.409"></a>
+<FONT color="green">410</FONT>                throw new EmailException("file " + filePath + " isn't a normal file");<a name="line.410"></a>
+<FONT color="green">411</FONT>            }<a name="line.411"></a>
+<FONT color="green">412</FONT>            if (!file.canRead())<a name="line.412"></a>
+<FONT color="green">413</FONT>            {<a name="line.413"></a>
+<FONT color="green">414</FONT>                throw new EmailException("file " + filePath + " isn't readable");<a name="line.414"></a>
+<FONT color="green">415</FONT>            }<a name="line.415"></a>
+<FONT color="green">416</FONT>    <a name="line.416"></a>
+<FONT color="green">417</FONT>            return embed(new FileDataSource(file), file.getName());<a name="line.417"></a>
+<FONT color="green">418</FONT>        }<a name="line.418"></a>
+<FONT color="green">419</FONT>    <a name="line.419"></a>
+<FONT color="green">420</FONT>        /**<a name="line.420"></a>
+<FONT color="green">421</FONT>         * Embeds the specified &lt;code&gt;DataSource&lt;/code&gt; in the HTML using a<a name="line.421"></a>
+<FONT color="green">422</FONT>         * randomly generated Content-ID. Returns the generated Content-ID string.<a name="line.422"></a>
+<FONT color="green">423</FONT>         *<a name="line.423"></a>
+<FONT color="green">424</FONT>         * @param dataSource the &lt;code&gt;DataSource&lt;/code&gt; to embed<a name="line.424"></a>
+<FONT color="green">425</FONT>         * @param name the name that will be set in the filename header field<a name="line.425"></a>
+<FONT color="green">426</FONT>         * @return the generated Content-ID for this &lt;code&gt;DataSource&lt;/code&gt;<a name="line.426"></a>
+<FONT color="green">427</FONT>         * @throws EmailException if the embedding fails or if &lt;code&gt;name&lt;/code&gt; is<a name="line.427"></a>
+<FONT color="green">428</FONT>         * null or empty<a name="line.428"></a>
+<FONT color="green">429</FONT>         * @see #embed(DataSource, String, String)<a name="line.429"></a>
+<FONT color="green">430</FONT>         * @since 1.1<a name="line.430"></a>
+<FONT color="green">431</FONT>         */<a name="line.431"></a>
+<FONT color="green">432</FONT>        public String embed(DataSource dataSource, String name) throws EmailException<a name="line.432"></a>
+<FONT color="green">433</FONT>        {<a name="line.433"></a>
+<FONT color="green">434</FONT>            // check if the DataSource has already been attached;<a name="line.434"></a>
+<FONT color="green">435</FONT>            // if so, return the cached CID value.<a name="line.435"></a>
+<FONT color="green">436</FONT>            if (inlineEmbeds.containsKey(name))<a name="line.436"></a>
+<FONT color="green">437</FONT>            {<a name="line.437"></a>
+<FONT color="green">438</FONT>                InlineImage ii = (InlineImage) inlineEmbeds.get(name);<a name="line.438"></a>
+<FONT color="green">439</FONT>                // make sure the supplied URL points to the same thing<a name="line.439"></a>
+<FONT color="green">440</FONT>                // as the one already associated with this name.<a name="line.440"></a>
+<FONT color="green">441</FONT>                if (dataSource.equals(ii.getDataSource()))<a name="line.441"></a>
+<FONT color="green">442</FONT>                {<a name="line.442"></a>
+<FONT color="green">443</FONT>                    return ii.getCid();<a name="line.443"></a>
+<FONT color="green">444</FONT>                }<a name="line.444"></a>
+<FONT color="green">445</FONT>                else<a name="line.445"></a>
+<FONT color="green">446</FONT>                {<a name="line.446"></a>
+<FONT color="green">447</FONT>                    throw new EmailException("embedded DataSource '" + name<a name="line.447"></a>
+<FONT color="green">448</FONT>                        + "' is already bound to name " + ii.getDataSource().toString()<a name="line.448"></a>
+<FONT color="green">449</FONT>                        + "; existing names cannot be rebound");<a name="line.449"></a>
+<FONT color="green">450</FONT>                }<a name="line.450"></a>
+<FONT color="green">451</FONT>            }<a name="line.451"></a>
+<FONT color="green">452</FONT>    <a name="line.452"></a>
+<FONT color="green">453</FONT>            String cid = EmailUtils.randomAlphabetic(HtmlEmail.CID_LENGTH).toLowerCase();<a name="line.453"></a>
+<FONT color="green">454</FONT>            return embed(dataSource, name, cid);<a name="line.454"></a>
+<FONT color="green">455</FONT>        }<a name="line.455"></a>
+<FONT color="green">456</FONT>    <a name="line.456"></a>
+<FONT color="green">457</FONT>        /**<a name="line.457"></a>
+<FONT color="green">458</FONT>         * Embeds the specified &lt;code&gt;DataSource&lt;/code&gt; in the HTML using the<a name="line.458"></a>
+<FONT color="green">459</FONT>         * specified Content-ID. Returns the specified Content-ID string.<a name="line.459"></a>
+<FONT color="green">460</FONT>         *<a name="line.460"></a>
+<FONT color="green">461</FONT>         * @param dataSource the &lt;code&gt;DataSource&lt;/code&gt; to embed<a name="line.461"></a>
+<FONT color="green">462</FONT>         * @param name the name that will be set in the filename header field<a name="line.462"></a>
+<FONT color="green">463</FONT>         * @param cid the Content-ID to use for this &lt;code&gt;DataSource&lt;/code&gt;<a name="line.463"></a>
+<FONT color="green">464</FONT>         * @return the supplied Content-ID for this &lt;code&gt;DataSource&lt;/code&gt;<a name="line.464"></a>
+<FONT color="green">465</FONT>         * @throws EmailException if the embedding fails or if &lt;code&gt;name&lt;/code&gt; is<a name="line.465"></a>
+<FONT color="green">466</FONT>         * null or empty<a name="line.466"></a>
+<FONT color="green">467</FONT>         * @since 1.1<a name="line.467"></a>
+<FONT color="green">468</FONT>         */<a name="line.468"></a>
+<FONT color="green">469</FONT>        public String embed(DataSource dataSource, String name, String cid)<a name="line.469"></a>
+<FONT color="green">470</FONT>            throws EmailException<a name="line.470"></a>
+<FONT color="green">471</FONT>        {<a name="line.471"></a>
+<FONT color="green">472</FONT>            if (EmailUtils.isEmpty(name))<a name="line.472"></a>
+<FONT color="green">473</FONT>            {<a name="line.473"></a>
+<FONT color="green">474</FONT>                throw new EmailException("name cannot be null or empty");<a name="line.474"></a>
+<FONT color="green">475</FONT>            }<a name="line.475"></a>
+<FONT color="green">476</FONT>    <a name="line.476"></a>
+<FONT color="green">477</FONT>            MimeBodyPart mbp = new MimeBodyPart();<a name="line.477"></a>
+<FONT color="green">478</FONT>    <a name="line.478"></a>
+<FONT color="green">479</FONT>            try<a name="line.479"></a>
+<FONT color="green">480</FONT>            {<a name="line.480"></a>
+<FONT color="green">481</FONT>                mbp.setDataHandler(new DataHandler(dataSource));<a name="line.481"></a>
+<FONT color="green">482</FONT>                mbp.setFileName(name);<a name="line.482"></a>
+<FONT color="green">483</FONT>                mbp.setDisposition("inline");<a name="line.483"></a>
+<FONT color="green">484</FONT>                mbp.setContentID("&lt;" + cid + "&gt;");<a name="line.484"></a>
+<FONT color="green">485</FONT>    <a name="line.485"></a>
+<FONT color="green">486</FONT>                InlineImage ii = new InlineImage(cid, dataSource, mbp);<a name="line.486"></a>
+<FONT color="green">487</FONT>                this.inlineEmbeds.put(name, ii);<a name="line.487"></a>
+<FONT color="green">488</FONT>    <a name="line.488"></a>
+<FONT color="green">489</FONT>                return cid;<a name="line.489"></a>
+<FONT color="green">490</FONT>            }<a name="line.490"></a>
+<FONT color="green">491</FONT>            catch (MessagingException me)<a name="line.491"></a>
+<FONT color="green">492</FONT>            {<a name="line.492"></a>
+<FONT color="green">493</FONT>                throw new EmailException(me);<a name="line.493"></a>
+<FONT color="green">494</FONT>            }<a name="line.494"></a>
+<FONT color="green">495</FONT>        }<a name="line.495"></a>
+<FONT color="green">496</FONT>    <a name="line.496"></a>
+<FONT color="green">497</FONT>        /**<a name="line.497"></a>
+<FONT color="green">498</FONT>         * Does the work of actually building the email.<a name="line.498"></a>
+<FONT color="green">499</FONT>         *<a name="line.499"></a>
+<FONT color="green">500</FONT>         * @exception EmailException if there was an error.<a name="line.500"></a>
+<FONT color="green">501</FONT>         * @since 1.0<a name="line.501"></a>
+<FONT color="green">502</FONT>         */<a name="line.502"></a>
+<FONT color="green">503</FONT>        public void buildMimeMessage() throws EmailException<a name="line.503"></a>
+<FONT color="green">504</FONT>        {<a name="line.504"></a>
+<FONT color="green">505</FONT>            try<a name="line.505"></a>
+<FONT color="green">506</FONT>            {<a name="line.506"></a>
+<FONT color="green">507</FONT>                build();<a name="line.507"></a>
+<FONT color="green">508</FONT>            }<a name="line.508"></a>
+<FONT color="green">509</FONT>            catch (MessagingException me)<a name="line.509"></a>
+<FONT color="green">510</FONT>            {<a name="line.510"></a>
+<FONT color="green">511</FONT>                throw new EmailException(me);<a name="line.511"></a>
+<FONT color="green">512</FONT>            }<a name="line.512"></a>
+<FONT color="green">513</FONT>            super.buildMimeMessage();<a name="line.513"></a>
+<FONT color="green">514</FONT>        }<a name="line.514"></a>
+<FONT color="green">515</FONT>    <a name="line.515"></a>
+<FONT color="green">516</FONT>        /**<a name="line.516"></a>
+<FONT color="green">517</FONT>         * @throws EmailException EmailException<a name="line.517"></a>
+<FONT color="green">518</FONT>         * @throws MessagingException MessagingException<a name="line.518"></a>
+<FONT color="green">519</FONT>         */<a name="line.519"></a>
+<FONT color="green">520</FONT>        private void build() throws MessagingException, EmailException<a name="line.520"></a>
+<FONT color="green">521</FONT>        {<a name="line.521"></a>
+<FONT color="green">522</FONT>            MimeMultipart rootContainer = this.getContainer();<a name="line.522"></a>
+<FONT color="green">523</FONT>            MimeMultipart bodyEmbedsContainer = rootContainer;<a name="line.523"></a>
+<FONT color="green">524</FONT>            MimeMultipart bodyContainer = rootContainer;<a name="line.524"></a>
+<FONT color="green">525</FONT>            BodyPart msgHtml = null;<a name="line.525"></a>
+<FONT color="green">526</FONT>            BodyPart msgText = null;<a name="line.526"></a>
+<FONT color="green">527</FONT>    <a name="line.527"></a>
+<FONT color="green">528</FONT>            rootContainer.setSubType("mixed");<a name="line.528"></a>
+<FONT color="green">529</FONT>    <a name="line.529"></a>
+<FONT color="green">530</FONT>            // determine how to form multiparts of email<a name="line.530"></a>
+<FONT color="green">531</FONT>    <a name="line.531"></a>
+<FONT color="green">532</FONT>            if (EmailUtils.isNotEmpty(this.html) &amp;&amp; this.inlineEmbeds.size() &gt; 0)<a name="line.532"></a>
+<FONT color="green">533</FONT>            {<a name="line.533"></a>
+<FONT color="green">534</FONT>                //If HTML body and embeds are used, create a related container and add it to the root container<a name="line.534"></a>
+<FONT color="green">535</FONT>                bodyEmbedsContainer = new MimeMultipart("related");<a name="line.535"></a>
+<FONT color="green">536</FONT>                bodyContainer = bodyEmbedsContainer;<a name="line.536"></a>
+<FONT color="green">537</FONT>                this.addPart(bodyEmbedsContainer, 0);<a name="line.537"></a>
+<FONT color="green">538</FONT>    <a name="line.538"></a>
+<FONT color="green">539</FONT>                //If TEXT body was specified, create a alternative container and add it to the embeds container<a name="line.539"></a>
+<FONT color="green">540</FONT>                if (EmailUtils.isNotEmpty(this.text))<a name="line.540"></a>
+<FONT color="green">541</FONT>                {<a name="line.541"></a>
+<FONT color="green">542</FONT>                    bodyContainer = new MimeMultipart("alternative");<a name="line.542"></a>
+<FONT color="green">543</FONT>                    BodyPart bodyPart = createBodyPart();<a name="line.543"></a>
+<FONT color="green">544</FONT>                    try<a name="line.544"></a>
+<FONT color="green">545</FONT>                    {<a name="line.545"></a>
+<FONT color="green">546</FONT>                        bodyPart.setContent(bodyContainer);<a name="line.546"></a>
+<FONT color="green">547</FONT>                        bodyEmbedsContainer.addBodyPart(bodyPart, 0);<a name="line.547"></a>
+<FONT color="green">548</FONT>                    }<a name="line.548"></a>
+<FONT color="green">549</FONT>                    catch (MessagingException me)<a name="line.549"></a>
+<FONT color="green">550</FONT>                    {<a name="line.550"></a>
+<FONT color="green">551</FONT>                        throw new EmailException(me);<a name="line.551"></a>
+<FONT color="green">552</FONT>                    }<a name="line.552"></a>
+<FONT color="green">553</FONT>                }<a name="line.553"></a>
+<FONT color="green">554</FONT>            }<a name="line.554"></a>
+<FONT color="green">555</FONT>            else if (EmailUtils.isNotEmpty(this.text) &amp;&amp; EmailUtils.isNotEmpty(this.html))<a name="line.555"></a>
+<FONT color="green">556</FONT>            {<a name="line.556"></a>
+<FONT color="green">557</FONT>                //If both HTML and TEXT bodies are provided, create a alternative container and add it to the root container<a name="line.557"></a>
+<FONT color="green">558</FONT>                bodyContainer = new MimeMultipart("alternative");<a name="line.558"></a>
+<FONT color="green">559</FONT>                this.addPart(bodyContainer, 0);<a name="line.559"></a>
+<FONT color="green">560</FONT>            }<a name="line.560"></a>
+<FONT color="green">561</FONT>    <a name="line.561"></a>
+<FONT color="green">562</FONT>            if (EmailUtils.isNotEmpty(this.html))<a name="line.562"></a>
+<FONT color="green">563</FONT>            {<a name="line.563"></a>
+<FONT color="green">564</FONT>                msgHtml = new MimeBodyPart();<a name="line.564"></a>
+<FONT color="green">565</FONT>                bodyContainer.addBodyPart(msgHtml, 0);<a name="line.565"></a>
+<FONT color="green">566</FONT>    <a name="line.566"></a>
+<FONT color="green">567</FONT>                // apply default charset if one has been set<a name="line.567"></a>
+<FONT color="green">568</FONT>                if (EmailUtils.isNotEmpty(this.charset))<a name="line.568"></a>
+<FONT color="green">569</FONT>                {<a name="line.569"></a>
+<FONT color="green">570</FONT>                    msgHtml.setContent(<a name="line.570"></a>
+<FONT color="green">571</FONT>                        this.html,<a name="line.571"></a>
+<FONT color="green">572</FONT>                        Email.TEXT_HTML + "; charset=" + this.charset);<a name="line.572"></a>
+<FONT color="green">573</FONT>                }<a name="line.573"></a>
+<FONT color="green">574</FONT>                else<a name="line.574"></a>
+<FONT color="green">575</FONT>                {<a name="line.575"></a>
+<FONT color="green">576</FONT>                    msgHtml.setContent(this.html, Email.TEXT_HTML);<a name="line.576"></a>
+<FONT color="green">577</FONT>                }<a name="line.577"></a>
+<FONT color="green">578</FONT>    <a name="line.578"></a>
+<FONT color="green">579</FONT>                Iterator iter = this.inlineEmbeds.values().iterator();<a name="line.579"></a>
+<FONT color="green">580</FONT>                while (iter.hasNext())<a name="line.580"></a>
+<FONT color="green">581</FONT>                {<a name="line.581"></a>
+<FONT color="green">582</FONT>                    InlineImage ii = (InlineImage) iter.next();<a name="line.582"></a>
+<FONT color="green">583</FONT>                    bodyEmbedsContainer.addBodyPart(ii.getMbp());<a name="line.583"></a>
+<FONT color="green">584</FONT>                }<a name="line.584"></a>
+<FONT color="green">585</FONT>            }<a name="line.585"></a>
+<FONT color="green">586</FONT>    <a name="line.586"></a>
+<FONT color="green">587</FONT>            if (EmailUtils.isNotEmpty(this.text))<a name="line.587"></a>
+<FONT color="green">588</FONT>            {<a name="line.588"></a>
+<FONT color="green">589</FONT>                msgText = new MimeBodyPart();<a name="line.589"></a>
+<FONT color="green">590</FONT>                bodyContainer.addBodyPart(msgText, 0);<a name="line.590"></a>
+<FONT color="green">591</FONT>    <a name="line.591"></a>
+<FONT color="green">592</FONT>                // apply default charset if one has been set<a name="line.592"></a>
+<FONT color="green">593</FONT>                if (EmailUtils.isNotEmpty(this.charset))<a name="line.593"></a>
+<FONT color="green">594</FONT>                {<a name="line.594"></a>
+<FONT color="green">595</FONT>                    msgText.setContent(<a name="line.595"></a>
+<FONT color="green">596</FONT>                        this.text,<a name="line.596"></a>
+<FONT color="green">597</FONT>                        Email.TEXT_PLAIN + "; charset=" + this.charset);<a name="line.597"></a>
+<FONT color="green">598</FONT>                }<a name="line.598"></a>
+<FONT color="green">599</FONT>                else<a name="line.599"></a>
+<FONT color="green">600</FONT>                {<a name="line.600"></a>
+<FONT color="green">601</FONT>                    msgText.setContent(this.text, Email.TEXT_PLAIN);<a name="line.601"></a>
+<FONT color="green">602</FONT>                }<a name="line.602"></a>
+<FONT color="green">603</FONT>            }<a name="line.603"></a>
+<FONT color="green">604</FONT>        }<a name="line.604"></a>
+<FONT color="green">605</FONT>    <a name="line.605"></a>
+<FONT color="green">606</FONT>        /**<a name="line.606"></a>
+<FONT color="green">607</FONT>         * Private bean class that encapsulates data about URL contents<a name="line.607"></a>
+<FONT color="green">608</FONT>         * that are embedded in the final email.<a name="line.608"></a>
+<FONT color="green">609</FONT>         * @since 1.1<a name="line.609"></a>
+<FONT color="green">610</FONT>         */<a name="line.610"></a>
+<FONT color="green">611</FONT>        private static class InlineImage<a name="line.611"></a>
+<FONT color="green">612</FONT>        {<a name="line.612"></a>
+<FONT color="green">613</FONT>            /** content id */<a name="line.613"></a>
+<FONT color="green">614</FONT>            private String cid;<a name="line.614"></a>
+<FONT color="green">615</FONT>            /** &lt;code&gt;DataSource&lt;/code&gt; for the content */<a name="line.615"></a>
+<FONT color="green">616</FONT>            private DataSource dataSource;<a name="line.616"></a>
+<FONT color="green">617</FONT>            /** the &lt;code&gt;MimeBodyPart&lt;/code&gt; that contains the encoded data */<a name="line.617"></a>
+<FONT color="green">618</FONT>            private MimeBodyPart mbp;<a name="line.618"></a>
+<FONT color="green">619</FONT>    <a name="line.619"></a>
+<FONT color="green">620</FONT>            /**<a name="line.620"></a>
+<FONT color="green">621</FONT>             * Creates an InlineImage object to represent the<a name="line.621"></a>
+<FONT color="green">622</FONT>             * specified content ID and &lt;code&gt;MimeBodyPart&lt;/code&gt;.<a name="line.622"></a>
+<FONT color="green">623</FONT>             * @param cid the generated content ID<a name="line.623"></a>
+<FONT color="green">624</FONT>             * @param dataSource the &lt;code&gt;DataSource&lt;/code&gt; that represents the content<a name="line.624"></a>
+<FONT color="green">625</FONT>             * @param mbp the &lt;code&gt;MimeBodyPart&lt;/code&gt; that contains the encoded<a name="line.625"></a>
+<FONT color="green">626</FONT>             * data<a name="line.626"></a>
+<FONT color="green">627</FONT>             */<a name="line.627"></a>
+<FONT color="green">628</FONT>            public InlineImage(String cid, DataSource dataSource, MimeBodyPart mbp)<a name="line.628"></a>
+<FONT color="green">629</FONT>            {<a name="line.629"></a>
+<FONT color="green">630</FONT>                this.cid = cid;<a name="line.630"></a>
+<FONT color="green">631</FONT>                this.dataSource = dataSource;<a name="line.631"></a>
+<FONT color="green">632</FONT>                this.mbp = mbp;<a name="line.632"></a>
+<FONT color="green">633</FONT>            }<a name="line.633"></a>
+<FONT color="green">634</FONT>    <a name="line.634"></a>
+<FONT color="green">635</FONT>            /**<a name="line.635"></a>
+<FONT color="green">636</FONT>             * Returns the unique content ID of this InlineImage.<a name="line.636"></a>
+<FONT color="green">637</FONT>             * @return the unique content ID of this InlineImage<a name="line.637"></a>
+<FONT color="green">638</FONT>             */<a name="line.638"></a>
+<FONT color="green">639</FONT>            public String getCid()<a name="line.639"></a>
+<FONT color="green">640</FONT>            {<a name="line.640"></a>
+<FONT color="green">641</FONT>                return cid;<a name="line.641"></a>
+<FONT color="green">642</FONT>            }<a name="line.642"></a>
+<FONT color="green">643</FONT>    <a name="line.643"></a>
+<FONT color="green">644</FONT>            /**<a name="line.644"></a>
+<FONT color="green">645</FONT>             * Returns the &lt;code&gt;DataSource&lt;/code&gt; that represents the encoded content.<a name="line.645"></a>
+<FONT color="green">646</FONT>             * @return the &lt;code&gt;DataSource&lt;/code&gt; representing the encoded content<a name="line.646"></a>
+<FONT color="green">647</FONT>             */<a name="line.647"></a>
+<FONT color="green">648</FONT>            public DataSource getDataSource()<a name="line.648"></a>
+<FONT color="green">649</FONT>            {<a name="line.649"></a>
+<FONT color="green">650</FONT>                return dataSource;<a name="line.650"></a>
+<FONT color="green">651</FONT>            }<a name="line.651"></a>
+<FONT color="green">652</FONT>    <a name="line.652"></a>
+<FONT color="green">653</FONT>            /**<a name="line.653"></a>
+<FONT color="green">654</FONT>             * Returns the &lt;code&gt;MimeBodyPart&lt;/code&gt; that contains the<a name="line.654"></a>
+<FONT color="green">655</FONT>             * encoded InlineImage data.<a name="line.655"></a>
+<FONT color="green">656</FONT>             * @return the &lt;code&gt;MimeBodyPart&lt;/code&gt; containing the encoded<a name="line.656"></a>
+<FONT color="green">657</FONT>             * InlineImage data<a name="line.657"></a>
+<FONT color="green">658</FONT>             */<a name="line.658"></a>
+<FONT color="green">659</FONT>            public MimeBodyPart getMbp()<a name="line.659"></a>
+<FONT color="green">660</FONT>            {<a name="line.660"></a>
+<FONT color="green">661</FONT>                return mbp;<a name="line.661"></a>
+<FONT color="green">662</FONT>            }<a name="line.662"></a>
+<FONT color="green">663</FONT>    <a name="line.663"></a>
+<FONT color="green">664</FONT>            // equals()/hashCode() implementations, since this class<a name="line.664"></a>
+<FONT color="green">665</FONT>            // is stored as a entry in a Map.<a name="line.665"></a>
+<FONT color="green">666</FONT>            /**<a name="line.666"></a>
+<FONT color="green">667</FONT>             * {@inheritDoc}<a name="line.667"></a>
+<FONT color="green">668</FONT>             * @return true if the other object is also an InlineImage with the same cid.<a name="line.668"></a>
+<FONT color="green">669</FONT>             */<a name="line.669"></a>
+<FONT color="green">670</FONT>            public boolean equals(Object obj)<a name="line.670"></a>
+<FONT color="green">671</FONT>            {<a name="line.671"></a>
+<FONT color="green">672</FONT>                if (this == obj)<a name="line.672"></a>
+<FONT color="green">673</FONT>                {<a name="line.673"></a>
+<FONT color="green">674</FONT>                    return true;<a name="line.674"></a>
+<FONT color="green">675</FONT>                }<a name="line.675"></a>
+<FONT color="green">676</FONT>                if (!(obj instanceof InlineImage))<a name="line.676"></a>
+<FONT color="green">677</FONT>                {<a name="line.677"></a>
+<FONT color="green">678</FONT>                    return false;<a name="line.678"></a>
+<FONT color="green">679</FONT>                }<a name="line.679"></a>
+<FONT color="green">680</FONT>    <a name="line.680"></a>
+<FONT color="green">681</FONT>                InlineImage that = (InlineImage) obj;<a name="line.681"></a>
+<FONT color="green">682</FONT>    <a name="line.682"></a>
+<FONT color="green">683</FONT>                return this.cid.equals(that.cid);<a name="line.683"></a>
+<FONT color="green">684</FONT>            }<a name="line.684"></a>
+<FONT color="green">685</FONT>    <a name="line.685"></a>
+<FONT color="green">686</FONT>            /**<a name="line.686"></a>
+<FONT color="green">687</FONT>             * {@inheritDoc}<a name="line.687"></a>
+<FONT color="green">688</FONT>             * @return the cid hashCode.<a name="line.688"></a>
+<FONT color="green">689</FONT>             */<a name="line.689"></a>
+<FONT color="green">690</FONT>            public int hashCode()<a name="line.690"></a>
+<FONT color="green">691</FONT>            {<a name="line.691"></a>
+<FONT color="green">692</FONT>                return cid.hashCode();<a name="line.692"></a>
+<FONT color="green">693</FONT>            }<a name="line.693"></a>
+<FONT color="green">694</FONT>        }<a name="line.694"></a>
+<FONT color="green">695</FONT>    }<a name="line.695"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

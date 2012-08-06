@@ -1,0 +1,312 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;12.&nbsp; Remote and Offline Operation</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="ref_guide.html" title="Part&nbsp;3.&nbsp;Reference Guide"><link rel="prev" href="ref_guide_encryption.html" title="Chapter&nbsp;11.&nbsp; Encryption Provider"><link rel="next" href="ref_guide_event.html" title="2.&nbsp; Remote Event Notification Framework"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;12.&nbsp;
+        Remote and Offline Operation
+    </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ref_guide_encryption.html">Prev</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;3.&nbsp;Reference Guide</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ref_guide_event.html">Next</a></td></tr></table><hr></div><div class="chapter" lang="en" id="ref_guide_remote"><div class="titlepage"><div><div><h2 class="title"><a name="ref_guide_remote"></a>Chapter&nbsp;12.&nbsp;
+        Remote and Offline Operation
+    </h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_detach">1. 
+            Detach and Attach
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_detach_behavior">1.1. 
+                Detach Behavior
+            </a></span></dt><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_attach_behavior">1.2. 
+                Attach Behavior
+            </a></span></dt><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_detach_graph">1.3. 
+                Defining the Detached Object Graph
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_detach_state">1.3.1. 
+                    Detached State
+                </a></span></dt><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_detach_field">1.3.2. 
+                    Detached State Field
+                </a></span></dt></dl></dd></dl></dd><dt><span class="section"><a href="ref_guide_event.html">2. 
+            Remote Event Notification Framework
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_event.html#ref_guide_event_conf">2.1. 
+                Remote Commit Provider Configuration
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_event.html#ref_guide_event_conf_jms">2.1.1. 
+                    JMS
+                </a></span></dt><dt><span class="section"><a href="ref_guide_event.html#ref_guide_event_conf_tcp">2.1.2. 
+                    TCP
+                </a></span></dt><dt><span class="section"><a href="ref_guide_event.html#ref_guide_event_conf_common">2.1.3. 
+                    Common Properties
+                </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_event.html#ref_guide_event_customization">2.2. 
+                Customization
+            </a></span></dt></dl></dd></dl></div><a class="indexterm" name="d0e33977"></a><a class="indexterm" name="d0e33980"></a><p>
+The standard JPA runtime environment was originally just 
+<span class="emphasis"><em>local</em></span> and 
+<span class="emphasis"><em>online</em></span>. It is <span class="emphasis"><em>local</em></span> in that components
+such as <code class="classname">EntityManager</code>s and queries connect directly to
+the datastore and execute their actions in the same JVM as the code using them.
+It is <span class="emphasis"><em>online</em></span> in that all changes to managed objects must be
+made in the context of an active <code class="classname"> EntityManager</code>. These
+two properties, combined with the fact that <code class="classname">
+EntityManager</code>s cannot be serialized for storage or network transfer,
+made the standard JPA runtime difficult to incorporate into some enterprise and
+client/server program designs.
+    </p><p>
+JPA has now provided <span class="emphasis"><em>offline</em></span> capability through the 
+detach() and merge() methods on the EntityManager interface. OpenJPA has
+extended this to include additional detach...() and merge...() methods. All of
+these are documented in 
+<a href="ref_guide_remote.html#ref_guide_detach" title="1.&nbsp; Detach and Attach">Detach and Attach APIs</a>. In addition,
+OpenJPA has added <span class="emphasis"><em>remote</em></span> capability in the form of
+<a href="ref_guide_event.html" title="2.&nbsp; Remote Event Notification Framework">Remote Commit Events</a>. The following
+sections explain these capabilities in detail.
+    </p><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ref_guide_detach"></a>1.&nbsp;
+            Detach and Attach
+        </h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_detach_behavior">1.1. 
+                Detach Behavior
+            </a></span></dt><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_attach_behavior">1.2. 
+                Attach Behavior
+            </a></span></dt><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_detach_graph">1.3. 
+                Defining the Detached Object Graph
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_detach_state">1.3.1. 
+                    Detached State
+                </a></span></dt><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_detach_field">1.3.2. 
+                    Detached State Field
+                </a></span></dt></dl></dd></dl></div><a class="indexterm" name="d0e34025"></a><a class="indexterm" name="d0e34028"></a><p>
+The JPA Overview describes the specification's standard detach and attach APIs
+in <a href="jpa_overview_em_lifecycle.html" title="2.&nbsp; Entity Lifecycle Management">Section&nbsp;2, &#8220;
+            Entity Lifecycle Management
+        &#8221;</a>. This section enumerates
+OpenJPA's enhancements to the standard behavior.
+        </p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_detach_behavior"></a>1.1.&nbsp;
+                Detach Behavior
+            </h3></div></div></div><a class="indexterm" name="d0e34040"></a><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+In version 2.0, the detach behavior has changed from the previous
+version. See the migration section
+<a href="migration_considerations.html#migration_detach_behavior" title="1.1.2.&nbsp; Detach Behavior">Detach Behavior</a> for details.
+</p></div><p>
+In JPA, objects detach automatically when they are serialized or when a
+<a href="jpa_overview_emfactory_perscontext.html" title="3.&nbsp; Persistence Context">persistence context</a>
+ends. The specification also allows objects to be explicitly detached using
+the following javax.persistence.EntityManager method:
+</p><pre class="programlisting">
+public void detach(Object)
+</pre><p>
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/OpenJPAEntityManager.html" target="_top">
+<code class="classname">OpenJPAEntityManager</code></a>, however, provides
+additional detach methods.
+            </p><pre class="programlisting">
+public &lt;T&gt; T detachCopy(T pc):
+public Object[] detachAll(Object... pcs):
+public Collection detachAll(Collection pcs):
+</pre><p>
+The behavior of the detach operation is as follows:
+</p><div class="itemizedlist"><ul type="disc"><li>
+		The detached objects are removed from the persistent context.
+	</li><li>
+		The objects are <span class="emphasis"><em>not</em></span> flushed to the database.
+	</li><li>
+		If Cascade=detach is specified for a referenced entity, the detach
+		operation is cascaded. Otherwise, it is not.
+	</li><li>
+		For the detachCopy method only, the entity is copied for the return
+		value.
+	</li></ul></div><p>
+</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_attach_behavior"></a>1.2.&nbsp;
+                Attach Behavior
+            </h3></div></div></div><a class="indexterm" name="d0e34085"></a><p>
+When attaching, OpenJPA uses several strategies to determine the optimal way to
+merge changes made to the detached instance. As you will see, these strategies
+can even be used to attach changes made to a transient instance which was never
+detached in the first place.
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+If the instance was detached and <a href="ref_guide_remote.html#ref_guide_detach_graph" title="1.3.&nbsp; Defining the Detached Object Graph">
+detached state</a> is enabled, OpenJPA will use the detached state to
+determine the object's version and primary key values. In addition, this state
+will tell OpenJPA which fields were loaded at the time of detach, and in turn
+where to expect changes. Loaded detached fields with null values will set the
+attached instance's corresponding fields to null.
+                    </p></li><li><p>
+If the instance has a <code class="literal">Version</code> field,
+OpenJPA will consider the object detached if the version field has a non-default
+value, and new otherwise.  Similarly, if the instance has 
+<code class="literal">GeneratedValue</code> primary key fields, OpenJPA will consider the
+object detached if any of these fields have non-default values, and new 
+otherwise.
+                    </p><p>
+When attaching null fields in these cases, OpenJPA cannot distinguish between a
+field that was unloaded and one that was intentionally set to null. In this
+case, OpenJPA will use the current <a href="ref_guide_remote.html#ref_guide_detach_graph" title="1.3.&nbsp; Defining the Detached Object Graph">
+detach state</a> setting to determine how to handle null fields: fields that
+would have been included in the detached state are treated as loaded, and will
+in turn set the corresponding attached field to null.
+                    </p></li><li><p>
+If neither of the above cases apply, OpenJPA will check to see if an instance
+with the same primary key values exists in the database. If so, the object is
+considered detached. Otherwise, it is considered new.
+                    </p></li></ul></div><p>
+These strategies will be assigned on a per-instance basis, such that during the
+attachment of an object graph more than one of the above strategies may be used.
+            </p><p>
+If you attempt to attach a versioned instance whose representation has changed
+in the datastore since detachment, OpenJPA will throw an optimistic concurrency
+exception upon commit or flush, just as if a normal optimistic conflict was
+detected. When attaching an instance whose database record has been deleted
+since detaching, or when attaching a detached instance into a manager that has a
+stale version of the object, OpenJPA will throw an optimistic concurrency
+exception from the attach method. In these cases, OpenJPA sets the <code class="literal">
+RollbackOnly</code> flag on the transaction.
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_detach_graph"></a>1.3.&nbsp;
+                Defining the Detached Object Graph
+            </h3></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_detach_state">1.3.1. 
+                    Detached State
+                </a></span></dt><dt><span class="section"><a href="ref_guide_remote.html#ref_guide_detach_field">1.3.2. 
+                    Detached State Field
+                </a></span></dt></dl></div><a class="indexterm" name="d0e34126"></a><p>
+When detached objects lose their association with the OpenJPA runtime, they also
+lose the ability to load additional state from the datastore. It is important,
+therefore, to populate objects with all the persistent state you will need
+before detaching them. While you are free to do this manually, OpenJPA includes
+facilities for automatically populating objects when they detach.
+            </p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ref_guide_detach_state"></a>1.3.1.&nbsp;
+                    Detached State
+                </h4></div></div></div><a class="indexterm" name="d0e34136"></a><p>
+The <a href="ref_guide_conf_openjpa.html#openjpa.DetachState" title="5.30.&nbsp; openjpa.DetachState"><code class="literal">openjpa.DetachState</code>
+</a> configuration property determines which fields and relations are
+detached by default. All settings are recursive. They are:
+                </p><div class="orderedlist"><ol type="1"><li><p>
+<code class="literal">loaded</code>: Detach all fields and relations that are already
+loaded, but don't include unloaded fields in the detached graph. This is the
+default.
+                        </p></li><li><p>
+<code class="literal">fetch-groups</code>: Detach all fields and relations in the current
+<a href="ref_guide_runtime.html" title="Chapter&nbsp;9.&nbsp; Runtime Extensions">fetch configuration</a>. For more
+information on custom fetch groups, see <a href="ref_guide_fetch.html" title="7.&nbsp; Fetch Groups">Section&nbsp;7, &#8220;
+            Fetch Groups
+        &#8221;</a>.
+                        </p></li><li><p>
+<code class="literal">all</code>: Detach all fields and relations. Be very careful when
+using this mode; if you have a highly-connected domain model, you could end up
+bringing every object in the database into memory!
+                        </p></li></ol></div><p>
+Any field that is not included in the set determined by the detach mode is set
+to its Java default value in the detached instance.
+                </p><p>
+The <code class="literal">openjpa.DetachState</code> option is actually a plugin string
+(see <a href="ref_guide_conf_plugins.html" title="4.&nbsp; Plugin Configuration">Section&nbsp;4, &#8220;
+            Plugin Configuration
+        &#8221;</a>) that allows you to also
+configure the following options related to detached state:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">DetachedStateField</code>: As described in
+<a href="ref_guide_remote.html#ref_guide_attach_behavior" title="1.2.&nbsp; Attach Behavior">Section&nbsp;1.2, &#8220;
+                Attach Behavior
+            &#8221;</a> above, OpenJPA can take
+advantage of a <span class="emphasis"><em>detached state field</em></span> to make the attach
+process more efficient. This field is added by the enhancer and is not visible
+to your application. Set this property to one of the following values:
+                        </p><div class="itemizedlist"><ul type="circle"><li><p>
+<code class="literal">transient</code>: Use a transient detached state field. This gives
+the benefits of a detached state field to local objects that are never
+serialized, but retains serialization compatibility for client tiers without
+access to the enhanced versions of your classes or the OpenJPA runtime.
+This is the default.
+                                </p></li><li><p>
+<code class="literal">true</code>: Use a non-transient detached state field so that
+objects crossing serialization barriers can still be attached efficiently. This
+requires, however, that your client tier have the enhanced versions of your
+classes and the OpenJPA runtime.
+                                </p></li><li><p>
+<code class="literal">false</code>: Do not use a detached state field.  No OpenJPA runtime
+will be required for client tiers.
+                                </p></li></ul></div><p>
+The detached state field is also used to determine when proxies should be
+removed from entities during serialization.  See the 
+<a href="ref_guide_pc_scos.html#ref_guide_pc_scos_proxy_serial" title="6.4.4.&nbsp; Serialization">Section&nbsp;6.4.4, &#8220;
+                    Serialization
+                &#8221;</a> section for more details.
+                        </p><p>
+You can override the setting of this property or declare your own detached state
+field on individual classes using OpenJPA's metadata extensions. See
+<a href="ref_guide_remote.html#ref_guide_detach_field" title="1.3.2.&nbsp; Detached State Field">Section&nbsp;1.3.2, &#8220;
+                    Detached State Field
+                &#8221;</a> below.
+                        </p></li><li><p>
+<code class="literal">DetachedStateManager</code>: Whether to use a detached state
+manager. A detached state manager makes attachment much more efficient. Like a
+detached state field, however, it breaks serialization compatibility with the
+unenhanced class if it isn't transient.
+                        </p><p>
+This setting piggybacks on the <code class="literal">DetachedStateField</code> setting
+above. If your detached state field is transient, the detached state manager
+will also be transient. If the detached state field is disabled, the detached
+state manager will also be disabled. This is typically what you'll want. By
+setting <code class="literal"> DetachedStateField</code> to true (or transient) and
+setting this property to false, however, you can use a detached state field
+<span class="bold"><strong>without</strong></span> using a detached state manager. This
+may be useful for debugging or for legacy OpenJPA users who find differences
+between OpenJPA's behavior with a detached state manager and OpenJPA's older
+behavior without one.
+                        </p></li><li><p>
+<code class="literal">AccessUnloaded</code>: Whether to allow access to unloaded fields
+of detached objects. Defaults to true. Set to false to throw an exception
+whenever an unloaded field is accessed. This option is only available when you
+use detached state managers, as determined by the settings above.
+                        </p></li><li><p>
+<code class="literal">LiteAutoDetach</code>: <span class="bold"><strong>This option is ONLY valid for the <code class="literal">loaded</code> 
+DetachState setting.</strong></span> Detach all fields and relations as described by the loaded 
+property when an explicit detach is requested or when a 
+single Entity is being detached as part of serialization. When the entire 
+persistence context is being auto-detached(@See openjpa.AutoDetach), 
+the minimal amount of work will be completed to disassociate all Entities from 
+the persistence context. <span class="bold"><strong>It is highly recommended that all Entities have a 
+@Version field when using this property</strong></span>. In addition, care needs to be taken 
+when this value is set to true as the following caveats apply: 
+                </p><div class="itemizedlist"><ul type="circle"><li><p>
+A relationship from a managed Entity to an unmanaged Entity which was detached by the lite detach setting will not be persisted.                                       
+                        </p></li><li><p>
+When merging a detached Entity back into the persistence context any lazily loaded fields that were marked to null when detached will not be persisted.                                       
+                        </p></li></ul></div><p>
+                        </p></li></ul></div><div class="example"><a name="ref_guide_detach_graph_confex"></a><p class="title"><b>Example&nbsp;12.1.&nbsp;
+                        Configuring Detached State
+                    </b></p><div class="example-contents"><pre class="programlisting">
+&lt;property name="openjpa.DetachState" value="fetch-groups(DetachedStateField=true)"/&gt;
+</pre></div></div><br class="example-break"><p>
+You can also alter the set of fields that will be included in the detached graph
+at runtime.
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/OpenJPAEntityManager.html" target="_top">
+<code class="classname">OpenJPAEntityManager</code></a>s expose the following APIs
+for controlling detached state:
+                </p><pre class="programlisting">
+public DetachStateType getDetachState();
+public void setDetachState(DetachStateType type);
+</pre><p>
+The <code class="classname">DetachStateType</code> enum contains the following values:
+                </p><pre class="programlisting">
+enum DetachStateType {
+    FETCH_GROUPS,
+    LOADED,
+    ALL
+}
+</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ref_guide_detach_field"></a>1.3.2.&nbsp;
+                    Detached State Field
+                </h4></div></div></div><a class="indexterm" name="d0e34290"></a><p>
+When the detached state field is enabled, the OpenJPA enhancer adds an
+additional field to the enhanced version of your class. This field of type
+<code class="classname">Object</code>. OpenJPA uses this field for bookkeeping
+information, such as the versioning data needed to detect optimistic concurrency
+violations when the object is re-attached.
+                </p><p>
+It is possible to define this detached state field yourself. Declaring this
+field in your class metadata prevents the enhancer from adding any extra fields
+to the class, and keeps the enhanced class serialization-compatible with the
+unenhanced version. The detached state field must not be persistent. See
+<a href="ref_guide_meta_ext.html#detached-state-field" title="4.1.3.&nbsp; Detached State">Section&nbsp;4.1.3, &#8220;
+                    Detached State
+                &#8221;</a> for details on how to declare a
+detached state field.
+                </p><pre class="programlisting">
+import org.apache.openjpa.persistence.*;
+
+@Entity
+public class Magazine
+    implements Serializable {
+
+    private String name;
+    @DetachedState private Object state;
+    ...
+}
+</pre></div></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ref_guide_encryption.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ref_guide.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ref_guide_event.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;11.&nbsp;
+        Encryption Provider
+    &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;2.&nbsp;
+            Remote Event Notification Framework
+        </td></tr></table></div></body></html>

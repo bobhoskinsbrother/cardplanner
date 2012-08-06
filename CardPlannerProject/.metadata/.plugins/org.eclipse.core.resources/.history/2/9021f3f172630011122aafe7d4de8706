@@ -1,0 +1,120 @@
+package uk.co.itstherules.cardplanner.model;
+
+import static org.junit.Assert.assertThat;
+
+import java.util.List;
+
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+import org.junit.Test;
+import org.junit.internal.matchers.TypeSafeMatcher;
+
+import uk.co.itstherules.yawf.model.PageModel;
+import uk.co.itstherules.yawf.model.TemplateModel;
+
+public class CachedInstanceTest {
+	@Test
+	public void checkThatDefaultObjectsAreSaved() {
+		FakeObjectCache fakeObjectCache = new FakeObjectCache();
+		CachedInstance unit = new CachedInstance();
+		
+		unit.initialise(fakeObjectCache);
+		
+		List<Object> objects = fakeObjectCache.getObjects();
+		assertThat(objects, contains(1, ConfigurationModel.class));
+		assertThat(objects, contains(4, StatusModel.class));
+		assertThat(objects, contains(10, TemplateModel.class));
+		assertThat(objects, contains(7, PageModel.class));
+
+	}
+	
+	
+	private Matcher<List<Object>> contains(int amount, Class<?> theClass) {
+		return new ContainsAmountOfInstancesOfClasses(amount, theClass);
+	}
+
+	private static class ContainsAmountOfInstancesOfClasses extends TypeSafeMatcher<List<Object>> {
+
+		private final int amount;
+		private final Class<?> theClass;
+
+		public ContainsAmountOfInstancesOfClasses(int amount, Class<?> theClass) {
+			this.amount = amount;
+			this.theClass = theClass;
+		}
+
+		public void describeTo(Description description) {
+			description.appendText("Contains instances of in list");
+		}
+
+		@Override
+		public boolean matchesSafely(List<Object> objects) {
+			int count = 0;
+			for (Object object : objects) {
+		        if(theClass.equals(object.getClass())) count++;
+	        }
+			return count == amount;
+		}
+		
+	}
+}
+
+
+
+/*
+PageModel.class
+PageModel.class
+PageModel.class
+PageModel.class 
+PageModel.class 
+PageModel.class
+PageModel.class
+
+ValueTypeModel.class
+EffortTypeModel.class
+SimpleAttachmentModel.class
+CardModel.class
+CardTypeModel.class
+PersonModel.class
+EmailDetailsModel.class
+
+EffortModel.class
+ValueModel.class
+
+PermissionModel.class
+
+GroupModel.class
+GroupModel.class
+
+PersonModel.class
+RouteModel.class
+RouteModel.class
+RouteModel.class
+
+ProcessStepModel.class
+ProcessStepModel.class
+ProcessStepModel.class
+ProcessStepModel.class
+ProcessStepModel.class
+ProcessStepModel.class
+ProcessStepModel.class
+ProcessStepModel.class
+ProcessStepModel.class
+ProcessStepModel.class
+
+ProcessStepModel.class
+ProcessStepModel.class
+
+ProcessStepReferenceModel.class
+ProcessStepReferenceModel.class
+ProcessStepReferenceModel.class
+ProcessStepReferenceModel.class
+ProcessStepReferenceModel.class
+ProcessStepReferenceModel.class
+ProcessStepReferenceModel.class
+ProcessStepReferenceModel.class
+ProcessStepReferenceModel.class
+ProcessStepReferenceModel.class
+ProcessStepReferenceModel.class
+ProcessStepReferenceModel.class
+*/

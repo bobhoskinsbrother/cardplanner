@@ -1,0 +1,40 @@
+package uk.co.itstherules.cardplanner.model;
+
+import java.util.List;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import uk.co.itstherules.cardplanner.model.type.EffortTypeModel;
+import uk.co.itstherules.cardplanner.model.type.ValueTypeModel;
+import uk.co.itstherules.yawf.model.SimpleAttachmentModel;
+
+public class CachedInstanceTest {
+	@Test
+	public void checkThatDefaultObjectsAreSaved() {
+		FakeObjectCache fakeObjectCache = new FakeObjectCache();
+		CachedInstance unit = new CachedInstance();
+		
+		unit.initialise(fakeObjectCache);
+		
+		List<Object> objects = fakeObjectCache.getObjects();
+		
+		Assert.assertTrue(containsInstance(ConfigurationModel.class, objects));
+		Assert.assertTrue(containsInstance(StatusModel.class, objects));
+		Assert.assertTrue(containsInstance(EffortTypeModel.class, objects));
+		Assert.assertTrue(containsInstance(ValueTypeModel.class, objects));
+		Assert.assertTrue(containsInstance(SimpleAttachmentModel.class, objects));
+		Assert.assertTrue(containsInstance(CardTypeModel.class, objects));
+		Assert.assertTrue(containsInstance(CardModel.class, objects));
+		Assert.assertTrue(containsInstance(PersonModel.class, objects));
+
+	}
+	
+	
+	public boolean containsInstance(Class<?> classNeeded, List<Object> objects) {
+		for (Object object : objects) {
+	        if(classNeeded.isInstance(object)) return true;
+        }
+		return false;
+	}
+}

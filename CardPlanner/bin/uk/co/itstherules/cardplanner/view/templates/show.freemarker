@@ -1,0 +1,44 @@
+<#macro breadcrumb currentPage>
+	<#if currentPage.identity != nullPage.identity>
+		<div class="page_breadcrumb_element">
+			  <#if currentPage.identity != page.identity>
+			  &gt; 
+			  ${tagBuilder.showLink("Pages", currentPage.title?url, currentPage.identity, currentPage.title?html)}
+			  <#else>
+				  &gt; 
+				  <span class="current_page_breadcrumb_element">
+				  ${currentPage.title?html}
+				  </span>
+			  </#if>
+		</div>
+		<@breadcrumb currentPage.parent />
+	</#if>
+</#macro>
+<span class="page_title">
+${page.title?html}
+${tagBuilder.editLink("Pages", page.title?url, page.identity, tagBuilder.showImage("edit_pencil.png"), { "redirect": tagBuilder.showUrl("Pages", page.identity, page.title?url) }, {"title":"Edit Page","class":"lightwindow", "params":"lightwindow_type=external,lightwindow_width=760,lightwindow_height=540"})}
+</span>
+<#if page.parent.identity != nullPage.identity> 
+	<div class="page_breadcrumb">
+		<@breadcrumb page />
+	</div>
+</#if>
+<div style="clear:both"></div>
+<div class="page_content">
+	${content}
+	<div style="clear:both"></div>
+</div>
+<#if (children?size > 0) >
+	<div style="clear:both"></div>
+	<hr/>
+	<div class="page_children_links">
+		<div class="page_children_links_title">
+		Links
+		</div>
+		<#list children as child>
+			<div class="page_children_link">
+				 ${tagBuilder.showLink("Pages", child.title?url, child.identity, child.title?html)}
+			</div>
+		</#list>
+	</div>
+</#if>

@@ -1,0 +1,6 @@
+package uk.co.itstherules.yawf.model;
+
+import java.util.Date;
+
+public interface Timestampable { 
+}

@@ -1,0 +1,68 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>5.&nbsp; MethodQL</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="ref_guide_runtime.html" title="Chapter&nbsp;9.&nbsp; Runtime Extensions"><link rel="prev" href="ref_guide_savepoints.html" title="4.&nbsp; Savepoints"><link rel="next" href="ref_guide_sequence.html" title="6.&nbsp; Generators"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.&nbsp;
+                MethodQL
+            </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ref_guide_savepoints.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;9.&nbsp;
+        Runtime Extensions
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ref_guide_sequence.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ref_guide_enterprise_methodql"></a>5.&nbsp;
+                MethodQL
+            </h2></div></div></div><a class="indexterm" name="d0e32399"></a><a class="indexterm" name="d0e32402"></a><p>
+If JPQL and SQL queries do not match your needs, OpenJPA also allows you to name
+a Java method to use to load a set of objects. In a <span class="emphasis"><em>MethodQL
+</em></span> query, the query string names a static method to invoke to determine
+the matching objects:
+            </p><pre class="programlisting">
+import org.apache.openjpa.persistence.*;
+
+...
+
+// the method query language is 'openjpa.MethodQL'.
+// set the query string to the target method to execute, prefixed by fullly-
+// qualified class name.
+// If a candidate class has been specified for the query, then if the class is 
+// in the candidate class' package or in the query imports, you can omit the 
+// package. If the method is in the candidate class, you can omit the class name 
+// and just specify the method name.
+
+  OpenJPAEntityManager oem = OpenJPAPersistence.cast(emf);
+  OpenJPAQuery q = oem.createQuery("openjpa.MethodQL", "com.xyz.Finder.getByName");
+
+// parameters are passed the same way as in standard queries
+// but you have to declare the parameters with their types on the implementation
+
+// Unwrap the implementation and declare parameters with types in a 
+// comma-separated list
+  q.unwrap(org.apache.openjpa.kernel.Query.class)
+   .declareParameters("String firstName, String lastName");
+
+  q.setParameter("firstName", "Fred").setParameter("lastName", "Lucas");
+
+// this executes the target method to get the results
+  List results = q.getResultList();
+
+// The result is returned as a list but the element(s) in the list is determined 
+// by the returned value of the target method
+ 
+</pre><p>
+For datastore queries, the method must have the following signature:
+            </p><pre class="programlisting">
+public static <a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/lib/rop/ResultObjectProvider.html" target="_top">ResultObjectProvider</a> xxx(<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/kernel/StoreContext.html" target="_top">StoreContext</a> ctx, <a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/meta/ClassMetaData.html" target="_top">ClassMetaData</a> meta, boolean subclasses, Map params, <a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/kernel/FetchConfiguration.html" target="_top">FetchConfiguration </a> fetch)
+</pre><p>
+The returned result object provider should produce objects of the candidate
+class that match the method's search criteria. If the returned objects do not
+have all fields in the given fetch configuration loaded, OpenJPA will make
+additional trips to the datastore as necessary to fill in the data for the
+missing fields.
+            </p><p>
+In-memory execution is slightly different, taking in one object at a time and
+returning a boolean on whether the object matches the query:
+            </p><pre class="programlisting">
+public static boolean xxx(<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/kernel/StoreContext.html" target="_top">StoreContext</a> ctx, <a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/meta/ClassMetaData.html" target="_top">ClassMetaData</a> meta, boolean subclasses, Object obj, Map params, <a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/kernel/FetchConfiguration.html" target="_top">FetchConfiguration</a> fetch)
+</pre><p>
+In both method versions, the given <code class="literal">params</code> map contains the
+names and values of all the parameters for the query.
+            </p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ref_guide_savepoints.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ref_guide_runtime.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ref_guide_sequence.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">4.&nbsp;
+            Savepoints
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;6.&nbsp;
+            Generators
+        </td></tr></table></div></body></html>

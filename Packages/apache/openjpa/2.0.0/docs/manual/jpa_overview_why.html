@@ -1,0 +1,398 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;2.&nbsp; Why JPA?</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="jpa_overview.html" title="Part&nbsp;2.&nbsp;Java Persistence API"><link rel="prev" href="jpa_overview_intro_transpers.html" title="2.&nbsp; Lightweight Persistence"><link rel="next" href="jpa_overview_arch.html" title="Chapter&nbsp;3.&nbsp; Java Persistence API Architecture"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;2.&nbsp;
+        Why JPA?
+    </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="jpa_overview_intro_transpers.html">Prev</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;2.&nbsp;Java Persistence API</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_arch.html">Next</a></td></tr></table><hr></div><div class="chapter" lang="en" id="jpa_overview_why"><div class="titlepage"><div><div><h2 class="title"><a name="jpa_overview_why"></a>Chapter&nbsp;2.&nbsp;
+        Why JPA?
+    </h2></div></div></div><a class="indexterm" name="d0e231"></a><p>
+Java developers who need to store and retrieve persistent data already have
+several options available to them: serialization, JDBC, JDO, proprietary
+object-relational mapping tools, object databases, and EJB 2 entity beans. Why
+introduce yet another persistence framework? The answer to this question is that
+with the exception of JDO, each of the aforementioned persistence solutions has
+severe limitations. JPA attempts to overcome these limitations, as illustrated
+by the table below.
+    </p><div class="table"><a name="d0e238"></a><p class="title"><b>Table&nbsp;2.1.&nbsp;
+            Persistence Mechanisms
+        </b></p><div class="table-contents"><table summary="&#xA;            Persistence Mechanisms&#xA;        " border="1"><colgroup><col align="left"><col align="left"><col align="left"><col align="left"><col align="left"><col align="left"><col align="left"><col align="left"></colgroup><thead><tr><th align="left">
+                        Supports:
+                    </th><th align="left">
+                        Serialization
+                    </th><th align="left">
+                        JDBC
+                    </th><th align="left">
+                        ORM
+                    </th><th align="left">
+                        ODB
+                    </th><th align="left">
+                        EJB 2
+                    </th><th align="left">
+                        JDO
+                    </th><th align="left">
+                        JPA
+                    </th></tr></thead><tbody><tr><td align="left">
+                        Java Objects
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        No
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td></tr><tr><td align="left">
+                        Advanced OO Concepts
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        No
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        No
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td></tr><tr><td align="left">
+                        Transactional Integrity
+                    </td><td align="left">
+                        No
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td></tr><tr><td align="left">
+                        Concurrency
+                    </td><td align="left">
+                        No
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td></tr><tr><td align="left">
+                        Large Data Sets
+                    </td><td align="left">
+                        No
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td></tr><tr><td align="left">
+                        Existing Schema
+                    </td><td align="left">
+                        No
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        No
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td></tr><tr><td align="left">
+                        Relational and Non-Relational Stores
+                    </td><td align="left">
+                        No
+                    </td><td align="left">
+                        No
+                    </td><td align="left">
+                        No
+                    </td><td align="left">
+                        No
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        No
+                    </td></tr><tr><td align="left">
+                        Queries
+                    </td><td align="left">
+                        No
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td></tr><tr><td align="left">
+                        Strict Standards / Portability
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        No
+                    </td><td align="left">
+                        No
+                    </td><td align="left">
+                        No
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td></tr><tr><td align="left">
+                        Simplicity
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        No
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td><td align="left">
+                        <span class="bold"><strong>
+                            Yes
+                        </strong></span>
+                    </td></tr></tbody></table></div></div><br class="table-break"><div class="itemizedlist"><ul type="disc"><li><p>
+            <a class="indexterm" name="d0e599"></a>
+            <a class="indexterm" name="d0e603"></a>
+<span class="emphasis"><em>Serialization</em></span> is Java's built-in mechanism for transforming
+an object graph into a series of bytes, which can then be sent over the network
+or stored in a file. Serialization is very easy to use, but it is also very
+limited. It must store and retrieve the entire object graph at once, making it
+unsuitable for dealing with large amounts of data. It cannot undo changes that
+are made to objects if an error occurs while updating information, making it
+unsuitable for applications that require strict data integrity. Multiple threads
+or programs cannot read and write the same serialized data concurrently without
+conflicting with each other. It provides no query capabilities. All these
+factors make serialization useless for all but the most trivial persistence
+needs.
+            </p></li><li><p>
+            <a class="indexterm" name="d0e615"></a>
+            <a class="indexterm" name="d0e621"></a>
+            <a class="indexterm" name="d0e625"></a>
+Many developers use the <span class="emphasis"><em>Java Database Connectivity</em></span> (JDBC)
+APIs to manipulate persistent data in relational databases. JDBC overcomes most
+of the shortcomings of serialization: it can handle large amounts of data, has
+mechanisms to ensure data integrity, supports concurrent access to information,
+and has a sophisticated query language in SQL. Unfortunately, JDBC does not
+duplicate serialization's ease of use. The relational paradigm used by JDBC was
+not designed for storing objects, and therefore forces you to either abandon
+object-oriented programming for the portions of your code that deal with
+persistent data, or to find a way of mapping object-oriented concepts like
+inheritance to relational databases yourself.
+            </p></li><li><p>
+            <a class="indexterm" name="d0e637"></a>
+            <a class="indexterm" name="d0e643"></a>
+            <a class="indexterm" name="d0e647"></a>
+There are many proprietary software products that can perform the mapping
+between objects and relational database tables for you. These <span class="emphasis"><em>
+object-relational mapping</em></span> (ORM) frameworks allow you to focus on the
+object model and not concern yourself with the mismatch between the
+object-oriented and relational paradigms. Unfortunately, each of these product
+has its own set of APIs. Your code becomes tied to the proprietary interfaces of
+a single vendor. If the vendor raises prices, fails to fix show-stopping bugs,
+or falls behind in features, you cannot switch to another product without
+rewriting all of your persistence code. This is referred to as vendor lock-in.
+            </p></li><li><p>
+            <a class="indexterm" name="d0e659"></a>
+            <a class="indexterm" name="d0e665"></a>
+            <a class="indexterm" name="d0e669"></a>
+            <a class="indexterm" name="d0e675"></a>
+Rather than map objects to relational databases, some software companies have
+developed a form of database designed specifically to store objects. These
+<span class="emphasis"><em>object databases</em></span> (ODBs) are often much easier to use than
+object-relational mapping software. The Object Database Management Group (ODMG)
+was formed to create a standard API for accessing object databases; few object
+database vendors, however, comply with the ODMG's recommendations. Thus, vendor
+lock-in plagues object databases as well. Many companies are also hesitant to
+switch from tried-and-true relational systems to the relatively unknown object
+database technology. Fewer data-analysis tools are available for object database
+systems, and there are vast quantities of data already stored in older
+relational databases. For all of these reasons and more, object databases have
+not caught on as well as their creators hoped.
+            </p></li><li><p>
+            <a class="indexterm" name="d0e685"></a>
+            <a class="indexterm" name="d0e691"></a>
+            <a class="indexterm" name="d0e695"></a>
+The Enterprise Edition of the Java platform introduced entity Enterprise Java
+Beans (EJBs). EJB 2.x entities are components that represent persistent
+information in a datastore. Like object-relational mapping solutions, EJB 2.x
+entities provide an object-oriented view of persistent data. Unlike
+object-relational software, however, EJB 2.x entities are not limited to
+relational databases; the persistent information they represent may come from an
+Enterprise Information System (EIS) or other storage device. Also, EJB 2.x
+entities use a strict standard, making them portable across vendors.
+Unfortunately, the EJB 2.x standard is somewhat limited in the object-oriented
+concepts it can represent. Advanced features like inheritance, polymorphism, and
+complex relations are absent. Additionally, EBJ 2.x entities are difficult to
+code, and they require heavyweight and often expensive application servers to
+run.
+            </p></li><li><p>
+            <a class="indexterm" name="d0e704"></a>
+            <a class="indexterm" name="d0e708"></a>
+The JDO specification uses an API that is strikingly similar to JPA. JDO,
+however, supports non-relational databases, a feature that some argue dilutes
+the specification.
+            </p></li></ul></div><p>
+    <a class="indexterm" name="d0e716"></a>
+JPA combines the best features from each of the persistence mechanisms listed
+above. Creating entities under JPA is as simple as creating serializable
+classes. JPA supports the large data sets, data consistency, concurrent use, and
+query capabilities of JDBC. Like object-relational software and object
+databases, JPA allows the use of advanced object-oriented concepts such as
+inheritance. JPA avoids vendor lock-in by relying on a strict specification like
+JDO and EJB 2.x entities. JPA focuses on relational databases. And like JDO, JPA
+is extremely easy to use.
+    </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+OpenJPA typically stores data in relational databases, but can be customized for
+use with non-relational datastores as well.
+        </p></div><p>
+JPA is not ideal for every application. For many applications, though, it
+provides an exciting alternative to other persistence mechanisms.
+    </p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="jpa_overview_intro_transpers.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="jpa_overview.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_arch.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">2.&nbsp;
+            Lightweight Persistence
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;3.&nbsp;
+        Java Persistence API Architecture
+    </td></tr></table></div></body></html>

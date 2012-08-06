@@ -1,0 +1,7 @@
+# uk.co.itstherules.yawf.model.ProcessStepReferenceModel, C3EB05C0-88CA-4570-A529-6BB40A08E8CD
+inputSteps.0.identity=E9D1D29A-19C8-4B77-B964-6D469957AD2A
+inputSteps.1.identity=2B1A3FBD-DD5E-4F15-BE41-A730AAD6B57E
+step.identity=bfb00155-4b6c-4e18-9c84-5bb84890710a
+x=1129
+y=261
+title=View Page with Entity Reference

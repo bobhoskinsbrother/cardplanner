@@ -1,0 +1,6 @@
+# uk.co.itstherules.yawf.model.ProcessStepReferenceModel, EBF00FE1-8B15-443E-854E-DE370D6D8145
+inputSteps.0.identity=3DEFFB14-BCB8-4494-B05B-55E5AB53D3BC
+step.identity=dcd1a35f-0237-42c0-afdd-84aa48a50101
+x=7
+y=101
+title=Set POSTed values into Entity Reference

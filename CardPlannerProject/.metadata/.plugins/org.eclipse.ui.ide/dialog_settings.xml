@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
+		<item value="true" key="ShowStatusLine"/>
+		<item value="false" key="ShowDerived"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;" key="WorkingSet"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode path=&quot;/CardPlannerModel/src-resource/uk/co/itstherules/cardplanner/model/defaults/031a3737-86af-4a45-a66f-31c6f13d9377&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/CardPlannerModel/src-resource/uk/co/itstherules/cardplanner/model/defaults/fba82635-9578-4801-b377-05423ea059dd&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/CardPlannerModel/src-resource/uk/co/itstherules/cardplanner/model/defaults/9bb5359a-5556-4119-8252-7b40e5e75894&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/CardPlannerModel/src-resource/uk/co/itstherules/cardplanner/model/defaults/1952bba9-bee2-43e5-a202-81637bf6e479&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;" key="History"/>
+		<section name="DialogBoundsSettings">
+			<item value="600" key="DIALOG_WIDTH"/>
+			<item value="24" key="DIALOG_Y_ORIGIN"/>
+			<item value="500" key="DIALOG_HEIGHT"/>
+			<item value="340" key="DIALOG_X_ORIGIN"/>
+			<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
+		</section>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+	</section>
+</section>

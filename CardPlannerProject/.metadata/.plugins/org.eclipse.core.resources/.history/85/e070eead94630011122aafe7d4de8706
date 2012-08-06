@@ -1,0 +1,31 @@
+package uk.co.itstherules.yawf.model.persistence;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+import org.junit.Assert;
+import org.junit.Test;
+import static org.hamcrest.CoreMatchers.*;
+
+public class AlwaysThrowsObjectCacheTest {
+
+
+	@Test
+	public void everyMethodThrowsIllegalState() throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+		AlwaysThrowsObjectCache unit = new AlwaysThrowsObjectCache();
+		Method[] declaredMethods = AlwaysThrowsObjectCache.class.getDeclaredMethods();
+		for (Method method : declaredMethods) {
+			Class<?>[] parameterTypes = method.getParameterTypes();
+			Object[] args = new Object[parameterTypes.length];
+			try {
+				if(method.isAccessible()) {
+					method.invoke(unit, args);
+					Assert.fail("Every public method should throw on this class");
+				}
+			} catch(IllegalStateException e) {
+				Assert.assertThat(e.getMessage(), is("Programmatic error; ObjectCache has been set to not required, and is being called"));
+			}
+		}
+		
+	}
+}

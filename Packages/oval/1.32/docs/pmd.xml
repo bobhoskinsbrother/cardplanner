@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.2.2" timestamp="2009-05-10T13:41:43.734">
+<suppressedviolation filename="D:\workspaces\eclipse34\oval\src\main\java\net\sf\oval\guard\GuardAspect2.java" suppressiontype="annotation" msg="Avoid unused private fields such as 'implementedInterface'." usermsg=""/>
+</pmd>

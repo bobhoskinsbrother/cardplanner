@@ -1,0 +1,5 @@
+# uk.co.itstherules.yawf.model.ProcessStepModel, dcd1a35f-0237-42c0-afdd-84aa48a50101
+processKey=BindInboundValuesToEntity
+body=
+input=
+title=Set POSTed values into Entity

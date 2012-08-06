@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Tool: Bnd-0.0.357
+Bundle-Name: JavaMail API demo client
+Created-By: 1.6.0_20 (Apple Inc.)
+Bundle-Vendor: Sun Microsystems, Inc.
+Bundle-Version: 1.4.3
+Bnd-LastModified: 1286197696169
+Bundle-ManifestVersion: 2
+Bundle-License: http://www.sun.com/cddl, https://glassfish.dev.java.ne
+ t/public/CDDL+GPL.html
+Bundle-Description: JavaMail API demo client
+Import-Package: javax.activation,javax.mail;version="1.4",javax.securi
+ ty.sasl;resolution:=optional,javax.swing,javax.swing.event,javax.swin
+ g.table,javax.swing.tree,jcifs.ntlmssp;resolution:=optional,sun.secur
+ ity.util;resolution:=optional
+Bundle-SymbolicName: com.sun.mail.client
+Bundle-DocURL: http://www.sun.com
+Originally-Created-By: 1.6.0_20 (Apple Inc.)
+

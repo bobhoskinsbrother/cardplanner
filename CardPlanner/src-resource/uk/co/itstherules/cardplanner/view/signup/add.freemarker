@@ -1,0 +1,166 @@
+<style type="text/css">
+
+	.main_form {
+		text-align: left;
+		margin: auto; 
+		margin-top: 45px;
+	}
+	
+	input[type=text], input[type=password], .right {
+		width: 250px;
+		float: left;
+	}
+	.line, .centred {
+		width: 480px;
+	}
+	
+	.centred {
+		margin: auto;
+	}
+	.errorMessageText {
+		margin-bottom: 10px;
+	}
+
+</style>
+
+<script type="text/javascript">
+//<![CDATA[
+Event.observe(document, "dom:loaded",  function() { 
+	Event.observe($('editForm'), 'submit', function(event) {
+		var password = $('password');
+		var confirmPassword = $('confirmPassword');
+		
+		if(password.value != confirmPassword.value) {
+			password.addClassName('errorbackground');
+			confirmPassword.addClassName('errorbackground');
+			password.addClassName('errorborder');
+			confirmPassword.addClassName('errorborder');
+			Event.stop(event);
+		} else {
+			password.removeClassName('errorbackground');
+			confirmPassword.removeClassName('errorbackground');
+			password.removeClassName('errorborder');
+			confirmPassword.removeClassName('errorborder');
+		}
+	});
+});
+//]]>
+</script>
+<div id="mainarea" class="white_rounded centre">
+	<div class="shadow card_body">
+		<h2 class="card_header">${bag["SignUp.title"]}</h2>
+		<div class="main_form centred">
+			<form method="post" action="${tagBuilder.url("SignUp", action, "0", "index.xhtml")}" id="editForm">
+			
+			<div class="line">
+				<div class="left">
+					${bag["SignUp.change.gender.legend"]} 
+				</div>
+				<div class="right">
+					${tagBuilder.select("gender", genders, instance.gender.name(), {})}
+				</div>
+				<div class="line">
+				</div>
+			</div>
+
+			<div class="line">
+				<div class="left">
+					${bag["SignUp.change.firstName.legend"]} 
+				</div>
+				<div class="right">
+					${tagBuilder.inputText({"name":"firstName", "id":"firstName" }, instance.firstName!"", violations.getViolationMessages("firstName"))}
+				</div>
+				<div class="line">
+				</div>
+			</div>
+
+				
+			<div class="line">
+				<div class="left">
+					${bag["SignUp.change.lastName.legend"]} 
+				</div>
+				<div class="right">
+				${tagBuilder.inputText({"name":"lastName", "id":"lastName"}, instance.lastName!"", violations.getViolationMessages("lastName"))}
+				</div>
+				<div class="line">
+				</div>
+			</div>
+
+			<div class="line">
+				<div class="left">
+					${bag["SignUp.change.userName.legend"]} 
+				${tagBuilder.showImage("i.png", { "onclick": tagBuilder.tipAttribute(bag["SignUp.change.userName.info"])})}
+				</div>
+				<div class="right">
+				${tagBuilder.inputText({"name":"userName", "id":"userName" }, instance.user.userName!"", violations.getViolationMessages("user.userName"))}
+				</div>
+				<div class="line">
+				</div>
+			</div>
+
+
+			<div class="line">
+				<div class="left">
+					${bag["SignUp.change.password.legend"]} 
+				</div>
+				<div class="right">
+				${tagBuilder.passwordText({"name":"user.password", "id":"user.password", "style":"float: left;" }, "", violations.getViolationMessages("user.password"))}
+				</div>
+				<div style="float: right; margin-left: 10px; width: 90px;">${tagBuilder.passwordStrengthMeter("passwordStrengthCheck", "password")}</div>
+				<div class="line">
+				</div>
+			</div>
+
+
+
+			<div class="line">
+				<div class="left">
+					${bag["SignUp.change.confirmPassword.legend"]} 
+				</div>
+				<div class="right">
+				${tagBuilder.passwordText({"name":"user.confirmPassword", "id":"user.confirmPassword" }, "", violations.getViolationMessages("user.confirmPassword"))}
+				</div>
+				<div class="line">
+				</div>
+			</div>
+
+			<div class="line">
+				<div class="left">
+					${bag["SignUp.change.emailAddress.legend"]} 
+				${tagBuilder.showImage("i.png", { "onclick": tagBuilder.tipAttribute(bag["SignUp.change.emailAddress.info"])})}
+				</div>
+				<div class="right">
+				${tagBuilder.inputText({"name":"user.email", "id":"user.email" }, instance.user.email!"", violations.getViolationMessages("user.email"))}
+				</div>
+				<div class="line">
+				
+				</div>
+			</div>
+
+			<#if (captcha == true)>
+			<div class="line">
+				<div class="left">
+					${bag["SignUp.change.captcha.legend"]} 
+				</div>
+				<div style="float:left">
+					${captchaHtml}
+					<#if (violations.isViolated("captcha")) >
+					<div class="line">
+					<div class="errorMessageText">Captcha not valid</div>
+					</div>
+					</#if>
+				</div>
+				<div class="line"></div>
+			</div>
+			</#if>
+
+			<div class="line">
+				${tagBuilder.submit(bag[action])}
+				<div class="line">
+				</div>
+			</div>
+				
+			</form>
+		</div>
+		</div>
+</div>

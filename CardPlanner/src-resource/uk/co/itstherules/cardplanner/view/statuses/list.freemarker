@@ -1,0 +1,70 @@
+<script>
+    //<![CDATA[
+
+    Object.extend(View, {
+        initialize: function() {
+            Sortable.create('statuses', {
+                overlap:'vertical',
+                constraint:'vertical',
+                tag: 'div',
+                format: /^([A-Za-z0-9\-]*)$/,
+                onUpdate: function(list) {
+                    var orderList = View.serialize(list);
+                    var url = "${tagBuilder.updateUrl("StatusOrder","")}?statuses=" + orderList;
+                    new Ajax.Request(url, {
+                        method: 'post',
+                        onSuccess: function(transport) {
+                            new Effect.Highlight($('statuses'), {keepBackgroundImage: true, startcolor: "#00FF00"});
+                        },
+                        onFailure: function(transport) {
+                            new Effect.Highlight($('statuses'), {keepBackgroundImage: true, startcolor: "#FF0000"});
+                        }
+                    });
+                }
+            });
+        },
+
+        serialize: function(element) {
+            element = $(element);
+            var cardIds = Sortable.sequence(element, arguments[1]).map(
+                    function(identity) {
+                        return encodeURIComponent(identity.substring(1));
+                    }).join(',');
+            return cardIds;
+        }
+
+    });
+
+    Event.observe(this, 'dom:loaded', function() {
+        View.initialize();
+    });
+
+    //]]>
+</script>
+<h2>Statuses
+${tagBuilder.addLink("Statuses", "index.xhtml", tagBuilder.showImage("status_add.png", {"style":"border:1px solid #BBBBBB;"}), {}, { "id":"addStatus" })}
+</h2>
+
+<#if statuses?size==0>
+There are currently no statuses defined.  Add some by clicking the flag at the top.
+<br/>
+<#else>
+    <br/>
+        <strong>
+            Please drag the panel to sort the status order
+        </strong>
+    <br/>
+    <div id="statuses" style="width:100%;">
+        <#list statuses as status>
+        <div title="${status.title?html}" id="_${status.identity}"
+             style="height:40px; cursor:move; border: 1px solid #CCCCCC; background: #F4F4F4; text-align: center">
+            <h3>${status.title}
+${tagBuilder.editLink("Statuses", status.title?url, status.identity, tagBuilder.showImage("edit_pencil.png"), {}, { "name":"editStatusLink" })}
+${tagBuilder.deleteLink("Statuses", status.title?url, status.identity, status.title?url)}
+            </h3>
+        </div>
+        </#list>
+    <div style="clear:both;"></div>
+    </div>
+
+</#if>

@@ -1,0 +1,853 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>2.&nbsp; Field and Property Metadata</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="jpa_overview_meta.html" title="Chapter&nbsp;5.&nbsp; Metadata"><link rel="prev" href="jpa_overview_meta.html" title="Chapter&nbsp;5.&nbsp; Metadata"><link rel="next" href="jpa_overview_meta_xml.html" title="3.&nbsp; XML Schema"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.&nbsp;
+            Field and Property Metadata
+        </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="jpa_overview_meta.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;5.&nbsp;
+        Metadata
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_meta_xml.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="jpa_overview_meta_field"></a>2.&nbsp;
+            Field and Property Metadata
+        </h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_explicit_access">2.1. 
+            Explicit Access
+        </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_transient">2.2. 
+                Transient
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_id">2.3. 
+                Id
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_gen">2.4. 
+                Generated Value
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_embedid">2.5. 
+                Embedded Id
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_version">2.6. 
+                Version
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_basic">2.7. 
+                Basic
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_fetch">2.7.1. 
+                    Fetch Type
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_embedded">2.8. 
+                Embedded
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_manytoone">2.9. 
+                Many To One
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_cascade">2.9.1. 
+                    Cascade Type
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_onetomany">2.10. 
+                One To Many
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_mappedby">2.10.1. 
+                    Bidirectional Relations
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_onetoone">2.11. 
+                One To One
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_manytomany">2.12. 
+                Many To Many
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_orderby">2.13. 
+                Order By
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_mapkey">2.14. 
+                Map Key
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_fielddefaults">2.15. 
+                Persistent Field Defaults
+            </a></span></dt></dl></div><p>
+The persistence implementation must be able to retrieve and set the persistent
+state of your entities, mapped superclasses, and embeddable types. JPA offers
+two modes of persistent state access: <span class="emphasis"><em>field access</em></span>, and
+<span class="emphasis"><em>property access</em></span>.  The access type of a persistent attribute
+can be either set explicitly on a class or attribute level, inherited, or 
+determined by the provider. 
+        </p><p>
+Under field access, the implementation injects state directly into your 
+persistent fields, and retrieves changed state from your fields as well. To 
+declare field access on an entire entity with XML metadata, set the 
+<code class="literal">access</code> attribute of your <code class="literal">entity</code> XML 
+element to <code class="literal">FIELD</code>. To use field access for an entire entity 
+using annotation metadata, simply place your metadata and mapping annotations 
+on your field declarations:
+        </p><pre class="programlisting">
+@ManyToOne
+private Company publisher;
+</pre><p>
+        <a class="indexterm" name="d0e2407"></a>
+        <a class="indexterm" name="d0e2413"></a>
+        <a class="indexterm" name="d0e2419"></a>
+Property access, on the other hand, retrieves and loads state through JavaBean
+"getter" and "setter" methods. For a property <code class="literal">p</code> of type
+<code class="literal">T</code>, you must define the following getter method:
+        </p><pre class="programlisting">
+T getP();
+</pre><p>
+For boolean properties, this is also acceptable:
+        </p><pre class="programlisting">
+boolean isP();
+</pre><p>
+You must also define the following setter method:
+        </p><pre class="programlisting">
+void setP(T value);
+</pre><p>
+To implicitly use property access for an entire class by default, set your 
+<code class="literal">entity</code> element's <code class="literal"> access</code> attribute to 
+<code class="literal">PROPERTY</code>, or place your metadata and mapping annotations on 
+the getter method:
+        </p><pre class="programlisting">
+@ManyToOne
+private Company getPublisher() { ... }
+
+private void setPublisher(Company publisher) { ... }
+</pre><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_explicit_access"></a>2.1.&nbsp;
+            Explicit Access
+        </h3></div></div></div><p>
+            <a class="indexterm" name="d0e2459"></a>
+            <a class="indexterm" name="d0e2465"></a>
+            <a class="indexterm" name="d0e2471"></a>
+The access type of a class or individual persistent attributes can be specified 
+explicitly using the <code class="literal">@Access</code> annotation or <code class="literal">access
+</code> attribute on the XML elements used to define persistent attributes.  
+When explicitly defining access, specify the explicit access type for the class 
+and then apply the <code class="literal">@Access</code> annotation or <code class="literal">access
+</code>XML attribute to individual fields or properties.  If explicit 
+<code class="literal">FIELD</code> or <code class="literal">PROPERTY</code> is specified at the 
+class level, all eligible non-transient fields or properties will be persistent.
+If using class level <code class="literal">FIELD</code> access, non-persistent fields must 
+be <code class="literal">transient</code> or annotated with <code class="literal">@Transient</code>.
+If using class level <code class="literal">PROPERTY</code> access, non-persistent 
+properties must be annotated <code class="literal">@Transient</code> or excluded using
+the <code class="literal">transient</code> XML attribute.  Refer to the JPA specification
+for specific rules regarding the use of explicit access with embeddables and
+within an inheritance hierarchy.
+        </p><p>
+This entity definitions shows how multiple access types may be specified
+on an entity:
+        </p><pre class="programlisting">
+@Entity
+@Access(AccessType.FIELD)
+public class PaymentContract {
+
+    @Id
+    private String id;
+
+    @Temporal(TemporalType.DATE)
+    private String contractDate;
+    
+    @Transient
+    private String terms;
+    
+    @Version
+    private int version;
+    
+    @Lob
+    @Access(AccessType.PROPERTY)
+    public String getContractTerms() {
+        return terms;
+    }
+    
+    public void setContractTerms(String terms) {
+        // Format string before persisting
+        this.terms = formatTerms(terms);
+    }
+    ... 
+}
+</pre><p>
+The equivalent declarations in XML:
+                </p><pre class="programlisting">
+&lt;entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_0.xsd"
+    version="2.0"&gt;
+    &lt;entity class="org.xyz.PaymentContract" access="FIELD"&gt;
+        &lt;attributes&gt;
+            &lt;id name="id"/&gt;
+             &lt;basic name="contractTerms" access="PROPERTY"&gt; 
+                &lt;lob/&gt;
+            &lt;/basic&gt;
+            &lt;basic name="contractDate"&gt;
+                &lt;temporal&gt;DATE&lt;/temporal&gt;
+            &lt;/basic&gt;
+            &lt;version name="version"/&gt;
+            &lt;transient name="terms"/&gt;
+       &lt;/attributes&gt;
+    &lt;/entity&gt;
+&lt;/entity-mappings&gt;
+</pre></div><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3><p>
+When using property access, only the getter and setter method for a property
+should ever access the underlying persistent field directly. Other methods,
+including internal business methods in the persistent class, should go through
+the getter and setter methods when manipulating persistent state.
+            </p><p>
+Also, take care when adding business logic to your getter and setter methods.
+Consider that they are invoked by the persistence implementation to load and
+retrieve all persistent state; other side effects might not be desirable.
+            </p></div><p>
+Each class must use either field access or property access for all state; you
+cannot use both access types within the same class. Additionally, a subclass
+must use the same access type as its superclass.
+        </p><p>
+The remainder of this document uses the term "persistent field" to refer to
+either a persistent field or a persistent property.
+        </p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_transient"></a>2.2.&nbsp;
+                Transient
+            </h3></div></div></div><a class="indexterm" name="d0e2535"></a><a class="indexterm" name="d0e2538"></a><a class="indexterm" name="d0e2543"></a><p>
+The <code class="classname">Transient</code> annotation specifies that a field is
+non-persistent. Use it to exclude fields from management that would otherwise be
+persistent. <code class="classname">Transient</code> is a marker annotation only; it
+has no properties.
+            </p><p>
+The equivalent XML element is <code class="literal">transient</code>. It has a single
+attribute:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">name</code>: The transient field or property name. This attribute
+is required.
+                    </p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_id"></a>2.3.&nbsp;
+                Id
+            </h3></div></div></div><a class="indexterm" name="d0e2571"></a><a class="indexterm" name="d0e2574"></a><a class="indexterm" name="d0e2579"></a><p>
+Annotate your simple identity fields with <code class="classname">Id</code>. This
+annotation has no properties. We explore entity identity and identity fields in
+<a href="jpa_overview_pc.html#jpa_overview_pc_id" title="1.3.&nbsp; Identity Fields">Section&nbsp;1.3, &#8220;
+                Identity Fields
+            &#8221;</a>.
+            </p><p>
+The equivalent XML element is <code class="literal">id</code>. It has one required
+attribute:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">name</code>: The name of the identity field or property.
+                    </p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_gen"></a>2.4.&nbsp;
+                Generated Value
+            </h3></div></div></div><a class="indexterm" name="d0e2606"></a><a class="indexterm" name="d0e2609"></a><a class="indexterm" name="d0e2614"></a><p>
+The previous section showed you how to declare your identity fields with the
+<code class="classname">Id</code> annotation. It is often convenient to allow the
+persistence implementation to assign a unique value to your identity fields
+automatically. JPA includes the <code class="classname">GeneratedValue</code>
+annotation for this purpose. It has the following properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">GenerationType strategy</code>: Enum value specifying how to
+auto-generate the field value. The <code class="classname">GenerationType</code> enum
+has the following values:
+                    </p><div class="itemizedlist"><ul type="circle"><li><p>
+<code class="literal">GeneratorType.AUTO</code>: The default. Assign the field a
+generated value, leaving the details to the JPA vendor.
+                            </p></li><li><p>
+<code class="literal">GenerationType.IDENTITY</code>: The database will assign an
+identity value on insert.
+                            </p></li><li><p>
+<code class="literal">GenerationType.SEQUENCE</code>: Use a datastore sequence to
+generate a field value.
+                            </p></li><li><p>
+<code class="literal">GenerationType.TABLE</code>: Use a sequence table to generate a
+field value.
+                            </p></li></ul></div></li><li><p>
+<code class="literal">String generator</code>: The name of a generator defined in mapping
+metadata. We show you how to define named generators in
+<a href="jpa_overview_mapping_sequence.html" title="5.&nbsp; Generators">Section&nbsp;5, &#8220;
+            Generators
+        &#8221;</a>. If the <code class="classname">
+GenerationType</code> is set but this property is unset, the JPA
+implementation uses appropriate defaults for the selected generation type.
+                    </p></li></ul></div><p>
+The equivalent XML element is <code class="literal">generated-value</code>, which
+includes the following attributes:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">strategy</code>: One of <code class="literal"> TABLE</code>, <code class="literal">
+SEQUENCE</code>, <code class="literal"> IDENTITY</code>, or <code class="literal">AUTO</code>,
+defaulting to <code class="literal">AUTO</code>.
+                    </p></li><li><p>
+<code class="literal">generator</code>: Equivalent to the generator property listed
+above.
+                    </p></li></ul></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+OpenJPA allows you to use the <code class="classname">GeneratedValue</code> annotation
+on any field, not just identity fields. Before using the <code class="literal">IDENTITY
+</code> generation strategy, however, read
+<a href="ref_guide_pc_oid.html#ref_guide_pc_oid_pkgen_autoinc" title="4.4.&nbsp; Autoassign / Identity Strategy Caveats">Section&nbsp;4.4, &#8220;
+                Autoassign / Identity Strategy Caveats
+            &#8221;</a> in the Reference Guide.
+                </p><p>
+OpenJPA also offers additional generator strategies for non-numeric fields,
+which you can access by setting <code class="literal">strategy</code> to <code class="literal">AUTO
+</code> (the default), and setting the <code class="literal">generator</code> string
+to:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+                        <a class="indexterm" name="d0e2732"></a>
+                        <a class="indexterm" name="d0e2738"></a>
+<code class="literal">uuid-string</code>: OpenJPA will generate a 128-bit type 1 UUID
+unique within the network, represented as a 16-character string. For more
+information on UUIDs, see the IETF UUID draft specification at:
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://www.ics.uci.edu/~ejw/authoring/uuid-guid/" target="_top">
+http://www.ics.uci.edu/~ejw/authoring/uuid-guid/</a>
+                        </p></li><li><p>
+                        <a class="indexterm" name="d0e2751"></a>
+                        <a class="indexterm" name="d0e2757"></a>
+<code class="literal">uuid-hex</code>: Same as <code class="literal"> uuid-string</code>, but
+represents the type 1 UUID as a 32-character hexadecimal string.
+                        </p></li><li><p>
+                        <a class="indexterm" name="d0e2770"></a>
+                        <a class="indexterm" name="d0e2776"></a>
+<code class="literal">uuid-type4-string</code>: OpenJPA will generate a 128-bit type 4
+pseudo-random UUID, represented as a 16-character string. For more
+information on UUIDs, see the IETF UUID draft specification at:
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://www.ics.uci.edu/~ejw/authoring/uuid-guid/" target="_top">
+http://www.ics.uci.edu/~ejw/authoring/uuid-guid/</a>
+                        </p></li><li><p>
+                        <a class="indexterm" name="d0e2789"></a>
+                        <a class="indexterm" name="d0e2795"></a>
+<code class="literal">uuid-type4-hex</code>: Same as <code class="literal"> uuid-type4-string</code>
+, but represents the type 4 UUID as a 32-character hexadecimal string.
+                        </p></li></ul></div><p>
+These string constants are defined in
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/Generator.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.Generator</code></a>.
+                </p><p>
+If the entities are mapped to the same table name but with different schema 
+name within one <code class="literal">PersistenceUnit</code> intentionally, and the 
+strategy of <code class="literal">GeneratedType.AUTO</code> is used to generate the ID 
+for each entity, a schema name for each entity must be explicitly declared 
+either through the annotation or the mapping.xml file. Otherwise, the mapping 
+tool only creates the tables for those entities with the schema names under 
+each schema. In addition, there will be only one 
+<code class="literal">OPENJPA_SEQUENCE_TABLE</code> created for all the entities within 
+the <code class="literal">PersistenceUnit</code> if the entities are not identified 
+with the schema name. Read <a href="ref_guide_sequence.html" title="6.&nbsp; Generators">Section&nbsp;6, &#8220;
+            Generators
+        &#8221;</a> and 
+<a href="ref_guide_schema_def.html" title="11.&nbsp; Default Schema">Section&nbsp;11, &#8220;
+            Default Schema
+        &#8221;</a> in the Reference Guide.
+                </p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_embedid"></a>2.5.&nbsp;
+                Embedded Id
+            </h3></div></div></div><a class="indexterm" name="d0e2833"></a><a class="indexterm" name="d0e2836"></a><a class="indexterm" name="d0e2841"></a><p>
+If your entity has multiple identity values, you may declare multiple <code class="literal">
+@Id</code> fields, or you may declare a single <code class="literal">@EmbeddedId</code>
+field. The type of a field annotated with <code class="classname">EmbeddedId</code> must
+be an embeddable entity class. The fields of this embeddable class are
+considered the identity values of the owning entity. We explore entity identity
+and identity fields in <a href="jpa_overview_pc.html#jpa_overview_pc_id" title="1.3.&nbsp; Identity Fields">Section&nbsp;1.3, &#8220;
+                Identity Fields
+            &#8221;</a>.
+            </p><p>
+The <code class="classname">EmbeddedId</code> annotation has no properties.
+            </p><p>
+The equivalent XML element is <code class="literal">embedded-id</code>. It has one
+required attribute:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">name</code>: The name of the identity field or property.
+                    </p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_version"></a>2.6.&nbsp;
+                Version
+            </h3></div></div></div><a class="indexterm" name="d0e2879"></a><a class="indexterm" name="d0e2882"></a><a class="indexterm" name="d0e2887"></a><p>
+Use the <code class="classname">Version</code> annotation to designate a version field.
+<a href="jpa_overview_pc.html#jpa_overview_pc_version" title="1.4.&nbsp; Version Field">Section&nbsp;1.4, &#8220;
+                Version Field
+            &#8221;</a> explained the importance of
+version fields to JPA. This is a marker annotation; it has no properties.
+            </p><p>
+The equivalent XML element is <code class="literal">version</code>, which has a single
+attribute:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">name</code>: The name of the version field or property. This
+attribute is required.
+                    </p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_basic"></a>2.7.&nbsp;
+                Basic
+            </h3></div></div></div><div class="toc"><dl><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_fetch">2.7.1. 
+                    Fetch Type
+                </a></span></dt></dl></div><a class="indexterm" name="d0e2914"></a><a class="indexterm" name="d0e2917"></a><a class="indexterm" name="d0e2922"></a><p>
+<code class="classname">Basic</code> signifies a standard value persisted as-is to the
+datastore. You can use the <code class="classname">Basic</code> annotation on persistent
+fields of the following types: primitives, primitive wrappers, <code class="classname">
+java.lang.String</code>, <code class="classname">byte[]</code>, <code class="classname">
+Byte[]</code>, <code class="classname">char[]</code>, <code class="classname">
+Character[]</code>, <code class="classname">java.math.BigDecimal</code>, 
+<code class="classname">java.math.BigInteger</code>, <code class="classname">
+java.util.Date</code>, <code class="classname">java.util.Calendar</code>, 
+<code class="classname">java.sql.Date</code>, <code class="classname">java.sql.Timestamp</code>,
+<code class="classname">Enum</code>s, and <code class="classname">Serializable</code> types.
+            </p><p>
+<code class="classname">Basic</code> declares these properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">FetchType fetch</code>: Whether to load the field eagerly 
+(<code class="literal">FetchType.EAGER</code>) or lazily (<code class="literal">
+FetchType.LAZY</code>). Defaults to <code class="literal">FetchType.EAGER</code>.
+                    </p></li><li><p>
+<code class="literal">boolean optional</code>: Whether the datastore allows null values.
+Defaults to true.
+                    </p></li></ul></div><p>
+The equivalent XML element is <code class="literal">basic</code>. It has the following
+attributes:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">name</code>: The name of the field or property. This attribute is
+required.
+                    </p></li><li><p>
+<code class="literal">fetch</code>: One of <code class="literal">EAGER</code> or <code class="literal">LAZY
+</code>.
+                    </p></li><li><p>
+<code class="literal">optional</code>: Boolean indicating whether the field value may be
+null.
+                    </p></li></ul></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="jpa_overview_meta_fetch"></a>2.7.1.&nbsp;
+                    Fetch Type
+                </h4></div></div></div><a class="indexterm" name="d0e3034"></a><a class="indexterm" name="d0e3039"></a><a class="indexterm" name="d0e3044"></a><p>
+Many metadata annotations in JPA have a <code class="literal">fetch</code> property. This
+property can take on one of two values: <code class="literal">FetchType.EAGER</code> or
+<code class="literal">FetchType.LAZY</code>. <code class="literal">FetchType.EAGER</code> means that
+the field is loaded by the JPA implementation before it returns the persistent
+object to you. Whenever you retrieve an entity from a query or from the
+<code class="classname">EntityManager</code>, you are guaranteed that all of its eager
+fields are populated with datastore data.
+                </p><p>
+<code class="literal">FetchType.LAZY</code> is a hint to the JPA runtime that you want to
+defer loading of the field until you access it. This is called <span class="emphasis"><em>lazy
+loading</em></span>. Lazy loading is completely transparent; when you attempt to
+read the field for the first time, the JPA runtime will load the value from the
+datastore and populate the field automatically. Lazy loading is only a hint and
+not a directive because some JPA implementations cannot lazy-load certain field
+types.
+                </p><p>
+With a mix of eager and lazily-loaded fields, you can ensure that commonly-used
+fields load efficiently, and that other state loads transparently when accessed.
+As you will see in <a href="jpa_overview_emfactory_perscontext.html" title="3.&nbsp; Persistence Context">Section&nbsp;3, &#8220;
+            Persistence Context
+        &#8221;</a>,
+you can also use eager fetching to ensure that entities have all needed data
+loaded before they become <span class="emphasis"><em>detached</em></span> at the end of a
+persistence context.
+                </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+OpenJPA can lazy-load any field type. OpenJPA also allows you to dynamically
+change which fields are eagerly or lazily loaded at runtime. See
+<a href="ref_guide_fetch.html" title="7.&nbsp; Fetch Groups">Section&nbsp;7, &#8220;
+            Fetch Groups
+        &#8221;</a> in the Reference Guide for details.
+                    </p><p>
+The Reference Guide details OpenJPA's eager fetching behavior in
+<a href="ref_guide_perfpack_eager.html" title="8.&nbsp; Eager Fetching">Section&nbsp;8, &#8220;
+            Eager Fetching
+        &#8221;</a>.
+                    </p></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_embedded"></a>2.8.&nbsp;
+                Embedded
+            </h3></div></div></div><a class="indexterm" name="d0e3093"></a><a class="indexterm" name="d0e3096"></a><a class="indexterm" name="d0e3101"></a><p>
+Use the <code class="classname">Embedded</code> marker annotation on embeddable field
+types. Embedded fields are mapped as part of the datastore record of the
+declaring entity. In our sample model, <code class="classname">Author</code> and
+<code class="classname">Company</code> each embed their <code class="classname">Address</code>,
+rather than forming a relation to an <code class="classname">Address</code> as a
+separate entity.
+            </p><p>
+The equivalent XML element is <code class="literal">embedded</code>, which expects a
+single attribute:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">name</code>: The name of the field or property. This attribute is
+required.
+                    </p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_manytoone"></a>2.9.&nbsp;
+                Many To One
+            </h3></div></div></div><div class="toc"><dl><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_cascade">2.9.1. 
+                    Cascade Type
+                </a></span></dt></dl></div><a class="indexterm" name="d0e3138"></a><a class="indexterm" name="d0e3141"></a><a class="indexterm" name="d0e3146"></a><p>
+When an entity <code class="literal">A</code> references a single entity <code class="literal">
+B</code>, and other <code class="literal">A</code>s might also reference the same
+<code class="literal">B</code>, we say there is a <span class="emphasis"><em>many to one</em></span>
+relation from <code class="literal">A</code> to <code class="literal">B</code>. In our sample
+model, for example, each magazine has a reference to its publisher. Multiple
+magazines might have the same publisher. We say, then, that the <code class="literal">
+Magazine.publisher</code> field is a many to one relation from magazines to
+publishers.
+            </p><p>
+JPA indicates many to one relations between entities with the <code class="classname">
+ManyToOne</code> annotation. This annotation has the following properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">Class targetEntity</code>: The class of the related entity type.
+                    </p></li><li><p>
+<code class="literal">CascadeType[] cascade</code>: Array of enum values defining cascade
+behavior for this field. We explore cascades below. Defaults to an empty array.
+                    </p></li><li><p>
+<code class="literal">FetchType fetch</code>: Whether to load the field eagerly 
+(<code class="literal">FetchType.EAGER</code>) or lazily 
+(<code class="literal">FetchType.LAZY</code>). Defaults to <code class="literal">
+FetchType.EAGER</code>. See <a href="jpa_overview_meta_field.html#jpa_overview_meta_fetch" title="2.7.1.&nbsp; Fetch Type">Section&nbsp;2.7.1, &#8220;
+                    Fetch Type
+                &#8221;</a> above 
+for details on fetch types.
+                    </p></li><li><p>
+<code class="literal">boolean optional</code>: Whether the related object must exist. If
+<code class="literal">false</code>, this field cannot be null. Defaults to <code class="literal">
+true</code>.
+                    </p></li></ul></div><p>
+The equivalent XML element is <code class="literal">many-to-one</code>. It accepts the
+following attributes:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">name</code>: The name of the field or property. This attribute is
+required.
+                    </p></li><li><p>
+<code class="literal">target-entity</code>: The class of the related type.
+                    </p></li><li><p>
+<code class="literal">fetch</code>: One of <code class="literal">EAGER</code> or <code class="literal">
+LAZY</code>.
+                    </p></li><li><p>
+<code class="literal">optional</code>: Boolean indicating whether the field value may be
+null.
+                    </p></li></ul></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="jpa_overview_meta_cascade"></a>2.9.1.&nbsp;
+                    Cascade Type
+                </h4></div></div></div><a class="indexterm" name="d0e3263"></a><a class="indexterm" name="d0e3266"></a><p>
+We introduce the JPA <code class="classname">EntityManager</code> in
+<a href="jpa_overview_em.html" title="Chapter&nbsp;8.&nbsp; EntityManager">Chapter&nbsp;8, <i xmlns:xlink="http://www.w3.org/1999/xlink">
+        EntityManager
+    </i></a>. The <code class="classname">EntityManager
+</code> has APIs to persist new entities, remove (delete) existing
+entities, refresh entity state from the datastore, and merge <span class="emphasis"><em>detached
+</em></span> entity state back into the persistence context. We explore all of
+these APIs in detail later in the overview.
+                </p><p>
+When the <code class="classname">EntityManager</code> is performing the above
+operations, you can instruct it to automatically cascade the operation to the
+entities held in a persistent field with the <code class="literal">cascade</code> property
+of your metadata annotation. This process is recursive. The <code class="literal">cascade
+</code> property accepts an array of <code class="classname">CascadeType</code> enum
+values.
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">CascadeType.PERSIST</code>: When persisting an entity, also persist
+the entities held in this field. We suggest liberal application of this cascade
+rule, because if the <code class="classname">EntityManager</code> finds a field that
+references a new entity during flush, and the field does not use <code class="literal">
+CascadeType.PERSIST</code>, it is an error.
+                        </p></li><li><p>
+<code class="literal">CascadeType.REMOVE</code>: When deleting an entity, also delete the
+entities held in this field.
+                        </p></li><li><p>
+<code class="literal">CascadeType.REFRESH</code>: When refreshing an entity, also refresh
+the entities held in this field.
+                        </p></li><li><p>
+<code class="literal">CascadeType.MERGE</code>: When merging entity state, also merge the
+entities held in this field.
+                        </p></li></ul></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+OpenJPA offers enhancements to JPA's CascadeType.REMOVE functionality,
+including additional annotations to control how and when dependent fields will
+be removed.  See <a href="ref_guide_meta_ext.html#dependent" title="4.2.1.&nbsp; Dependent">Section&nbsp;4.2.1, &#8220;
+                    Dependent
+                &#8221;</a> for more details.
+                	</p></div><p>
+<code class="classname">CascadeType</code> defines one additional value, <code class="literal">
+CascadeType.ALL</code>, that acts as a shortcut for all of the values above.
+The following annotations are equivalent:
+                </p><pre class="programlisting">
+@ManyToOne(cascade={CascadeType.PERSIST,CascadeType.REMOVE,
+    CascadeType.REFRESH,CascadeType.MERGE})
+private Company publisher;
+</pre><pre class="programlisting">
+@ManyToOne(cascade=CascadeType.ALL)
+private Company publisher;
+</pre><p>
+In XML, these enumeration constants are available as child elements of the
+<code class="literal">cascade</code> element. The <code class="literal">cascade</code> element is
+itself a child of <code class="literal">many-to-one</code>. The following examples are
+equivalent:
+                </p><pre class="programlisting">
+&lt;many-to-one name="publisher"&gt;
+    &lt;cascade&gt;
+        &lt;cascade-persist/&gt;
+        &lt;cascade-merge/&gt;
+        &lt;cascade-remove/&gt;
+        &lt;cascade-refresh/&gt;
+    &lt;/cascade&gt;
+&lt;/many-to-one&gt;
+</pre><pre class="programlisting">
+&lt;many-to-one name="publisher"&gt;
+    &lt;cascade&gt;
+        &lt;cascade-all/&gt;
+    &lt;/cascade&gt;
+&lt;/many-to-one&gt;
+</pre></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_onetomany"></a>2.10.&nbsp;
+                One To Many
+            </h3></div></div></div><div class="toc"><dl><dt><span class="section"><a href="jpa_overview_meta_field.html#jpa_overview_meta_mappedby">2.10.1. 
+                    Bidirectional Relations
+                </a></span></dt></dl></div><a class="indexterm" name="d0e3364"></a><a class="indexterm" name="d0e3367"></a><a class="indexterm" name="d0e3372"></a><p>
+When an entity <code class="literal">A</code> references multiple <code class="literal">B</code>
+entities, and no two <code class="literal">A</code>s reference the same <code class="literal">
+B</code>, we say there is a <span class="emphasis"><em>one to many</em></span> relation from
+<code class="literal">A</code> to <code class="literal">B</code>.
+            </p><p>
+One to many relations are the exact inverse of the many to one relations we
+detailed in the preceding section. In that section, we said that the <code class="literal">
+Magazine.publisher</code> field is a many to one relation from magazines to
+publishers. Now, we see that the <code class="literal">Company.mags</code> field is the
+inverse - a one to many relation from publishers to magazines. Each company may
+publish multiple magazines, but each magazine can have only one publisher.
+            </p><p>
+JPA indicates one to many relations between entities with the <code class="classname">
+OneToMany</code> annotation. This annotation has the following properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">Class targetEntity</code>: The class of the related entity type.
+This information is usually taken from the parameterized collection or map
+element type. You must supply it explicitly, however, if your field isn't a
+parameterized type.
+                    </p></li><li><p>
+<code class="literal">String mappedBy</code>: Names the many to one field in the related
+entity that maps this bidirectional relation. We explain bidirectional relations
+below. Leaving this property unset signals that this is a standard
+unidirectional relation.
+                    </p></li><li><p>
+<code class="literal">CascadeType[] cascade</code>: Array of enum values defining cascade
+behavior for the collection elements. We explore cascades above in
+<a href="jpa_overview_meta_field.html#jpa_overview_meta_cascade" title="2.9.1.&nbsp; Cascade Type">Section&nbsp;2.9.1, &#8220;
+                    Cascade Type
+                &#8221;</a>. Defaults to an empty array.
+                    </p></li><li><p>
+<code class="literal">FetchType fetch</code>: Whether to load the field eagerly 
+(<code class="literal">FetchType.EAGER</code>) or lazily 
+(<code class="literal">FetchType.LAZY</code>). Defaults to <code class="literal">
+FetchType.LAZY</code>. See <a href="jpa_overview_meta_field.html#jpa_overview_meta_fetch" title="2.7.1.&nbsp; Fetch Type">Section&nbsp;2.7.1, &#8220;
+                    Fetch Type
+                &#8221;</a> above 
+for details on fetch types.
+                    </p></li></ul></div><p>
+The equivalent XML element is <code class="literal">one-to-many</code>, which includes
+the following attributes:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">name</code>: The name of the field or property. This attribute is
+required.
+                    </p></li><li><p>
+<code class="literal">target-entity</code>: The class of the related type.
+                    </p></li><li><p>
+<code class="literal">fetch</code>: One of <code class="literal">EAGER</code> or <code class="literal">
+LAZY</code>.
+                    </p></li><li><p>
+<code class="literal">mapped-by</code>: The name of the field or property that owns the
+relation. See <a href="jpa_overview_meta_field.html" title="2.&nbsp; Field and Property Metadata">Section&nbsp;2, &#8220;
+            Field and Property Metadata
+        &#8221;</a>.
+                    </p></li></ul></div><p>
+You may also nest the <code class="literal">cascade</code> element within a <code class="literal">
+one-to-many</code> element.
+            </p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="jpa_overview_meta_mappedby"></a>2.10.1.&nbsp;
+                    Bidirectional Relations
+                </h4></div></div></div><a class="indexterm" name="d0e3500"></a><a class="indexterm" name="d0e3503"></a><a class="indexterm" name="d0e3508"></a><p>
+When two fields are logical inverses of each other, they form a <span class="emphasis"><em>
+bidirectional relation</em></span>. Our model contains two bidirectional
+relations: <code class="literal">Magazine.publisher</code> and <code class="literal">Company.mags
+</code> form one bidirectional relation, and <code class="literal">Article.authors
+</code> and <code class="literal">Author.articles</code> form the other. In both cases,
+there is a clear link between the two fields that form the relationship. A
+magazine refers to its publisher while the publisher refers to all its published
+magazines. An article refers to its authors while each author refers to her
+written articles.
+                </p><p>
+When the two fields of a bidirectional relation share the same datastore
+mapping, JPA formalizes the connection with the <code class="literal">mappedBy</code>
+property. Marking <code class="literal">Company.mags</code> as <code class="literal">mappedBy</code>
+<code class="literal">Magazine.publisher</code> means two things:
+                </p><div class="orderedlist"><ol type="1"><li><p>
+<code class="literal">Company.mags</code> uses the datastore mapping for <code class="literal">
+Magazine.publisher</code>, but inverses it. In fact, it is illegal to
+specify any additional mapping information when you use the <code class="literal">mappedBy
+</code> property. All mapping information is read from the referenced field.
+We explore mapping in depth in <a href="jpa_overview_mapping.html" title="Chapter&nbsp;13.&nbsp; Mapping Metadata">Chapter&nbsp;13, <i xmlns:xlink="http://www.w3.org/1999/xlink">
+        Mapping Metadata
+    </i></a>.
+                        </p></li><li><p>
+<code class="literal">Magazine.publisher</code> is the "owner" of the relation. The field
+that specifies the mapping data is always the owner. This means that changes to
+the <code class="literal">Magazine.publisher</code> field are reflected in the datastore,
+while changes to the <code class="literal">Company.mags</code> field alone are not.
+Changes to <code class="literal">Company.mags</code> may still affect the JPA
+implementation's cache, however. Thus, it is very important that you keep your
+object model consistent by properly maintaining both sides of your bidirectional
+relations at all times.
+                        </p></li></ol></div><p>
+You should always take advantage of the <code class="literal">mappedBy</code> property
+rather than mapping each field of a bidirectional relation independently.
+Failing to do so may result in the JPA implementation trying to update the
+database with conflicting data. Be careful to only mark one side of the relation
+as <code class="literal">mappedBy</code>, however. One side has to actually do the
+mapping!
+                </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+You can configure OpenJPA to automatically synchronize both sides of a
+bidirectional relation, or to perform various actions when it detects
+inconsistent relations. See <a href="ref_guide_inverses.html" title="5.&nbsp; Managed Inverses">Section&nbsp;5, &#8220;
+            Managed Inverses
+        &#8221;</a> in the
+Reference Guide for details.
+                    </p></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_onetoone"></a>2.11.&nbsp;
+                One To One
+            </h3></div></div></div><a class="indexterm" name="d0e3590"></a><a class="indexterm" name="d0e3593"></a><a class="indexterm" name="d0e3598"></a><p>
+When an entity <code class="literal">A</code> references a single entity <code class="literal">
+B</code>, and no other <code class="literal">A</code>s can reference the same <code class="literal">
+B</code>, we say there is a <span class="emphasis"><em>one to one</em></span> relation between
+<code class="literal">A</code> and <code class="literal">B</code>. In our sample model, <code class="classname">
+Magazine</code> has a one to one relation to <code class="classname">Article</code>
+through the <code class="literal">Magazine.coverArticle</code> field. No two magazines can
+have the same cover article.
+            </p><p>
+JPA indicates one to one relations between entities with the <code class="classname">
+OneToOne</code> annotation. This annotation has the following properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">Class targetEntity</code>: The class of the related entity type.
+This information is usually taken from the field type.
+                    </p></li><li><p>
+<code class="literal">String mappedBy</code>: Names the field in the related entity that
+maps this bidirectional relation. We explain bidirectional relations in
+<a href="jpa_overview_meta_field.html#jpa_overview_meta_mappedby" title="2.10.1.&nbsp; Bidirectional Relations">Section&nbsp;2.10.1, &#8220;
+                    Bidirectional Relations
+                &#8221;</a> above. Leaving this property
+unset signals that this is a standard unidirectional relation.
+                    </p></li><li><p>
+<code class="literal">CascadeType[] cascade</code>: Array of enum values defining cascade
+behavior for this field. We explore cascades in
+<a href="jpa_overview_meta_field.html#jpa_overview_meta_cascade" title="2.9.1.&nbsp; Cascade Type">Section&nbsp;2.9.1, &#8220;
+                    Cascade Type
+                &#8221;</a> above. Defaults to an empty
+array.
+                    </p></li><li><p>
+<code class="literal">FetchType fetch</code>: Whether to load the field eagerly 
+(<code class="literal">FetchType.EAGER</code>) or lazily 
+(<code class="literal">FetchType.LAZY</code>). Defaults to <code class="literal">
+FetchType.EAGER</code>. See <a href="jpa_overview_meta_field.html#jpa_overview_meta_fetch" title="2.7.1.&nbsp; Fetch Type">Section&nbsp;2.7.1, &#8220;
+                    Fetch Type
+                &#8221;</a> above 
+for details on fetch types.
+                    </p></li><li><p>
+<code class="literal">boolean optional</code>: Whether the related object must exist. If
+<code class="literal">false</code>, this field cannot be null. Defaults to <code class="literal">
+true</code>.
+                    </p></li></ul></div><p>
+The equivalent XML element is <code class="literal">one-to-one</code> which understands
+the following attributes:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">name</code>: The name of the field or property. This attribute is
+required.
+                    </p></li><li><p>
+<code class="literal">target-entity</code>: The class of the related type.
+                    </p></li><li><p>
+<code class="literal">fetch</code>: One of <code class="literal">EAGER</code> or <code class="literal">
+LAZY</code>.
+                    </p></li><li><p>
+<code class="literal">mapped-by</code>: The field that owns the relation. See
+<a href="jpa_overview_meta_field.html" title="2.&nbsp; Field and Property Metadata">Section&nbsp;2, &#8220;
+            Field and Property Metadata
+        &#8221;</a>.
+                    </p></li></ul></div><p>
+You may also nest the <code class="literal">cascade</code> element within a <code class="literal">
+one-to-one</code> element.
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_manytomany"></a>2.12.&nbsp;
+                Many To Many
+            </h3></div></div></div><a class="indexterm" name="d0e3741"></a><a class="indexterm" name="d0e3744"></a><a class="indexterm" name="d0e3749"></a><p>
+When an entity <code class="literal">A</code> references multiple <code class="literal">B</code>
+entities, and other <code class="literal">A</code>s might reference some of the same
+<code class="literal">B</code>s, we say there is a <span class="emphasis"><em>many to many</em></span>
+relation between <code class="literal">A</code> and <code class="literal">B</code>. In our sample
+model, for example, each article has a reference to all the authors that
+contributed to the article. Other articles might have some of the same authors.
+We say, then, that <code class="classname">Article</code> and <code class="classname">Author
+</code> have a many to many relation through the <code class="literal">Article.authors
+</code> field.
+            </p><p>
+JPA indicates many to many relations between entities with the <code class="classname">
+ManyToMany</code> annotation. This annotation has the following properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">Class targetEntity</code>: The class of the related entity type.
+This information is usually taken from the parameterized collection or map
+element type. You must supply it explicitly, however, if your field isn't a
+parameterized type.
+                    </p></li><li><p>
+<code class="literal">String mappedBy</code>: Names the many to many field in the related
+entity that maps this bidirectional relation. We explain bidirectional relations
+in <a href="jpa_overview_meta_field.html#jpa_overview_meta_mappedby" title="2.10.1.&nbsp; Bidirectional Relations">Section&nbsp;2.10.1, &#8220;
+                    Bidirectional Relations
+                &#8221;</a> above. Leaving this
+property unset signals that this is a standard unidirectional relation.
+                    </p></li><li><p>
+<code class="literal">CascadeType[] cascade</code>: Array of enum values defining cascade
+behavior for the collection elements. We explore cascades above in
+<a href="jpa_overview_meta_field.html#jpa_overview_meta_cascade" title="2.9.1.&nbsp; Cascade Type">Section&nbsp;2.9.1, &#8220;
+                    Cascade Type
+                &#8221;</a>. Defaults to an empty array.
+                    </p></li><li><p>
+<code class="literal">FetchType fetch</code>: Whether to load the field eagerly 
+(<code class="literal">FetchType.EAGER</code>) or lazily 
+(<code class="literal">FetchType.LAZY</code>). Defaults to <code class="literal">
+FetchType.LAZY</code>. See <a href="jpa_overview_meta_field.html#jpa_overview_meta_fetch" title="2.7.1.&nbsp; Fetch Type">Section&nbsp;2.7.1, &#8220;
+                    Fetch Type
+                &#8221;</a> above 
+for details on fetch types.
+                    </p></li></ul></div><p>
+The equivalent XML element is <code class="literal">many-to-many</code>. It accepts the
+following attributes:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">name</code>: The name of the field or property. This attribute is
+required.
+                    </p></li><li><p>
+<code class="literal">target-entity</code>: The class of the related type.
+                    </p></li><li><p>
+<code class="literal">fetch</code>: One of <code class="literal">EAGER</code> or <code class="literal">
+LAZY</code>.
+                    </p></li><li><p>
+<code class="literal">mapped-by</code>: The field that owns the relation. See
+<a href="jpa_overview_meta_field.html" title="2.&nbsp; Field and Property Metadata">Section&nbsp;2, &#8220;
+            Field and Property Metadata
+        &#8221;</a>.
+                    </p></li></ul></div><p>
+You may also nest the <code class="literal">cascade</code> element within a <code class="literal">
+many-to-many</code> element.
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_orderby"></a>2.13.&nbsp;
+                Order By
+            </h3></div></div></div><a class="indexterm" name="d0e3880"></a><a class="indexterm" name="d0e3883"></a><a class="indexterm" name="d0e3888"></a><p>
+Datastores such as relational databases do not preserve the order of records.
+Your persistent <code class="classname">List</code> fields might be ordered one way the
+first time you retrieve an object from the datastore, and a completely different
+way the next. To ensure consistent ordering of collection fields, you must use
+the <code class="classname">OrderBy</code> annotation. The <code class="classname">OrderBy
+</code> annotation's value is a string defining the order of the collection
+elements. An empty value means to sort on the identity value(s) of the elements
+in ascending order. Any other value must be of the form:
+            </p><pre class="programlisting">
+&lt;field name&gt;[ ASC|DESC][, ...]
+</pre><p>
+Each <code class="literal">&lt;field name&gt;</code> is the name of a persistent field in
+the collection's element type. You can optionally follow each field by the
+keyword <code class="literal">ASC</code> for ascending order, or <code class="literal">DESC</code>
+for descending order. If the direction is omitted, it defaults to ascending.
+            </p><p>
+The equivalent XML element is <code class="literal">order-by</code> which can be listed as
+a sub-element of the <code class="literal">one-to-many</code> or <code class="literal">many-to-many
+</code> elements. The text within this element is parsed as the order by
+string.
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_mapkey"></a>2.14.&nbsp;
+                Map Key
+            </h3></div></div></div><a class="indexterm" name="d0e3931"></a><a class="indexterm" name="d0e3934"></a><a class="indexterm" name="d0e3939"></a><p>
+JPA supports persistent <code class="classname">Map</code> fields through either a
+<a href="jpa_overview_meta_field.html#jpa_overview_meta_onetomany" title="2.10.&nbsp; One To Many"><code class="classname"> OneToMany</code>
+</a> or <a href="jpa_overview_meta_field.html#jpa_overview_meta_manytomany" title="2.12.&nbsp; Many To Many"><code class="classname">ManyToMany
+</code></a> association. The related entities form the map values. JPA
+derives the map keys by extracting a field from each entity value. The
+<code class="classname">MapKey</code> annotation designates the field that is used as
+the key. It has the following properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">String name</code>: The name of a field in the related entity class
+to use as the map key. If no name is given, defaults to the identity field of
+the related entity class.
+                    </p></li></ul></div><p>
+The equivalent XML element is <code class="literal">map-key</code> which can be listed as
+a sub-element of the <code class="literal">one-to-many</code> or <code class="literal">many-to-many
+</code> elements. The <code class="literal">map-key</code> element has the following
+attributes:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">name</code>: The name of the field in the related entity class to
+use as the map key.
+                    </p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_meta_fielddefaults"></a>2.15.&nbsp;
+                Persistent Field Defaults
+            </h3></div></div></div><p>
+In the absence of any of the annotations above, JPA defines the following
+default behavior for declared fields:
+            </p><div class="orderedlist"><ol type="1"><li><p>
+Fields declared <code class="literal">static, transient</code>, or <code class="literal">final
+</code> default to non-persistent.
+                    </p></li><li><p>
+Fields of any primitive type, primitive wrapper type, <code class="classname">
+java.lang.String</code>, <code class="classname">byte[]</code>, <code class="classname">
+Byte[]</code>, <code class="classname">char[]</code>, <code class="classname">
+Character[]</code>, <code class="classname">java.math.BigDecimal</code>, 
+<code class="classname">java.math.BigInteger</code>, <code class="classname">
+java.util.Date</code>, <code class="classname"> java.util.Calendar</code>, 
+<code class="classname">java.sql.Date</code>, <code class="classname">java.sql.Timestamp</code>,
+or any <code class="classname">Serializable</code> type default to persistent, as if 
+annotated with <a href="jpa_overview_meta_field.html#jpa_overview_meta_basic" title="2.7.&nbsp; Basic"><code class="literal">
+@Basic</code></a>.
+                    </p></li><li><p>
+Fields of an embeddable type default to persistent, as if annotated with
+<a href="jpa_overview_meta_field.html#jpa_overview_meta_embedded" title="2.8.&nbsp; Embedded"><code class="literal">@Embedded</code></a>.
+                    </p></li><li><p>
+All other fields default to non-persistent.
+                    </p></li></ol></div><p>
+Note that according to these defaults, all relations between entities must be
+annotated explicitly. Without an annotation, a relation field will default to
+serialized storage if the related entity type is serializable, or will default
+to being non-persistent if not.
+            </p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="jpa_overview_meta.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="jpa_overview_meta.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_meta_xml.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;5.&nbsp;
+        Metadata
+    &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;3.&nbsp;
+            XML Schema
+        </td></tr></table></div></body></html>

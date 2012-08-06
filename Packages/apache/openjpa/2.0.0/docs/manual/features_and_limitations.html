@@ -1,0 +1,187 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>2.&nbsp;Salient Features</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="ref_guide_slice.html" title="Chapter&nbsp;13.&nbsp; Distributed Persistence"><link rel="prev" href="ref_guide_slice.html" title="Chapter&nbsp;13.&nbsp; Distributed Persistence"><link rel="next" href="slice_configuration.html" title="3.&nbsp;Usage"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.&nbsp;Salient Features</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ref_guide_slice.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;13.&nbsp;
+    Distributed Persistence
+  </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="slice_configuration.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="features_and_limitations"></a>2.&nbsp;Salient Features</h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="features_and_limitations.html#d0e34616">2.1. Transparency</a></span></dt><dt><span class="section"><a href="features_and_limitations.html#d0e34629">2.2. Scaling</a></span></dt><dt><span class="section"><a href="features_and_limitations.html#d0e34642">2.3. Distributed Query</a></span></dt><dt><span class="section"><a href="features_and_limitations.html#d0e34684">2.4. Data Distribution</a></span></dt><dt><span class="section"><a href="features_and_limitations.html#d0e34731">2.5. Data Replication</a></span></dt><dt><span class="section"><a href="features_and_limitations.html#d0e34753">2.6. Heterogeneous Database</a></span></dt><dt><span class="section"><a href="features_and_limitations.html#d0e34758">2.7. Distributed Transaction</a></span></dt><dt><span class="section"><a href="features_and_limitations.html#collocation_constraint">2.8. Collocation Constraint</a></span></dt></dl></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d0e34616"></a>2.1.&nbsp;Transparency</h3></div></div></div><p>
+			  The primary design objective for Slice is to make the user 
+			  application transparent to the change in storage strategy where 
+			  data resides in multiple (possibly heterogeneous) databases instead
+			  of a single database. Slice achieves this transparency by 
+			  virtualization of multiple databases as a single database such 
+			  that OpenJPA object management kernel continues to interact in
+			  exactly the same manner with storage layer. Similarly, 
+              the existing application or the persistent domain model requires 
+              <span class="emphasis"><em>no change</em></span> to upgrade from a single database 
+              to a distributed database environment. 
+            </p><p>
+			  An existing application developed for a single database can be 
+			  adapted to work with multiple databases purely by configuring
+			  a persistence unit via <code class="classname">META-INF/persistence.xml</code>. 
+			</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d0e34629"></a>2.2.&nbsp;Scaling</h3></div></div></div><p>
+			The primary performance characteristics for Slice is to scale against
+			growing data volume by <span class="emphasis"><em>horizontal</em></span> partitioning data 
+			across many databases.  
+			</p><p>
+			Slice executes the database operations such as query or flush <span class="emphasis"><em>in
+			parallel</em></span> across each physical database. Hence, scaling characteristics 
+			against data volume are bound by the size of the maximum data 
+			partition instead of the size of the entire data set. The use cases
+			where the data is naturally amenable to horizontal partitions, 
+			for example, by temporal interval (e.g. Purchase Orders per month) 
+			or by geographical regions (e.g. Customer by Zip Code) can derive
+			significant performance benefit and favorable scaling behavior by 
+			using Slice.     
+			</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d0e34642"></a>2.3.&nbsp;Distributed Query</h3></div></div></div><p>
+            The queries are executed in parallel across one or more slices and the 
+			individual query results are merged into a single list before being
+			returned to the caller application. The <span class="emphasis"><em>merge</em></span> operation is
+			more complex for the queries that involve sorting and/or specify a 
+			range. Slice supports both sorting and range queries. 
+            </p><p>
+            Slice also supports aggregate queries where the aggregate operation 
+			is <span class="emphasis"><em>commutative</em></span> to partitioning such as 
+			<code class="classname">COUNT()</code> or <code class="classname">MAX()</code> but not <code class="classname">AVG()</code>. 
+            </p><p>
+            By default, any query is executed against all available slices. 
+			However, the application can target the query only to a subset of 
+			slices by setting <span class="emphasis"><em>hint</em></span> on <code class="classname">javax.persistence.Query</code>. 
+			The hint key is  <code class="classname">openjpa.hint.slice.Target</code> and 
+            hint value is a comma-separated list of slice identifiers. The following 
+            example shows how to target a query only to a pair of slices 
+			with logical identifier <code class="classname">"One"</code> and <code class="classname">"Two"</code>.
+                          
+            </p><pre class="programlisting">
+              EntityManager em = ...;
+              em.getTransaction().begin();
+              String hint = "openjpa.hint.slice.Target";
+              Query query = em.createQuery("SELECT p FROM PObject")
+				              .setHint(hint, "One, Two");
+              List result = query.getResultList();
+              // verify that each instance is originating from the hinted slices
+              for (Object pc : result) {
+                 String sliceOrigin = SlicePersistence.getSlice(pc);
+                 assertTrue ("One".equals(sliceOrigin) || "Two".equals(sliceOrigin));
+              }
+              
+            </pre><p> 
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d0e34684"></a>2.4.&nbsp;Data Distribution</h3></div></div></div><p>
+             The user application decides how the newly persistent instances be 
+             distributed across the slices. The user application specifies the 
+			 data distribution policy by implementing  
+             <code class="classname">org.apache.openjpa.slice.DistributionPolicy</code>.
+			
+			 The  <code class="classname">DistributionPolicy</code> interface
+			 is simple with a single method. The complete listing of the
+			 documented interface follows:
+		   </p><pre class="programlisting"> 
+		    
+			public interface DistributionPolicy {
+			/**
+			 * Gets the name of the slice where the given newly persistent 
+			 * instance will be stored.
+			 *  
+			 * @param pc The newly persistent or to-be-merged object. 
+			 * @param slices name of the configured slices.
+			 * @param context persistence context managing the given instance.
+			 * 
+			 * @return identifier of the slice. This name must match one of the
+			 * configured slice names. 
+			 * @see DistributedConfiguration#getSliceNames()
+			 */
+			String distribute(Object pc, List&lt;String&gt; slices, Object context);
+			}
+		
+       </pre><p>
+        </p><p>
+			 Slice runtime invokes this user-supplied method for the newly
+			 persistent instance that is explicit argument of the 
+			 <code class="classname">javax.persistence.EntityManager.persist(Object pc)</code>
+			 method. The user application must return a valid slice name from
+			 this method to designate the target slice for the given instance.
+			 The data distribution policy may be based on the attribute 
+			 of the data itself. For example, all Customer whose first name 
+			 begins with character 'A' to 'M' will be stored in one slice 
+			 while names beginning with 'N' to 'Z' will be stored in another 
+			 slice. The noteworthy aspect of such policy implementation is 
+			 the attribute values that participate in 
+			 the distribution policy logic should be set before invoking 
+			 <code class="classname">EntityManager.persist()</code> method.
+		 </p><p>
+			The user application needs to specify the target slice <span class="emphasis"><em>only</em></span>
+			for the <span class="emphasis"><em>root</em></span> instance i.e. the explicit argument for the
+			<code class="classname">EntityManager.persist(Object pc)</code> method. Slice computes
+			the transitive closure of the graph i.e. the set of all instances 
+			directly or indirectly reachable from the root instance and stores
+			them in the same target slice.  
+		</p><p> 
+		 Slice tracks the original database for existing instances. When
+		 an application issues a query, the resultant instances can be loaded 
+		 from different slices. As Slice tracks the original slice for each
+		 instance, any subsequent update to an instance is committed to the 
+		 appropriate original database slice. 
+		</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+            You can find the original slice of an instance <code class="classname">pc</code> by 
+            the static utility method  
+            <code class="methodname">SlicePersistence.getSlice(pc)</code>.
+            This method returns the slice identifier associated with the
+            given <span class="emphasis"><em>managed</em></span> instance. If the instance is not
+            being managed then the method return null because any unmanaged or
+            detached instance is not associated with any slice. 
+            </p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d0e34731"></a>2.5.&nbsp;Data Replication</h3></div></div></div><p>
+			While Slice ensures that the transitive closure is stored in the 
+			same slice, there can be data elements that are commonly referred by
+			many instances such as Country or Currency code. Such quasi-static 
+			master data can be stored as identical copies in multiple slices. 
+			The user application needs to annotate such entity with
+			<code class="classname">@Replicated</code> annotation and implement 
+			a <code class="classname">org.apache.openjpa.slice.ReplicationPolicy</code> 
+			interface. The <code class="classname">ReplicationPolicy</code> interface 
+			is quite similar to <code class="classname">DistributionPolicy</code> 
+			interface except it returns an array of target slice names instead
+			of a single slice. 
+			</p><pre class="programlisting"> 
+             
+			 String[] replicate(Object pc, List&lt;String&gt; slices, Object context);
+        
+       </pre><p>
+		</p><p>
+				The default implementation assumes that replicated instances are
+				stored in all available slices. If any such replicated instance
+				is modified then the modification is updated to all target slices
+				to maintain the critical assumption that the state of a replicated 
+				instance is identical across all its target slices. 
+			</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d0e34753"></a>2.6.&nbsp;Heterogeneous Database</h3></div></div></div><p> 
+              Each slice can be configured independently with its own JDBC 
+              driver and other connection parameters. Hence the target database 
+              environment can constitute of heterogeneous databases. 
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d0e34758"></a>2.7.&nbsp;Distributed Transaction</h3></div></div></div><p> 
+            The database slices participate in a global transaction provided
+            each slice is configured with a XA-compliant JDBC driver, even
+            when the persistence unit is configured for <code class="classname">RESOURCE_LOCAL</code>
+            transaction.
+            </p><p>
+            </p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3>
+            If any of the configured slices is not XA-compliant <span class="emphasis"><em>and</em></span> 
+            the persistence unit is configured for <code class="classname">RESOURCE_LOCAL</code>
+            transaction then each slice is committed without any two-phase
+            commit protocol. If commit on any slice fails, then atomic nature of
+            the transaction is not ensured.
+            </div><p>
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="collocation_constraint"></a>2.8.&nbsp;Collocation Constraint</h3></div></div></div><p> 
+            No relationship can exist across database slices. In O-R mapping parlance,
+            this condition translates to the limitation that the transitive closure of an object graph must be 
+            <span class="emphasis"><em>collocated</em></span> in the same database.
+            For example, consider a domain model where Person relates to Address.
+            Person X refers to Address A while Person Y refers to Address B. 
+            Collocation Constraint means that <span class="emphasis"><em>both</em></span> X and A 
+            must be stored in the same
+            database slice. Similarly Y and B must be stored in a single slice.
+            </p><p>
+            Slice, however, helps to maintain collocation constraint automatically.
+            The instances in the closure set of any newly persistent instance 
+            reachable via cascaded relationship is stored in the same slice.
+            The user-defined distribution policy requires to supply the slice 
+            for the root instance only.
+            </p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ref_guide_slice.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ref_guide_slice.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="slice_configuration.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;13.&nbsp;
+    Distributed Persistence
+  &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;3.&nbsp;Usage</td></tr></table></div></body></html>

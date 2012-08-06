@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="dist"/>
+	<classpathentry kind="src" path="src-resource"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="src" path="test-resource"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/YAWF"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Commons"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CommonsString"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CommonsCrypto"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CardPlannerModel"/>
+	<classpathentry kind="var" path="FREEMARKER_JAR_FILE"/>
+	<classpathentry kind="var" path="OVAL_JAR_FILE"/>
+	<classpathentry kind="var" path="JUNIT_JAR_FILE"/>
+	<classpathentry kind="var" path="SERVLET_API_JAR_FILE"/>
+	<classpathentry kind="var" path="PACKAGES_HOME/apache/commons/io/1.4/commons-io.jar"/>
+	<classpathentry kind="var" path="PACKAGES_HOME/apache/commons/email/1.2/commons-email.jar"/>
+	<classpathentry kind="var" path="PACKAGES_HOME/apache/poi/3.2-FINAL-20081019/poi.jar"/>
+	<classpathentry kind="var" path="PACKAGES_HOME/apache/poi/3.2-FINAL-20081019/poi-contrib.jar"/>
+	<classpathentry kind="var" path="PACKAGES_HOME/mockito/1.8.4/mockito-all.jar"/>
+	<classpathentry kind="var" path="PACKAGES_HOME/batik/1.7/batik-rasterizer.jar"/>
+	<classpathentry kind="var" path="PACKAGES_HOME/batik/1.7/batik-slideshow.jar"/>
+	<classpathentry kind="var" path="PACKAGES_HOME/batik/1.7/batik-squiggle.jar"/>
+	<classpathentry kind="var" path="PACKAGES_HOME/batik/1.7/batik-svgpp.jar"/>
+	<classpathentry kind="var" path="PACKAGES_HOME/batik/1.7/batik-ttf2svg.jar"/>
+	<classpathentry kind="var" path="PACKAGES_HOME/batik/1.7/batik.jar"/>
+	<classpathentry kind="var" path="PACKAGES_HOME/flexjson/1.9.2/flexjson.jar"/>
+	<classpathentry kind="var" path="PACKAGES_HOME/apache/commons/fileupload/1.2.1/commons-fileupload.jar"/>
+	<classpathentry kind="var" path="PACKAGES_HOME/apache/log4j/1.2.15/log4j.jar"/>
+	<classpathentry kind="var" path="PACKAGES_HOME/apache/shiro/1.1.0/shiro-core.jar"/>
+	<classpathentry kind="var" path="PACKAGES_HOME/apache/shiro/1.1.0/shiro-web.jar" sourcepath="/PACKAGES_HOME/apache/shiro/1.1.0/web/src/main/java"/>
+	<classpathentry kind="var" path="PACKAGES_HOME/recaptcha4j/0.0.7/recaptcha4j.jar"/>
+	<classpathentry kind="var" path="PACKAGES_HOME/hibernate/3.6.1.Final/lib/optional/c3p0/c3p0-0.9.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

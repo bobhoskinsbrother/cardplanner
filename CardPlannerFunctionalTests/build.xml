@@ -1,0 +1,140 @@
+<project name="CardPlannerFunctionalTests" default="CardPlannerFunctionalTests">
+
+	<property file="../Commons/build.properties" />
+
+	<import file="../Commons/common.xml" />
+
+	<target name="CardPlannerFunctionalTests" depends="cardplanner.website.functional.make,cardplanner.website.functional.test" />
+
+	<target name="cardplanner.website.functional.make" depends="cardplanner.website.functional.clean">
+		<make module="${cardplanner.website.functional.directory}" jarname="${cardplanner.website.functional.jar}" source="src" targetdir="${made}">
+			<make.classpath>
+				<classpath>
+					<path refid="cardplanner.website.functional.classpath" />
+				</classpath>
+			</make.classpath>
+		</make>
+		<make module="${cardplanner.website.functional.directory}" jarname="${cardplanner.website.functional.test.jar}" source="test" targetdir="${made}">
+			<make.classpath>
+				<classpath>
+					<path refid="cardplanner.website.functional.classpath" />
+					<pathelement location="${cardplanner.website.functional.made.directory}/${cardplanner.website.functional.jar}" />
+				</classpath>
+			</make.classpath>
+		</make>
+	</target>
+
+
+	<target name="cardplanner.website.functional.test">
+		<testsuite suitename="uk.co.itstherules.ui.UITestSuite" basedir="${cardplanner.website.standalone.directory}">
+			<test.classpath>
+				<classpath>
+					<dirset dir="${cardplanner.website.functional.directory}">
+						<include name="test-resource" />
+					</dirset>
+					<dirset dir="${cardplanner.website.directory}">
+						<include name="${dist}" />
+					</dirset>
+					<pathelement location="${cardplanner.website.functional.made.directory}/${cardplanner.website.functional.jar}" />
+					<pathelement location="${cardplanner.website.functional.made.directory}/${cardplanner.website.functional.test.jar}" />
+					<path refid="cardplanner.website.functional.classpath" />
+				</classpath>
+			</test.classpath>
+		</testsuite>
+	</target>
+
+	<path id="cardplanner.website.functional.classpath">
+		
+		<!--webdriver files-->
+		<pathelement location="${junit.jar}" />
+		<pathelement location="${selenium.jar}" />
+		<pathelement location="${selenium-apache-mime4j.jar}"/>
+		<pathelement location="${selenium-cglib-nodep.jar}"/>
+		<pathelement location="${selenium-commons-codec.jar}"/>
+		<pathelement location="${selenium-commons-collections.jar}"/>
+		<pathelement location="${selenium-commons-io.jar}"/>
+		<pathelement location="${selenium-commons-lang.jar}"/>
+		<pathelement location="${selenium-commons-logging.jar}"/>
+		<pathelement location="${selenium-cssparser.jar}"/>
+		<pathelement location="${selenium-guava.jar}"/>
+		<pathelement location="${selenium-hamcrest-all.jar}"/>
+		<pathelement location="${selenium-htmlunit.jar}"/>
+		<pathelement location="${selenium-htmlunit-core-js.jar}"/>
+		<pathelement location="${selenium-httpclient.jar}"/>
+		<pathelement location="${selenium-httpcore.jar}"/>
+		<pathelement location="${selenium-httpmime.jar}"/>
+		<pathelement location="${selenium-jna.jar}"/>
+		<pathelement location="${selenium-json.jar}"/>
+		<pathelement location="${selenium-junit-dep.jar}"/>
+		<pathelement location="${selenium-nekohtml.jar}"/>
+		<pathelement location="${selenium-sac.jar}"/>
+		<pathelement location="${selenium-serializer.jar}"/>
+		<pathelement location="${selenium-testng.jar}"/>
+		<!--
+		<pathelement location="${selenium-xalan.jar}"/>
+		<pathelement location="${selenium-xercesImpl.jar}"/>
+		<pathelement location="${selenium-xml-apis.jar}"/>
+		-->
+		<!--/webdriver files-->
+
+		<pathelement location="${cardplanner.website.standalone.made.directory}/${cardplanner.website.standalone.jar}" />
+		<pathelement location="${cardplanner.license.module.dist.directory}/${cardplanner.license.module.jar}" />
+		<pathelement location="${cardplanner.website.dist.directory}/${cardplanner.website.jar}" />
+		<pathelement location="${cardplanner.website.model.dist.directory}/${cardplanner.website.model.jar}" />
+		<pathelement location="${commons.crypto.dist.directory}/${commons.crypto.jar}" />
+		<pathelement location="${commons.dist.directory}/${commons.jar}" />
+		<pathelement location="${commons.string.dist.directory}/${commons.string.jar}" />
+		<pathelement location="${commons.reflection.dist.directory}/${commons.reflection.jar}" />
+		<pathelement location="${yawf.dist.directory}/${yawf.jar}" />
+		<pathelement location="${commons.httpclient.jar}" />
+		<pathelement location="${xmlunit.jar}" />
+
+
+		<pathelement location="${commons.fileupload.jar}" />
+		<pathelement location="${servlet-api.jar}" />
+		<pathelement location="${freemarker.jar}" />
+		<pathelement location="${oval.jar}" />
+		<pathelement location="${flexjson.jar}" />
+		
+		<pathelement location="${jetty-server.jar}" />
+		<pathelement location="${jetty-servlet.jar}" />
+		<pathelement location="${jetty-http.jar}" />
+		<pathelement location="${jetty-webapp.jar}" />
+		<pathelement location="${jetty-util.jar}" />
+		<pathelement location="${jetty-io.jar}" />
+		<pathelement location="${jetty-security.jar}" />
+		<pathelement location="${jetty-xml.jar}" />
+		<pathelement location="${jetty-plus.jar}" />
+		<pathelement location="${jetty-jndi.jar}" />
+		<pathelement location="${jetty-continuation.jar}" />
+
+		<!--
+		<pathelement location="${commons.logging.jar}"/>
+		<pathelement location="${log4j.jar}"/>
+		-->
+		
+		<pathelement location="${slf4j-api.jar}"/>
+		<pathelement location="${slf4j-log4j.jar}"/>
+		<pathelement location="${log4j.jar}"/>
+		
+		<pathelement location="${junit.jar}" />
+		<pathelement location="${commons.io.jar}" />
+		<pathelement location="${hibernate-jpa.jar}" />
+		<pathelement location="${antlr.jar}" />
+		<pathelement location="${dom4j.jar}" />
+		<pathelement location="${javassist.jar}" />
+		<pathelement location="${h2.jar}" />
+		<pathelement location="${c3p0.jar}" />
+		<pathelement location="${hibernate.jar}" />
+
+		<pathelement location="${commons.collections.jar}" />
+		<pathelement location="${jta.jar}"/>
+
+	</path>
+
+
+	<target name="cardplanner.website.functional.clean">
+		<init.dir dir="${cardplanner.website.functional.made.directory}" />
+	</target>
+
+</project>

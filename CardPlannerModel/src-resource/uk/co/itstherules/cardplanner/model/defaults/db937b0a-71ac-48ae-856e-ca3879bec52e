@@ -1,0 +1,7 @@
+# SIGN_UP_TEAM_TO_ACCEPT_BODY, db937b0a-71ac-48ae-856e-ca3879bec52e, TemplateModel.class
+
+templateType=FromModelView
+templateMarkup=FreeMarker
+template=SignUpTeamToAccept
+title=SignUpTeamToAccept
+modelType=Body

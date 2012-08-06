@@ -1,0 +1,570 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>6.&nbsp; Inheritance</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="jpa_overview_mapping.html" title="Chapter&nbsp;13.&nbsp; Mapping Metadata"><link rel="prev" href="jpa_overview_mapping_sequence.html" title="5.&nbsp; Generators"><link rel="next" href="jpa_overview_mapping_discrim.html" title="7.&nbsp; Discriminator"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.&nbsp;
+            Inheritance
+        </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="jpa_overview_mapping_sequence.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;13.&nbsp;
+        Mapping Metadata
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_mapping_discrim.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="jpa_overview_mapping_inher"></a>6.&nbsp;
+            Inheritance
+        </h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_single">6.1. 
+                Single Table
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_single_adv">6.1.1. 
+                    Advantages
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_single_disadv">6.1.2. 
+                    Disadvantages
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_joined">6.2. 
+                Joined
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_joined_adv">6.2.1. 
+                    Advantages
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_joined_disadv">6.2.2. 
+                    Disadvantages
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_tpc">6.3. 
+                Table Per Class
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_tpc_adv">6.3.1. 
+                    Advantages
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_tpc_disadv">6.3.2. 
+                    Disadvantages
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_together">6.4. 
+                Putting it All Together
+            </a></span></dt></dl></div><a class="indexterm" name="d0e12319"></a><a class="indexterm" name="d0e12326"></a><a class="indexterm" name="d0e12331"></a><a class="indexterm" name="d0e12338"></a><p>
+In the 1990's programmers coined the term <span class="emphasis"><em>impedance mismatch
+</em></span> to describe the difficulties in bridging the object and relational
+worlds. Perhaps no feature of object modeling highlights the impedance mismatch
+better than inheritance. There is no natural, efficient way to represent an
+inheritance relationship in a relational database.
+        </p><p>
+        <a class="indexterm" name="d0e12348"></a>
+Luckily, JPA gives you a choice of inheritance strategies, making
+the best of a bad situation. The base entity class defines the inheritance
+strategy for the hierarchy with the <code class="classname">Inheritance</code>
+annotation. <code class="classname">Inheritance</code> has the following properties:
+        </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">InheritanceType strategy</code>: Enum value declaring the
+inheritance strategy for the hierarchy. Defaults to <code class="literal">
+InheritanceType.SINGLE_TABLE</code>. We detail each of the available
+strategies below.
+                </p></li></ul></div><p>
+The corresponding XML element is <code class="literal">inheritance</code>, which has a
+single attribute:
+        </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">strategy</code>: One of <code class="literal">SINGLE_TABLE</code>, <code class="literal">
+JOINED</code>, or <code class="literal">TABLE_PER_CLASS</code>.
+                </p></li></ul></div><p>
+The following sections describe JPA's standard inheritance strategies.
+        </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+OpenJPA allows you to vary your inheritance strategy for each class, rather than
+forcing a single strategy per inheritance hierarchy. See
+<a href="ref_guide_mapping_jpa.html" title="7.&nbsp; Additional JPA Mappings">Section&nbsp;7, &#8220;
+            Additional JPA Mappings
+        &#8221;</a> in the Reference Guide for
+details.
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_mapping_inher_single"></a>6.1.&nbsp;
+                Single Table
+            </h3></div></div></div><div class="toc"><dl><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_single_adv">6.1.1. 
+                    Advantages
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_single_disadv">6.1.2. 
+                    Disadvantages
+                </a></span></dt></dl></div><a class="indexterm" name="d0e12403"></a><a class="indexterm" name="d0e12410"></a><p>
+The <code class="literal">InheritanceType.SINGLE_TABLE</code> strategy maps all classes in
+the hierarchy to the base class' table.
+            </p><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="177"><tr><td><img src="img/inher-superclass-table.png"></td></tr></table></div><p>
+In our model, <code class="classname">Subscription</code> is mapped to the <code class="literal">
+CNTRCT.SUB</code> table. <code class="classname"> LifetimeSubscription</code>, which
+extends <code class="classname"> Subscription</code>, adds its field data to this table
+as well.
+            </p><div class="example"><a name="jpa_overview_mapping_inher_singleex"></a><p class="title"><b>Example&nbsp;13.5.&nbsp;
+                    Single Table Mapping
+                </b></p><div class="example-contents"><pre class="programlisting">
+@Entity
+@Table(name="SUB", schema="CNTRCT")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+public class Subscription {
+    ...
+}
+
+@Entity(name="Lifetime")
+public class LifetimeSubscription
+    extends Subscription {
+    ...
+}
+</pre><p>
+The same metadata expressed in XML form:
+                </p><pre class="programlisting">
+&lt;entity class="org.mag.subcribe.Subscription"&gt;
+    &lt;table name="SUB" schema="CNTRCT"/&gt;
+    &lt;inheritance strategy="SINGLE_TABLE"/&gt;
+    ...
+&lt;/entity&gt;
+&lt;entity class="org.mag.subscribe.LifetimeSubscription"&gt;
+    ...
+&lt;/entity&gt;
+</pre></div></div><br class="example-break"><p>
+Single table inheritance is the default strategy. Thus, we could omit the
+<code class="literal">@Inheritance</code> annotation in the example above and get the same
+result.
+            </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+                <a class="indexterm" name="d0e12455"></a>
+                <a class="indexterm" name="d0e12461"></a>
+Mapping subclass state to the superclass table is often called <span class="emphasis"><em>flat
+</em></span> inheritance mapping.
+                </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="jpa_overview_mapping_inher_single_adv"></a>6.1.1.&nbsp;
+                    Advantages
+                </h4></div></div></div><a class="indexterm" name="d0e12473"></a><p>
+Single table inheritance mapping is the fastest of all inheritance models, since
+it never requires a join to retrieve a persistent instance from the database.
+Similarly, persisting or updating a persistent instance requires only a single
+<code class="literal">INSERT</code> or <code class="literal">UPDATE</code> statement. Finally,
+relations to any class within a single table inheritance hierarchy are just as
+efficient as relations to a base class.
+                </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="jpa_overview_mapping_inher_single_disadv"></a>6.1.2.&nbsp;
+                    Disadvantages
+                </h4></div></div></div><a class="indexterm" name="d0e12491"></a><p>
+The larger the inheritance model gets, the "wider" the mapped table gets, in
+that for every field in the entire inheritance hierarchy, a column must exist in
+the mapped table. This may have undesirable consequence on the database size,
+since a wide or deep inheritance hierarchy will result in tables with many
+mostly-empty columns.
+                </p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_mapping_inher_joined"></a>6.2.&nbsp;
+                Joined
+            </h3></div></div></div><div class="toc"><dl><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_joined_adv">6.2.1. 
+                    Advantages
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_joined_disadv">6.2.2. 
+                    Disadvantages
+                </a></span></dt></dl></div><a class="indexterm" name="d0e12503"></a><a class="indexterm" name="d0e12510"></a><p>
+The <code class="literal">InheritanceType.JOINED</code> strategy uses a different table
+for each class in the hierarchy. Each table only includes state declared in its
+class. Thus to load a subclass instance, the JPA implementation must
+read from the subclass table as well as the table of each ancestor class, up to
+the base entity class.
+            </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+                <a class="indexterm" name="d0e12523"></a>
+                <a class="indexterm" name="d0e12529"></a>
+Using joined subclass tables is also called <span class="emphasis"><em>vertical</em></span>
+inheritance mapping.
+                </p></div><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="171"><tr><td><img src="img/jpa-inher-joined.png"></td></tr></table></div><p>
+<code class="classname">PrimaryKeyJoinColumn</code> annotations tell the JPA
+implementation how to join each subclass table record to the corresponding
+record in its direct superclass table. In our model, the <code class="literal">LINE_ITEM.ID
+</code> column joins to the <code class="literal">CONTRACT.ID</code> column. The
+<code class="classname">PrimaryKeyJoinColumn</code> annotation has the following
+properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">String name</code>: The name of the subclass table column. When
+there is a single identity field, defaults to that field's column name.
+                    </p></li><li><p>
+<code class="literal">String referencedColumnName</code>: The name of the superclass
+table column this subclass table column joins to. When there is a single
+identity field, defaults to that field's column name.
+                    </p></li><li><p>
+<code class="literal">String columnDefinition</code>: This property has the same meaning
+as the <code class="literal">columnDefinition</code> property on the <code class="classname">Column
+</code> annotation, described in
+<a href="jpa_overview_mapping_column.html" title="3.&nbsp; Column">Section&nbsp;3, &#8220;
+            Column
+        &#8221;</a>.
+                    </p></li></ul></div><p>
+The XML equivalent is the <code class="literal">primary-key-join-column</code> element.
+Its attributes mirror the annotation properties described above:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">name</code>
+                    </p></li><li><p>
+<code class="literal">referenced-column-name</code>
+                    </p></li><li><p>
+<code class="literal">column-definition</code>
+                    </p></li></ul></div><p>
+The example below shows how we use <code class="literal">InheritanceTable.JOINED</code>
+and a primary key join column to map our sample model according to the diagram
+above. Note that a primary key join column is not strictly needed, because there
+is only one identity column, and the subclass table column has the same name as
+the superclass table column. In this situation, the defaults suffice. However,
+we include the primary key join column for illustrative purposes.
+            </p><div class="example"><a name="jpa_overview_mapping_inher_joinedex"></a><p class="title"><b>Example&nbsp;13.6.&nbsp;
+                    Joined Subclass Tables
+                </b></p><div class="example-contents"><pre class="programlisting">
+@Entity
+@Table(schema="CNTRCT")
+@Inheritance(strategy=InheritanceType.JOINED)
+public class Contract
+    extends Document {
+    ...
+}
+
+public class Subscription {
+    ...
+
+    @Entity
+    @Table(name="LINE_ITEM", schema="CNTRCT")
+    @PrimaryKeyJoinColumn(name="ID", referencedColumnName="ID")
+    public static class LineItem
+        extends Contract {
+        ...
+    }
+}
+</pre><p>
+The same metadata expressed in XML form:
+                </p><pre class="programlisting">
+&lt;entity class="org.mag.subcribe.Contract"&gt;
+    &lt;table schema="CNTRCT"/&gt;
+    &lt;inheritance strategy="JOINED"/&gt;
+    ...
+&lt;/entity&gt;
+&lt;entity class="org.mag.subscribe.Subscription.LineItem"&gt;
+    &lt;table name="LINE_ITEM" schema="CNTRCT"/&gt;
+    &lt;primary-key-join-column name="ID" referenced-column-name="PK"/&gt;
+    ...
+&lt;/entity&gt;
+</pre></div></div><br class="example-break"><p>
+When there are multiple identity columns, you must define multiple <code class="classname">
+PrimaryKeyJoinColumn</code>s using the aptly-named <code class="classname">
+PrimaryKeyJoinColumns</code> annotation. This annotation's value is an
+array of <code class="classname"> PrimaryKeyJoinColumn</code> s. We could rewrite
+<code class="classname">LineItem</code>'s mapping as:
+            </p><pre class="programlisting">
+@Entity
+@Table(name="LINE_ITEM", schema="CNTRCT")
+@PrimaryKeyJoinColumns({
+    @PrimaryKeyJoinColumn(name="ID", referencedColumnName="ID")
+})
+public static class LineItem
+    extends Contract {
+    ...
+}
+</pre><p>
+In XML, simply list as many <code class="literal"> primary-key-join-column</code> elements
+as necessary.
+            </p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="jpa_overview_mapping_inher_joined_adv"></a>6.2.1.&nbsp;
+                    Advantages
+                </h4></div></div></div><a class="indexterm" name="d0e12645"></a><p>
+The joined strategy has the following advantages:
+                </p><div class="orderedlist"><ol type="1"><li><p>
+                        <a class="indexterm" name="d0e12658"></a>
+Using joined subclass tables results in the most <span class="emphasis"><em>normalized</em></span>
+database schema, meaning the schema with the least spurious or redundant data.
+                        </p></li><li><p>
+As more subclasses are added to the data model over time, the only schema
+modification that needs to be made is the addition of corresponding subclass
+tables in the database (rather than having to change the structure of existing
+tables).
+                        </p></li><li><p>
+Relations to a base class using this strategy can be loaded through standard
+joins and can use standard foreign keys, as opposed to the machinations required
+to load polymorphic relations to table-per-class base types, described below.
+                        </p></li></ol></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="jpa_overview_mapping_inher_joined_disadv"></a>6.2.2.&nbsp;
+                    Disadvantages
+                </h4></div></div></div><a class="indexterm" name="d0e12674"></a><p>
+Aside from certain uses of the table-per-class strategy described below, the
+joined strategy is often the slowest of the inheritance models. Retrieving any
+subclass requires one or more database joins, and storing subclasses requires
+multiple <code class="literal">INSERT</code> or <code class="literal">UPDATE</code> statements. This
+is only the case when persistence operations are performed on subclasses; if
+most operations are performed on the least-derived persistent superclass, then
+this mapping is very fast.
+                </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+When executing a select against a hierarchy that uses joined subclass table
+inheritance, you must consider how to load subclass state.
+<a href="ref_guide_perfpack_eager.html" title="8.&nbsp; Eager Fetching">Section&nbsp;8, &#8220;
+            Eager Fetching
+        &#8221;</a> in the Reference Guide
+describes OpenJPA's options for efficient data loading.
+                    </p></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_mapping_inher_tpc"></a>6.3.&nbsp;
+                Table Per Class
+            </h3></div></div></div><div class="toc"><dl><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_tpc_adv">6.3.1. 
+                    Advantages
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_tpc_disadv">6.3.2. 
+                    Disadvantages
+                </a></span></dt></dl></div><a class="indexterm" name="d0e12697"></a><a class="indexterm" name="d0e12704"></a><p>
+Like the <code class="literal">JOINED</code> strategy, the <code class="literal">
+InheritanceType.TABLE_PER_CLASS</code> strategy uses a different table for
+each class in the hierarchy. Unlike the <code class="literal">JOINED</code> strategy,
+however, each table includes all state for an instance of the corresponding
+class. Thus to load a subclass instance, the JPA implementation must
+only read from the subclass table; it does not need to join to superclass
+tables.
+            </p><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="189"><tr><td><img src="img/inher-tpc.png"></td></tr></table></div><p>
+Suppose that our sample model's <code class="classname">Magazine</code> class has a
+subclass <code class="classname">Tabloid</code>. The classes are mapped using the
+table-per-class strategy, as in the diagram above. In a table-per-class mapping,
+<code class="classname"> Magazine</code>'s table <code class="literal">MAG</code> contains all
+state declared in the base <code class="classname">Magazine</code> class. <code class="classname">
+Tabloid</code> maps to a separate table, <code class="literal"> TABLOID</code>. This
+table contains not only the state declared in the <code class="classname">Tabloid</code>
+subclass, but all the base class state from <code class="classname">Magazine</code> as
+well. Thus the <code class="literal">TABLOID</code> table would contain columns for
+<code class="literal">isbn</code>, <code class="literal">title</code>, and other <code class="classname">
+Magazine</code> fields. These columns would default to the names used in
+<code class="classname">Magazine</code>'s mapping metadata.
+<a href="jpa_overview_mapping_field.html#jpa_overview_mapping_embed" title="8.3.&nbsp; Embedded Mapping">Section&nbsp;8.3, &#8220;
+                Embedded Mapping
+            &#8221;</a> will show you how to use
+<code class="literal">AttributeOverride</code>s and <code class="literal">AssociationOverride</code>
+s to override superclass field mappings.
+            </p><div class="example"><a name="jpa_overview_mapping_inher_tpcex"></a><p class="title"><b>Example&nbsp;13.7.&nbsp;
+                    Table Per Class Mapping
+                </b></p><div class="example-contents"><pre class="programlisting">
+@Entity
+@Table(name="MAG")
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+public class Magazine {
+    ...
+}
+
+@Entity
+@Table(name="TABLOID")
+public class Tabloid
+    extends Magazine {
+    ...
+}
+</pre><p>
+And the same classes in XML:
+                </p><pre class="programlisting">
+&lt;entity class="org.mag.Magazine"&gt;
+    &lt;table name="MAG"/&gt;
+    &lt;inheritance strategy="TABLE_PER_CLASS"/&gt;
+    ...
+&lt;/entity&gt;
+&lt;entity class="org.mag.Tabloid"&gt;
+    &lt;table name="TABLOID"/&gt;
+    ...
+&lt;/entity&gt;
+</pre></div></div><br class="example-break"><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="jpa_overview_mapping_inher_tpc_adv"></a>6.3.1.&nbsp;
+                    Advantages
+                </h4></div></div></div><a class="indexterm" name="d0e12788"></a><p>
+The table-per-class strategy is very efficient when operating on instances of a
+known class. Under these conditions, the strategy never requires joining to
+superclass or subclass tables. Reads, joins, inserts, updates, and deletes are
+all efficient in the absence of polymorphic behavior. Also, as in the joined
+strategy, adding additional classes to the hierarchy does not require modifying
+existing class tables.
+                </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="jpa_overview_mapping_inher_tpc_disadv"></a>6.3.2.&nbsp;
+                    Disadvantages
+                </h4></div></div></div><a class="indexterm" name="d0e12800"></a><p>
+Polymorphic relations to non-leaf classes in a table-per-class hierarchy have
+many limitations. When the concrete subclass is not known, the related object
+could be in any of the subclass tables, making joins through the relation
+impossible. This ambiguity also affects identity lookups and queries; these
+operations require multiple SQL <code class="literal">SELECT</code>s (one for each
+possible subclass), or a complex <code class="literal">UNION</code>.
+                </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+<a href="ref_guide_mapping_limits.html#ref_guide_mapping_limits_tpc" title="8.1.&nbsp; Table Per Class">Section&nbsp;8.1, &#8220;
+                Table Per Class
+            &#8221;</a> in the Reference Guide
+describes the limitations OpenJPA places on table-per-class mapping.
+                    </p></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_mapping_inher_together"></a>6.4.&nbsp;
+                Putting it All Together
+            </h3></div></div></div><p>
+Now that we have covered JPA's inheritance strategies, we can update our mapping
+document with inheritance information. Here is the complete model:
+            </p><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="341"><tr><td><img src="img/jpa-inher-all.png"></td></tr></table></div><p>
+And here is the corresponding mapping metadata:
+            </p><div class="example"><a name="jpa_overview_mapping_inher_togetherex"></a><p class="title"><b>Example&nbsp;13.8.&nbsp;
+                    Inheritance Mapping
+                </b></p><div class="example-contents"><pre class="programlisting">
+package org.mag;
+
+@Entity
+@IdClass(Magazine.MagazineId.class)
+@Table(name="MAG")
+public class Magazine {
+
+    @Column(length=9)
+    @Id private String isbn;
+    @Id private String title;
+
+    ...
+
+    public static class MagazineId {
+        ...
+    }
+}
+
+@Entity
+@Table(name="ART", uniqueConstraints=@Unique(columnNames="TITLE"))
+@SequenceGenerator(name="ArticleSeq", sequenceName="ART_SEQ")
+public class Article {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ArticleSeq") 
+    private long id;
+
+    ...
+}
+
+
+package org.mag.pub;
+
+@Entity
+@Table(name="COMP")
+public class Company {
+
+    @Column(name="CID")
+    @Id private long id;
+
+    ...
+}
+
+@Entity
+@Table(name="AUTH")
+public class Author {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.TABLE, generator="AuthorGen")
+    @TableGenerator(name="AuthorGen", table="AUTH_GEN", pkColumnName="PK",
+        valueColumnName="AID")
+    @Column(name="AID", columnDefinition="INTEGER64")
+    private long id;
+
+    ...
+}
+
+@Embeddable
+public class Address {
+    ...
+}
+
+
+package org.mag.subscribe;
+
+@MappedSuperclass
+public abstract class Document {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private long id;
+
+    ...
+}
+
+@Entity
+@Table(schema="CNTRCT")
+@Inheritance(strategy=InheritanceType.JOINED)
+public class Contract
+    extends Document {
+    ...
+}
+
+@Entity
+@Table(name="SUB", schema="CNTRCT")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+public class Subscription {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private long id;
+
+    ...
+
+    @Entity
+    @Table(name="LINE_ITEM", schema="CNTRCT")
+    @PrimaryKeyJoinColumn(name="ID", referencedColumnName="ID")
+    public static class LineItem
+        extends Contract {
+        ...
+    }
+}
+
+@Entity(name="Lifetime")
+public class LifetimeSubscription
+    extends Subscription {
+    ...
+}
+
+@Entity(name="Trial")
+public class TrialSubscription
+    extends Subscription {
+    ...
+}
+</pre><p>
+The same metadata expressed in XML form:
+                </p><pre class="programlisting">
+&lt;entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_1_0.xsd"
+    version="1.0"&gt;
+    &lt;mapped-superclass class="org.mag.subscribe.Document"&gt;
+        &lt;attributes&gt;
+            &lt;id name="id"&gt;
+                &lt;generated-value strategy="IDENTITY"/&gt;
+            &lt;/id&gt;
+            ...
+        &lt;/attributes&gt;
+    &lt;/mapped-superclass&gt;
+    &lt;entity class="org.mag.Magazine"&gt;
+        &lt;table name="MAG"/&gt;
+        &lt;id-class="org.mag.Magazine.MagazineId"/&gt;
+        &lt;attributes&gt;
+            &lt;id name="isbn"&gt;
+                &lt;column length="9"/&gt;
+            &lt;/id&gt;
+            &lt;id name="title"/&gt;
+            ...
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.Article"&gt;
+        &lt;table name="ART"&gt;
+            &lt;unique-constraint&gt;
+               &lt;column-name&gt;TITLE&lt;/column-name&gt;
+            &lt;/unique-constraint&gt;
+        &lt;/table&gt;
+        &lt;sequence-generator name="ArticleSeq" sequence-name="ART_SEQ"/&gt;
+        &lt;attributes&gt;
+            &lt;id name="id"&gt;
+                &lt;generated-value strategy="SEQUENCE" generator="ArticleSeq"/&gt;
+            &lt;/id&gt;
+           ...
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.pub.Company"&gt;
+        &lt;table name="COMP"/&gt;
+        &lt;attributes&gt;
+            &lt;id name="id"&gt;
+                &lt;column name="CID"/&gt;
+            &lt;/id&gt;
+            ...
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.pub.Author"&gt;
+        &lt;table name="AUTH"/&gt;
+        &lt;attributes&gt;
+            &lt;id name="id"&gt;
+                &lt;column name="AID" column-definition="INTEGER64"/&gt;
+                &lt;generated-value strategy="TABLE" generator="AuthorGen"/&gt;
+                &lt;table-generator name="AuthorGen" table="AUTH_GEN" 
+                    pk-column-name="PK" value-column-name="AID"/&gt;
+            &lt;/id&gt;
+            ...
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subcribe.Contract"&gt;
+        &lt;table schema="CNTRCT"/&gt;
+        &lt;inheritance strategy="JOINED"/&gt;
+        &lt;attributes&gt;
+            ...
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subcribe.Subscription"&gt;
+        &lt;table name="SUB" schema="CNTRCT"/&gt;
+        &lt;inheritance strategy="SINGLE_TABLE"/&gt;
+        &lt;attributes&gt;
+            &lt;id name="id"&gt;
+                &lt;generated-value strategy="IDENTITY"/&gt;
+            &lt;/id&gt;
+            ...
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subscribe.Subscription.LineItem"&gt;
+        &lt;table name="LINE_ITEM" schema="CNTRCT"/&gt;
+        &lt;primary-key-join-column name="ID" referenced-column-name="PK"/&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subscribe.LifetimeSubscription" name="Lifetime"&gt;
+        ...
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subscribe.TrialSubscription" name="Trial"&gt;
+        ...
+    &lt;/entity&gt;
+&lt;/entity-mappings&gt;
+</pre></div></div><br class="example-break"></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="jpa_overview_mapping_sequence.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="jpa_overview_mapping.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_mapping_discrim.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">5.&nbsp;
+            Generators
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;7.&nbsp;
+            Discriminator
+        </td></tr></table></div></body></html>

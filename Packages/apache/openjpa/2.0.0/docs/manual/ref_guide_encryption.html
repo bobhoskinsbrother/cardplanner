@@ -1,0 +1,26 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;11.&nbsp; Encryption Provider</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="ref_guide.html" title="Part&nbsp;3.&nbsp;Reference Guide"><link rel="prev" href="ref_guide_cache_querysql.html" title="3.&nbsp;Prepared SQL Cache"><link rel="next" href="ref_guide_remote.html" title="Chapter&nbsp;12.&nbsp; Remote and Offline Operation"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;11.&nbsp;
+        Encryption Provider
+    </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ref_guide_cache_querysql.html">Prev</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;3.&nbsp;Reference Guide</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ref_guide_remote.html">Next</a></td></tr></table><hr></div><div class="chapter" lang="en" id="ref_guide_encryption"><div class="titlepage"><div><div><h2 class="title"><a name="ref_guide_encryption"></a>Chapter&nbsp;11.&nbsp;
+        Encryption Provider
+    </h2></div></div></div><p>
+	OpenJPA provides an interface for a provider to implement 
+	connection password encryption. Whenever a connection password 
+	is needed, the <code class="methodname">decrypt(String)</code> method will be invoked. See 
+	<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/lib/encryption/EncryptionProvider.html" target="_top">
+	<code class="classname">org.apache.openjpa.lib.encryption.EncryptionProvider</code>
+	</a> for the detailed Javadoc. 
+    </p><p>
+    	Notes:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+                It is an OpenJPA user responsibility to implement the
+                <code class="classname">EncryptionProvider</code>
+                interface. There is no default implementation.
+            </p></li><li><p>
+                The interface has an <code class="methodname">encrypt(String)</code> method,
+                but it is not called by the OpenJPA runtime. 
+            </p></li></ul></div><p>        
+    </p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ref_guide_cache_querysql.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ref_guide.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ref_guide_remote.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">3.&nbsp;Prepared SQL Cache&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;12.&nbsp;
+        Remote and Offline Operation
+    </td></tr></table></div></body></html>

@@ -1,0 +1,23 @@
+package uk.co.itstherules.cardplanner.model;
+
+import javax.persistence.Entity;
+
+import uk.co.itstherules.yawf.inbound.annotations.QueryKey;
+import uk.co.itstherules.yawf.model.IdentifiableDeleteableModel;
+import uk.co.itstherules.yawf.model.persistence.ObjectCache;
+
+@Entity 
+public final class ConfigurationModel extends IdentifiableDeleteableModel<ConfigurationModel> {
+
+	@QueryKey("firstRun") private Boolean firstRun = Boolean.TRUE;
+	
+	public ConfigurationModel defaultSetup(ObjectCache objectCache) {
+		return this;
+	}  
+	
+	public Boolean getFirstRun() {
+		return firstRun;
+	}
+}
+
+	

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="flying-saucer">
+    <CLASSES>
+      <root url="jar://$PACKAGES_HOME$/flyingsaucer/R8/iText-2.0.8.jar!/" />
+      <root url="jar://$PACKAGES_HOME$/flyingsaucer/R8/core-renderer.jar!/" />
+      <root url="jar://$PACKAGES_HOME$/flyingsaucer/R8/xml-apis-xerces-2.9.1.jar!/" />
+      <root url="jar://$PACKAGES_HOME$/flyingsaucer/R8/core-renderer-minimal.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

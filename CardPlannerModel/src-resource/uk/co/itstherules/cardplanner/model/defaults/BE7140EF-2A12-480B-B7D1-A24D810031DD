@@ -1,0 +1,6 @@
+# uk.co.itstherules.yawf.model.ProcessStepReferenceModel, BE7140EF-2A12-480B-B7D1-A24D810031DD
+inputSteps.0.identity=95159B5A-BD72-413A-A6CE-708319894FD3
+step.identity=f7e56f83-98c0-44c5-8ade-750abdd0cfcc
+x=-4
+y=334
+title=Fetch Object Reference

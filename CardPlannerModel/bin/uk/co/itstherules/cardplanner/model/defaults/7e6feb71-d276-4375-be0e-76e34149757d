@@ -1,0 +1,6 @@
+# SIGN_UP_SHOW_BODY, uk.co.itstherules.yawf.model.TemplateModel, 7e6feb71-d276-4375-be0e-76e34149757d
+templateType=FromModelView
+templateMarkup=FreeMarker
+template=SignUpShow
+title=SignUpShow
+modelType=Body

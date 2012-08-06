@@ -1,0 +1,92 @@
+div.sliderContainer {
+	width:100%; /* Width of the container!! */
+	position:relative;
+	border:1px solid #cccccc;
+	height:40px;
+	overflow:hidden;
+	background-color:#FFFFFF;
+
+}
+
+div.sliderBar {
+	position:absolute;
+	background-position:0px 6px;
+	width:3000px;
+	height:30px;
+	cursor:pointer;
+}
+
+div.sliderBar div.slideYear {
+	position:relative;
+	height:23px;
+	float:left;
+	border:0px solid #bbbbbb;
+	border-left-width:1px;
+	top:3px;
+	font-size:.6em;
+	font-family:verdana;
+	font-weight:bold;
+	color:#888888;
+}
+
+div.sliderBar div.slideMonth {
+	height:16px;
+	border:0px solid #BEBEBE;
+	border-left-width:1px;
+	position:absolute;
+	float:left;
+	top:7px;
+	font-size:.7em;
+	font-family:verdana;
+	font-weight:bold;
+}
+
+div.sliderBar div.firstMonth {
+	border-left-width:0px;
+}
+
+div.sliderBar span.leftHandle, div.sliderBar span.rightHandle {
+	background-color:#F2964B;
+	position:absolute;
+	top:0px;
+	width:5px;
+	cursor:w-resize;
+	height:27px;
+	display:block;
+	z-index:1;
+}
+
+div.sliderBar span.rightHandle {
+	cursor:e-resize;
+}
+div.sliderBar div.shiftPanel {
+	top:3px;
+	position:absolute;
+	height:20px;
+	background-color:#515c6b;	
+	filter:alpha(opacity=50);
+	-moz-opacity:.5;
+	opacity:.5;
+	z-index:0;
+}
+
+div.sliderContainer div.zoomPanel {
+	width:92px;
+	position:absolute;
+	height:12px;
+	background-color:#FFFFFF;
+	right:0px;
+	top:0px;
+	opacity:.85;
+	filter:alpha(opacity=85);
+	border:1px solid #EEEEEE;
+	border-width:0px 0px 1px 1px;
+	font-size:10px;
+	padding:2px;
+	padding-top:0px;
+}
+
+div.sliderContainer div.zoomPanel a.zoom {
+	text-decoration:none;
+	color:#000000;
+}

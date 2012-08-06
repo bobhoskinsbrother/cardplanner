@@ -1,0 +1,62 @@
+<project name="CommonsImage" default="CommonsImage">
+
+	<property file="../Commons/environments/${computer.hostname}.properties" />
+	<property file="../Commons/build.properties" />
+	<import file="../Commons/common.xml" />
+
+	<target name="CommonsImage" depends="make.commons.image,test.commons.image,save.commons.image"/>
+	
+	<target name="make.commons.image" depends="clean.commons.image">
+		<make 
+			module="${commons.image.directory}" 
+			jarname="${commons.image.jar}"
+			source="src"
+			targetdir="made">
+			<make.classpath>
+				<classpath>
+					<pathelement location="${commons.string.dist.directory}/${commons.string.jar}"/>
+				</classpath>
+			</make.classpath>
+		</make>
+		<make 
+			module="${commons.image.directory}" 
+			jarname="${commons.image.test.jar}"
+			source="test"
+			targetdir="made">
+			<make.classpath>
+				<classpath>
+					<pathelement location="${commons.image.made.directory}/${commons.image.jar}"/>
+					<pathelement location="${commons.string.dist.directory}/${commons.string.jar}"/>
+					<pathelement location="${junit.jar}"/>
+				</classpath>
+			</make.classpath>
+		</make>
+	</target>
+	
+	<target name="test.commons.image">
+		<test jarname="${commons.image.made.directory}/${commons.image.test.jar}" basedir="${commons.image.directory}">
+			<test.classpath>
+				<classpath>
+					<pathelement location="${commons.image.made.directory}/${commons.image.test.jar}"/>
+					<pathelement location="${commons.image.made.directory}/${commons.image.jar}"/>
+					<pathelement location="${commons.string.dist.directory}/${commons.string.jar}"/>
+					<pathelement location="${junit.jar}"/>
+				</classpath>
+			</test.classpath>
+		</test>
+	</target>
+	
+	<target name="save.commons.image">
+		<save targetdir="${commons.image.directory}/dist">
+			<save.fileset>
+				<fileset dir="${commons.image.made.directory}" includes="${commons.image.jar}"/>
+			</save.fileset>
+		</save>
+	</target>
+	
+	<target name="clean.commons.image">
+		<init.dir dir="${commons.image.made.directory}"/>
+		<init.dir dir="${commons.image.dist.directory}"/>
+	</target>
+
+</project>

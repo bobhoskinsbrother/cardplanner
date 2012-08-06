@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tomcat-users>
+  <role rolename="manager"/>
+  <role rolename="tomcat"/>
+  <role rolename="SuperBoard"/>
+  <role rolename="admin"/>
+  <role rolename="StoryBoardCentrica"/>
+  <role rolename="LavieTechTime"/>
+  <role rolename="StoryBoardDemoUser"/>
+  <role rolename="LavieTechTimeUser"/>
+  <role rolename="CapstoneUser"/>
+  <role rolename="role1"/>
+  <role rolename="Capstone"/>
+  <role rolename="StoryBoardUser"/>
+  <user username="both" password="tomcat" roles="tomcat,role1"/>
+  <user username="tomcat" password="tomcat" roles="tomcat"/>
+  <user username="SuperBoard" password="5up3r804rd" roles="SuperBoard,StoryBoardUser,StoryBoardDemoUser,StoryBoardCentrica,LavieTechTime,Capstone"/>
+  <user username="StoryBoardCentrica" password="St0ryBo4rdC3ntr1ca" roles="StoryBoardCentrica"/>
+  <user username="StoryBoardDemoUser" password="5t0ryB04rdD3moUser" roles="StoryBoardDemoUser"/>
+  <user username="LavieTechTime" password="L4v1eT3c4T1m3" roles="LavieTechTimeUser"/>
+  <user username="ben" password="ben" roles="manager,admin"/>
+  <user username="role1" password="tomcat" roles="role1"/>
+  <user username="Capstone" password="c4p5st0n3" roles="Capstone"/>
+</tomcat-users>

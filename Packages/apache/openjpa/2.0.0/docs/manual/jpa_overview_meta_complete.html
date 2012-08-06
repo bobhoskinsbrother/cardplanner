@@ -1,0 +1,332 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>4.&nbsp; Conclusion</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="jpa_overview_meta.html" title="Chapter&nbsp;5.&nbsp; Metadata"><link rel="prev" href="jpa_overview_meta_xml.html" title="3.&nbsp; XML Schema"><link rel="next" href="jpa_overview_persistence.html" title="Chapter&nbsp;6.&nbsp; Persistence"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.&nbsp;
+            Conclusion
+        </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="jpa_overview_meta_xml.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;5.&nbsp;
+        Metadata
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_persistence.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="jpa_overview_meta_complete"></a>4.&nbsp;
+            Conclusion
+        </h2></div></div></div><p>
+That exhausts persistence metadata annotations. We present the class definitions
+for our sample model below:
+        </p><div class="example"><a name="jpa_overview_meta_complete_ex"></a><p class="title"><b>Example&nbsp;5.2.&nbsp;
+                Complete Metadata
+            </b></p><div class="example-contents"><pre class="programlisting">
+package org.mag;
+
+@Entity
+@IdClass(Magazine.MagazineId.class)
+public class Magazine {
+
+    @Id private String isbn;
+    @Id private String title;
+    @Version private int version;
+
+    private double price;   // defaults to @Basic
+    private int copiesSold; // defaults to @Basic
+
+    @OneToOne(fetch=FetchType.LAZY, 
+        cascade={CascadeType.PERSIST,CascadeType.REMOVE})
+    private Article coverArticle;
+
+    @OneToMany(cascade={CascadeType.PERSIST,CascadeType.REMOVE})
+    @OrderBy
+    private Collection&lt;Article&gt; articles;
+
+    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
+    private Company publisher; 
+
+    @Transient private byte[] data;
+
+    ...
+
+    public static class MagazineId {
+        ...
+    }
+}
+
+@Entity
+public class Article {
+
+    @Id private long id;
+    @Version private int version;
+    
+    private String title;   // defaults to @Basic
+    private byte[] content; // defaults to @Basic
+
+    @ManyToMany(cascade=CascadeType.PERSIST)
+    @OrderBy("lastName, firstName")
+    private Collection&lt;Author&gt; authors;
+
+    ...
+}
+
+
+package org.mag.pub;
+
+@Entity
+public class Company {
+
+    @Id private long id;
+    @Version private int version;
+
+    private String name;     // defaults to @Basic
+    private double revenue;  // defaults to @Basic
+    private Address address; // defaults to @Embedded
+    
+    @OneToMany(mappedBy="publisher", cascade=CascadeType.PERSIST)
+    private Collection&lt;Magazine&gt; mags;
+
+    @OneToMany(cascade={CascadeType.PERSIST,CascadeType.REMOVE})
+    private Collection&lt;Subscription&gt; subscriptions;
+
+    ...
+}
+
+@Entity
+public class Author {
+
+    @Id private long id;
+    @Version private int version;
+
+    private String firstName; // defaults to @Basic
+    private double lastName;  // defaults to @Basic
+    private Address address;  // defaults to @Embedded
+    
+    @ManyToMany(mappedBy="authors", cascade=CascadeType.PERSIST)
+    private Collection&lt;Article&gt; arts;
+
+    ...
+}
+
+@Embeddable
+public class Address {
+
+    private String street; // defaults to @Basic
+    private String city;   // defaults to @Basic
+    private String state;  // defaults to @Basic
+    private String zip;    // defaults to @Basic
+
+    ...
+}
+
+
+package org.mag.subscribe;
+
+@MappedSuperclass
+public abstract class Document {
+
+    @Id private long id;
+    @Version private int version;
+
+    ...
+}
+
+@Entity
+public class Contract
+    extends Document {
+
+    private String terms; // defaults to @Basic
+
+    ...
+}
+
+@Entity
+public class Subscription {
+
+    @Id private long id;
+    @Version private int version;
+
+    private Date startDate; // defaults to @Basic
+    private double payment; // defaults to @Basic
+
+    @OneToMany(cascade={CascadeType.PERSIST,CascadeType.REMOVE})
+    @MapKey(name="num")
+    private Map&lt;Long,LineItem&gt; lineItems;
+
+    ...
+
+    @Entity
+    public static class LineItem
+        extends Contract {
+
+        private String comments; // defaults to @Basic
+        private double price;    // defaults to @Basic
+        private long num;        // defaults to @Basic
+
+        @ManyToOne
+        private Magazine magazine;
+
+        ...
+    }
+}
+
+@Entity(name="Lifetime")
+public class LifetimeSubscription
+    extends Subscription {
+
+    @Basic(fetch=FetchType.LAZY)
+    private boolean getEliteClub() { ... }
+    public void setEliteClub(boolean elite) { ... }
+
+    ...
+}
+
+@Entity(name="Trial")
+public class TrialSubscription
+    extends Subscription {
+
+    public Date getEndDate() { ... }
+    public void setEndDate(Date end) { ... }
+
+    ...
+}
+</pre><p>
+The same metadata declarations in XML:
+            </p><pre class="programlisting">
+&lt;entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_1_0.xsd"
+    version="1.0"&gt;
+    &lt;!-- declares a default access type for all entities --&gt;
+    &lt;access-type&gt;FIELD&lt;/access-type&gt;
+    &lt;mapped-superclass class="org.mag.subscribe.Document"&gt;
+        &lt;attributes&gt;
+            &lt;id name="id"&gt;
+                &lt;generated-value strategy="IDENTITY"/&gt;
+            &lt;/id&gt;
+            &lt;version name="version"/&gt;
+        &lt;/attributes&gt;
+    &lt;/mapped-superclass&gt;
+    &lt;entity class="org.mag.Magazine"&gt;
+        &lt;id-class="org.mag.Magazine$MagazineId"/&gt;
+        &lt;attributes&gt;
+            &lt;id name="isbn"/&gt;
+            &lt;id name="title"/&gt;
+            &lt;basic name="name"/&gt;
+            &lt;basic name="price"/&gt;
+            &lt;basic name="copiesSold"/&gt;
+            &lt;version name="version"/&gt;
+            &lt;many-to-one name="publisher" fetch="LAZY"&gt;
+                &lt;cascade&gt;
+                    &lt;cascade-persist/&gt;
+                &lt;/cascade&gt;
+            &lt;/many-to-one&gt;
+            &lt;one-to-many name="articles"&gt;
+                &lt;order-by/&gt;
+                &lt;cascade&gt;
+                    &lt;cascade-persist/&gt;
+                    &lt;cascade-remove/&gt;
+                &lt;/cascade&gt;
+            &lt;/one-to-many&gt;
+            &lt;one-to-one name="coverArticle" fetch="LAZY"&gt;
+                &lt;cascade&gt;
+                    &lt;cascade-persist/&gt;
+                    &lt;cascade-remove/&gt;
+                &lt;/cascade&gt;
+            &lt;/one-to-one&gt;
+            &lt;transient name="data"/&gt;
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.Article"&gt;
+        &lt;attributes&gt;
+            &lt;id name="id"/&gt;
+            &lt;basic name="title"/&gt;
+            &lt;basic name="content"/&gt;
+            &lt;version name="version"/&gt;
+            &lt;many-to-many name="articles"&gt;
+                &lt;order-by&gt;lastName, firstName&lt;/order-by&gt;
+            &lt;/many-to-many&gt;
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.pub.Company"&gt;
+        &lt;attributes&gt;
+            &lt;id name="id"/&gt;
+            &lt;basic name="name"/&gt;
+            &lt;basic name="revenue"/&gt;
+            &lt;version name="version"/&gt;
+            &lt;one-to-many name="mags" mapped-by="publisher"&gt;
+                &lt;cascade&gt;
+                    &lt;cascade-persist/&gt;
+                &lt;/cascade&gt;
+            &lt;/one-to-many&gt;
+            &lt;one-to-many name="subscriptions"&gt;
+                &lt;cascade&gt;
+                    &lt;cascade-persist/&gt;
+                    &lt;cascade-remove/&gt;
+                &lt;/cascade&gt;
+            &lt;/one-to-many&gt;
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.pub.Author"&gt;
+        &lt;attributes&gt;
+            &lt;id name="id"/&gt;
+            &lt;basic name="firstName"/&gt;
+            &lt;basic name="lastName"/&gt;
+            &lt;version name="version"/&gt;
+            &lt;many-to-many name="arts" mapped-by="authors"&gt;
+                &lt;cascade&gt;
+                    &lt;cascade-persist/&gt;
+                &lt;/cascade&gt;
+            &lt;/many-to-many&gt;
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subcribe.Contract"&gt;
+        &lt;attributes&gt;
+            &lt;basic name="terms"/&gt;
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subcribe.Subscription"&gt;
+        &lt;attributes&gt;
+            &lt;id name="id"/&gt;
+            &lt;basic name="payment"/&gt;
+            &lt;basic name="startDate"/&gt;
+            &lt;version name="version"/&gt;
+            &lt;one-to-many name="items"&gt;
+                &lt;map-key name="num"&gt;
+                &lt;cascade&gt;
+                    &lt;cascade-persist/&gt;
+                    &lt;cascade-remove/&gt;
+                &lt;/cascade&gt;
+            &lt;/one-to-many&gt;
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subscribe.Subscription.LineItem"&gt;
+        &lt;attributes&gt;
+            &lt;basic name="comments"/&gt;
+            &lt;basic name="price"/&gt;
+            &lt;basic name="num"/&gt;
+            &lt;many-to-one name="magazine"/&gt;
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subscribe.LifetimeSubscription" name="Lifetime"
+        access="PROPERTY"&gt;
+        &lt;attributes&gt;
+            &lt;basic name="eliteClub" fetch="LAZY"/&gt;
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subscribe.TrialSubscription" name="Trial"&gt;
+        &lt;attributes&gt;
+            &lt;basic name="endDate"/&gt;
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;embeddable class="org.mag.pub.Address"&gt;
+        &lt;attributes&gt;
+            &lt;basic name="street"/&gt;
+            &lt;basic name="city"/&gt;
+            &lt;basic name="state"/&gt;
+            &lt;basic name="zip"/&gt;
+        &lt;/attributes&gt;
+    &lt;/embeddable&gt;
+&lt;/entity-mappings&gt;
+</pre></div></div><br class="example-break"><p>
+<a href="jpa_overview_mapping.html" title="Chapter&nbsp;13.&nbsp; Mapping Metadata">Chapter&nbsp;13, <i xmlns:xlink="http://www.w3.org/1999/xlink">
+        Mapping Metadata
+    </i></a> will show you how to map your
+persistent classes to the datastore using additional annotations and XML markup.
+First, however, we turn to the JPA runtime APIs.
+        </p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="jpa_overview_meta_xml.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="jpa_overview_meta.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_persistence.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">3.&nbsp;
+            XML Schema
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;6.&nbsp;
+        Persistence
+    </td></tr></table></div></body></html>

@@ -1,0 +1,42 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>8.&nbsp; Mapping Limitations</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="ref_guide_mapping.html" title="Chapter&nbsp;7.&nbsp; Mapping"><link rel="prev" href="ref_guide_mapping_jpa.html" title="7.&nbsp; Additional JPA Mappings"><link rel="next" href="ref_guide_mapping_ext.html" title="9.&nbsp; Mapping Extensions"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">8.&nbsp;
+            Mapping Limitations
+        </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ref_guide_mapping_jpa.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;7.&nbsp;
+        Mapping
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ref_guide_mapping_ext.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ref_guide_mapping_limits"></a>8.&nbsp;
+            Mapping Limitations
+        </h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ref_guide_mapping_limits.html#ref_guide_mapping_limits_tpc">8.1. 
+                Table Per Class
+            </a></span></dt></dl></div><a class="indexterm" name="d0e30611"></a><p>
+The following sections outline the limitations OpenJPA places on specific
+mapping strategies.
+        </p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_mapping_limits_tpc"></a>8.1.&nbsp;
+                Table Per Class
+            </h3></div></div></div><a class="indexterm" name="d0e30621"></a><p>
+Table-per-class inheritance mapping has the following limitations:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+You cannot traverse polymorphic relations to non-leaf classes in a
+table-per-class inheritance hierarchy in queries.
+                    </p></li><li><p>
+You cannot map a one-sided polymorphic relation to a non-leaf class in a
+table-per-class inheritance hierarchy using an inverse foreign key.
+                    </p></li><li><p>
+You cannot use an order column in a polymorphic relation to a non-leaf class in
+a table-per-class inheritance hierarchy mapped with an inverse foreign key.
+                    </p></li><li><p>
+Table-per-class hierarchies impose limitations on eager fetching. See
+<a href="ref_guide_perfpack_eager.html#ref_guide_perfpack_eager_consider" title="8.2.&nbsp; Eager Fetching Considerations and Limitations">Section&nbsp;8.2, &#8220;
+                Eager Fetching Considerations and Limitations
+            &#8221;</a>.
+                    </p></li></ul></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+Non-polymorphic relations do not suffer from these limitations. You can declare
+a non-polymorphic relation using the extensions described in
+<a href="ref_guide_mapping_ext.html#nonpolymorphic" title="9.2.2.&nbsp; Nonpolymorphic">Section&nbsp;9.2.2, &#8220;
+                    Nonpolymorphic
+                &#8221;</a>.
+                </p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ref_guide_mapping_jpa.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ref_guide_mapping.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ref_guide_mapping_ext.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">7.&nbsp;
+            Additional JPA Mappings
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;9.&nbsp;
+            Mapping Extensions
+        </td></tr></table></div></body></html>

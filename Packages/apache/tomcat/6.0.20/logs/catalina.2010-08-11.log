@@ -1,0 +1,196 @@
+Aug 11, 2010 2:50:53 PM org.apache.catalina.startup.Embedded initDirs
+SEVERE: Cannot find specified temporary folder at /Users/benhoskins/Code/java/Packages/apache/tomcat/6.0.20/temp
+Aug 11, 2010 2:50:54 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: .:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java
+Aug 11, 2010 2:50:54 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 2:50:54 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 408 ms
+Aug 11, 2010 2:50:54 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Aug 11, 2010 2:50:54 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.20
+Aug 11, 2010 2:50:54 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive StoryBoardBacklog.war
+Aug 11, 2010 2:50:55 PM org.apache.catalina.core.StandardContext start
+SEVERE: Error listenerStart
+Aug 11, 2010 2:50:55 PM org.apache.catalina.core.StandardContext start
+SEVERE: Context [/StoryBoardBacklog] startup failed due to previous errors
+Aug 11, 2010 2:50:55 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 2:50:55 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Aug 11, 2010 2:50:55 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/24  config=null
+Aug 11, 2010 2:50:55 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1551 ms
+Aug 11, 2010 2:51:02 PM org.apache.catalina.core.StandardContext stop
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/StoryBoardBacklog] has not been started
+Aug 11, 2010 2:51:02 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/StoryBoardBacklog]
+Aug 11, 2010 2:51:09 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive StoryBoardBacklog.war
+Aug 11, 2010 2:51:10 PM org.apache.catalina.core.StandardContext start
+SEVERE: Error listenerStart
+Aug 11, 2010 2:51:10 PM org.apache.catalina.core.StandardContext start
+SEVERE: Context [/StoryBoardBacklog] startup failed due to previous errors
+Aug 11, 2010 2:51:16 PM org.apache.catalina.core.StandardContext start
+SEVERE: Error listenerStart
+Aug 11, 2010 2:51:16 PM org.apache.catalina.core.StandardContext start
+SEVERE: Context [/StoryBoardBacklog] startup failed due to previous errors
+Aug 11, 2010 2:52:04 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 2:52:05 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Aug 11, 2010 2:52:05 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 2:52:12 PM org.apache.catalina.startup.Embedded initDirs
+SEVERE: Cannot find specified temporary folder at /Users/benhoskins/Code/java/Packages/apache/tomcat/6.0.20/temp
+Aug 11, 2010 2:52:12 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: .:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java
+Aug 11, 2010 2:52:12 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 2:52:12 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 543 ms
+Aug 11, 2010 2:52:12 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Aug 11, 2010 2:52:12 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.20
+Aug 11, 2010 2:52:13 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive StoryBoardBacklog.war
+Aug 11, 2010 2:52:14 PM org.apache.catalina.core.StandardContext start
+SEVERE: Error listenerStart
+Aug 11, 2010 2:52:14 PM org.apache.catalina.core.StandardContext start
+SEVERE: Context [/StoryBoardBacklog] startup failed due to previous errors
+Aug 11, 2010 2:52:14 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 2:52:14 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Aug 11, 2010 2:52:14 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/58  config=null
+Aug 11, 2010 2:52:14 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 2195 ms
+Aug 11, 2010 2:53:27 PM org.apache.catalina.core.StandardContext stop
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/StoryBoardBacklog] has not been started
+Aug 11, 2010 2:53:27 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/StoryBoardBacklog]
+Aug 11, 2010 2:53:35 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive StoryBoardBacklog.war
+Aug 11, 2010 2:56:02 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/StoryBoardBacklog]
+Aug 11, 2010 2:56:57 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive StoryBoardBacklog.war
+Aug 11, 2010 3:00:39 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/StoryBoardBacklog]
+Aug 11, 2010 3:01:28 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/docs]
+Aug 11, 2010 3:01:33 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/examples]
+Aug 11, 2010 3:02:23 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive StoryBoardBacklog.war
+Aug 11, 2010 3:04:07 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/StoryBoardBacklog]
+Aug 11, 2010 3:04:12 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive StoryBoardBacklog.war
+Aug 11, 2010 3:04:22 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 3:04:23 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Aug 11, 2010 3:04:24 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 3:04:25 PM org.apache.catalina.startup.Embedded initDirs
+SEVERE: Cannot find specified temporary folder at /Users/benhoskins/Code/java/Packages/apache/tomcat/6.0.20/temp
+Aug 11, 2010 3:04:26 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: .:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java
+Aug 11, 2010 3:04:26 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 3:04:26 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 428 ms
+Aug 11, 2010 3:04:26 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Aug 11, 2010 3:04:26 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.20
+Aug 11, 2010 3:04:26 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive StoryBoardBacklog.war
+Aug 11, 2010 3:04:27 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 3:04:27 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Aug 11, 2010 3:04:27 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/26  config=null
+Aug 11, 2010 3:04:27 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1868 ms
+Aug 11, 2010 3:06:23 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 3:06:24 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Aug 11, 2010 3:06:24 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 3:06:25 PM org.apache.catalina.startup.Embedded initDirs
+SEVERE: Cannot find specified temporary folder at /Users/benhoskins/Code/java/Packages/apache/tomcat/6.0.20/temp
+Aug 11, 2010 3:06:26 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: .:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java
+Aug 11, 2010 3:06:26 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 3:06:26 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 593 ms
+Aug 11, 2010 3:06:26 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Aug 11, 2010 3:06:26 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.20
+Aug 11, 2010 3:06:27 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive StoryBoardBacklog.war
+Aug 11, 2010 3:06:29 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 3:06:29 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Aug 11, 2010 3:06:29 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/36  config=null
+Aug 11, 2010 3:06:29 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 2739 ms
+Aug 11, 2010 3:06:38 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/StoryBoardBacklog]
+Aug 11, 2010 3:07:31 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive StoryBoardBacklog.war
+Aug 11, 2010 3:09:01 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 3:09:02 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Aug 11, 2010 3:09:02 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 3:09:34 PM org.apache.catalina.startup.Embedded initDirs
+SEVERE: Cannot find specified temporary folder at /Users/benhoskins/Code/java/Packages/apache/tomcat/6.0.20/temp
+Aug 11, 2010 3:09:34 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: .:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java
+Aug 11, 2010 3:09:34 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 3:09:34 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 600 ms
+Aug 11, 2010 3:09:34 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Aug 11, 2010 3:09:34 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.20
+Aug 11, 2010 3:09:35 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive StoryBoardBacklog.war
+Aug 11, 2010 3:09:37 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 3:09:37 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Aug 11, 2010 3:09:37 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/35  config=null
+Aug 11, 2010 3:09:37 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 2850 ms
+Aug 11, 2010 3:09:40 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/StoryBoardBacklog]
+Aug 11, 2010 3:10:33 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive StoryBoardBacklog.war
+Aug 11, 2010 3:33:40 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/StoryBoardBacklog]
+Aug 11, 2010 3:34:30 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive StoryBoardBacklog.war
+Aug 11, 2010 6:52:37 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Aug 11, 2010 6:52:38 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Aug 11, 2010 6:52:38 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080

@@ -1,0 +1,197 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;2.&nbsp; Configuration</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="ref_guide.html" title="Part&nbsp;3.&nbsp;Reference Guide"><link rel="prev" href="ref_guide_intro.html" title="Chapter&nbsp;1.&nbsp; Introduction"><link rel="next" href="ref_guide_conf_specify.html" title="2.&nbsp; Runtime Configuration"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;2.&nbsp;
+        Configuration
+    </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ref_guide_intro.html">Prev</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;3.&nbsp;Reference Guide</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ref_guide_conf_specify.html">Next</a></td></tr></table><hr></div><div class="chapter" lang="en" id="ref_guide_conf"><div class="titlepage"><div><div><h2 class="title"><a name="ref_guide_conf"></a>Chapter&nbsp;2.&nbsp;
+        Configuration
+    </h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="ref_guide_conf.html#ref_guide_conf_intro">1. 
+            Introduction
+        </a></span></dt><dt><span class="section"><a href="ref_guide_conf_specify.html">2. 
+            Runtime Configuration
+        </a></span></dt><dt><span class="section"><a href="ref_guide_conf_devtools.html">3. 
+            Command Line Configuration
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_conf_devtools.html#ref_guide_conf_devtools_format">3.1. 
+                Code Formatting
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_conf_plugins.html">4. 
+            Plugin Configuration
+        </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html">5. 
+            OpenJPA Properties
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.AutoClear">5.1. 
+                openjpa.AutoClear
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.AutoDetach">5.2. 
+                openjpa.AutoDetach
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.BrokerFactory">5.3. 
+                openjpa.BrokerFactory
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.BrokerImpl">5.4. 
+                openjpa.BrokerImpl
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Callbacks">5.5. openjpa.Callbacks</a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ClassResolver">5.6. 
+                openjpa.ClassResolver
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Compatibility">5.7. 
+                openjpa.Compatibility
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionDriverName">5.8. 
+                openjpa.ConnectionDriverName
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Connection2DriverName">5.9. 
+                openjpa.Connection2DriverName
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionFactory">5.10. 
+                openjpa.ConnectionFactory
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionFactory2">5.11. 
+                openjpa.ConnectionFactory2
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionFactoryName">5.12. 
+                openjpa.ConnectionFactoryName
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionFactory2Name">5.13. 
+                openjpa.ConnectionFactory2Name
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionFactoryMode">5.14. 
+                openjpa.ConnectionFactoryMode
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionFactoryProperties">5.15. 
+                openjpa.ConnectionFactoryProperties
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionFactory2Properties">5.16. 
+                openjpa.ConnectionFactory2Properties
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionPassword">5.17. 
+                openjpa.ConnectionPassword
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Connection2Password">5.18. 
+                openjpa.Connection2Password
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionProperties">5.19. 
+                openjpa.ConnectionProperties
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Connection2Properties">5.20. 
+                openjpa.Connection2Properties
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionURL">5.21. 
+                openjpa.ConnectionURL
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Connection2URL">5.22. 
+                openjpa.Connection2URL
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionUserName">5.23. 
+                openjpa.ConnectionUserName
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Connection2UserName">5.24. 
+                openjpa.Connection2UserName
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ConnectionRetainMode">5.25. 
+                openjpa.ConnectionRetainMode
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.DataCache">5.26. 
+                openjpa.DataCache
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.DataCacheManager">5.27. 
+                openjpa.DataCacheManager
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.DataCacheMode">5.28. 
+                openjpa.DataCacheMode
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.DataCacheTimeout">5.29. 
+                openjpa.DataCacheTimeout
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.DetachState">5.30. 
+                openjpa.DetachState
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.DynamicDataStructs">5.31. 
+                openjpa.DynamicDataStructs
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.FetchBatchSize">5.32. 
+                openjpa.FetchBatchSize
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.EncryptionProvider">5.33. 
+                openjpa.EncryptionProvider
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.FetchGroups">5.34. 
+                openjpa.FetchGroups
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.FlushBeforeQueries">5.35. 
+                openjpa.FlushBeforeQueries
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.IgnoreChanges">5.36. 
+                openjpa.IgnoreChanges
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Id">5.37. openjpa.Id</a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.InitializeEagerly">5.38. 
+                openjpa.InitializeEagerly
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.InverseManager">5.39. 
+                openjpa.InverseManager
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.LockManager">5.40. 
+                openjpa.LockManager
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.LockTimeout">5.41. 
+                openjpa.LockTimeout
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Log">5.42. 
+                openjpa.Log
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ManagedRuntime">5.43. 
+                openjpa.ManagedRuntime
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Mapping">5.44. 
+                openjpa.Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.MaxFetchDepth">5.45. 
+                openjpa.MaxFetchDepth
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.MetaDataFactory">5.46. 
+                openjpa.MetaDataFactory
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.MetaDataRepository">5.47. 
+                openjpa.MetaDataRepository
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Multithreaded">5.48. 
+                openjpa.Multithreaded
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Optimistic">5.49. 
+                openjpa.Optimistic
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.OrphanedKeyAction">5.50. 
+                openjpa.OrphanedKeyAction
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.NontransactionalRead">5.51. 
+                openjpa.NontransactionalRead
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.NontransactionalWrite">5.52. 
+                openjpa.NontransactionalWrite
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ProxyManager">5.53. 
+                openjpa.ProxyManager
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.QueryCache">5.54. 
+                openjpa.QueryCache
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.QueryCompilationCache">5.55. 
+                openjpa.QueryCompilationCache
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.ReadLockLevel">5.56. 
+                openjpa.ReadLockLevel
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.RemoteCommitProvider">5.57. 
+                openjpa.RemoteCommitProvider
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.RestoreState">5.58. 
+                openjpa.RestoreState
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.RetainState">5.59. 
+                openjpa.RetainState
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.RetryClassRegistration">5.60. 
+                openjpa.RetryClassRegistration
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.RuntimeUnenhancedClasses">5.61. openjpa.RuntimeUnenhancedClasses</a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.DynamicEnhancementAgent">5.62. openjpa.DynamicEnhancementAgent</a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.SavepointManager">5.63. 
+                openjpa.SavepointManager
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Sequence">5.64. 
+                openjpa.Sequence
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.Specification">5.65. 
+                openjpa.Specification
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.TransactionMode">5.66. 
+                openjpa.TransactionMode
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_openjpa.html#openjpa.WriteLockLevel">5.67. 
+                openjpa.WriteLockLevel
+            </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_conf_jdbc.html">6. 
+            OpenJPA JDBC Properties
+        </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.ConnectionDecorators">6.1. 
+                openjpa.jdbc.ConnectionDecorators
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.DBDictionary">6.2. 
+                openjpa.jdbc.DBDictionary
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.DriverDataSource">6.3. 
+                openjpa.jdbc.DriverDataSource
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.EagerFetchMode">6.4. 
+                openjpa.jdbc.EagerFetchMode
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.FetchDirection">6.5. 
+                openjpa.jdbc.FetchDirection
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.JDBCListeners">6.6. 
+                openjpa.jdbc.JDBCListeners
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.LRSSize">6.7. 
+                openjpa.jdbc.LRSSize
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.MappingDefaults">6.8. 
+                openjpa.jdbc.MappingDefaults
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.MappingFactory">6.9. 
+                openjpa.jdbc.MappingFactory
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.QuerySQLCache">6.10. 
+                openjpa.jdbc.QuerySQLCache
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.ResultSetType">6.11. 
+                openjpa.jdbc.ResultSetType
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.Schema">6.12. 
+                openjpa.jdbc.Schema
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.SchemaFactory">6.13. 
+                openjpa.jdbc.SchemaFactory
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.Schemas">6.14. 
+                openjpa.jdbc.Schemas
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.SQLFactory">6.15. 
+                openjpa.jdbc.SQLFactory
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.SubclassFetchMode">6.16. 
+                openjpa.jdbc.SubclassFetchMode
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.SynchronizeMappings">6.17. 
+                openjpa.jdbc.SynchronizeMappings
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.TransactionIsolation">6.18. 
+                openjpa.jdbc.TransactionIsolation
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#openjpa.jdbc.UpdateManager">6.19. 
+                openjpa.jdbc.UpdateManager
+            </a></span></dt><dt><span class="section"><a href="ref_guide_conf_jdbc.html#ref_guide_spec_compatibility">6.20. Compatibility with Specification</a></span></dt></dl></dd></dl></div><a class="indexterm" name="d0e14065"></a><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ref_guide_conf_intro"></a>1.&nbsp;
+            Introduction
+        </h2></div></div></div><p>
+This chapter describes the OpenJPA configuration framework. It concludes with
+descriptions of all the configuration properties recognized by OpenJPA. You may
+want to browse these properties now, but it is not necessary. Most of them will
+be referenced later in the documentation as we explain the various features they
+apply to.
+        </p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ref_guide_intro.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ref_guide.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ref_guide_conf_specify.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;1.&nbsp;
+        Introduction
+    &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;2.&nbsp;
+            Runtime Configuration
+        </td></tr></table></div></body></html>

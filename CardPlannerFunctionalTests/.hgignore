@@ -1,0 +1,7 @@
+
+syntax: regexp
+^classes$
+syntax: regexp
+^made$
+syntax: regexp
+^TEST-uk\.co\.itstherules\.ui\.UITestSuite\.xml$

@@ -1,0 +1,23 @@
+<!--Home Page-->
+<h2>CardPlanner</h2>
+
+CardPlanner has been written with a simple goal in mind: to build a tool that is as easy to use as writing a Story Card, with a few key additional benefits:
+<br/>
+<br/>
+<div style="clear:both;"></div>
+
+${tagBuilder.showImage('plan_together_even_when_apart.png', {"style":"float:left;margin-left:20px"})}
+${tagBuilder.showImage('multi_level_planning.png', {"style":"float:left;"})}
+<br/>
+<div style="clear:both;"></div>
+<br />
+Large Programme / Multi-Team Visibility Without Losing Focus on Simple Team-Oriented approach to Planning, Tracking, Visibility
+<br/>
+The ability to automatically execute Acceptance Tests on Story Cards with the minimum of fuss
+<br />
+No Additional Effort For Tracking both Value and Effort (Including At A Glance Hard Sums)
+
+
+<br/>
+<br/>
+<a href="http://www.firefox.com" target="_blank">${tagBuilder.showImage("firefox.png")}</a> CardPlanner is intended to be used with FireFox only.  IE will only work up to a fashion...

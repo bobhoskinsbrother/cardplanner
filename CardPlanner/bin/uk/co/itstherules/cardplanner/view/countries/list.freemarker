@@ -1,0 +1,15 @@
+<h2>
+Countries ${tagBuilder.addButton("Countries", "Add Country")}
+</h2>
+<div class="gray_rounded"> 
+<#list countries as country>
+	<div class="white_rounded" style="float:left; margin-right:5px; margin-bottom: 5px;"> 
+	<h3 style="margin: 0px">
+		${country.title?html}
+		${tagBuilder.editButton("Countries", "Edit Country", country)} 
+		${tagBuilder.deleteButton("Countries", country)}
+	</h3>
+</div>
+</#list>
+<div style="clear:both;"></div>
+</div>

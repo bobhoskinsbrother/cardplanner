@@ -1,0 +1,221 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>3.&nbsp; Lifecycle Callbacks</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="jpa_overview_pc.html" title="Chapter&nbsp;4.&nbsp; Entity"><link rel="prev" href="jpa_overview_pc_identity.html" title="2.&nbsp; Entity Identity"><link rel="next" href="jpa_overview_pc_conclusion.html" title="4.&nbsp; Conclusions"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.&nbsp;
+            Lifecycle Callbacks
+        </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="jpa_overview_pc_identity.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;4.&nbsp;
+        Entity
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_pc_conclusion.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="jpa_overview_pc_callbacks"></a>3.&nbsp;
+            Lifecycle Callbacks
+        </h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="jpa_overview_pc_callbacks.html#jpa_overview_pc_callbacks_methods">3.1. 
+                Callback Methods
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_pc_callbacks.html#jpa_overview_callbacks_using">3.2. 
+                Using Callback Methods
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_pc_callbacks.html#jpa_overview_entity_listeners_using">3.3. 
+                Using Entity Listeners
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_pc_callbacks.html#jpa_overview_entity_listeners_exclude">3.4. 
+                Entity Listeners Hierarchy
+            </a></span></dt></dl></div><a class="indexterm" name="d0e1762"></a><a class="indexterm" name="d0e1765"></a><p>
+It is often necessary to perform various actions at different stages of a
+persistent object's lifecycle. JPA includes a variety of callbacks methods for
+monitoring changes in the lifecycle of your persistent objects. These callbacks
+can be defined on the persistent classes themselves and on non-persistent
+listener classes.
+        </p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_pc_callbacks_methods"></a>3.1.&nbsp;
+                Callback Methods
+            </h3></div></div></div><a class="indexterm" name="d0e1777"></a><a class="indexterm" name="d0e1782"></a><p>
+Every persistence event has a corresponding callback method marker. These
+markers are shared between persistent classes and their listeners. You can use
+these markers to designate a method for callback either by annotating that
+method or by listing the method in the XML mapping file for a given class. The
+lifecycle events and their corresponding method markers are:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+                    <a class="indexterm" name="d0e1793"></a>
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://java.sun.com/javaee/6/docs/api/javax/persistence/PrePersist.html" target="_top">
+<code class="classname">PrePersist</code></a>: Methods marked with this annotation
+will be invoked before an object is persisted. This could be used for assigning
+primary key values to persistent objects. This is equivalent to the XML element
+tag <code class="literal">pre-persist</code>.
+                    </p></li><li><p>
+                    <a class="indexterm" name="d0e1810"></a>
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://java.sun.com/javaee/6/docs/api/javax/persistence/PostPersist.html" target="_top">
+<code class="classname">PostPersist</code></a>: Methods marked with this annotation
+will be invoked after an object has transitioned to the persistent state. You
+might want to use such methods to update a screen after a new row is added. This
+is equivalent to the XML element tag <code class="literal">post-persist</code>.
+                    </p></li><li><p>
+                    <a class="indexterm" name="d0e1827"></a>
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://java.sun.com/javaee/6/docs/api/javax/persistence/PostLoad.html" target="_top">
+<code class="classname">PostLoad</code></a>: Methods marked with this annotation
+will be invoked after all eagerly fetched fields of your class have been loaded
+from the datastore. No other persistent fields can be accessed in this method.
+This is equivalent to the XML element tag <code class="literal">post-load</code>.
+                    </p><p>
+<code class="classname">PostLoad</code> is often used to initialize non-persistent
+fields whose values depend on the values of persistent fields, such as a complex
+data structure.
+                    </p></li><li><p>
+                    <a class="indexterm" name="d0e1849"></a>
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://java.sun.com/javaee/6/docs/api/javax/persistence/PreUpdate.html" target="_top">
+<code class="classname">PreUpdate</code></a>: Methods marked with this annotation
+will be invoked just the persistent values in your objects are flushed to the
+datastore. This is equivalent to the XML element tag <code class="literal">
+pre-update</code>.
+                    </p><p>
+<code class="classname">PreUpdate</code> is the complement to <code class="classname">PostLoad
+</code>. While methods marked with <code class="classname">PostLoad</code> are most
+often used to initialize non-persistent values from persistent data, methods
+annotated with <code class="classname">PreUpdate</code> is normally used to set
+persistent fields with information cached in non-persistent data.
+                    </p></li><li><p>
+                    <a class="indexterm" name="d0e1880"></a>
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://java.sun.com/javaee/6/docs/api/javax/persistence/PostUpdate.html" target="_top">
+<code class="classname">PostUpdate</code></a>: Methods marked with this annotation
+will be invoked after changes to a given instance have been stored to the
+datastore. This is useful for clearing stale data cached at the application
+layer. This is equivalent to the XML element tag <code class="literal">post-update</code>.
+                    </p></li><li><p>
+                    <a class="indexterm" name="d0e1897"></a>
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://java.sun.com/javaee/6/docs/api/javax/persistence/PreRemove.html" target="_top">
+<code class="classname">PreRemove</code></a>: Methods marked with this annotation
+will be invoked before an object transactions to the deleted state. Access to
+persistent fields is valid within this method. You might use this method to
+cascade the deletion to related objects based on complex criteria, or to perform
+other cleanup. This is equivalent to the XML element tag <code class="literal">
+pre-remove</code>.
+                    </p></li><li><p>
+                    <a class="indexterm" name="d0e1914"></a>
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://java.sun.com/javaee/6/docs/api/javax/persistence/PostRemove.html" target="_top">
+<code class="classname">PostRemove</code></a>: Methods marked with this annotation
+will be invoked after an object has been marked as to be deleted. This is
+equivalent to the XML element tag <code class="literal">post-remove</code>.
+                    </p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_callbacks_using"></a>3.2.&nbsp;
+                Using Callback Methods
+            </h3></div></div></div><p>
+When declaring callback methods on a persistent class, any method may be used
+which takes no arguments and is not shared with any property access fields.
+Multiple events can be assigned to a single method as well.
+            </p><p>
+Below is an example of how to declare callback methods on persistent classes:
+            </p><pre class="programlisting">
+/**
+ * Example persistent class declaring our entity listener.
+ */
+@Entity
+public class Magazine {
+
+    @Transient 
+    private byte[][] data;
+
+    @ManyToMany
+    private List&lt;Photo&gt; photos;
+
+    @PostLoad
+    public void convertPhotos() {
+        data = new byte[photos.size()][];
+        for (int i = 0; i &lt; photos.size(); i++)
+            data[i] = photos.get(i).toByteArray();
+    }
+
+    @PreDelete
+    public void logMagazineDeletion() {
+        getLog().debug("deleting magazine containing" + photos.size() 
+            + " photos.");
+    }
+}
+
+</pre><p>
+In an XML mapping file, we can define the same methods without annotations:
+            </p><pre class="programlisting">
+&lt;entity class="Magazine"&gt;
+    &lt;pre-remove&gt;logMagazineDeletion&lt;/pre-remove&gt;
+    &lt;post-load&gt;convertPhotos&lt;/post-load&gt;
+&lt;/entity&gt;
+</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+We fully explore persistence metadata annotations and XML in
+<a href="jpa_overview_meta.html" title="Chapter&nbsp;5.&nbsp; Metadata">Chapter&nbsp;5, <i xmlns:xlink="http://www.w3.org/1999/xlink">
+        Metadata
+    </i></a>.
+                </p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_entity_listeners_using"></a>3.3.&nbsp;
+                Using Entity Listeners
+            </h3></div></div></div><p>
+Mixing lifecycle event code into your persistent classes is not always ideal. It
+is often more elegant to handle cross-cutting lifecycle events in a
+non-persistent listener class. JPA allows for this, requiring only that listener
+classes have a public no-arg constructor. Like persistent classes, your listener
+classes can consume any number of callbacks. The callback methods must take in a
+single <code class="classname">java.lang.Object</code> argument which represents the
+persistent object that triggered the event.
+            </p><p>
+Entities can enumerate listeners using the <code class="classname">EntityListeners
+</code> annotation. This annotation takes an array of listener classes as
+its value.
+            </p><p>
+Below is an example of how to declare an entity and its corresponding listener
+classes.
+            </p><pre class="programlisting">
+/**
+ * Example persistent class declaring our entity listener.
+ */
+@Entity
+@EntityListeners({ MagazineLogger.class, ... })
+public class Magazine {
+
+    // ... //
+}
+
+
+/**
+ * Example entity listener.
+ */
+public class MagazineLogger {
+
+    @PostPersist
+    public void logAddition(Object pc) {
+        getLog().debug("Added new magazine:" + ((Magazine) pc).getTitle());
+    }
+
+
+    @PreRemove
+    public void logDeletion(Object pc) {
+        getLog().debug("Removing from circulation:" + 
+            ((Magazine) pc).getTitle());
+    }
+}
+</pre><p>
+In XML, we define both the listeners and their callback methods as so:
+            </p><pre class="programlisting">
+&lt;entity class="Magazine"&gt;
+    &lt;entity-listeners&gt;
+        &lt;entity-listener class="MagazineLogger"&gt;
+            &lt;post-persist&gt;logAddition&lt;/post-persist&gt;
+            &lt;pre-remove&gt;logDeletion&lt;/pre-remove&gt;
+        &lt;/entity-listener&gt;
+    &lt;/entity-listeners&gt;
+&lt;/entity&gt;
+</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_entity_listeners_exclude"></a>3.4.&nbsp;
+                Entity Listeners Hierarchy
+            </h3></div></div></div><a class="indexterm" name="d0e1970"></a><p>
+Entity listener methods are invoked in a specific order when a given event is
+fired. So-called <span class="emphasis"><em>default</em></span> listeners are invoked first: these
+are listeners which have been defined in a package annotation or in the root
+element of XML mapping files. Next, entity listeners are invoked in the order of
+the inheritance hierarchy, with superclass listeners being invoked before
+subclass listeners. Finally, if an entity has multiple listeners for the same
+event, the listeners are invoked in declaration order.
+            </p><p>
+You can exclude default listeners and listeners defined in superclasses from the
+invocation chain through the use of two class-level annotations:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="classname">ExcludeDefaultListeners</code>: This annotation indicates that
+no default listeners will be invoked for this class, or any of its subclasses.
+The XML equivalent is the empty <code class="literal">exclude-default-listeners</code>
+element.
+                    </p></li><li><p>
+<code class="classname">ExcludeSuperclassListeners</code>: This annotation will cause
+OpenJPA to skip invoking any listeners declared in superclasses. The XML
+equivalent is the empty <code class="literal">exclude-superclass-listeners</code> element.
+                    </p></li></ul></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="jpa_overview_pc_identity.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="jpa_overview_pc.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_pc_conclusion.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">2.&nbsp;
+            Entity Identity
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;4.&nbsp;
+            Conclusions
+        </td></tr></table></div></body></html>

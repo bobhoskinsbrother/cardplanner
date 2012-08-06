@@ -1,0 +1,11 @@
+<div id="addView">
+<form method="POST" action="${tagBuilder.url("Tags", action, tag.identity, "")}" id="editForm">
+<fieldset class="gray_rounded">
+<h2>${action} Tag</h2>
+${tagBuilder.inputText({"name":"title", "id":"title", "class":"title"}, tag.title?html, violations.isViolated("title"), "Please input a title")}
+<br/>
+<input type="submit" value="${action}" id="completeAction" />
+</fieldset>
+</form>
+<br/>
+</div>

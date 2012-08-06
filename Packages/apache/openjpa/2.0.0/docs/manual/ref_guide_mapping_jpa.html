@@ -1,0 +1,1020 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>7.&nbsp; Additional JPA Mappings</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="ref_guide_mapping.html" title="Chapter&nbsp;7.&nbsp; Mapping"><link rel="prev" href="ref_guide_mapping_notes_nonstdjoins.html" title="6.&nbsp; Non-Standard Joins"><link rel="next" href="ref_guide_mapping_limits.html" title="8.&nbsp; Mapping Limitations"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.&nbsp;
+            Additional JPA Mappings
+        </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ref_guide_mapping_notes_nonstdjoins.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;7.&nbsp;
+        Mapping
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ref_guide_mapping_limits.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ref_guide_mapping_jpa"></a>7.&nbsp;
+            Additional JPA Mappings
+        </h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_datastoreid">7.1. 
+                Datastore Identity Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_version">7.2. 
+                Surrogate Version Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_columns">7.3. 
+                Multi-Column Mappings
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_fieldjoin">7.4. 
+                Join Column Attribute Targets
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_embed">7.5. 
+                Embedded Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll">7.6. 
+                Collections
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll_table">7.6.1. 
+                    Container Table
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll_joincols">7.6.2. 
+                    Element Join Columns
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll_order">7.6.3. 
+                    Order Column
+                </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_onemany">7.7. 
+                One-Sided One-Many Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map">7.8. 
+                Maps
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map_keycols">7.8.1. Key Columns</a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map_keyjoincols">7.8.2. Key Join Columns</a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map_embedkey">7.8.3. Key Embedded Mapping</a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map_ex">7.8.4. Examples</a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_constraints">7.9. 
+                Indexes and Constraints
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_index">7.9.1. 
+                    Indexes
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_fk">7.9.2. 
+                    Foreign Keys
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_unique">7.9.3. 
+                    Unique Constraints
+                </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_xmlmapping">7.10. 
+              XML Column Mapping
+            </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_streamsupport">7.11. 
+                LOB Streaming
+            </a></span></dt></dl></div><a class="indexterm" name="d0e29236"></a><p>
+OpenJPA supports many persistence strategies beyond those of the JPA
+specification. <a href="ref_guide_meta_jpa.html" title="3.&nbsp; Additional JPA Metadata">Section&nbsp;3, &#8220;
+            Additional JPA Metadata
+        &#8221;</a> covered the logical
+metadata for OpenJPA's additional persistence strategies. We now demonstrate how
+to map entities using these strategies to the database.
+        </p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_mapping_jpa_datastoreid"></a>7.1.&nbsp;
+                Datastore Identity Mapping
+            </h3></div></div></div><a class="indexterm" name="d0e29248"></a><a class="indexterm" name="d0e29253"></a><a class="indexterm" name="d0e29260"></a><a class="indexterm" name="d0e29265"></a><p>
+<a href="ref_guide_pc_oid.html" title="4.&nbsp; Object Identity">Section&nbsp;4, &#8220;
+            Object Identity
+        &#8221;</a> describes how to use datastore identity
+in JPA. OpenJPA requires a single numeric primary key column to hold datastore
+identity values. The
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/DataStoreIdColumn.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.DataStoreIdColumn</code>
+</a> annotation customizes the datastore identity column. This annotation
+has the following properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">String name</code>: Defaults to <code class="literal">ID</code>.
+                    </p></li><li><p>
+<code class="literal">int precision</code>
+                    </p></li><li><p>
+<code class="literal">String columnDefinition</code>
+                    </p></li><li><p>
+<code class="literal">boolean insertable</code>
+                    </p></li><li><p>
+<code class="literal">boolean updatable</code>
+                    </p></li></ul></div><p>
+All properties correspond exactly to the same-named properties on the standard
+<code class="classname">Column</code> annotation, described in
+<a href="jpa_overview_mapping_column.html" title="3.&nbsp; Column">Section&nbsp;3, &#8220;
+            Column
+        &#8221;</a>.
+            </p><div class="example"><a name="ref_guide_mapping_jpa_datastoreidex"></a><p class="title"><b>Example&nbsp;7.14.&nbsp;
+                    Datastore Identity Mapping
+                </b></p><div class="example-contents"><pre class="programlisting">
+import org.apache.openjpa.persistence.*;
+import org.apache.openjpa.persistence.jdbc.*;
+
+@Entity
+@Table(name="LOGS")
+@DataStoreIdColumn(name="ENTRY")
+public class LogEntry {
+
+    @Lob
+    private String content;
+
+    ...
+}
+</pre></div></div><br class="example-break"></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_mapping_jpa_version"></a>7.2.&nbsp;
+                Surrogate Version Mapping
+            </h3></div></div></div><a class="indexterm" name="d0e29327"></a><a class="indexterm" name="d0e29332"></a><a class="indexterm" name="d0e29339"></a><p>
+OpenJPA supports version fields as defined by the JPA specification, but allows
+you to use a surrogate version column in place of a version field if you like.
+You map the surrogate version column with the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/VersionColumn.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.VersionColumn</code></a>
+annotation. You can also use the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/VersionColumns.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.VersionColumns</code>
+</a> annotation to declare an array of <code class="classname">VersionColumn</code>
+values. Each <code class="classname">VersionColumn</code> has the following properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">String name</code>: Defaults to <code class="literal">VERSN</code>.
+                    </p></li><li><p>
+<code class="literal">String table</code>                     
+                    </p></li><li><p>
+<code class="literal">int length</code>
+                    </p></li><li><p>
+<code class="literal">int precision</code>
+                    </p></li><li><p>
+<code class="literal">int scale</code>
+                    </p></li><li><p>
+<code class="literal">String columnDefinition</code>
+                    </p></li><li><p>
+<code class="literal">boolean nullable</code>
+                    </p></li><li><p>
+<code class="literal">boolean insertable</code>
+                    </p></li><li><p>
+<code class="literal">boolean updatable</code>
+                    </p></li></ul></div><p>
+All properties correspond exactly to the same-named properties on the standard
+<code class="classname">Column</code> annotation, described in
+<a href="jpa_overview_mapping_column.html" title="3.&nbsp; Column">Section&nbsp;3, &#8220;
+            Column
+        &#8221;</a>.
+            </p><p>
+By default, OpenJPA assumes that surrogate versioning uses a version number
+strategy. You can choose a different strategy with the <code class="classname">
+VersionStrategy</code> annotation described in
+<a href="ref_guide_mapping_ext.html#version-strategy" title="9.1.4.&nbsp; Version Strategy">Section&nbsp;9.1.4, &#8220;
+                    Version Strategy
+                &#8221;</a>.
+            </p><p>
+If multiple columns are used for surrogate versioning, then each column,
+by default, uses a version number. But column definition for each version 
+column can be set independently to other numeric types. The version values are
+compared to detect optimistic concurrent modification. Such comparison must
+determine whether a version value <code class="literal">v1</code> represents an earlier,
+later or same with respect to another version value <code class="literal">v2</code>. While
+result of such comparison is obvious for a single numeric column that 
+monotonically increases on each update, the same is not true when version value
+is an array of numbers. By default, OpenJPA compares a version 
+<code class="literal">v1</code> as later than another version <code class="literal">v2</code>, 
+if any array element of <code class="literal">v1</code> is 
+later than the corresponding element of <code class="literal">v2</code>. 
+<code class="literal">v1</code> is equal to <code class="literal">v2</code> if every array element
+is equal and <code class="literal">v1</code> is earlier to <code class="literal">v1</code> if some
+elements of <code class="literal">v1</code> are earlier and rest are equal to corresponding
+element of <code class="literal">v2</code>.
+        </p><p>
+Multiple surrogate version columns can be spread across primary and secondary
+tables. For example, following example shows 3 version columns 
+<code class="literal">v01, v11, v12, v21</code> defined across the primary and secondary tables of 
+a persistent entity       
+        </p><pre class="programlisting">
+@Entity
+@Table(name="PRIMARY")
+@SecondaryTables({ 
+    @SecondaryTable(name = "SECONDARY_1"),
+    @SecondaryTable(name = "SECONDARY_2") 
+})
+@VersionStrategy("version-numbers")
+@VersionColumns({ 
+    @VersionColumn(name = "v01") // default is the PRIMARY table
+    @VersionColumn(name = "v11", table="SECONDARY_1", columnDefinition="FLOAT", scale=3, precision=10), 
+    @VersionColumn(name = "v12", table="SECONDARY_1"), 
+    @VersionColumn(name = "v21", table="SECONDARY_2"),
+})
+</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_mapping_jpa_columns"></a>7.3.&nbsp;
+                Multi-Column Mappings
+            </h3></div></div></div><a class="indexterm" name="d0e29483"></a><a class="indexterm" name="d0e29488"></a><a class="indexterm" name="d0e29493"></a><p>
+OpenJPA makes it easy to create multi-column
+<a href="ref_guide_mapping_custom.html#ref_guide_mapping_custom_field" title="10.3.&nbsp; Custom Field Mapping">custom mappings</a>. The JPA
+specification includes a <code class="classname">Column</code> annotation, but is
+missing a way to declare multiple columns for a single field. OpenJPA remedies
+this with the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/Columns.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.Columns</code></a>
+annotation, which contains an array of <code class="classname">Column</code> values.
+            </p><p>
+Remember to annotate custom field types with <code class="classname">Persistent</code>,
+as described in <a href="ref_guide_meta_jpa.html#ref_guide_meta_jpa_persistent" title="3.3.&nbsp; Persistent Field Values">Section&nbsp;3.3, &#8220;
+                Persistent Field Values
+            &#8221;</a>.
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_mapping_jpa_fieldjoin"></a>7.4.&nbsp;
+                Join Column Attribute Targets
+            </h3></div></div></div><p>
+<a href="jpa_overview_mapping_field.html#jpa_overview_mapping_rel" title="8.4.&nbsp; Direct Relations">Section&nbsp;8.4, &#8220;
+                Direct Relations
+            &#8221;</a> in the JPA Overview introduced
+you to the <code class="classname">JoinColumn</code> annotation. A <code class="classname">
+JoinColumn</code>'s <code class="literal"> referencedColumnName</code> property
+declares which column in the table of the related type this join column links
+to. Suppose, however, that the related type is unmapped, or that it is part of a
+table-per-class inheritance hierarchy. Each subclass that might be assigned to
+the field could reside in a different table, and could use entirely different
+names for its primary key columns. It becomes impossible to supply a single
+<code class="literal">referencedColumnName</code> that works for all subclasses.
+            </p><p>
+OpenJPA rectifies this by allowing you to declare which <span class="emphasis"><em>attribute
+</em></span> in the related type each join column links to, rather than which
+column. If the attribute is mapped differently in various subclass tables,
+OpenJPA automatically forms the proper join for the subclass record at hand. The
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/XJoinColumn.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.XJoinColumn</code></a>
+annotation has all the same properties as the standard <code class="classname">JoinColumn
+</code> annotation, but adds an additional <code class="literal">
+referencedAttributeName</code> property for this purpose. Simply use a
+<code class="classname">XJoinColumn</code> in place of a <code class="classname">JoinColumn
+</code> whenever you need to access this added functionality.
+            </p><p>
+For compound keys, use the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/XJoinColumns.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.XJoinColumns</code></a>
+annotation. The value of this annotation is an array of individual <code class="classname">
+XJoinColumn</code>s.
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_mapping_jpa_embed"></a>7.5.&nbsp;
+                Embedded Mapping
+            </h3></div></div></div><p>
+JPA uses the <code class="classname">AttributeOverride</code> annotation to override the
+default mappings of an embeddable class. The JPA Overview details this process
+in <a href="jpa_overview_mapping_field.html#jpa_overview_mapping_embed" title="8.3.&nbsp; Embedded Mapping">Section&nbsp;8.3, &#8220;
+                Embedded Mapping
+            &#8221;</a>. <code class="classname">
+AttributeOverride</code>s suffice for simple mappings, but do not allow
+you to override complex mappings. Also, JPA has no way to differentiate between
+a null embedded object and one with default values for all of its fields.
+            </p><p>
+OpenJPA overcomes these shortcomings with the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/EmbeddedMapping.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.EmbeddedMapping</code>
+</a> annotation. This annotation has the following properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">String nullIndicatorColumnName</code>: If the named column's value
+is <code class="literal">NULL</code>, then the embedded object is assumed to be null. If
+the named column has a non- <code class="literal">NULL</code> value, then the embedded
+object will get loaded and populated with data from the other embedded fields.
+This property is entirely optional. By default, OpenJPA always assumes the
+embedded object is non-null, just as in standard JPA mapping.
+                    </p><p>
+If the column you name does not belong to any fields of the embedded object,
+OpenJPA will create a synthetic null-indicator column with this name. In fact,
+you can specify a value of <code class="literal">true</code> to simply indicate that you
+want a synthetic null-indicator column, without having to come up with a name
+for it. A value of <code class="literal">false</code> signals that you explicitly do not
+want a null-indicator column created for this mapping (in case you have
+configured your <a href="ref_guide_mapping_defaults.html" title="4.&nbsp; Mapping Defaults">mapping defaults
+</a> to create one by default).
+                    </p></li><li><p>
+<code class="literal">String nullIndicatorFieldName</code>: Rather than name a null
+indicator column, you can name a field of the embedded type. OpenJPA will use
+the column of this field as the null-indicator column.
+                    </p></li><li><p>
+<code class="literal">MappingOverride[] overrides</code>: This array allows you to
+override any mapping of the embedded object.
+                    </p></li></ul></div><p>
+The <code class="classname">EmbeddedMapping</code>'s <code class="literal">overrides</code> array
+serves the same purpose as standard JPA's <code class="classname">AttributeOverride
+</code>s and <code class="classname">AssociationOverride</code> s. In fact, you can
+also use the <code class="classname">MappingOverride</code> annotation on an entity
+class to override a complex mapping of its mapped superclass, just as you can
+with <code class="classname"> AttributeOverride</code> and <code class="classname">
+AssociationOverride</code> s. The <code class="classname">MappingOverrides</code>
+annotation, whose value is an array of <code class="classname">MappingOverride</code> s,
+allows you to override multiple mapped superclass mappings.
+            </p><p>
+Each
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/MappingOverride.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.MappingOverride</code>
+</a> annotation has the following properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">String name</code>: The name of the field that is being overridden.
+                    </p></li><li><p>
+<code class="literal">Column[] columns</code>: Columns for the new field mapping.
+                    </p></li><li><p>
+<code class="literal">XJoinColumn[] joinColumns</code>: Join columns for the new field
+mapping, if it is a relation field.
+                    </p></li><li><p>
+<code class="literal">ContainerTable containerTable</code>: Table for the new collection
+or map field mapping. We cover collection mappings in
+<a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll" title="7.6.&nbsp; Collections">Section&nbsp;7.6, &#8220;
+                Collections
+            &#8221;</a>, and map mappings in
+<a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map" title="7.8.&nbsp; Maps">Section&nbsp;7.8, &#8220;
+                Maps
+            &#8221;</a>.
+                    </p></li><li><p>
+<code class="literal">ElementJoinColumn[] elementJoinColumns</code>: Element join columns
+for the new collection or map field mapping. You will see how to use element
+join columns in <a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll_joincols" title="7.6.2.&nbsp; Element Join Columns">Section&nbsp;7.6.2, &#8220;
+                    Element Join Columns
+                &#8221;</a>.
+                    </p></li></ul></div><p>
+The following example defines an embeddable <code class="classname"> PathCoordinate
+</code> class with a custom mapping of a <code class="classname">java.awt.Point
+</code> field to two columns. It then defines an entity which embeds a
+<code class="classname"> PointCoordinate</code> and overrides the default mapping for
+the point field. The entity also declares that if the <code class="classname">PathCoordinate
+</code>'s <code class="literal">siteName</code> field column is null, it means that
+no <code class="classname">PathCoordinate</code> is stored in the embedded record; the
+owning field will load as null.
+            </p><div class="example"><a name="ref_guide_mapping_jpa_embedex"></a><p class="title"><b>Example&nbsp;7.15.&nbsp;
+                    Overriding Complex Mappings
+                </b></p><div class="example-contents"><pre class="programlisting">
+import org.apache.openjpa.persistence.jdbc.*;
+
+@Embeddable
+public class PathCoordinate {
+
+    private String siteName;
+
+    @Persistent
+    @Strategy("com.xyz.openjpa.PointValueHandler")
+    private Point point;
+
+    ...
+}
+
+@Entity
+public class Path {
+
+    @Embedded
+    @EmbeddedMapping(nullIndicatorFieldName="siteName", overrides={
+        @MappingOverride(name="siteName", columns=@Column(name="START_SITE")),
+        @MappingOverride(name="point", columns={
+            @Column(name="START_X"),
+            @Column(name="START_Y")
+        })
+    })
+    private PathCoordinate start;
+
+    ...
+}
+</pre></div></div><br class="example-break"></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_mapping_jpa_coll"></a>7.6.&nbsp;
+                Collections
+            </h3></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll_table">7.6.1. 
+                    Container Table
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll_joincols">7.6.2. 
+                    Element Join Columns
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll_order">7.6.3. 
+                    Order Column
+                </a></span></dt></dl></div><a class="indexterm" name="d0e29731"></a><p>
+In <a href="ref_guide_meta_jpa.html#ref_guide_meta_jpa_persistent_coll" title="3.4.&nbsp;Persistent Collection Fields">Section&nbsp;3.4, &#8220;Persistent Collection Fields&#8221;</a>, we explored the
+<code class="classname">PersistentCollection</code> annotation for persistent collection
+fields that aren't a standard <code class="literal">OneToMany</code> or <code class="literal">
+ManyToMany</code> relation. To map these non-standard collections, combine
+OpenJPA's <code class="classname">ContainerTable</code> annotation with
+<code class="classname">ElementJoinColumn</code>s.
+We explore the annotations below.
+            </p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ref_guide_mapping_jpa_coll_table"></a>7.6.1.&nbsp;
+                    Container Table
+                </h4></div></div></div><a class="indexterm" name="d0e29758"></a><p>
+The
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/ContainerTable.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.ContainerTable</code>
+</a> annotation describes a database table that holds collection (or map)
+elements. This annotation has the following properties:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">String name</code>
+                        </p></li><li><p>
+<code class="literal">String catalog</code>
+                        </p></li><li><p>
+<code class="literal">String schema</code>
+                        </p></li><li><p>
+<code class="literal">XJoinColumn[] joinColumns</code>
+                        </p></li><li><p>
+<code class="literal">ForeignKey joinForeignKey</code>
+                        </p></li><li><p>
+<code class="literal">Index joinIndex</code>
+                        </p></li></ul></div><p>
+The <code class="literal">name</code>, <code class="literal">catalog</code>, <code class="literal">schema
+</code>, and <code class="literal">joinColumns</code> properties describe the container
+table and how it joins to the owning entity's table. These properties correspond
+to the same-named properties on the standard <code class="classname"> JoinTable</code>
+annotation, described in <a href="jpa_overview_mapping_field.html#jpa_overview_mapping_assoccoll" title="8.5.&nbsp; Join Table">Section&nbsp;8.5, &#8220;
+                Join Table
+            &#8221;</a>
+. If left unspecified, the name of the table defaults to the first five
+characters of the entity table name, plus an underscore, plus the field name.
+The <code class="literal">joinForeignKey</code> and <code class="literal"> joinIndex</code>
+properties override default foreign key and index generation for the join
+columns. We explore foreign keys and indexes later in this chapter.
+                </p><p>
+You may notice that the container table does not define how to store the
+collection elements. That is left to separate annotations, which are the subject
+of the next sections.
+                </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ref_guide_mapping_jpa_coll_joincols"></a>7.6.2.&nbsp;
+                    Element Join Columns
+                </h4></div></div></div><a class="indexterm" name="d0e29838"></a><p>
+Element join columns are equivalent to standard JPA join columns, except that
+they represent a join to a collection or map element entity rather than a direct
+relation. You represent an element join column with OpenJPA's
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/ElementJoinColumn.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.ElementJoinColumn</code>
+</a> annotation. To declare a compound join, enclose an array of <code class="classname">
+ElementJoinColumn</code>s in the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/ElementJoinColumns.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.ElementJoinColumns</code>
+</a> annotation.
+                </p><p>
+An <code class="classname">ElementJoinColumn</code> always resides in a container table,
+so it does not have the <code class="literal"> table</code> property of a standard
+<code class="classname"> JoinColumn</code>. Like <code class="classname"> XJoinColumn</code>s
+above, <code class="classname"> ElementJoinColumn</code>s can reference a linked
+attribute rather than a static linked column. Otherwise, the <code class="classname">
+ElementJoinColumn</code> and standard <code class="classname">JoinColumn</code>
+annotations are equivalent. See <a href="jpa_overview_mapping_field.html#jpa_overview_mapping_rel" title="8.4.&nbsp; Direct Relations">Section&nbsp;8.4, &#8220;
+                Direct Relations
+            &#8221;</a>
+in the JPA Overview for a review of the <code class="classname">JoinColumn</code>
+annotation.
+                </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ref_guide_mapping_jpa_coll_order"></a>7.6.3.&nbsp;
+                    Order Column
+                </h4></div></div></div><a class="indexterm" name="d0e29891"></a><p>
+Relational databases do not guarantee that records are returned in insertion
+order. If you want to make sure that your collection elements are loaded in the
+same order they were in when last stored, you must declare an order column. An
+order column can be declared using OpenJPA's 
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/OrderColumn" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.OrderColumn</code></a>
+annotation or the JPA 2.0 <code class="classname">javax.persistence.OrderColumn</code>
+annotation or <code class="literal">order-column</code> orm element as defined in
+<a href="jpa_overview_meta_xml.html" title="3.&nbsp; XML Schema">Section&nbsp;3, &#8220;
+            XML Schema
+        &#8221;</a>.
+OpenJPA's
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/OrderColumn" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.OrderColumn</code></a>
+annotation has the following properties:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">String name</code>: Defaults to <code class="literal">the name of the
+relationship property or field of the entity or embeddable 
+class + _ORDER</code>.  To use the JPA 1.0 default order column
+name <code class="literal">ORDR</code>, set the <a href="ref_guide_conf_openjpa.html#openjpa.Compatibility" title="5.7.&nbsp; openjpa.Compatibility">Section&nbsp;5.7, &#8220;
+                openjpa.Compatibility
+            &#8221;</a>
+option <code class="literal">UseJPA2DefaultOrderColumnName</code> to <code class="literal">
+false</code>.
+                        </p></li><li><p>
+<code class="literal">boolean enabled</code>
+                        </p></li><li><p>
+<code class="literal">int precision</code>
+                        </p></li><li><p>
+<code class="literal">String columnDefinition</code>
+                        </p></li><li><p>
+<code class="literal">boolean insertable</code>
+                        </p></li><li><p>
+<code class="literal">boolean updatable</code>
+                        </p></li></ul></div><p>
+Order columns are always in the container table. You can explicitly turn off
+ordering (if you have enabled it by default via your
+<a href="ref_guide_mapping_defaults.html" title="4.&nbsp; Mapping Defaults"> mapping defaults</a>) by setting
+the <code class="literal">enabled</code> property to <code class="literal">false</code>. All other
+properties correspond exactly to the same-named properties on the standard
+<code class="classname">Column</code> annotation, described in
+<a href="jpa_overview_mapping_column.html" title="3.&nbsp; Column">Section&nbsp;3, &#8220;
+            Column
+        &#8221;</a>.
+                </p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_mapping_jpa_onemany"></a>7.7.&nbsp;
+                One-Sided One-Many Mapping
+            </h3></div></div></div><a class="indexterm" name="d0e29986"></a><p>
+The previous section covered the use of <code class="classname">ElementJoinColumn</code>
+annotations in conjunction with a <code class="classname">ContainerTable</code> for
+mapping collections to dedicate tables. <code class="classname">ElementJoinColumn</code>
+s, however, have one additional use: to create a one-sided one-many mapping.
+Standard JPA supports <code class="classname">OneToMany</code> fields without a
+<code class="literal">mappedBy</code> inverse, but only by mapping these fields to a
+<code class="classname">JoinTable</code> (see
+<a href="jpa_overview_mapping_field.html#jpa_overview_mapping_assoccoll" title="8.5.&nbsp; Join Table">Section&nbsp;8.5, &#8220;
+                Join Table
+            &#8221;</a> in the JPA Overview for
+details). Often, you'd like to create a one-many association based on an inverse
+foreign key (logical or actual) in the table of the related type.
+            </p><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="261"><tr><td><img src="img/inv-key-coll.png"></td></tr></table></div><p>
+Consider the model above. <code class="classname">Subscription</code> has a collection
+of <code class="classname">LineItem</code> s, but <code class="classname">LineItem</code> has
+no inverse relation to <code class="classname">Subscription</code>. To retrieve all of
+the <code class="classname">LineItem</code> records for a <code class="classname">Subscription
+</code>, we join the <code class="literal">SUB_ID</code> inverse foreign key column
+in the <code class="literal">LINE_ITEM</code> table to the primary key column of the
+<code class="literal">SUB</code> table. The example below shows how to represent this
+model in mapping annotations. Note that OpenJPA automatically assumes an inverse
+foreign key mapping when element join columns are given, but no container or
+join table is given.
+            </p><div class="example"><a name="ref_guide_mapping_jpa_onemanyex"></a><p class="title"><b>Example&nbsp;7.16.&nbsp;
+                    One-Sided One-Many Mapping
+                </b></p><div class="example-contents"><pre class="programlisting">
+package org.mag.subscribe;
+
+import org.apache.openjpa.persistence.jdbc.*;
+
+@Entity
+@Table(name="LINE_ITEM", schema="CNTRCT")
+public class LineItem {
+    ...
+}
+
+@Entity
+@Table(name="SUB", schema="CNTRCT")
+public class Subscription {
+
+    @Id private long id;
+
+    @OneToMany
+    @ElementJoinColumn(name="SUB_ID", referencedColumnName="ID")
+    private Collection&lt;LineItem&gt; items;
+
+    ...
+}
+</pre></div></div><br class="example-break"></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_mapping_jpa_map"></a>7.8.&nbsp;
+                Maps
+            </h3></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map_keycols">7.8.1. Key Columns</a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map_keyjoincols">7.8.2. Key Join Columns</a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map_embedkey">7.8.3. Key Embedded Mapping</a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_map_ex">7.8.4. Examples</a></span></dt></dl></div><a class="indexterm" name="d0e30056"></a><p>
+We detailed the <code class="literal">ContainerTable</code> annotation in
+<a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll_table" title="7.6.1.&nbsp; Container Table">Section&nbsp;7.6.1, &#8220;
+                    Container Table
+                &#8221;</a>. Custom map mappings may
+also use this annotation to represent a map table.
+            </p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ref_guide_mapping_jpa_map_keycols"></a>7.8.1.&nbsp;Key Columns</h4></div></div></div><a class="indexterm" name="d0e30071"></a><p>
+        Key columns serve the same role for map keys as the element
+        join columns described in
+        <a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll_joincols" title="7.6.2.&nbsp; Element Join Columns">Section&nbsp;7.6.2, &#8220;
+                    Element Join Columns
+                &#8221;</a> serve for
+        collection elements.  OpenJPA's
+        <a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/KeyColumn.html" target="_top">
+        <code class="classname">org.apache.openjpa.persistence.jdbc.KeyColumn</code>
+        </a> annotation represents a map key.  To map custom
+        multi-column keys, use the
+        <a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/KeyColumns.html" target="_top">
+        <code class="classname">org.apache.openjpa.persistence.jdbc.KeyColumns</code>
+        </a> annotation, whose value is an array of <code class="classname">KeyColumn</code>s.
+        </p><p>
+        A <code class="classname">KeyColumn</code> always resides in
+        a container table, so it does not have the <code class="literal">table</code>
+        property of a standard <code class="classname">Column</code>.  Otherwise, the
+        <code class="classname">KeyColumn</code> and standard <code class="classname">Column</code>
+        annotations are equivalent.  See
+        <a href="jpa_overview_mapping_column.html" title="3.&nbsp; Column">Section&nbsp;3, &#8220;
+            Column
+        &#8221;</a> in the JPA
+        Overview for a review of the <code class="classname">Column</code> annotation.
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ref_guide_mapping_jpa_map_keyjoincols"></a>7.8.2.&nbsp;Key Join Columns</h4></div></div></div><a class="indexterm" name="d0e30120"></a><p>
+        Key join columns are equivalent to standard JPA
+        join columns, except that they represent a join to a map key entity rather than a direct relation.  You represent
+        a key join column with OpenJPA's
+        <a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/KeyJoinColumn.html" target="_top">
+        <code class="classname">org.apache.openjpa.persistence.jdbc.KeyJoinColumn</code></a> annotation.  To declare a compound join, enclose an
+        array of <code class="classname">KeyJoinColumn</code>s in the
+        <a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/KeyJoinColumns.html" target="_top">
+        <code class="classname">org.apache.openjpa.persistence.jdbc.KeyJoinColumns</code>
+        </a> annotation.
+        </p><p>
+        A <code class="classname">KeyJoinColumn</code> always resides in
+        a container table, so it does not have the <code class="literal">table</code> property
+        of a standard <code class="classname">JoinColumn</code>.  Like <code class="classname">XJoinColumn</code>s above,
+        <code class="classname">KeyJoinColumn</code>s can reference a linked field
+        rather than a static linked column.  Otherwise, the <code class="classname">KeyJoinColumn</code>
+        and standard <code class="classname">JoinColumn</code> annotations are equivalent.  See
+        <a href="jpa_overview_mapping_field.html#jpa_overview_mapping_rel" title="8.4.&nbsp; Direct Relations">Section&nbsp;8.4, &#8220;
+                Direct Relations
+            &#8221;</a> in the JPA
+        Overview for a review of the <code class="classname">JoinColumn</code> annotation.
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ref_guide_mapping_jpa_map_embedkey"></a>7.8.3.&nbsp;Key Embedded Mapping</h4></div></div></div><a class="indexterm" name="d0e30172"></a><p>
+        The
+        <a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/KeyEmbeddedMapping.html" target="_top">
+        <code class="classname">org.apache.openjpa.persistence.jdbc.KeyEmbeddedMapping</code>
+        </a> annotation allows you to map your map field's embedded
+        key type to your container table.  This annotation has exactly
+        the same properties as the
+        <code class="classname">EmbeddedMapping</code> annotation described
+        <a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_embed" title="7.5.&nbsp; Embedded Mapping">above</a>.
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ref_guide_mapping_jpa_map_ex"></a>7.8.4.&nbsp;Examples</h4></div></div></div><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="273"><tr><td><img src="img/string-rel-map.png"></td></tr></table></div><p>
+        Map mapping in OpenJPA uses the same principles you saw in
+        collection mapping.  The example below maps the <code class="literal">
+        Article.authors</code> map according to the diagram above.
+        </p><div class="example"><a name="ref_guide_mapping_jpa_map_stringrelmap"></a><p class="title"><b>Example&nbsp;7.17.&nbsp;String Key, Entity Value Map Mapping</b></p><div class="example-contents"><pre class="programlisting">
+package org.mag.pub;
+
+import org.apache.openjpa.persistence.*;
+import org.apache.openjpa.persistence.jdbc.*;
+
+@Entity
+@Table(name="AUTH")
+@DataStoreIdColumn(name="AID", columnDefinition="INTEGER64")
+public class Author {
+    ...
+}
+
+package org.mag;
+
+@Entity
+@Table(name="ART")
+public class Article {
+    @Id private long id;
+
+    @PersistentMap
+    @ContainerTable(name="ART_AUTHS", joinColumns=@XJoinColumn(name="ART_ID"))
+    @KeyColumn(name="LNAME")
+    @ElementJoinColumn(name="AUTH_ID")
+    private Map&lt;String,Author&gt; authors;
+
+    ...
+}
+</pre></div></div><br class="example-break"></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_mapping_jpa_constraints"></a>7.9.&nbsp;
+                Indexes and Constraints
+            </h3></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_index">7.9.1. 
+                    Indexes
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_fk">7.9.2. 
+                    Foreign Keys
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_unique">7.9.3. 
+                    Unique Constraints
+                </a></span></dt></dl></div><p>
+OpenJPA uses index information during schema generation to index the proper
+columns. OpenJPA uses foreign key and unique constraint information during
+schema creation to generate the proper database constraints, and also at runtime
+to order SQL statements to avoid constraint violations while maximizing SQL
+batch size.
+            </p><p>
+OpenJPA assumes certain columns have indexes or constraints based on your
+mapping defaults, as detailed in <a href="ref_guide_mapping_defaults.html" title="4.&nbsp; Mapping Defaults">Section&nbsp;4, &#8220;
+            Mapping Defaults
+        &#8221;</a>.
+You can override the configured defaults on individual joins, field
+values, collection elements, map keys, or map values using the annotations
+presented in the following sections.
+            </p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ref_guide_mapping_jpa_index"></a>7.9.1.&nbsp;
+                    Indexes
+                </h4></div></div></div><a class="indexterm" name="d0e30220"></a><a class="indexterm" name="d0e30225"></a><p>
+The <a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/Index.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.Index</code></a>
+annotation represents an index on the columns of a field. It is also used within
+the <a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll_table" title="7.6.1.&nbsp; Container Table"><code class="classname">ContainerTable
+</code></a> annotation to index join columns.
+To index the columns of a collection element, use the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/ElementIndex.html" target="_top">
+<code class="classname"> org.apache.openjpa.persistence.jdbc.ElementIndex</code></a>
+annotation. These annotations have the following properties:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">boolean enabled</code>: Set this property to <code class="literal">false
+</code> to explicitly tell OpenJPA not to index these columns, when OpenJPA
+would otherwise do so.
+                        </p></li><li><p>
+<code class="literal">String name</code>: The name of the index. OpenJPA will choose a
+name if you do not provide one.
+                        </p></li><li><p>
+<code class="literal">boolean unique</code>: Whether to create a unique index. Defaults
+to false.
+                        </p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ref_guide_mapping_jpa_fk"></a>7.9.2.&nbsp;
+                    Foreign Keys
+                </h4></div></div></div><a class="indexterm" name="d0e30269"></a><a class="indexterm" name="d0e30274"></a><p>
+The <a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/ForeignKey.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.ForeignKey</code></a>
+annotation represents a foreign key on the columns of a field. It is also used
+within the <a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_coll_table" title="7.6.1.&nbsp; Container Table"><code class="classname">
+ContainerTable</code></a> annotation to set a database foreign key on
+join columns.  To set a constraint to the columns of a collection element, use
+the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/ElementForeignKey.html" target="_top">
+<code class="classname"> org.apache.openjpa.persistence.jdbc.ElementForeignKey</code>
+</a> annotation. These annotations have the following properties:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">boolean enabled</code>: Set this property to <code class="literal">false
+</code> to explicitly tell OpenJPA not to set a foreign key on these columns,
+when OpenJPA would otherwise do so.
+                        </p></li><li><p>
+<code class="literal">String name</code>: The name of the foreign key. OpenJPA will
+choose a name if you do not provide one, or will create an anonymous key.
+                        </p></li><li><p>
+<code class="literal">boolean deferred</code>: Whether to create a deferred key if
+supported by the database.
+                        </p></li><li><p>
+<code class="literal">boolean implicit</code>: Whether to mark a relation field value as 
+implicitly referring to a related entity. This property can be used, for 
+example, when a field value represents primary key field of a related
+entity, but for legacy or other logistic reasons, the field is declared as the
+same type of the primary key of the related entity instead of a reference to
+the entity itself. Hence no actual mapping can be defined on the field itself.
+If this implicit property is set, then no other property on
+the ForeignKey annotation can be set to their non-default value. This setting
+does not manifest as a database foreign key constraint.                      
+                    </p></li><li><p>
+<code class="literal">ForeignKeyAction deleteAction</code>: Value from the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/ForeignKeyAction.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.ForeignKeyAction</code>
+</a> enum identifying the desired delete action. Defaults to <code class="literal">
+RESTRICT</code>.
+                        </p></li><li><p>
+<code class="literal">ForeignKeyAction updateAction</code>: Value from the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/ForeignKeyAction.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.ForeignKeyAction</code>
+</a> enum identifying the desired update action. Defaults to <code class="literal">
+RESTRICT</code>.
+                        </p></li></ul></div><p>
+Keep in mind that OpenJPA uses foreign key information at runtime to avoid
+constraint violations; it is important, therefore, that your
+<a href="ref_guide_mapping_defaults.html" title="4.&nbsp; Mapping Defaults">mapping defaults</a> and foreign
+key annotations combine to accurately reflect your existing database
+constraints, or that  you configure OpenJPA to reflect on your database schema
+to discover existing foreign keys (see
+<a href="ref_guide_schema_info.html#ref_guide_schema_info_factory" title="12.2.&nbsp; Schema Factory">Section&nbsp;12.2, &#8220;
+                Schema Factory
+            &#8221;</a>).
+                </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ref_guide_mapping_jpa_unique"></a>7.9.3.&nbsp;
+                    Unique Constraints
+                </h4></div></div></div><a class="indexterm" name="d0e30362"></a><a class="indexterm" name="d0e30367"></a><p>
+The <a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/Unique.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.Unique</code></a>
+annotation represents a unique constraint on the columns of a field. It is more
+convenient than using the <code class="literal">uniqueConstraints</code> property of
+standard JPA <code class="classname">Table</code> and <code class="classname">SecondaryTable
+</code> annotations, because you can apply it directly to the constrained
+field. The <code class="classname">Unique</code> annotation has the following
+properties:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">boolean enabled</code>: Set this property to <code class="literal">false
+</code> to explicitly tell OpenJPA not to constrain these columns, when
+OpenJPA would otherwise do so.
+                        </p></li><li><p>
+<code class="literal">String name</code>: The name of the constraint. OpenJPA will choose
+a name if you do not provide one, or will create an anonymous constraint.
+                        </p></li><li><p>
+<code class="literal">boolean deferred</code>: Whether to create a deferred constraint if
+supported by the database.
+                        </p></li></ul></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_xmlmapping"></a>7.10.&nbsp;
+              XML Column Mapping
+            </h3></div></div></div><a class="indexterm" name="d0e30414"></a><a class="indexterm" name="d0e30419"></a><p>
+Some databases support XML column types and
+XPath queries and indexes over these columns. OpenJPA supports mapping of an
+entity property mapped to an XML column on the following databases and their
+minimum versions.
+              </p><div class="itemizedlist"><ul type="disc"><li><p>
+DB2 9
+                      </p></li><li><p>
+MySQL 5.1.30
+                      </p></li><li><p>
+Oracle 9
+                      </p></li><li><p>
+PostgreSQL 8.3 (XML support must be compiled in, the minimum JDBC driver
+version is 8.3-603)
+                      </p></li><li><p>
+SQL Server 2005
+                      </p></li></ul></div><p>
+Annotate the entity property using the XMLValueHandler strategy:
+		      </p><pre class="programlisting">
+@Persistent
+@Strategy("org.apache.openjpa.jdbc.meta.strats.XMLValueHandler")
+</pre><p>
+The default fetch type is EAGER but can be changed to LAZY by using:
+              </p><pre class="programlisting">
+@Persistence(fetch=FetchType.LAZY)
+</pre><p>
+The entity property class is required to have
+JAXB binding annotations. You can generate property class from an XML schema by using
+the <code class="literal">xjc</code> generator from the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="https://jaxb.dev.java.net/" target="_top">JAXB reference implementation</a>.
+The <code class="literal">xjc</code> will generate the
+class along with the required annotations. Ensure that <code class="classname">@XmlRootElement</code>
+appears in the root class. In some cases this annotation needs to be added manually.
+              </p><p>
+The entity property class is required to have getter and setter methods for all its
+fields. By default, the <code class="literal">xjc</code> will not generate setter
+methods for collections but you can force it to do so by using the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="https://jaxb2-commons.dev.java.net/collection-setter-injector/" target="_top">collection
+setter injector plugin</a>.
+              </p><p>
+The JAXB jar files must be on the application classpath (jaxb-api.jar,
+jaxb-impl.jar, jsr173_1.0_api.jar or equivalent).
+              </p><p>
+JPQL path expressions can navigate into the mapped class and its
+subfields to any level.
+              </p><p>
+The path expression is rewritten into an equivalent XPath expression using SQL
+XML functions.
+              </p><p>
+The path expression must be single-valued. Path expressions over XML
+mapped classes can only be used in the WHERE clause as an operand to a simple predicate
+(=  &lt;&gt;  &lt;  &gt;  &gt;=  &lt;=).
+              </p><p>
+Path expressions over XML mapped fields can not be:
+              </p><div class="itemizedlist"><ul type="disc"><li><p>
+an input to a JPQL scalar function
+                      </p></li><li><p>
+an operand of BETWEEN,  IS NULL, LIKE or IN predicate
+                      </p></li><li><p>
+used to project out subfields in the SELECT clause
+                      </p></li><li><p>
+used in the FROM, GROUP BY, HAVING, ORDER BY clauses
+                      </p></li></ul></div><p>
+XML schema must not contain namespace declarations. The JPQL path
+expressions can not refer to Java fields generated from XML ANY type or
+XML mixed element types.
+              </p><p>
+The data type generated by JAXB must be a valid type
+to use the property in a JPQL predicate.
+              </p><p>
+Shown below is a sample XML schema <a href="ref_guide_mapping_jpa.html#ref_guide_xmlmapping_myaddress" title="Example&nbsp;7.18.&nbsp; myaddress.xsd">myaddress.xsd</a>,
+in which the JPA entity Order has <code class="classname">shipAddress</code> persistent field that maps to an XML column.
+		      </p><div class="example"><a name="ref_guide_xmlmapping_myaddress"></a><p class="title"><b>Example&nbsp;7.18.&nbsp;
+                       myaddress.xsd
+                   </b></p><div class="example-contents"><pre class="programlisting">
+&lt;?xml version="1.0" ?&gt;
+&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" &gt;
+
+&lt;xs:complexType name="Address"&gt;
+ &lt;xs:sequence&gt;
+  &lt;xs:element name="Name" type="xs:string" /&gt;
+  &lt;xs:element name="Street" type="xs:string"
+  	minOccurs="1" maxOccurs="3" /&gt;
+  &lt;xs:element name="City" type="xs:string" /&gt;
+&lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;
+
+&lt;xs:complexType name="CAN_Address"&gt;
+ &lt;xs:complexContent&gt;
+  &lt;xs:extension base="Address"&gt;
+   &lt;xs:sequence&gt;
+    &lt;xs:element name="Province" type="xs:string" /&gt;
+    &lt;xs:element name="PostalCode" type="xs:string" /&gt;
+   &lt;/xs:sequence&gt;
+  &lt;/xs:extension&gt;
+&lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;
+
+&lt;xs:simpleType name="USPS_ZIP"&gt;
+ &lt;xs:restriction base="xs:integer"&gt;
+  &lt;xs:minInclusive value="01000" /&gt;
+  &lt;xs:maxInclusive value="99999" /&gt;
+ &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;
+
+&lt;xs:complexType name="USA_Address"&gt;
+ &lt;xs:complexContent&gt;
+  &lt;xs:extension base="Address"&gt;
+   &lt;xs:sequence&gt;
+    &lt;xs:element name="State" type="xs:string" /&gt;
+    &lt;xs:element name="ZIP" type="USPS_ZIP" /&gt;
+   &lt;/xs:sequence&gt;
+  &lt;/xs:extension&gt;
+ &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;
+
+&lt;xs:element name="MailAddress" type="Address" /&gt;
+&lt;xs:element name="AddrCAN" type="CAN_Address"
+   substitutionGroup="MailAddress" /&gt;
+&lt;xs:element name="AddrUSA" type="USA_Address"
+   substitutionGroup="MailAddress" /&gt;
+&lt;/xs:schema&gt;
+</pre></div></div><br class="example-break"><p>
+Java classes <a href="ref_guide_mapping_jpa.html#ref_guide_xmlmapping_address" title="Example&nbsp;7.19.&nbsp; Address.java">Address</a>,
+<a href="ref_guide_mapping_jpa.html#ref_guide_xmlmapping_usaaddress" title="Example&nbsp;7.20.&nbsp; USAAddress.java">USAAddress</a> and
+<a href="ref_guide_mapping_jpa.html#ref_guide_xmlmapping_canaddress" title="Example&nbsp;7.21.&nbsp; CANAddress.java">CANAddress</a>
+are produced from <code class="literal">myaddress</code> schema by using the
+<code class="literal">xjc</code> generator.
+              </p><div class="example"><a name="ref_guide_xmlmapping_address"></a><p class="title"><b>Example&nbsp;7.19.&nbsp;
+                       Address.java
+                  </b></p><div class="example-contents"><pre class="programlisting">
+    ...
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "Address", propOrder = {
+    "name",
+    "street",
+    "city"
+})
+public class Address {
+    @XmlElement(name = "Name", required = true)
+    protected String name;
+    @XmlElement(name = "Street", required = true)
+    protected List&lt;String&gt; street;
+    @XmlElement(name = "City", required = true)
+    protected String city;
+
+   /**
+     * Getter and Setter methods.
+     *
+     */
+     ...
+}
+</pre></div></div><br class="example-break"><div class="example"><a name="ref_guide_xmlmapping_usaaddress"></a><p class="title"><b>Example&nbsp;7.20.&nbsp;
+                    USAAddress.java
+                </b></p><div class="example-contents"><pre class="programlisting">
+    ...
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "USA_Address", propOrder = {
+    "state",
+    "zip"
+})
+public class USAAddress
+    extends Address
+{
+
+    @XmlElement(name = "State")
+    protected String state;
+    @XmlElement(name = "ZIP")
+    protected int zip;
+
+   /**
+     * Getter and Setter methods.
+     *
+     */
+     ...
+}
+</pre></div></div><br class="example-break"><div class="example"><a name="ref_guide_xmlmapping_canaddress"></a><p class="title"><b>Example&nbsp;7.21.&nbsp;
+                    CANAddress.java
+                </b></p><div class="example-contents"><pre class="programlisting">
+     ...
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "CAN_Address", propOrder = {
+    "province",
+    "postalCode"
+})
+public class CANAddress
+    extends Address
+{
+
+    @XmlElement(name = "Province")
+    protected String province;
+    @XmlElement(name = "PostalCode")
+    protected String postalCode;
+
+   /**
+     * Getter and Setter methods.
+     *
+     */
+     ...
+}
+</pre></div></div><br class="example-break"><div class="example"><a name="ref_guide_xmlmapping_annorder"></a><p class="title"><b>Example&nbsp;7.22.&nbsp;
+                    Showing annotated Order entity with XML mapping strategy
+                </b></p><div class="example-contents"><pre class="programlisting">
+@Entity
+public class Order {
+    @Id  private into id;
+    @Persistent
+    @Strategy ("org.apache.openjpa.jdbc.meta.strats.XMLValueHandler")
+    private Address shipAddress;
+    ...
+}
+</pre></div></div><br class="example-break"><div class="example"><a name="ref_guide_xmlmapping_createorder"></a><p class="title"><b>Example&nbsp;7.23.&nbsp;
+                 Showing creation of Order entity having shipAddress mapped to XML column
+             </b></p><div class="example-contents"><pre class="programlisting">
+...
+myaddress.ObjectFactory addressFactory = new myaddress.ObjectFactory();
+Customer c1 = new Customer();
+c1.setCid( new Customer.CustomerKey("USA", 1) );
+c1.setName("Harry's Auto");
+Order o1 = new Order( 850, false, c1);
+USAAddress addr1 = addressFactory.createUSAAddress();
+addr1.setCity("San Jose");
+addr1.setState("CA");
+addr1.setZIP(new Integer("95141"));
+addr1.getStreet().add("12500 Monterey");
+addr1.setName( c1.getName());
+o1.setShipAddress(addr1);
+em.persist(o1);
+...
+</pre></div></div><br class="example-break"><div class="example"><a name="ref_guide_xmlmapping_jpqlquery"></a><p class="title"><b>Example&nbsp;7.24.&nbsp;
+                    Sample JPQL queries for XML column mapping
+                </b></p><div class="example-contents"><pre class="programlisting">
+. select o from Order o where o.shipAddress.city = "San Jose" or
+			      o.shipAddress.city = "San Francisco"  (OK)
+
+. select o.shipaAddress from Order o  (OK)
+
+. select o.shipAddress.city from Order o  (INVALID)
+
+. select o from Order o where o.shipAddress.street = "San Jose"  (INVALID multi-valued)
+</pre></div></div><br class="example-break"></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_streamsupport"></a>7.11.&nbsp;
+                LOB Streaming
+            </h3></div></div></div><a class="indexterm" name="d0e30560"></a><p>
+In addition to handling LOBs in a standard JPA manner
+(<code class="classname">LOB</code> annotation and <code class="literal">lob</code> XML element),
+OpenJPA supports LOB streaming. This feature
+makes it possible to stream large amounts of data into and out of persistent
+field without ever holding all the data in memory at the same time.
+            </p><p>
+LOB streaming is supported on the following databases.
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+MySQL
+                    </p></li><li><p>
+Oracle
+                    </p></li><li><p>
+PostgreSQL
+                    </p></li><li><p>
+SQL Server
+                    </p></li></ul></div><p>
+See <a href="supported_databases.html" title="Appendix&nbsp;2.&nbsp; Supported Databases">Appendix&nbsp;2, <i xmlns:xlink="http://www.w3.org/1999/xlink">
+        Supported Databases
+    </i></a> for possible database-specific
+restrictions.
+            </p><p>
+To persist a stream, apply the 
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/Persistent.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.Persistent</code></a> 
+annotation to either <code class="classname">java.io.InputStream</code> or
+<code class="classname">java.io.Reader</code> field.
+            </p><div class="example"><a name="ref_guide_streamsupport_example"></a><p class="title"><b>Example&nbsp;7.25.&nbsp;
+                    Annotated InputStream and Reader
+                </b></p><div class="example-contents"><pre class="programlisting">
+@Entity
+public class Employee {
+    ...
+    @Persistent
+    private InputStream photoStream;
+
+    @Persistent
+    private Reader photoDescription;
+    ...
+} 
+</pre></div></div><br class="example-break"></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ref_guide_mapping_notes_nonstdjoins.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ref_guide_mapping.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ref_guide_mapping_limits.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">6.&nbsp;
+            Non-Standard Joins
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;8.&nbsp;
+            Mapping Limitations
+        </td></tr></table></div></body></html>

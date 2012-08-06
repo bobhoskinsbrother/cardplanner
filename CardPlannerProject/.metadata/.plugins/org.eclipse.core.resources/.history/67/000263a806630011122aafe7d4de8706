@@ -1,0 +1,22 @@
+package uk.co.itstherules.ui.functions;
+
+import uk.co.itstherules.yawf.server.StandaloneServerApplication;
+
+public class ServerInitializer {
+	
+	private static StandaloneServerApplication APP;
+
+	public static void initializeServer(String applicationName) throws Exception {
+		String warFile = "/Users/ben/Code/java/projects/CardPlanner/dist/Simple.war";//ServerInitializer.class.getClassLoader().getResource(applicationName + ".war").getPath();
+		APP = new StandaloneServerApplication("/" + applicationName, warFile, 9999);
+		APP.startServer();
+		while (!APP.isStarted()) { Thread.sleep(250); }
+    }
+	
+	public static void destroyServer() {
+		if(APP != null) {
+			APP.destroy();
+			APP = null;
+		}
+    }
+}

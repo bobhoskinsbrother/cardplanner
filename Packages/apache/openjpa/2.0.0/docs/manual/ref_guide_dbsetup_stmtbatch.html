@@ -1,0 +1,75 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>9.&nbsp; Statement Batching</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="ref_guide_dbsetup.html" title="Chapter&nbsp;4.&nbsp; JDBC"><link rel="prev" href="ref_guide_dbsetup_retain.html" title="8.&nbsp; Configuring the Use of JDBC Connections"><link rel="next" href="ref_guide_dbsetup_lrs.html" title="10.&nbsp; Large Result Sets"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">9.&nbsp;
+            Statement Batching
+        </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ref_guide_dbsetup_retain.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;4.&nbsp;
+        JDBC
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ref_guide_dbsetup_lrs.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ref_guide_dbsetup_stmtbatch"></a>9.&nbsp;
+            Statement Batching
+        </h2></div></div></div><a class="indexterm" name="d0e23949"></a><a class="indexterm" name="d0e23952"></a><p>
+In addition to connection pooling and prepared statement caching, OpenJPA 
+employs statement batching to speed up JDBC updates. Statement batching is 
+enabled by default for any JDBC driver that supports it. When batching is on, 
+OpenJPA automatically orders its SQL statements to maximize the size of each 
+batch. This can result in large performance gains for transactions that modify 
+a lot of data.
+		</p><p>
+You configure statement batching through the system DBDictionary, which is 
+controlled by the openjpa.jdbc.DBDictionary configuration property. You can 
+enable the statement batching by setting the batchLimit in the value. The batch
+limit is the maximum number of statements OpenJPA will ever batch 
+together. A value has the following meaning:
+			</p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">-1</code>: Unlimited number of statements for a batch. 
+                </p></li><li><p>
+<code class="literal">0</code>: Disable batch support. This is the default for most 
+dictionaries.
+                </p></li><li><p>
+<code class="literal">any positive number</code>: Maximum number of statements for a batch.
+                </p></li></ul></div><p> 
+			</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+By default, the batch support is based on each Dictionary to define the default 
+batch limit. Currently only DB2 and Oracle dictionaries are set the default 
+batch limit to 100. The default batch limit for the rest of the dictionaries is set 
+to zero (disabled). 
+			</p></div><p>
+		</p><p>
+The example below shows how to enable and disable statement batching via 
+your configuration properties. 
+        </p><div class="example"><a name="ref_guide_dbsetup_stmtbatch_exmple1"></a><p class="title"><b>Example&nbsp;4.12.&nbsp;
+                Enable SQL statement batching
+            </b></p><div class="example-contents"><pre class="programlisting">
+&lt;property name="openjpa.jdbc.DBDictionary" value="db2(batchLimit=25)"/&gt;
+&lt;property name="openjpa.jdbc.DBDictionary" value="oracle(batchLimit=-1)"/&gt;
+Or
+&lt;property name="openjpa.jdbc.DBDictionary" value="batchLimit=25"/&gt;
+&lt;property name="openjpa.jdbc.DBDictionary" value="batchLimit=-1"/&gt;
+</pre></div></div><br class="example-break"><div class="example"><a name="ref_guide_dbsetup_stmtbatch_exmple2"></a><p class="title"><b>Example&nbsp;4.13.&nbsp;
+                Disable SQL statement batching
+            </b></p><div class="example-contents"><pre class="programlisting">
+&lt;property name="openjpa.jdbc.DBDictionary" value="db2(batchLimit=0)"/&gt;
+Or
+&lt;property name="openjpa.jdbc.DBDictionary" value="batchLimit=0"/&gt;
+</pre></div></div><br class="example-break"><p>
+By default, org.apache.openjpa.jdbc.kernel.BatchingConstraintUpdateManager 
+is the default statement batching implementation. OPENJPA also 
+provides another update manager 
+org.apache.openjpa.jdbc.kernel.BatchingOperationOrderUpdateManager for the
+statements that required ordering.  You can plug-in this update manager through
+the "openjpa.jdbc.UpdateManager" property. Or you can plug-in your own
+statement batching implementation by providing the implementation that extends 
+from AbstractUpdateManager, ConstraitUpdateManager or OperationOrderUpdateManager. 
+Add this implementation
+class as a property in the persistence.xml file. For example, a custom
+statement batching implementation mycomp.MyUpdateManager extends 
+ConstraitUpdateManager. You specify this implementation in the persistence.xml
+file as the following example:
+        </p><div class="example"><a name="ref_guide_dbsetup_stmtbatch_exmple3"></a><p class="title"><b>Example&nbsp;4.14.&nbsp;
+                Plug-in custom statement batching implementation
+            </b></p><div class="example-contents"><pre class="programlisting">
+&lt;property name="openjpa.jdbc.UpdateManager" value="mycomp.MyUpdateManager"/&gt;
+</pre></div></div><br class="example-break"></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ref_guide_dbsetup_retain.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ref_guide_dbsetup.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ref_guide_dbsetup_lrs.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">8.&nbsp;
+            Configuring the Use of JDBC Connections
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;10.&nbsp;
+            Large Result Sets
+        </td></tr></table></div></body></html>

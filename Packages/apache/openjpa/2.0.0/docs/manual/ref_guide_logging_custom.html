@@ -1,0 +1,70 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>6.&nbsp; Custom Log</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="ref_guide_logging.html" title="Chapter&nbsp;3.&nbsp; Logging"><link rel="prev" href="ref_guide_logging_commons.html" title="5.&nbsp; Apache Commons Logging"><link rel="next" href="ref_guide_dbsetup.html" title="Chapter&nbsp;4.&nbsp; JDBC"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.&nbsp;
+            Custom Log
+        </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ref_guide_logging_commons.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;3.&nbsp;
+        Logging
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ref_guide_dbsetup.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ref_guide_logging_custom"></a>6.&nbsp;
+            Custom Log
+        </h2></div></div></div><a class="indexterm" name="d0e19685"></a><p>
+If none of available logging systems meet your needs, you can configure the
+logging system with a custom logger. You might use custom logging to integrate
+with a proprietary logging framework used by some applications servers, or for
+logging to a graphical component for GUI applications.
+        </p><p>
+A custom logging framework must include an implementation of the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/lib/log/LogFactory.html" target="_top"><code class="classname">
+org.apache.openjpa.lib.log.LogFactory</code></a> interface. We present
+a custom <code class="classname">LogFactory</code> below.
+        </p><div class="example"><a name="ref_guide_logging_custom_ex"></a><p class="title"><b>Example&nbsp;3.6.&nbsp;
+                Custom Logging Class
+            </b></p><div class="example-contents"><pre class="programlisting">
+package com.xyz;
+
+import org.apache.openjpa.lib.log.*;
+
+public class CustomLogFactory
+    implements LogFactory {   
+
+    private String _prefix = "CUSTOM LOG";
+
+    public void setPrefix(String prefix) {
+        _prefix = prefix;
+    }
+ 
+    public Log getLog(String channel) {
+        // Return a simple extension of AbstractLog that will log
+        // everything to the System.err stream. Note that this is 
+        // roughly equivalent to OpenJPA's default logging behavior.
+        return new AbstractLog() {
+
+            protected boolean isEnabled(short logLevel) {
+                // log all levels
+                return true;
+            }
+
+            protected void log(short type, String message, Throwable t) {
+                // just send everything to System.err
+                System.err.println(_prefix + ": " + type + ": "
+                    + message + ": " + t);
+            }
+        };
+    }
+}
+</pre></div></div><br class="example-break"><p>
+To make OpenJPA use your custom log factory, set the
+<a href="ref_guide_conf_openjpa.html#openjpa.Log" title="5.42.&nbsp; openjpa.Log"><code class="literal">openjpa.Log</code></a> configuration
+property to your factory's full class name. Because this property is a plugin
+property (see <a href="ref_guide_conf_plugins.html" title="4.&nbsp; Plugin Configuration">Section&nbsp;4, &#8220;
+            Plugin Configuration
+        &#8221;</a> ), you can also
+pass parameters to your factory. For example, to use the example factory above
+and set its prefix to "LOG MSG", you would set the <code class="literal">openjpa.Log
+</code> property to the following string:
+        </p><pre class="programlisting">
+com.xyz.CustomLogFactory(Prefix="LOG MSG")
+</pre></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ref_guide_logging_commons.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ref_guide_logging.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ref_guide_dbsetup.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">5.&nbsp;
+            Apache Commons Logging
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;4.&nbsp;
+        JDBC
+    </td></tr></table></div></body></html>

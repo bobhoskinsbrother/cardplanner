@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Extension-Name: com.sun.mail.smtp
+Specification-Title: com.sun.mail.smtp
+Specification-Version: $1.4
+Specification-Vendor: Sun Microsystems, Inc.
+Implementation-Title: com.sun.mail.smtp
+Implementation-Version: $1.4.2ea
+Implementation-Vendor: Sun Microsystems, Inc.
+Implementation-Vendor-Id: com.sun

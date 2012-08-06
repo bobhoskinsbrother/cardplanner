@@ -1,0 +1,154 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;3.&nbsp; Java Persistence API Architecture</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="jpa_overview.html" title="Part&nbsp;2.&nbsp;Java Persistence API"><link rel="prev" href="jpa_overview_why.html" title="Chapter&nbsp;2.&nbsp; Why JPA?"><link rel="next" href="jpa_overview_pc.html" title="Chapter&nbsp;4.&nbsp; Entity"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;3.&nbsp;
+        Java Persistence API Architecture
+    </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="jpa_overview_why.html">Prev</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;2.&nbsp;Java Persistence API</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_pc.html">Next</a></td></tr></table><hr></div><div class="chapter" lang="en" id="jpa_overview_arch"><div class="titlepage"><div><div><h2 class="title"><a name="jpa_overview_arch"></a>Chapter&nbsp;3.&nbsp;
+        Java Persistence API Architecture
+    </h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="jpa_overview_arch.html#jpa_overview_arch_exceptions">1. 
+            JPA Exceptions
+        </a></span></dt></dl></div><a class="indexterm" name="d0e729"></a><p>
+The diagram below illustrates the relationships between the primary components
+of the JPA architecture.
+    </p><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="267"><tr><td><img src="img/jpa-arch.png"></td></tr></table></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+A number of the depicted interfaces are only required outside of an
+EJB3-compliant application server. In an application server, <code class="classname">
+EntityManager</code> instances are typically injected, rendering the
+<code class="classname">EntityManagerFactory</code> unnecessary. Also, transactions
+within an application server are handled using standard application server
+transaction controls. Thus, the <code class="classname">EntityTransaction</code> also
+goes unused.
+        </p></div><div class="itemizedlist"><ul type="disc"><li><p>
+            <a class="indexterm" name="d0e759"></a>
+<span class="bold"><strong><a href="jpa_overview_persistence.html" title="Chapter&nbsp;6.&nbsp; Persistence"><code class="classname">
+Persistence</code></a></strong></span>: The <code class="classname">
+javax.persistence.Persistence</code> class contains static helper methods
+to obtain <code class="classname">EntityManagerFactory</code> instances in a
+vendor-neutral fashion.
+            </p></li><li><p>
+            <a class="indexterm" name="d0e777"></a>
+<span class="bold"><strong><a href="jpa_overview_emfactory.html" title="Chapter&nbsp;7.&nbsp; EntityManagerFactory"><code class="classname">
+EntityManagerFactory</code></a></strong></span>: The <code class="classname">
+javax.persistence.EntityManagerFactory</code> class is a factory for
+<code class="classname"> EntityManager</code> s.
+            </p></li><li><p>
+            <a class="indexterm" name="d0e795"></a>
+<span class="bold"><strong><a href="jpa_overview_em.html" title="Chapter&nbsp;8.&nbsp; EntityManager"><code class="classname">EntityManager
+</code></a></strong></span>: The <code class="classname">javax.persistence.EntityManager
+</code> is the primary JPA interface used by applications. Each
+<code class="classname">EntityManager</code> manages a set of persistent objects, and
+has APIs to insert new objects and delete existing ones. When used outside the
+container, there is a one-to-one relationship between an <code class="classname">
+EntityManager</code> and an <code class="classname"> EntityTransaction</code>.
+<code class="classname"> EntityManager</code>s also act as factories for <code class="classname">
+Query</code> instances.
+            </p></li><li><p>
+            <a class="indexterm" name="d0e825"></a>
+<span class="bold"><strong><a href="jpa_overview_pc.html" title="Chapter&nbsp;4.&nbsp; Entity"><code class="classname">Entity
+</code></a></strong></span>: Entities are persistent objects that represent
+datastore records.
+            </p></li><li><p>
+            <a class="indexterm" name="d0e837"></a>
+<span class="bold"><strong><a href="jpa_overview_trans.html" title="Chapter&nbsp;9.&nbsp; Transaction"><code class="classname">
+EntityTransaction</code></a></strong></span>: Each <code class="classname">EntityManager
+</code> has a one-to-one relation with a single <code class="classname">
+javax.persistence.EntityTransaction</code>. <code class="classname">
+EntityTransaction</code>s allow operations on persistent data to be 
+grouped into units of work that either completely succeed or completely fail, 
+leaving the datastore in its original state. These all-or-nothing operations 
+are important for maintaining data integrity.
+            </p></li><li><p>
+            <a class="indexterm" name="d0e858"></a>
+            <a class="indexterm" name="d0e862"></a>
+            <a class="indexterm" name="d0e868"></a>
+            <a class="indexterm" name="d0e872"></a>
+            <a class="indexterm" name="d0e880"></a>
+            <a class="indexterm" name="d0e886"></a>
+<span class="bold"><strong><a href="jpa_overview_query.html" title="Chapter&nbsp;10.&nbsp; JPA Query"><code class="classname">Query
+</code></a></strong></span>: The <code class="classname">javax.persistence.Query
+</code> interface is implemented by each JPA vendor to find persistent
+objects that meet certain criteria. JPA standardizes support for queries using
+both the Java Persistence Query Language (JPQL) and the Structured Query 
+Language (SQL). You obtain <code class="classname">Query</code> instances from an 
+<code class="classname">EntityManager</code>.
+            </p></li></ul></div><p>
+The example below illustrates how the JPA interfaces interact to execute a JPQL
+query and update persistent objects. The example assumes execution outside a
+container.
+    </p><div class="example"><a name="jpa_overview_arch_interact_outside"></a><p class="title"><b>Example&nbsp;3.1.&nbsp;
+            Interaction of Interfaces Outside Container
+        </b></p><div class="example-contents"><pre class="programlisting">
+  // get an EntityManagerFactory using the Persistence class
+  // It is not recommended to obtain a factory often, as construction of a
+  // factory is a costly operation. Typically you will like to cache  
+  // a factory and then refer it for repeated use
+  EntityManagerFactory factory = Persistence.createEntityManagerFactory(null);
+
+  // get an EntityManager from the factory
+  EntityManager em = factory.createEntityManager();
+
+  // Begin a transaction
+  em.getTransaction().begin();
+
+  // query for all employees who work in our research division
+  // and put in over 40 hours a week average
+  Query query = em.createQuery("SELECT e " +
+                               "  FROM Employee e " +
+                               " WHERE e.division.name = 'Research' " +
+                               "   AND e.avgHours &gt; 40");
+  List results = query.getResultList();
+
+  // give all those hard-working employees a raise
+  for (Object res : results) {
+    Employee emp = (Employee) res;
+    emp.setSalary(emp.getSalary() * 1.1);
+  }
+
+  // commit will detect all updated entities and save them in database
+  em.getTransaction().commit();
+
+  // free the resources
+  em.close();
+</pre></div></div><br class="example-break"><p>
+Within a container, the <code class="classname">EntityManager</code> will be injected
+and transactions will be handled declaratively. Thus, the in-container version 
+of the example consists entirely of business logic:
+    </p><div class="example"><a name="jpa_overview_arch_interact_inside"></a><p class="title"><b>Example&nbsp;3.2.&nbsp;
+            Interaction of Interfaces Inside Container
+        </b></p><div class="example-contents"><pre class="programlisting">
+// query for all employees who work in our research division
+// and put in over 40 hours a week average - note that the EntityManager em
+// is injected using a @Resource annotation
+Query query = em.createQuery("select e from Employee e where "
+    + "e.division.name = 'Research' and e.avgHours &gt; 40");
+List results = query.getResultList();
+
+// give all those hard-working employees a raise
+for (Object res : results) {
+    emp = (Employee) res;
+    emp.setSalary(emp.getSalary() * 1.1);
+} 
+</pre></div></div><br class="example-break"><p>
+The remainder of this document explores the JPA interfaces in detail. We present
+them in roughly the order that you will use them as you develop your
+application.
+    </p><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="jpa_overview_arch_exceptions"></a>1.&nbsp;
+            JPA Exceptions
+        </h2></div></div></div><a class="indexterm" name="d0e926"></a><a class="indexterm" name="d0e933"></a><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="285"><tr><td><img src="img/jpa-exceptions.png"></td></tr></table></div><p>
+The diagram above depicts the JPA exception architecture. All
+exceptions are unchecked. JPA uses standard exceptions where
+appropriate, most notably <code class="classname">IllegalArgumentException</code>s and
+<code class="classname">IllegalStateException</code>s. The specification also provides
+a few JPA-specific exceptions in the <code class="literal">javax.persistence</code>
+package. These exceptions should be self-explanatory. See the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://java.sun.com/javaee/6/docs/api/" target="_top">Javadoc</a> for
+additional details on JPA exceptions.
+        </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+All exceptions thrown by OpenJPA implement
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/util/ExceptionInfo.html" target="_top"><code class="classname">
+org.apache.openjpa.util.ExceptionInfo</code></a> to provide you with
+additional error information.
+            </p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="jpa_overview_why.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="jpa_overview.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_pc.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;2.&nbsp;
+        Why JPA?
+    &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;4.&nbsp;
+        Entity
+    </td></tr></table></div></body></html>

@@ -1,0 +1,35 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>6.&nbsp; PersistenceUnitUtil</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="jpa_overview_emfactory.html" title="Chapter&nbsp;7.&nbsp; EntityManagerFactory"><link rel="prev" href="jpa_overview_emfactory_close.html" title="5.&nbsp; Closing the EntityManagerFactory"><link rel="next" href="jpa_overview_em.html" title="Chapter&nbsp;8.&nbsp; EntityManager"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.&nbsp;
+            PersistenceUnitUtil
+        </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="jpa_overview_emfactory_close.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;7.&nbsp;
+        EntityManagerFactory
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_em.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="jpa_overview_emfactory_puutil"></a>6.&nbsp;
+            PersistenceUnitUtil
+        </h2></div></div></div><a class="indexterm" name="d0e4763"></a><pre class="programlisting">
+public PersistenceUnitUtil getPersistenceUnitUtil();
+</pre><p>
+The <code class="classname">EntityManagerFactory</code> method 
+<code class="methodname">getPersistenceUnitUtil</code> to provide access to a 
+<code class="classname">PersistenceUnitUtil</code> utility. <code class="classname">PersistenceUnitUtil</code>
+can be used to obtain the identity of a managed object and determine the load
+state of the entity or one of its attributes.  If the object is not
+managed by one of the entity managers created from the entity manager factory 
+from which the utility was obtained, the <code class="methodname">getIdentifier</code> method will
+return null and the <code class="methodname">isLoaded</code> methods will return false.
+</p><pre class="programlisting">
+EntityManagerFactory emf = Persistence.createEntityManagerFactory();
+PersistenceUnitUtil puUtil = emf.getPersistenceUnitUtil();
+
+if (puUtil.getIdentifier(deptEntity) == null) {
+    throw new Exception("Identity is not valid.");
+}
+if (!puUtil.isLoaded(deptEntity, "employees")) {
+    throw new Exception("Employees not loaded.")
+}
+</pre><p>
+        </p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="jpa_overview_emfactory_close.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="jpa_overview_emfactory.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_em.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">5.&nbsp;
+            Closing the EntityManagerFactory
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;8.&nbsp;
+        EntityManager
+    </td></tr></table></div></body></html>

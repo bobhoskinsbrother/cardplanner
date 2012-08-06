@@ -1,0 +1,1189 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>8.&nbsp; Field Mapping</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="jpa_overview_mapping.html" title="Chapter&nbsp;13.&nbsp; Mapping Metadata"><link rel="prev" href="jpa_overview_mapping_discrim.html" title="7.&nbsp; Discriminator"><link rel="next" href="jpa_overview_mapping_full.html" title="9.&nbsp; The Complete Mappings"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">8.&nbsp;
+            Field Mapping
+        </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="jpa_overview_mapping_discrim.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;13.&nbsp;
+        Mapping Metadata
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_mapping_full.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="jpa_overview_mapping_field"></a>8.&nbsp;
+            Field Mapping
+        </h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_basic">8.1. 
+                Basic Mapping
+            </a></span></dt><dd><dl><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_lob">8.1.1. 
+                    LOBs
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_enum">8.1.2. 
+                    Enumerated
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_temporal">8.1.3. 
+                    Temporal Types
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_basic_example">8.1.4. 
+                    The Updated Mappings
+                </a></span></dt></dl></dd><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_secondary">8.2. 
+                Secondary Tables
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_embed">8.3. 
+                Embedded Mapping
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_rel">8.4. 
+                Direct Relations
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_assoccoll">8.5. 
+                Join Table
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_bidi">8.6. 
+                Bidirectional Mapping
+            </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_map">8.7. 
+                Map Mapping
+            </a></span></dt></dl></div><a class="indexterm" name="d0e13038"></a><a class="indexterm" name="d0e13045"></a><p>
+The following sections enumerate the myriad of field mappings JPA
+supports. JPA augments the persistence metadata covered in
+<a href="jpa_overview_meta.html" title="Chapter&nbsp;5.&nbsp; Metadata">Chapter&nbsp;5, <i xmlns:xlink="http://www.w3.org/1999/xlink">
+        Metadata
+    </i></a> with many new object-relational
+annotations. As we explore the library of standard mappings, we introduce each
+of these enhancements in context.
+        </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+OpenJPA supports many additional field types, and allows you to create custom
+mappings for unsupported field types or database schemas. See the Reference
+Guide's <a href="ref_guide_mapping.html" title="Chapter&nbsp;7.&nbsp; Mapping">Chapter&nbsp;7, <i xmlns:xlink="http://www.w3.org/1999/xlink">
+        Mapping
+    </i></a> for complete coverage of
+OpenJPA's mapping capabilities.
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_mapping_basic"></a>8.1.&nbsp;
+                Basic Mapping
+            </h3></div></div></div><div class="toc"><dl><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_lob">8.1.1. 
+                    LOBs
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_enum">8.1.2. 
+                    Enumerated
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_temporal">8.1.3. 
+                    Temporal Types
+                </a></span></dt><dt><span class="section"><a href="jpa_overview_mapping_field.html#jpa_overview_mapping_basic_example">8.1.4. 
+                    The Updated Mappings
+                </a></span></dt></dl></div><a class="indexterm" name="d0e13062"></a><a class="indexterm" name="d0e13069"></a><p>
+A <span class="emphasis"><em>basic</em></span> field mapping stores the field value directly into
+a database column. The following field metadata types use basic mapping. These
+types were defined in <a href="jpa_overview_meta_field.html" title="2.&nbsp; Field and Property Metadata">Section&nbsp;2, &#8220;
+            Field and Property Metadata
+        &#8221;</a>.
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<a href="jpa_overview_meta_field.html#jpa_overview_meta_id" title="2.3.&nbsp; Id"><code class="classname">Id</code></a> fields.
+                    </p></li><li><p>
+<a href="jpa_overview_meta_field.html#jpa_overview_meta_version" title="2.6.&nbsp; Version"><code class="classname"> Version</code></a>
+fields.
+                    </p></li><li><p>
+<a href="jpa_overview_meta_field.html#jpa_overview_meta_basic" title="2.7.&nbsp; Basic"><code class="classname">Basic</code></a>
+fields.
+                    </p></li></ul></div><p>
+In fact, you have already seen examples of basic field mappings in this chapter
+- the mapping of all identity fields in
+<a href="jpa_overview_mapping_id.html#jpa_overview_mapping_identityex" title="Example&nbsp;13.3.&nbsp; Identity Mapping">Example&nbsp;13.3, &#8220;
+                Identity Mapping
+            &#8221;</a>. As you saw in that
+section, to write a basic field mapping you use the <code class="classname">Column
+</code> annotation to describe the column the field value is stored in. We
+discussed the <code class="classname">Column</code> annotation in
+<a href="jpa_overview_mapping_column.html" title="3.&nbsp; Column">Section&nbsp;3, &#8220;
+            Column
+        &#8221;</a>. Recall that the name of
+the column defaults to the field name, and the type of the column defaults to an
+appropriate type for the field type. These defaults allow you to sometimes omit
+the annotation altogether.
+            </p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="jpa_overview_mapping_lob"></a>8.1.1.&nbsp;
+                    LOBs
+                </h4></div></div></div><a class="indexterm" name="d0e13118"></a><a class="indexterm" name="d0e13121"></a><a class="indexterm" name="d0e13126"></a><p>
+Adding the <code class="classname">Lob</code> marker annotation to a basic field signals
+that the data is to be stored as a LOB (Large OBject). If the field holds string
+or character data, it will map to a <code class="literal">CLOB</code> (Character Large
+OBject) database column. If the field holds any other data type, it will be
+stored as binary data in a <code class="literal">BLOB</code> (Binary Large OBject) column.
+The implementation will serialize the Java value if needed.
+                </p><p>
+The equivalent XML element is <code class="literal">lob</code>, which has no children or
+attributes.
+                </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+OpenJPA also supports LOB streaming. See <a href="ref_guide_mapping_jpa.html#ref_guide_streamsupport" title="7.11.&nbsp; LOB Streaming">Section&nbsp;7.11, &#8220;
+                LOB Streaming
+            &#8221;</a> in
+the Reference Guide for details.
+                    </p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="jpa_overview_mapping_enum"></a>8.1.2.&nbsp;
+                    Enumerated
+                </h4></div></div></div><a class="indexterm" name="d0e13155"></a><a class="indexterm" name="d0e13158"></a><a class="indexterm" name="d0e13163"></a><p>
+You can apply the <code class="classname">Enumerated</code> annotation to your
+<code class="classname">Enum</code> fields to control how they map to the database. The
+<code class="classname">Enumerated</code> annotation's value one of the following
+constants from the <code class="classname">EnumType</code> enum:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">EnumType.ORDINAL</code>: The default. The persistence
+implementation places the ordinal value of the enum in a numeric column. This is
+an efficient mapping, but may break if you rearrange the Java enum declaration.
+                        </p></li><li><p>
+<code class="literal">EnumType.STRING</code>: Store the name of the enum value rather
+than the ordinal. This mapping uses a <code class="literal">VARCHAR</code> column rather
+than a numeric one.
+                        </p></li></ul></div><p>
+The <code class="classname">Enumerated</code> annotation is optional. Any un-annotated
+enumeration field defaults to <code class="literal">ORDINAL</code> mapping.
+                </p><p>
+The corresponding XML element is <code class="literal">enumerated</code>. Its embedded
+text must be one of <code class="literal">STRING</code> or <code class="literal">ORIDINAL</code>.
+                </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="jpa_overview_mapping_temporal"></a>8.1.3.&nbsp;
+                    Temporal Types
+                </h4></div></div></div><a class="indexterm" name="d0e13220"></a><a class="indexterm" name="d0e13225"></a><p>
+The <code class="classname">Temporal</code> annotation determines how the implementation
+handles your basic <code class="classname"> java.util.Date</code> and <code class="classname">
+java.util.Calendar</code> fields at the JDBC level. The <code class="classname">
+Temporal</code> annotation's value is a constant from the <code class="classname">
+TemporalType</code> enum. Available values are:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">TemporalType.TIMESTAMP</code>: The default. Use JDBC's timestamp
+APIs to manipulate the column data.
+                        </p></li><li><p>
+<code class="literal">TemporalType.DATE</code>: Use JDBC's SQL date APIs to manipulate
+the column data.
+                        </p></li><li><p>
+<code class="literal">TemporalType.TIME</code>: Use JDBC's time APIs to manipulate the
+column data.
+                        </p></li></ul></div><p>
+If the <code class="classname">Temporal</code> annotation is omitted, the implementation
+will treat the data as a timestamp.
+                </p><p>
+The corresponding XML element is <code class="literal">temporal</code>, whose text value
+must be one of: <code class="literal">TIME</code>, <code class="literal">DATE</code>, or <code class="literal">
+TIMESTAMP</code>.
+                </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="jpa_overview_mapping_basic_example"></a>8.1.4.&nbsp;
+                    The Updated Mappings
+                </h4></div></div></div><p>
+Below we present an updated diagram of our model and its associated database
+schema, followed by the corresponding mapping metadata. Note that the mapping
+metadata relies on defaults where possible. Also note that as a mapped
+superclass, <code class="classname">Document</code> can define mappings that will
+automatically transfer to its subclass' tables. In
+<a href="jpa_overview_mapping_field.html#jpa_overview_mapping_embed" title="8.3.&nbsp; Embedded Mapping">Section&nbsp;8.3, &#8220;
+                Embedded Mapping
+            &#8221;</a>, you will see how a subclass
+can override its mapped superclass' mappings.
+                </p><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="387"><tr><td><img src="img/jpa-basic-field.png"></td></tr></table></div><div class="example"><a name="jpa_overview_mapping_basicex"></a><p class="title"><b>Example&nbsp;13.10.&nbsp;
+                        Basic Field Mapping
+                    </b></p><div class="example-contents"><pre class="programlisting">
+package org.mag;
+
+@Entity
+@IdClass(Magazine.MagazineId.class)
+@Table(name="MAG")
+@DiscriminatorValue("Mag")
+public class Magazine {
+
+    @Column(length=9)
+    @Id private String isbn;
+    @Id private String title;
+
+    @Column(name="VERS")
+    @Version private int version;
+    
+    private String name;
+    private double price;
+
+    @Column(name="COPIES")
+    private int copiesSold;
+
+    ...
+
+    public static class MagazineId {
+        ...
+    }
+}
+
+@Entity
+@Table(name="ART", uniqueConstraints=@Unique(columnNames="TITLE"))
+@SequenceGenerator(name="ArticleSeq", sequenceName="ART_SEQ")
+public class Article {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ArticleSeq") 
+    private long id;
+
+    @Column(name="VERS")
+    @Version private int version;
+
+    private String title;
+    private byte[] content;
+
+    ...
+}
+
+
+package org.mag.pub;
+
+@Entity
+@Table(name="COMP")
+public class Company {
+
+    @Column(name="CID")
+    @Id private long id;
+
+    @Column(name="VERS")
+    @Version private int version;
+
+    private String name;
+
+    @Column(name="REV")
+    private double revenue;
+
+    ...
+}
+
+@Entity
+@Table(name="AUTH")
+public class Author {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.TABLE, generator="AuthorGen")
+    @TableGenerator(name="AuthorGen", table="AUTH_GEN", pkColumnName="PK",
+        valueColumnName="AID")
+    @Column(name="AID", columnDefinition="INTEGER64")
+    private long id;
+
+    @Column(name="VERS")
+    @Version private int version;
+
+    @Column(name="FNAME")
+    private String firstName;
+
+    @Column(name="LNAME")
+    private String lastName;
+
+    ...
+}
+
+@Embeddable
+public class Address {
+    ...
+}
+
+package org.mag.subscribe;
+
+@MappedSuperclass
+public abstract class Document {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name="VERS")
+    @Version private int version;
+
+    ...
+}
+
+@Entity
+@Table(schema="CNTRCT")
+@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorColumn(name="CTYPE")
+public class Contract
+    extends Document {
+
+    @Lob
+    private String terms;
+
+    ...
+}
+
+@Entity
+@Table(name="SUB", schema="CNTRCT")
+@DiscriminatorColumn(name="KIND", discriminatorType=DiscriminatorType.INTEGER)
+@DiscriminatorValue("1")
+public class Subscription {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name="VERS")
+    @Version private int version;
+
+    @Column(name="START")
+    private Date startDate;
+
+    @Column(name="PAY")
+    private double payment;
+
+    ...
+
+    @Entity
+    @Table(name="LINE_ITEM", schema="CNTRCT")
+    public static class LineItem
+        extends Contract {
+
+        @Column(name="COMM")
+        private String comments;
+
+        private double price;
+        private long num;
+        ...
+    }
+}
+
+@Entity(name="Lifetime")
+@DiscriminatorValue("2")
+public class LifetimeSubscription
+    extends Subscription {
+
+    @Basic(fetch=FetchType.LAZY)
+    @Column(name="ELITE")
+    private boolean getEliteClub() { ... }
+    public void setEliteClub(boolean elite) { ... }
+
+    ...
+}
+
+@Entity(name="Trial")
+@DiscriminatorValue("3")
+public class TrialSubscription
+    extends Subscription {
+
+    @Column(name="END")
+    public Date getEndDate() { ... }
+    public void setEndDate(Date end) { ... }
+
+    ...
+}
+</pre><p>
+The same metadata expressed in XML:
+                    </p><pre class="programlisting">
+&lt;entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_1_0.xsd"
+    version="1.0"&gt;
+    &lt;mapped-superclass class="org.mag.subscribe.Document"&gt;
+        &lt;attributes&gt;
+            &lt;id name="id"&gt;
+                &lt;generated-value strategy="IDENTITY"/&gt;
+            &lt;/id&gt;
+            &lt;version name="version"&gt;
+                &lt;column name="VERS"/&gt;
+            &lt;/version&gt;
+            ...
+        &lt;/attributes&gt;
+    &lt;/mapped-superclass&gt;
+    &lt;entity class="org.mag.Magazine"&gt;
+        &lt;table name="MAG"/&gt;
+        &lt;id-class="org.mag.Magazine.MagazineId"/&gt;
+        &lt;discriminator-value&gt;Mag&lt;/discriminator-value&gt;
+        &lt;attributes&gt;
+            &lt;id name="isbn"&gt;
+                &lt;column length="9"/&gt;
+            &lt;/id&gt;
+            &lt;id name="title"/&gt;
+            &lt;basic name="name"/&gt;
+            &lt;basic name="price"/&gt;
+            &lt;basic name="copiesSold"&gt;
+                &lt;column name="COPIES"/&gt;
+            &lt;/basic&gt;
+            &lt;version name="version"&gt;
+                &lt;column name="VERS"/&gt;
+            &lt;/version&gt;
+            ...
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.Article"&gt;
+        &lt;table name="ART"&gt;
+            &lt;unique-constraint&gt;
+               &lt;column-name&gt;TITLE&lt;/column-name&gt;
+            &lt;/unique-constraint&gt;
+        &lt;/table&gt;
+        &lt;sequence-generator name="ArticleSeq", sequenceName="ART_SEQ"/&gt;
+        &lt;attributes&gt;
+            &lt;id name="id"&gt;
+                &lt;generated-value strategy="SEQUENCE" generator="ArticleSeq"/&gt;
+            &lt;/id&gt;
+            &lt;basic name="title"/&gt;
+            &lt;basic name="content"/&gt;
+            &lt;version name="version"&gt;
+                &lt;column name="VERS"/&gt;
+            &lt;/version&gt;
+            ...
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.pub.Company"&gt;
+        &lt;table name="COMP"/&gt;
+        &lt;attributes&gt;
+            &lt;id name="id"&gt;
+                &lt;column name="CID"/&gt;
+            &lt;/id&gt;
+            &lt;basic name="name"/&gt;
+            &lt;basic name="revenue"&gt;
+                &lt;column name="REV"/&gt;
+            &lt;/basic&gt;
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.pub.Author"&gt;
+        &lt;table name="AUTH"/&gt;
+        &lt;attributes&gt;
+            &lt;id name="id"&gt;
+                &lt;column name="AID" column-definition="INTEGER64"/&gt;
+                &lt;generated-value strategy="TABLE" generator="AuthorGen"/&gt;
+                &lt;table-generator name="AuthorGen" table="AUTH_GEN" 
+                    pk-column-name="PK" value-column-name="AID"/&gt;
+            &lt;/id&gt;
+            &lt;basic name="firstName"&gt;
+                &lt;column name="FNAME"/&gt;
+            &lt;/basic&gt;
+            &lt;basic name="lastName"&gt;
+                &lt;column name="LNAME"/&gt;
+            &lt;/basic&gt;
+            &lt;version name="version"&gt;
+                &lt;column name="VERS"/&gt;
+            &lt;/version&gt;
+            ...
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subcribe.Contract"&gt;
+        &lt;table schema="CNTRCT"/&gt;
+        &lt;inheritance strategy="JOINED"/&gt;
+        &lt;discriminator-column name="CTYPE"/&gt;
+        &lt;attributes&gt;
+            &lt;basic name="terms"&gt;
+                &lt;lob/&gt;
+            &lt;/basic&gt;
+            ...
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subcribe.Subscription"&gt;
+        &lt;table name="SUB" schema="CNTRCT"/&gt;
+        &lt;inheritance strategy="SINGLE_TABLE"/&gt;
+        &lt;discriminator-value&gt;1&lt;/discriminator-value&gt;
+        &lt;discriminator-column name="KIND" discriminator-type="INTEGER"/&gt;
+        &lt;attributes&gt;
+            &lt;id name="id"&gt;
+                &lt;generated-value strategy="IDENTITY"/&gt;
+            &lt;/id&gt;
+            &lt;basic name="payment"&gt;
+                &lt;column name="PAY"/&gt;
+            &lt;/basic&gt;
+            &lt;basic name="startDate"&gt;
+                &lt;column name="START"/&gt;
+            &lt;/basic&gt;
+            &lt;version name="version"&gt;
+                &lt;column name="VERS"/&gt;
+            &lt;/version&gt;
+            ...
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subscribe.Subscription.LineItem"&gt;
+        &lt;table name="LINE_ITEM" schema="CNTRCT"/&gt;
+        &lt;primary-key-join-column name="ID" referenced-column-name="PK"/&gt;
+        &lt;attributes&gt;
+            &lt;basic name="comments"&gt;
+                &lt;column name="COMM"/&gt;
+            &lt;/basic&gt;
+            &lt;basic name="price"/&gt;
+            &lt;basic name="num"/&gt;
+            ...
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subscribe.LifetimeSubscription" name="Lifetime"&gt;
+        &lt;discriminator-value&gt;2&lt;/discriminator-value&gt;
+        &lt;attributes&gt;
+            &lt;basic name="eliteClub" fetch="LAZY"&gt;
+                &lt;column name="ELITE"/&gt;
+            &lt;/basic&gt;
+            ...
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+    &lt;entity class="org.mag.subscribe.TrialSubscription" name="Trial"&gt;
+        &lt;discriminator-value&gt;3&lt;/discriminator-value&gt;
+        &lt;attributes&gt;
+            &lt;basic name="endDate"&gt;
+                &lt;column name="END"/&gt;
+            &lt;/basic&gt;
+            ...
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+&lt;/entity-mappings&gt;
+</pre></div></div><br class="example-break"></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_mapping_secondary"></a>8.2.&nbsp;
+                Secondary Tables
+            </h3></div></div></div><a class="indexterm" name="d0e13311"></a><a class="indexterm" name="d0e13318"></a><p>
+Sometimes a logical record is spread over multiple database tables. JPA
+calls a class' declared table the <span class="emphasis"><em>primary</em></span>
+table, and calls other tables that make up a logical record <span class="emphasis"><em>secondary
+</em></span> tables. You can map any persistent field to a secondary table. Just
+write the standard field mapping, then perform these two additional steps:
+            </p><div class="orderedlist"><ol type="1"><li><p>
+Set the <code class="literal">table</code> attribute of each of the field's columns or
+join columns to the name of the secondary table.
+                    </p></li><li><p>
+Define the secondary table on the entity class declaration.
+                    </p></li></ol></div><p>
+You define secondary tables with the <code class="classname">SecondaryTable</code>
+annotation. This annotation has all the properties of the <code class="classname">Table
+</code> annotation covered in <a href="jpa_overview_mapping.html#jpa_overview_mapping_table" title="1.&nbsp; Table">Section&nbsp;1, &#8220;
+            Table
+        &#8221;</a>
+, plus a <code class="literal"> pkJoinColumns</code> property.
+            </p><p>
+The <code class="literal">pkJoinColumns</code> property is an array of <code class="classname">
+PrimaryKeyJoinColumn</code>s dictating how to join secondary table records
+to their owning primary table records. Each <code class="classname">PrimaryKeyJoinColumn
+</code> joins a secondary table column to a primary key column in the
+primary table. See <a href="jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_joined" title="6.2.&nbsp; Joined">Section&nbsp;6.2, &#8220;
+                Joined
+            &#8221;</a>
+above for coverage of <code class="classname">PrimaryKeyJoinColumn</code>'s properties.
+            </p><p>
+The corresponding XML element is <code class="literal">secondary-table</code>. This
+element has all the attributes of the <code class="literal">table</code> element, but also
+accepts nested <code class="literal">primary-key-join-column</code> elements.
+            </p><p>
+In the following example, we move the <code class="literal">Article.content</code> field
+we mapped in <a href="jpa_overview_mapping_field.html#jpa_overview_mapping_basic" title="8.1.&nbsp; Basic Mapping">Section&nbsp;8.1, &#8220;
+                Basic Mapping
+            &#8221;</a> into a joined
+secondary table, like so:
+            </p><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="189"><tr><td><img src="img/secondary-table.png"></td></tr></table></div><div class="example"><a name="jpa_overview_mapping_secondaryex"></a><p class="title"><b>Example&nbsp;13.11.&nbsp;
+                    Secondary Table Field Mapping
+                </b></p><div class="example-contents"><pre class="programlisting">
+package org.mag;
+
+@Entity
+@Table(name="ART")
+@SecondaryTable(name="ART_DATA", 
+    pkJoinColumns=@PrimaryKeyJoinColumn(name="ART_ID", referencedColumnName="ID"))
+public class Article {
+
+    @Id private long id;
+
+    @Column(table="ART_DATA")
+    private byte[] content;
+
+    ...
+}
+</pre><p>
+And in XML:
+                </p><pre class="programlisting">
+&lt;entity class="org.mag.Article"&gt;
+    &lt;table name="ART"/&gt;
+    &lt;secondary-table name="ART_DATA"&gt;
+        &lt;primary-key-join-column name="ART_ID" referenced-column-name="ID"/&gt;
+    &lt;/secondary-table&gt;
+    &lt;attributes&gt;
+        &lt;id name="id"/&gt;
+        &lt;basic name="content"&gt;
+            &lt;column table="ART_DATA"/&gt;
+        &lt;/basic&gt;
+        ...
+    &lt;/attributes&gt;
+&lt;/entity&gt;
+</pre></div></div><br class="example-break"></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_mapping_embed"></a>8.3.&nbsp;
+                Embedded Mapping
+            </h3></div></div></div><a class="indexterm" name="d0e13404"></a><a class="indexterm" name="d0e13411"></a><p>
+<a href="jpa_overview_meta.html" title="Chapter&nbsp;5.&nbsp; Metadata">Chapter&nbsp;5, <i xmlns:xlink="http://www.w3.org/1999/xlink">
+        Metadata
+    </i></a> describes JPA's concept of <span class="emphasis"><em>
+embeddable</em></span> objects. The field values of embedded objects are stored
+as part of the owning record, rather than as a separate database record. Thus,
+instead of mapping a relation to an embeddable object as a foreign key, you map
+all the fields of the embeddable instance to columns in the owning field's
+table.
+            </p><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="309"><tr><td><img src="img/jpa-embedded.png"></td></tr></table></div><p>
+JPA defaults the embedded column names and descriptions to those of
+the embeddable class' field mappings. The <code class="classname"> AttributeOverride
+</code> annotation overrides a basic embedded mapping. This annotation has
+the following properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">String name</code>: The name of the embedded class' field being
+mapped to this class' table.
+                    </p></li><li><p>
+<code class="literal">Column column</code>: The column defining the mapping of the
+embedded class' field to this class' table.
+                    </p></li></ul></div><p>
+The corresponding XML element is <code class="literal"> attribute-override</code>. It has
+a single <code class="literal">name</code> attribute to name the field being overridden,
+and a single <code class="literal">column</code> child element.
+            </p><p>
+To declare multiple overrides, use the <code class="classname">AttributeOverrides</code>
+annotation, whose value is an array of <code class="classname">AttributeOverride</code>
+s. In XML, simply list multiple <code class="literal">attribute-override</code> elements
+in succession.
+            </p><p>
+To override a many to one or one to one relationship, use the <code class="classname">
+AssociationOverride</code> annotation in place of <code class="classname">
+AttributeOverride</code>. <code class="classname"> AssociationOverride</code> has
+the following properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">String name</code>: The name of the embedded class' field being
+mapped to this class' table.
+                    </p></li><li><p>
+<code class="literal">JoinColumn[] joinColumns</code>: The foreign key columns joining to
+the related record.
+                    </p></li></ul></div><p>
+The corresponding XML element is <code class="literal"> association-override</code>. It
+has a single <code class="literal">name</code> attribute to name the field being
+overridden, and one or more <code class="literal">join-column</code> child elements.
+            </p><p>
+To declare multiple relation overrides, use the <code class="classname"> AssociationOverrides
+</code> annotation, whose value is an array of <code class="classname">
+AssociationOverride</code> s. In XML, simply list multiple <code class="literal">
+association-override</code> elements in succession.
+            </p><div class="example"><a name="jpa_overview_mapping_embedex"></a><p class="title"><b>Example&nbsp;13.12.&nbsp;
+                    Embedded Field Mapping
+                </b></p><div class="example-contents"><p>
+In this example, <code class="classname">Company</code> overrides the default mapping of
+<code class="literal">Address.street</code> and <code class="literal">Address.city</code>. All
+other embedded mappings are taken from the <code class="classname">Address</code>
+embeddable class.
+                </p><pre class="programlisting">
+package org.mag.pub;
+
+@Entity
+@Table(name="COMP")
+public class Company {
+
+    @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name="street", column=@Column(name="STRT")),
+        @AttributeOverride(name="city", column=@Column(name="ACITY"))
+    })
+    private Address address;
+    
+    ...
+}
+
+@Entity
+@Table(name="AUTH")
+public class Author {
+
+    // use all defaults from Address class mappings
+    private Address address;
+    
+    ...
+}
+
+@Embeddable
+public class Address {
+
+    private String street;
+    private String city;
+    @Column(columnDefinition="CHAR(2)")
+    private String state;
+    private String zip;
+}
+</pre><p>
+The same metadata expressed in XML:
+                </p><pre class="programlisting">
+&lt;entity class="org.mag.pub.Company"&gt;
+    &lt;table name="COMP"/&gt;
+    &lt;attributes&gt;
+        ...
+        &lt;embedded name="address"&gt;
+            &lt;attribute-override name="street"&gt;
+               &lt;column name="STRT"/&gt;
+            &lt;/attribute-override&gt;
+            &lt;attribute-override name="city"&gt;
+               &lt;column name="ACITY"/&gt;
+            &lt;/attribute-override&gt;
+        &lt;/embedded&gt;
+    &lt;/attributes&gt;
+&lt;/entity&gt;
+&lt;entity class="org.mag.pub.Author"&gt;
+    &lt;table name="AUTH"/&gt;
+    &lt;attributes&gt;
+        &lt;embedded name="address"&gt;
+            &lt;!-- use all defaults from Address --&gt;
+        &lt;/embedded&gt;
+    &lt;/attributes&gt;
+&lt;/entity&gt;
+&lt;embeddable class="org.mag.pub.Address"&gt;
+    &lt;attributes&gt;
+        &lt;basic name="street"/&gt;
+        &lt;basic name="city"/&gt;
+        &lt;basic name="state"&gt;
+            &lt;column column-definition="CHAR(2)"/&gt;
+        &lt;/basic&gt;
+        &lt;basic name="zip"/&gt;
+    &lt;/attributes&gt;
+&lt;/embeddable&gt;
+</pre></div></div><br class="example-break"><p>
+You can also use attribute overrides on an entity class to override mappings
+defined by its mapped superclass or table-per-class superclass. The example
+below re-maps the <code class="literal">Document.version</code> field to the <code class="classname">
+Contract</code> table's <code class="literal">CVERSION</code> column.
+            </p><div class="example"><a name="jpa_overview_mapping_joined_overex"></a><p class="title"><b>Example&nbsp;13.13.&nbsp;
+                    Mapping Mapped Superclass Field
+                </b></p><div class="example-contents"><pre class="programlisting">
+@MappedSuperclass
+public abstract class Document {
+
+    @Column(name="VERS")
+    @Version private int version;
+
+    ...
+}
+
+@Entity
+@Table(schema="CNTRCT")
+@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorColumn(name="CTYPE")
+@AttributeOverride(name="version", column=@Column(name="CVERSION"))
+public class Contract
+    extends Document {
+    ...
+}
+</pre><p>
+The same metadata expressed in XML form:
+                </p><pre class="programlisting">
+&lt;mapped-superclass class="org.mag.subcribe.Document"&gt;
+    &lt;attributes&gt;
+        &lt;version name="version"&gt;
+            &lt;column name="VERS"&gt;
+        &lt;/version&gt;
+        ...
+    &lt;/attributes&gt;
+&lt;/mapped-superclass&gt;
+&lt;entity class="org.mag.subcribe.Contract"&gt;
+    &lt;table schema="CNTRCT"/&gt;
+    &lt;inheritance strategy="JOINED"/&gt;
+    &lt;discriminator-column name="CTYPE"/&gt;
+    &lt;attribute-override name="version"&gt;
+        &lt;column name="CVERSION"/&gt;
+    &lt;/attribute-override&gt;
+    &lt;attributes&gt;
+        ...
+    &lt;/attributes&gt;
+&lt;/entity&gt;
+</pre></div></div><br class="example-break"></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_mapping_rel"></a>8.4.&nbsp;
+                Direct Relations
+            </h3></div></div></div><a class="indexterm" name="d0e13559"></a><a class="indexterm" name="d0e13566"></a><a class="indexterm" name="d0e13571"></a><a class="indexterm" name="d0e13576"></a><p>
+A direct relation is a non-embedded persistent field that holds a reference to
+another entity. <a href="jpa_overview_meta_field.html#jpa_overview_meta_manytoone" title="2.9.&nbsp; Many To One">many to one</a>
+and <a href="jpa_overview_meta_field.html#jpa_overview_meta_onetoone" title="2.11.&nbsp; One To One">one to one</a> metadata field
+types are mapped as direct relations. Our model has three direct relations:
+<code class="classname">Magazine</code>'s <code class="literal">publisher</code> field is a direct
+relation to a <code class="classname">Company</code>, <code class="classname">Magazine</code>'s
+<code class="literal">coverArticle</code> field is a direct relation to <code class="classname">
+Article</code>, and the <code class="literal">LineItem.magazine</code> field is a
+direct relation to a <code class="classname">Magazine</code>. Direct relations are
+represented in the database by foreign key columns:
+            </p><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="249"><tr><td><img src="img/jpa-direct-relation.png"></td></tr></table></div><p>
+You typically map a direct relation with <code class="classname">JoinColumn</code>
+annotations describing how the local foreign key columns join to the primary key
+columns of the related record. The <code class="classname">JoinColumn</code> annotation
+exposes the following properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">String name</code>: The name of the foreign key column. Defaults to
+the relation field name, plus an underscore, plus the name of the referenced
+primary key column.
+                    </p></li><li><p>
+<code class="literal">String referencedColumnName</code>: The name of the primary key
+column being joined to. If there is only one identity field in the related
+entity class, the join column name defaults to the name of the identity field's
+column.
+                    </p></li><li><p>
+<code class="literal">boolean unique</code>: Whether this column is guaranteed to hold
+unique values for all rows. Defaults to false.
+                    </p></li></ul></div><p>
+<code class="classname">JoinColumn</code> also has the same <code class="literal"> nullable</code>
+, <code class="literal">insertable</code>, <code class="literal"> updatable</code>, <code class="literal">
+columnDefinition</code>, and <code class="literal">table</code> properties as the
+<code class="classname"> Column</code> annotation. See
+<a href="jpa_overview_mapping_column.html" title="3.&nbsp; Column">Section&nbsp;3, &#8220;
+            Column
+        &#8221;</a> for details on these
+properties.
+            </p><p>
+The <code class="literal">join-column</code> element represents a join column in XML. Its
+attributes mirror the above annotation's properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">name</code>
+                    </p></li><li><p>
+<code class="literal">referenced-column-name</code>
+                    </p></li><li><p>
+<code class="literal">unique</code>
+                    </p></li><li><p>
+<code class="literal">nullable</code>
+                    </p></li><li><p>
+<code class="literal">insertable</code>
+                    </p></li><li><p>
+<code class="literal">updatable</code>
+                    </p></li><li><p>
+<code class="literal">column-definition</code>
+                    </p></li><li><p>
+<code class="literal">table</code>
+                    </p></li></ul></div><p>
+When there are multiple columns involved in the join, as when a <code class="classname">
+LineItem</code> references a <code class="classname">Magazine</code> in our model,
+the <code class="classname">JoinColumns</code> annotation allows you to specify an array
+of <code class="classname">JoinColumn</code> values. In XML, simply list multiple
+<code class="literal">join-column</code> elements.
+            </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+OpenJPA supports many non-standard joins. See
+<a href="ref_guide_mapping_notes_nonstdjoins.html" title="6.&nbsp; Non-Standard Joins">Section&nbsp;6, &#8220;
+            Non-Standard Joins
+        &#8221;</a> in the Reference
+Guide for details.
+                </p></div><div class="example"><a name="jpa_overview_mapping_relex"></a><p class="title"><b>Example&nbsp;13.14.&nbsp;
+                    Direct Relation Field Mapping
+                </b></p><div class="example-contents"><pre class="programlisting">
+package org.mag;
+
+@Table(name="AUTH")
+public class Magazine {
+
+    @Column(length=9)
+    @Id private String isbn;
+    @Id private String title;
+
+    @OneToOne
+    @JoinColumn(name="COVER_ID" referencedColumnName="ID")
+    private Article coverArticle;
+
+    @ManyToOne
+    @JoinColumn(name="PUB_ID" referencedColumnName="CID")
+    private Company publisher;
+
+    ...
+}
+
+@Table(name="ART")
+public class Article {
+
+    @Id private long id;
+
+    ...
+}
+
+
+package org.mag.pub;
+
+@Table(name="COMP")
+public class Company {
+
+    @Column(name="CID")
+    @Id private long id;
+
+    ...
+}
+
+
+package org.mag.subscribe;
+
+public class Subscription {
+    ...
+
+    @Table(name="LINE_ITEM", schema="CNTRCT")
+    public static class LineItem
+        extends Contract {
+
+        @ManyToOne
+        @JoinColumns({
+            @JoinColumn(name="MAG_ISBN" referencedColumnName="ISBN"),
+            @JoinColumn(name="MAG_TITLE" referencedColumnName="TITLE")
+        })
+        private Magazine magazine;
+
+        ...
+    }
+}
+</pre><p>
+The same metadata expressed in XML form:
+                </p><pre class="programlisting">
+&lt;entity class="org.mag.Magazine"&gt;
+    &lt;table name="MAG"/&gt;
+    &lt;id-class="org.mag.Magazine.MagazineId"/&gt;
+    &lt;attributes&gt;
+        &lt;id name="isbn"&gt;
+            &lt;column length="9"/&gt;
+        &lt;/id&gt;
+        &lt;id name="title"/&gt;
+        &lt;one-to-one name="coverArticle"&gt;
+            &lt;join-column name="COVER_ID" referenced-column-name="ID"/&gt;
+        &lt;/one-to-one&gt;
+        &lt;many-to-one name="publisher"&gt;
+            &lt;join-column name="PUB_IC" referenced-column-name="CID"/&gt;
+        &lt;/many-to-one&gt;
+        ...
+    &lt;/attributes&gt;
+&lt;/entity&gt;
+&lt;entity class="org.mag.Article"&gt;
+    &lt;table name="ART"/&gt;
+    &lt;attributes&gt;
+        &lt;id name="id"/&gt;
+        ...
+    &lt;/attributes&gt;
+&lt;/entity&gt;
+&lt;entity class="org.mag.pub.Company"&gt;
+    &lt;table name="COMP"/&gt;
+    &lt;attributes&gt;
+        &lt;id name="id"&gt;
+            &lt;column name="CID"/&gt;
+        &lt;/id&gt;
+        ...
+    &lt;/attributes&gt;
+&lt;/entity&gt;
+&lt;entity class="org.mag.subscribe.Subscription.LineItem"&gt;
+    &lt;table name="LINE_ITEM" schema="CNTRCT"/&gt;
+    &lt;primary-key-join-column name="ID" referenced-column-name="PK"/&gt;
+    &lt;attributes&gt;
+        &lt;many-to-one name="magazine"&gt;
+            &lt;join-column name="MAG_ISBN" referenced-column-name="ISBN"/&gt;
+            &lt;join-column name="MAG_TITLE" referenced-column-name="TITLE"/&gt;
+        &lt;/many-to-one&gt;
+        ...
+    &lt;/attributes&gt;
+&lt;/entity&gt;
+</pre></div></div><br class="example-break"><p>
+When the entities in a one to one relation join on shared primary key values
+rather than separate foreign key columns, use the <code class="classname">
+PrimaryKeyJoinColumn(s)</code> annotation or <code class="literal">
+primary-key-join-column</code> elements in place of <code class="classname">JoinColumn(s)
+</code> / <code class="literal"> join-column</code> elements.
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_mapping_assoccoll"></a>8.5.&nbsp;
+                Join Table
+            </h3></div></div></div><a class="indexterm" name="d0e13771"></a><a class="indexterm" name="d0e13778"></a><a class="indexterm" name="d0e13783"></a><a class="indexterm" name="d0e13786"></a><a class="indexterm" name="d0e13791"></a><p>
+A <span class="emphasis"><em>join table</em></span> consists of two foreign keys. Each row of a
+join table associates two objects together. JPA uses join tables to
+represent collections of entity objects: one foreign key refers back to the
+collection's owner, and the other refers to a collection element.
+            </p><p>
+<a href="jpa_overview_meta_field.html#jpa_overview_meta_onetomany" title="2.10.&nbsp; One To Many">one to many</a> and
+<a href="jpa_overview_meta_field.html#jpa_overview_meta_manytomany" title="2.12.&nbsp; Many To Many">many to many</a> metadata field
+types can map to join tables. Several fields in our model use join table
+mappings, including <code class="literal">Magazine.articles</code> and <code class="literal">
+Article.authors</code>.
+            </p><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="261"><tr><td><img src="img/jpa-assoc-table.png"></td></tr></table></div><p>
+You define join tables with the <code class="classname">JoinTable</code> annotation.
+This annotation has the following properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">String name</code>: Table name. If not given, the name of the table
+defaults to the name of the owning entity's table, plus an underscore, plus the
+name of the related entity's table.
+                    </p></li><li><p>
+<code class="literal">String catalog</code>: Table catalog.
+                    </p></li><li><p>
+<code class="literal">String schema</code>: Table schema.
+                    </p></li><li><p>
+<code class="literal">JoinColumn[] joinColumns</code>: Array of <code class="classname">JoinColumn
+</code> showing how to associate join table records with the owning row in
+the primary table. This property mirrors the <code class="literal">pkJoinColumns</code>
+property of the <code class="classname"> SecondaryTable</code> annotation in
+functionality. See <a href="jpa_overview_mapping_field.html#jpa_overview_mapping_secondary" title="8.2.&nbsp; Secondary Tables">Section&nbsp;8.2, &#8220;
+                Secondary Tables
+            &#8221;</a> to
+refresh your memory on secondary tables.
+                    </p><p>
+If this is a bidirectional relation (see
+<a href="jpa_overview_meta_field.html#jpa_overview_meta_mappedby" title="2.10.1.&nbsp; Bidirectional Relations">Section&nbsp;2.10.1, &#8220;
+                    Bidirectional Relations
+                &#8221;</a> ), the name of a join column
+defaults to the inverse field name, plus an underscore, plus the referenced
+primary key column name. Otherwise, the join column name defaults to the field's
+owning entity name, plus an underscore, plus the referenced primary key column
+name.
+                    </p></li><li><p>
+<code class="literal">JoinColumn[] inverseJoinColumns</code>: Array of <code class="classname">
+JoinColumns</code> showing how to associate join table records with the
+records that form the elements of the collection. These join columns are used
+just like the join columns for direct relations, and they have the same naming
+defaults. Read <a href="jpa_overview_mapping_field.html#jpa_overview_mapping_rel" title="8.4.&nbsp; Direct Relations">Section&nbsp;8.4, &#8220;
+                Direct Relations
+            &#8221;</a> for a review of
+direct relation mapping.
+                    </p></li></ul></div><p>
+<code class="literal">join-table</code> is the corresponding XML element. It has the same
+attributes as the <code class="literal">table</code> element, but includes the ability to
+nest <code class="literal">join-column</code> and <code class="literal">inverse-join-column</code>
+elements as children. We have seen <code class="literal">join-column</code> elements
+already; <code class="literal">inverse-join-column</code> elements have the same
+attributes.
+            </p><p>
+Here are the join table mappings for the diagram above.
+            </p><div class="example"><a name="jpa_overview_mapping_assoccollex"></a><p class="title"><b>Example&nbsp;13.15.&nbsp;
+                    Join Table Mapping
+                </b></p><div class="example-contents"><pre class="programlisting">
+package org.mag;
+
+@Entity
+@Table(name="MAG")
+public class Magazine {
+
+    @Column(length=9)
+    @Id private String isbn;
+    @Id private String title;
+
+    @OneToMany(...)
+    @OrderBy
+    @JoinTable(name="MAG_ARTS",
+        joinColumns={
+            @JoinColumn(name="MAG_ISBN", referencedColumnName="ISBN"),
+            @JoinColumn(name="MAG_TITLE", referencedColumnName="TITLE")
+        },
+        inverseJoinColumns=@JoinColumn(name="ART_ID", referencedColumnName="ID"))
+    private Collection&lt;Article&gt; articles;
+
+    ...
+}
+
+@Entity
+@Table(name="ART")
+public class Article {
+
+    @Id private long id;
+
+    @ManyToMany(cascade=CascadeType.PERSIST)
+    @OrderBy("lastName, firstName")
+    @JoinTable(name="ART_AUTHS",
+        joinColumns=@JoinColumn(name="ART_ID", referencedColumnName="ID"),
+        inverseJoinColumns=@JoinColumn(name="AUTH_ID", referencedColumnName="AID"))
+    private Collection&lt;Author&gt; authors;
+
+    ...
+}
+
+
+package org.mag.pub;
+
+@Entity
+@Table(name="AUTH")
+public class Author {
+
+    @Column(name="AID", columnDefinition="INTEGER64")
+    @Id private long id;
+
+    ...
+}
+</pre><p>
+The same metadata expressed in XML:
+                </p><pre class="programlisting">
+&lt;entity class="org.mag.Magazine"&gt;
+    &lt;table name="MAG"/&gt;
+    &lt;attributes&gt;
+        &lt;id name="isbn"&gt;
+            &lt;column length="9"/&gt;
+        &lt;/id&gt;
+        &lt;id name="title"/&gt;
+        &lt;one-to-many name="articles"&gt;
+            &lt;order-by/&gt;
+            &lt;join-table name="MAG_ARTS"&gt;
+                &lt;join-column name="MAG_ISBN" referenced-column-name="ISBN"/&gt;
+                &lt;join-column name="MAG_TITLE" referenced-column-name="TITLE"/&gt;
+                &lt;inverse-join-column name="ART_ID" referenced-column-name="ID"/&gt;
+            &lt;/join-table&gt;
+        &lt;/one-to-many&gt;
+        ...
+    &lt;/attributes&gt;
+&lt;/entity&gt;
+&lt;entity class="org.mag.Article"&gt;
+    &lt;table name="ART"/&gt;
+        &lt;attributes&gt;
+            &lt;id name="id"/&gt;
+            &lt;many-to-many name="authors"&gt;
+                &lt;order-by&gt;lastName, firstName&lt;/order-by&gt;
+                &lt;join-table name="ART_AUTHS"&gt;
+                    &lt;join-column name="ART_ID" referenced-column-name="ID"/&gt;
+                    &lt;inverse-join-column name="AUTH_ID" referenced-column-name="AID"/&gt;
+                &lt;/join-table&gt;
+            &lt;cascade&gt;
+                &lt;cascade-persist/&gt;
+            &lt;/cascade&gt;
+            &lt;/many-to-many&gt;
+            ...
+       &lt;/attributes&gt;
+&lt;/entity&gt;
+&lt;entity class="org.mag.pub.Author"&gt;
+    &lt;table name="AUTH"/&gt;
+    &lt;attributes&gt;
+        &lt;id name="id"&gt;
+            &lt;column name="AID" column-definition="INTEGER64"/&gt;
+        &lt;/id&gt;
+        ...
+    &lt;/attributes&gt;
+&lt;/entity&gt;
+</pre></div></div><br class="example-break"></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_mapping_bidi"></a>8.6.&nbsp;
+                Bidirectional Mapping
+            </h3></div></div></div><a class="indexterm" name="d0e13909"></a><p>
+<a href="jpa_overview_meta_field.html#jpa_overview_meta_mappedby" title="2.10.1.&nbsp; Bidirectional Relations">Section&nbsp;2.10.1, &#8220;
+                    Bidirectional Relations
+                &#8221;</a> introduced bidirectional
+relations. To map a bidirectional relation, you map one field normally using the
+annotations we have covered throughout this chapter. Then you use the <code class="literal">
+mappedBy</code> property of the other field's metadata annotation or the
+corresponding <code class="literal">mapped-by</code> XML attribute to refer to the mapped
+field. Look for this pattern in these bidirectional relations as you peruse the
+complete mappings below:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">Magazine.publisher</code> and <code class="literal">Company.mags</code>.
+                    </p></li><li><p>
+<code class="literal">Article.authors</code> and <code class="literal">Author.articles</code>.
+                    </p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="jpa_overview_mapping_map"></a>8.7.&nbsp;
+                Map Mapping
+            </h3></div></div></div><a class="indexterm" name="d0e13946"></a><a class="indexterm" name="d0e13951"></a><p>
+All map fields in JPA are modeled on either one to many or many to
+many associations. The map key is always derived from an associated entity's
+field. Thus map fields use the same mappings as any one to many or many to many
+fields, namely dedicated <a href="jpa_overview_mapping_field.html#jpa_overview_mapping_assoccoll" title="8.5.&nbsp; Join Table">join
+tables</a> or <a href="jpa_overview_mapping_field.html#jpa_overview_mapping_bidi" title="8.6.&nbsp; Bidirectional Mapping">bidirectional
+relations</a>. The only additions are the <code class="classname">MapKey</code>
+annotation and <code class="literal">map-key</code> element to declare the key field. We
+covered these additions in <a href="jpa_overview_meta_field.html#jpa_overview_meta_mapkey" title="2.14.&nbsp; Map Key">Section&nbsp;2.14, &#8220;
+                Map Key
+            &#8221;</a>.
+            </p><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="255"><tr><td><img src="img/jpa-map.png"></td></tr></table></div><p>
+The example below maps <code class="classname">Subscription</code>'s map of <code class="classname">
+LineItem</code>s to the <code class="literal">SUB_ITEMS</code> join table. The key
+for each map entry is the <code class="classname"> LineItem</code>'s <code class="literal">num
+</code> field value.
+            </p><div class="example"><a name="jpa_overview_mapping_mapex"></a><p class="title"><b>Example&nbsp;13.16.&nbsp;
+                    Join Table Map Mapping
+                </b></p><div class="example-contents"><pre class="programlisting">
+package org.mag.subscribe;
+
+@Entity
+@Table(name="SUB", schema="CNTRCT")
+public class Subscription {
+
+    @OneToMany(cascade={CascadeType.PERSIST,CascadeType.REMOVE})
+    @MapKey(name="num")
+    @JoinTable(name="SUB_ITEMS", schema="CNTRCT",
+        joinColumns=@JoinColumn(name="SUB_ID"),
+        inverseJoinColumns=@JoinColumn(name="ITEM_ID"))
+    private Map&lt;Long,LineItem&gt; items;
+
+    ...
+
+    @Entity
+    @Table(name="LINE_ITEM", schema="CNTRCT")
+    public static class LineItem
+        extends Contract {
+
+        private long num;
+
+        ...
+    }
+}
+</pre><p>
+The same metadata expressed in XML:
+                </p><pre class="programlisting">
+&lt;entity class="org.mag.subscribe.Subscription"&gt;
+    &lt;table name="SUB" schema="CNTRCT"/&gt;
+    &lt;attributes&gt;
+        ...
+        &lt;one-to-many name="items"&gt;
+            &lt;map-key name="num"&gt;
+            &lt;join-table name="SUB_ITEMS" schema="CNTRCT"&gt;
+                &lt;join-column name="SUB_ID"/&gt;
+                &lt;inverse-join-column name="ITEM_ID"/&gt;
+            &lt;/join-table&gt;
+            &lt;cascade&gt;
+                &lt;cascade-persist/&gt;
+                &lt;cascade-remove/&gt;
+            &lt;/cascade&gt;
+        &lt;/one-to-many&gt;
+        ...
+    &lt;/attributes&gt;
+&lt;/entity&gt;
+&lt;entity class="org.mag.subscribe.Subscription.LineItem"&gt;
+    &lt;table name="LINE_ITEM" schema="CNTRCT"/&gt;
+    &lt;attributes&gt;
+        ...
+        &lt;basic name="num"/&gt;
+        ...
+    &lt;/attributes&gt;
+&lt;/entity&gt;
+</pre></div></div><br class="example-break"></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="jpa_overview_mapping_discrim.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="jpa_overview_mapping.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_mapping_full.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">7.&nbsp;
+            Discriminator
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;9.&nbsp;
+            The Complete Mappings
+        </td></tr></table></div></body></html>

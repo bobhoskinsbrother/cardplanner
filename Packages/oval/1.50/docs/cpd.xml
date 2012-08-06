@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+<duplication lines="68" tokens="240">
+<file line="43" path="D:\workspaces\eclipse352\oval\src\main\java\net\sf\oval\constraint\MemberOfCheck.java"/>
+<file line="43" path="D:\workspaces\eclipse352\oval\src\main\java\net\sf\oval\constraint\NotMemberOfCheck.java"/>
+<codefragment>
+<![CDATA[
+	public void configure(final NotMemberOf constraintAnnotation)
+	{
+		super.configure(constraintAnnotation);
+		setIgnoreCase(constraintAnnotation.ignoreCase());
+		setMembers(constraintAnnotation.value());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Map<String, String> createMessageVariables()
+	{
+		final Map<String, String> messageVariables = getCollectionFactory().createMap(2);
+		messageVariables.put("ignoreCase", Boolean.toString(ignoreCase));
+		messageVariables.put("members", StringUtils.implode(members, ","));
+		return messageVariables;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	protected ConstraintTarget[] getAppliesToDefault()
+	{
+		return new ConstraintTarget[]{ConstraintTarget.VALUES};
+	}
+	
+	/**
+	 * @return the members
+	 */
+	public List<String> getMembers()
+	{
+		final List<String> v = getCollectionFactory().createList();
+		v.addAll(members);
+		return v;
+	}
+
+	private List<String> getMembersLowerCase()
+	{
+		if (membersLowerCase == null)
+		{
+			membersLowerCase = getCollectionFactory().createList(members.size());
+			for (final String val : members)
+			{
+				membersLowerCase.add(val.toLowerCase(Locale.getDefault()));
+			}
+		}
+		return membersLowerCase;
+	}
+
+	/**
+	 * @return the ignoreCase
+	 */
+	public boolean isIgnoreCase()
+	{
+		return ignoreCase;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean isSatisfied(final Object validatedObject, final Object valueToValidate, final OValContext context,
+			final Validator validator)
+	{
+		if (valueToValidate == null) return true;
+
+		if (ignoreCase)
+			return !getMembersLowerCase().contains(valueToValidate.toString().toLowerCase(Locale.getDefault()));
+]]>
+</codefragment>
+</duplication>
+<duplication lines="44" tokens="236">
+<file line="630" path="D:\workspaces\eclipse352\oval\src\main\java\net\sf\oval\guard\Guard.java"/>
+<file line="787" path="D:\workspaces\eclipse352\oval\src\main\java\net\sf\oval\guard\Guard.java"/>
+<codefragment>
+<![CDATA[
+		final ClassChecks cc = getClassChecks(method.getDeclaringClass());
+
+		final boolean checkInvariants = isInvariantsEnabled && cc.isCheckInvariants
+				&& !ReflectionUtils.isPrivate(method) && !ReflectionUtils.isProtected(method);
+
+		final List<ConstraintViolation> violations = getCollectionFactory().createList();
+
+		// if static method use the declaring class as guardedObject
+		if (guardedObject == null && ReflectionUtils.isStatic(method)) guardedObject = method.getDeclaringClass();
+
+		try
+		{
+			// check invariants
+			if (checkInvariants || cc.methodsWithCheckInvariantsPre.contains(method))
+				validateInvariants(guardedObject, violations, null);
+
+			if (isPreConditionsEnabled)
+			{
+				// method parameter validation
+				if (violations.size() == 0 && args.length > 0)
+					validateMethodParameters(guardedObject, method, args, violations);
+
+				// @Pre validation
+				if (violations.size() == 0) validateMethodPre(guardedObject, method, args, violations);
+			}
+		}
+		catch (final ValidationFailedException ex)
+		{
+			throw translateException(ex);
+		}
+
+		final ProbeModeListener pml = isProbeModeFeatureUsed ? objectsInProbeMode.get().get(guardedObject) : null;
+		if (pml != null) pml.onMethodCall(method, args);
+
+		if (violations.size() > 0)
+		{
+			final ConstraintsViolatedException violationException = new ConstraintsViolatedException(violations);
+			if (isListenersFeatureUsed) notifyListeners(guardedObject, violationException);
+
+			// don't throw an exception if the method is a setter and suppressing for precondition is enabled
+			if (pml != null)
+			{
+				pml.onConstraintsViolatedException(violationException);
+				return DO_NOT_PROCEED;
+]]>
+</codefragment>
+</duplication>
+<duplication lines="65" tokens="215">
+<file line="120" path="D:\workspaces\eclipse352\oval\src\main\java\net\sf\oval\constraint\MatchPatternCheck.java"/>
+<file line="91" path="D:\workspaces\eclipse352\oval\src\main\java\net\sf\oval\constraint\NotMatchPatternCheck.java"/>
+<codefragment>
+<![CDATA[
+	}
+
+	/**
+	 * @param pattern the pattern to set
+	 */
+	public void setPattern(final Pattern pattern)
+	{
+		synchronized (patterns)
+		{
+			patterns.clear();
+			patterns.add(pattern);
+		}
+		requireMessageVariablesRecreation();
+	}
+
+	/**
+	 * @param pattern the pattern to set
+	 */
+	public void setPattern(final String pattern, final int flags)
+	{
+		synchronized (patterns)
+		{
+			patterns.clear();
+			patterns.add(Pattern.compile(pattern, flags));
+		}
+		requireMessageVariablesRecreation();
+	}
+
+	/**
+	 * @param patterns the patterns to set
+	 */
+	public void setPatterns(final Collection<Pattern> patterns)
+	{
+		synchronized (this.patterns)
+		{
+			this.patterns.clear();
+			this.patterns.addAll(patterns);
+		}
+		requireMessageVariablesRecreation();
+	}
+
+	/**
+	 * @param patterns the patterns to set
+	 */
+	public void setPatterns(final Pattern... patterns)
+	{
+		synchronized (this.patterns)
+		{
+			this.patterns.clear();
+			ArrayUtils.addAll(this.patterns, patterns);
+		}
+		requireMessageVariablesRecreation();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Map<String, String> createMessageVariables()
+	{
+		final Map<String, String> messageVariables = getCollectionFactory().createMap(2);
+		messageVariables.put("pattern", patterns.size() == 1 ? patterns.get(0).toString() : patterns.toString());
+		return messageVariables;
+	}
+}
+]]>
+</codefragment>
+</duplication>
+<duplication lines="52" tokens="160">
+<file line="116" path="D:\workspaces\eclipse352\oval\src\main\java\net\sf\oval\constraint\EqualToFieldCheck.java"/>
+<file line="112" path="D:\workspaces\eclipse352\oval\src\main\java\net\sf\oval\constraint\NotEqualToFieldCheck.java"/>
+<codefragment>
+<![CDATA[
+		return !valueToValidate.equals(valueToCompare);
+	}
+
+	/**
+	 * @return the useGetter
+	 */
+	public boolean isUseGetter()
+	{
+		return useGetter;
+	}
+
+	/**
+	 * @param declaringClass the declaringClass to set
+	 */
+	public void setDeclaringClass(final Class< ? > declaringClass)
+	{
+		this.declaringClass = declaringClass == Void.class ? null : declaringClass;
+		requireMessageVariablesRecreation();
+	}
+
+	/**
+	 * @param fieldName the fieldName to set
+	 */
+	public void setFieldName(final String fieldName)
+	{
+		this.fieldName = fieldName;
+		requireMessageVariablesRecreation();
+	}
+
+	/**
+	 * @param useGetter the useGetter to set
+	 */
+	public void setUseGetter(final boolean useGetter)
+	{
+		this.useGetter = useGetter;
+		requireMessageVariablesRecreation();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Map<String, String> createMessageVariables()
+	{
+		final Map<String, String> messageVariables = getCollectionFactory().createMap(2);
+		messageVariables.put("fieldName", fieldName);
+		messageVariables.put("declaringClass", declaringClass == null || declaringClass == Void.class ? null
+				: declaringClass.getName());
+		messageVariables.put("useGetter", Boolean.toString(useGetter));
+		return messageVariables;
+	}
+}
+]]>
+</codefragment>
+</duplication>
+<duplication lines="23" tokens="150">
+<file line="1374" path="D:\workspaces\eclipse352\oval\src\main\java\net\sf\oval\guard\Guard.java"/>
+<file line="1439" path="D:\workspaces\eclipse352\oval\src\main\java\net\sf\oval\guard\Guard.java"/>
+<codefragment>
+<![CDATA[
+				values.put("_this", validatedObject);
+				if (hasParameters)
+				{
+					values.put("_args", args);
+					for (int i = 0; i < args.length; i++)
+						values.put(parameterNames[i], args[i]);
+				}
+				else
+					values.put("_args", ArrayUtils.EMPTY_OBJECT_ARRAY);
+
+				if (!eng.evaluateAsBoolean(check.getExpression(), values))
+				{
+					final Map<String, String> messageVariables = getCollectionFactory().createMap(2);
+					messageVariables.put("expression", check.getExpression());
+					final String errorMessage = renderMessage(context, null, check.getMessage(), messageVariables);
+
+					violations.add(new ConstraintViolation(check, errorMessage, validatedObject, null, context));
+				}
+			}
+		}
+		catch (final OValException ex)
+		{
+			throw new ValidationFailedException("Method pre conditions validation failed. Method: " + method
+]]>
+</codefragment>
+</duplication>
+<duplication lines="31" tokens="146">
+<file line="64" path="D:\workspaces\eclipse352\oval\src\main\java\net\sf\oval\constraint\InstanceOfAnyCheck.java"/>
+<file line="58" path="D:\workspaces\eclipse352\oval\src\main\java\net\sf\oval\constraint\InstanceOfCheck.java"/>
+<codefragment>
+<![CDATA[
+	}
+
+	/**
+	 * @param types the types to set
+	 */
+	public void setTypes(final Class< ? >... types)
+	{
+		this.types = types;
+		requireMessageVariablesRecreation();
+	}
+
+	@Override
+	public Map<String, String> createMessageVariables()
+	{
+		final Map<String, String> messageVariables = getCollectionFactory().createMap(2);
+		if (types.length == 1)
+		{
+			messageVariables.put("types", types[0].getName());
+		}
+		else
+		{
+			final String[] classNames = new String[types.length];
+			for (int i = 0, l = classNames.length; i < l; i++)
+			{
+				classNames[i] = types[i].getName();
+			}
+			messageVariables.put("types", StringUtils.implode(classNames, ","));
+		}
+		return messageVariables;
+	}
+}
+]]>
+</codefragment>
+</duplication>
+<duplication lines="39" tokens="143">
+<file line="46" path="D:\workspaces\eclipse352\oval\src\main\java\net\sf\oval\constraint\MatchPatternCheck.java"/>
+<file line="43" path="D:\workspaces\eclipse352\oval\src\main\java\net\sf\oval\constraint\NotMatchPatternCheck.java"/>
+<codefragment>
+<![CDATA[
+		super.configure(constraintAnnotation);
+
+		synchronized (patterns)
+		{
+			patterns.clear();
+			final String[] stringPatterns = constraintAnnotation.pattern();
+			final int[] f = constraintAnnotation.flags();
+			for (int i = 0, l = stringPatterns.length; i < l; i++)
+			{
+				final int flag = f.length > i ? f[i] : 0;
+				final Pattern p = Pattern.compile(stringPatterns[i], flag);
+				patterns.add(p);
+			}
+		}
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	protected ConstraintTarget[] getAppliesToDefault()
+	{
+		return new ConstraintTarget[]{ConstraintTarget.VALUES};
+	}
+
+	/**
+	 * @return the pattern
+	 */
+	public Pattern[] getPatterns()
+	{
+		synchronized (patterns)
+		{
+			return patterns.toArray(new Pattern[patterns.size()]);
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean isSatisfied(final Object validatedObject, final Object valueToValidate, final OValContext context,
+]]>
+</codefragment>
+</duplication>
+<duplication lines="39" tokens="122">
+<file line="47" path="D:\workspaces\eclipse352\oval\src\main\java\net\sf\oval\constraint\EqualToFieldCheck.java"/>
+<file line="47" path="D:\workspaces\eclipse352\oval\src\main\java\net\sf\oval\constraint\NotEqualToFieldCheck.java"/>
+<codefragment>
+<![CDATA[
+	public void configure(final NotEqualToField constraintAnnotation)
+	{
+		super.configure(constraintAnnotation);
+		setFieldName(constraintAnnotation.value());
+		setDeclaringClass(constraintAnnotation.declaringClass());
+		setUseGetter(constraintAnnotation.useGetter());
+	}
+
+	/**
+	 * @return the declaringClass
+	 */
+	public Class< ? > getDeclaringClass()
+	{
+		return declaringClass;
+	}
+
+	/**
+	 * @return the fieldName
+	 */
+	public String getFieldName()
+	{
+		return fieldName;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean isSatisfied(final Object validatedObject, final Object valueToValidate, final OValContext context,
+			final Validator validator)
+	{
+		if (valueToValidate == null) return true;
+
+		final Class< ? > clazz = validatedObject.getClass();
+
+		final Object valueToCompare;
+		if (useGetter)
+		{
+			final Method getter = ReflectionUtils.getGetterRecursive(clazz, fieldName);
+			if (getter == null)
+]]>
+</codefragment>
+</duplication>
+<duplication lines="34" tokens="106">
+<file line="112" path="D:\workspaces\eclipse352\oval\src\main\java\net\sf\oval\constraint\MemberOfCheck.java"/>
+<file line="112" path="D:\workspaces\eclipse352\oval\src\main\java\net\sf\oval\constraint\NotMemberOfCheck.java"/>
+<codefragment>
+<![CDATA[
+		return !members.contains(valueToValidate.toString());
+	}
+
+	/**
+	 * @param ignoreCase the ignoreCase to set
+	 */
+	public void setIgnoreCase(final boolean ignoreCase)
+	{
+		this.ignoreCase = ignoreCase;
+		requireMessageVariablesRecreation();
+	}
+
+	/**
+	 * @param members the members to set
+	 */
+	public void setMembers(final List<String> members)
+	{
+		this.members = getCollectionFactory().createList();
+		this.members.addAll(members);
+		membersLowerCase = null;
+		requireMessageVariablesRecreation();
+	}
+
+	/**
+	 * @param members the members to set
+	 */
+	public void setMembers(final String... members)
+	{
+		this.members = getCollectionFactory().createList();
+		ArrayUtils.addAll(this.members, members);
+		membersLowerCase = null;
+		requireMessageVariablesRecreation();
+	}
+}
+]]>
+</codefragment>
+</duplication>
+</pmd-cpd>

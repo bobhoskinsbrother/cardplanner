@@ -1,0 +1,634 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>OVal - the object validation framework for Java™ 5 or later - Project Dependencies</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                                                    
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+                    </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="" id="bannerLeft">
+    
+                                            <img src="images/oval-banner.png" alt="" />
+    
+            </a>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+            
+  
+    
+            <div class="xleft">
+        Last Published: 2009-05-10
+                  &nbsp;| Version: 1.32
+                      </div>
+            <div class="xright">            <a href="">Home</a>
+            
+  
+
+  
+    
+            
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+            
+  
+    
+                   <h5>OVal 1.32</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="index.html">About</a>
+          </li>
+              
+    <li class="none">
+                    <a href="new_and_noteworthy.html">New and Noteworthy</a>
+          </li>
+              
+    <li class="none">
+                    <a href="license.html">License</a>
+          </li>
+              
+    <li class="none">
+                    <a href="userguide.html">User Guide</a>
+          </li>
+              
+    <li class="none">
+                    <a href="api/index.html">API (JavaDoc)</a>
+          </li>
+              
+    <li class="none">
+              <strong>Dependencies</strong>
+        </li>
+              
+    <li class="none">
+                    <a href="roadmap.html">Roadmap</a>
+          </li>
+              
+    <li class="none">
+                    <a href="dashboard-report.html">Code Metrics</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://sourceforge.net/project/showfiles.php?group_id=145963" class="externalLink">Download</a>
+          </li>
+          </ul>
+              <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+            
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+            <li class="expanded">
+                    <a href="project-info.html">Project Information</a>
+                  <ul>
+                  
+    <li class="none">
+                    <a href="integration.html">Continuous Integration</a>
+          </li>
+                  
+    <li class="none">
+              <strong>Dependencies</strong>
+        </li>
+                  
+    <li class="none">
+                    <a href="issue-tracking.html">Issue Tracking</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="mail-lists.html">Mailing Lists</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="license.html">Project License</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="project-summary.html">Project Summary</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="team-list.html">Project Team</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="source-repository.html">Source Repository</a>
+          </li>
+              </ul>
+        </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-reports.html">Project Reports</a>
+                </li>
+          </ul>
+                                                 
+                        
+                        
+            <a href="http://maven.apache.org/" title="Maven" class="poweredBy">
+                            <img alt="Maven" src="images/logos/maven-feather.png" />
+            </a>
+                               
+  
+
+  
+    
+            
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>Project Dependencies</h2>
+<div class="section"><h3>compile</h3>
+<p>The following is a list of compile dependencies for this project. These dependencies are required to compile and run the application:</p>
+<table class="bodyTable"><tr class="a"><th>GroupId</th>
+<th>ArtifactId</th>
+<th>Version</th>
+<th>Classifier</th>
+<th>Type</th>
+<th>Optional</th>
+</tr>
+<tr class="b"><td>aopalliance</td>
+<td>aopalliance</td>
+<td>1.0</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+<tr class="a"><td>com.thoughtworks.paranamer</td>
+<td>paranamer</td>
+<td>1.3</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+<tr class="b"><td>com.thoughtworks.xstream</td>
+<td>xstream</td>
+<td>1.3.1</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+<tr class="a"><td>commons-jexl</td>
+<td>commons-jexl</td>
+<td>20070823</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+<tr class="b"><td>javax.persistence</td>
+<td>persistence-api</td>
+<td>1.0</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+<tr class="a"><td>log4j</td>
+<td>log4j</td>
+<td>1.2.15</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+<tr class="b"><td>ognl</td>
+<td>ognl</td>
+<td>2.7.3</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+<tr class="a"><td>org.aspectj</td>
+<td>aspectjrt</td>
+<td>1.6.2</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+<tr class="b"><td>org.beanshell</td>
+<td>bsh</td>
+<td>2.0b4</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+<tr class="a"><td>org.codehaus.groovy</td>
+<td>groovy-all</td>
+<td>1.6.2</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+<tr class="b"><td>org.javolution</td>
+<td>javolution</td>
+<td>5.2.6</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+<tr class="a"><td>org.jruby</td>
+<td>jruby</td>
+<td>1.2.0</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+<tr class="b"><td>org.mvel</td>
+<td>mvel2</td>
+<td>2.0.8</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+<tr class="a"><td>org.slf4j</td>
+<td>slf4j-api</td>
+<td>1.5.6</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+<tr class="b"><td>org.springframework</td>
+<td>spring</td>
+<td>2.5.6.SEC01</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+<tr class="a"><td>rhino</td>
+<td>js</td>
+<td>1.7R1</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+<tr class="b"><td>trove</td>
+<td>trove</td>
+<td>2.0.3</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>test</h3>
+<p>The following is a list of test dependencies for this project. These dependencies are only required to compile and run unit tests for the application:</p>
+<table class="bodyTable"><tr class="a"><th>GroupId</th>
+<th>ArtifactId</th>
+<th>Version</th>
+<th>Classifier</th>
+<th>Type</th>
+<th>Optional</th>
+</tr>
+<tr class="b"><td>cglib</td>
+<td>cglib-nodep</td>
+<td>2.2</td>
+<td>-</td>
+<td>jar</td>
+<td> </td>
+</tr>
+<tr class="a"><td>junit</td>
+<td>junit</td>
+<td>3.8.2</td>
+<td>-</td>
+<td>jar</td>
+<td> </td>
+</tr>
+</table>
+</div>
+</div>
+<div class="section"><h2>Project Transitive Dependencies</h2>
+<p>The following is a list of transitive dependencies for this project. Transitive dependencies are the dependencies of the project dependencies.</p>
+<div class="section"><h3>compile</h3>
+<p>The following is a list of compile dependencies for this project. These dependencies are required to compile and run the application:</p>
+<table class="bodyTable"><tr class="b"><th>GroupId</th>
+<th>ArtifactId</th>
+<th>Version</th>
+<th>Classifier</th>
+<th>Type</th>
+<th>Optional</th>
+</tr>
+<tr class="a"><td>jboss</td>
+<td>javassist</td>
+<td>3.7.ga</td>
+<td>-</td>
+<td>jar</td>
+<td> </td>
+</tr>
+<tr class="b"><td>xpp3</td>
+<td>xpp3_min</td>
+<td>1.1.4c</td>
+<td>-</td>
+<td>jar</td>
+<td> </td>
+</tr>
+<tr class="a"><td>commons-logging</td>
+<td>commons-logging</td>
+<td>1.1.1</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="section"><h2>Project Dependency Graph</h2>
+<div class="section"><h3>Dependency Tree</h3>
+<p><ul><li><a href="#net.sf.oval:oval:jar">net.sf.oval:oval:jar</a>
+<ul><li><a href="#junit:junit:jar">junit:junit:jar</a>
+</li>
+<li><a href="#log4j:log4j:jar">log4j:log4j:jar</a>
+</li>
+<li><a href="#org.aspectj:aspectjrt:jar">org.aspectj:aspectjrt:jar</a>
+</li>
+<li><a href="#org.slf4j:slf4j-api:jar">org.slf4j:slf4j-api:jar</a>
+</li>
+<li><a href="#com.thoughtworks.xstream:xstream:jar">com.thoughtworks.xstream:xstream:jar</a>
+<ul><li><a href="#xpp3:xpp3_min:jar">xpp3:xpp3_min:jar</a>
+</li>
+</ul>
+</p>
+</li>
+<li><a href="#org.beanshell:bsh:jar">org.beanshell:bsh:jar</a>
+</li>
+<li><a href="#ognl:ognl:jar">ognl:ognl:jar</a>
+<ul><li><a href="#jboss:javassist:jar">jboss:javassist:jar</a>
+</li>
+</ul>
+</p>
+</li>
+<li><a href="#org.jruby:jruby:jar">org.jruby:jruby:jar</a>
+</li>
+<li><a href="#rhino:js:jar">rhino:js:jar</a>
+</li>
+<li><a href="#org.javolution:javolution:jar">org.javolution:javolution:jar</a>
+</li>
+<li><a href="#org.springframework:spring:jar">org.springframework:spring:jar</a>
+<ul><li><a href="#commons-logging:commons-logging:jar">commons-logging:commons-logging:jar</a>
+</li>
+</ul>
+</p>
+</li>
+<li><a href="#aopalliance:aopalliance:jar">aopalliance:aopalliance:jar</a>
+</li>
+<li><a href="#cglib:cglib-nodep:jar">cglib:cglib-nodep:jar</a>
+</li>
+<li><a href="#org.codehaus.groovy:groovy-all:jar">org.codehaus.groovy:groovy-all:jar</a>
+</li>
+<li><a href="#commons-jexl:commons-jexl:jar">commons-jexl:commons-jexl:jar</a>
+</li>
+<li><a href="#org.mvel:mvel2:jar">org.mvel:mvel2:jar</a>
+</li>
+<li><a href="#com.thoughtworks.paranamer:paranamer:jar">com.thoughtworks.paranamer:paranamer:jar</a>
+</li>
+<li><a href="#javax.persistence:persistence-api:jar">javax.persistence:persistence-api:jar</a>
+</li>
+<li><a href="#trove:trove:jar">trove:trove:jar</a>
+</li>
+</ul>
+</p>
+</li>
+</ul>
+</p>
+</div>
+<div class="section"><h3>Dependency Listings</h3>
+<p><a name="net.sf.oval:oval:jar"><b>OVal</b>
+</a>
+</p>
+<p>OVal is a pragmatic and extensible validation framework for any kind of Java objects (not only JavaBeans).
+
+Constraints can be declared with annotations (@NotNull, @MaxLength), POJOs or XML.
+
+Custom constraints can be expressed as custom Java classes or by using scripting languages such as JavaScript, Groovy, BeanShell, OGNL or MVEL.
+
+Besides field/property validation OVal implements Programming by Contract features by utilizing AspectJ based aspects. This for example allows runtime validation of method arguments.</p>
+<p><a href="http://oval.sf.net" class="externalLink">http://oval.sf.net</a>
+</p>
+<p><a name="junit:junit:jar"><b>JUnit</b>
+</a>
+</p>
+<p>JUnit is a regression testing framework written by Erich Gamma and Kent Beck. It is used by the developer who implements unit tests in Java.</p>
+<p><a href="http://junit.org" class="externalLink">http://junit.org</a>
+</p>
+<p><a name="log4j:log4j:jar"><b>Apache Log4j</b>
+</a>
+</p>
+<p>Apache Log4j 1.2</p>
+<p><a href="http://logging.apache.org:80/log4j/1.2/" class="externalLink">http://logging.apache.org:80/log4j/1.2/</a>
+</p>
+<p><a name="org.aspectj:aspectjrt:jar"><b>AspectJ runtime</b>
+</a>
+</p>
+<p></p>
+<p><a href="http://www.aspectj.org" class="externalLink">http://www.aspectj.org</a>
+</p>
+<p><a name="org.slf4j:slf4j-api:jar"><b>SLF4J API Module</b>
+</a>
+</p>
+<p>The slf4j API</p>
+<p><a href="http://www.slf4j.org" class="externalLink">http://www.slf4j.org</a>
+</p>
+<p><a name="com.thoughtworks.xstream:xstream:jar"><b>XStream Core</b>
+</a>
+</p>
+<p><a name="xpp3:xpp3_min:jar"><b>MXP1: Xml Pull Parser 3rd Edition (XPP3)</b>
+</a>
+</p>
+<p>MXP1 is a stable XmlPull parsing engine that is based on ideas from XPP and in particular XPP2 but completely revised and rewritten to take the best advantage of latest JIT JVMs such as Hotspot in JDK 1.4+.</p>
+<p><a href="http://www.extreme.indiana.edu/xgws/xsoap/xpp/mxp1/" class="externalLink">http://www.extreme.indiana.edu/xgws/xsoap/xpp/mxp1/</a>
+</p>
+<p><a name="org.beanshell:bsh:jar"><b>BeanShell</b>
+</a>
+</p>
+<p>BeanShell</p>
+<p><a name="ognl:ognl:jar"><b>OGNL - Object Graph Navigation Library</b>
+</a>
+</p>
+<p><a href="http://ognl.org" class="externalLink">http://ognl.org</a>
+</p>
+<p><a name="jboss:javassist:jar"><b>Javassist</b>
+</a>
+</p>
+<p>Javassist (Java programming assistant) is a load-time reflective system for Java.</p>
+<p><a href="http://labs.jboss.com/javassist/" class="externalLink">http://labs.jboss.com/javassist/</a>
+</p>
+<p><a name="org.jruby:jruby:jar"><b>JRuby</b>
+</a>
+</p>
+<p>A 1.8.5 compatible Ruby interpreter written in 100% pure Java</p>
+<p><a href="http://www.jruby.org/maven/jruby" class="externalLink">http://www.jruby.org/maven/jruby</a>
+</p>
+<p><a name="rhino:js:jar"><b>Rhino</b>
+</a>
+</p>
+<p>Rhino: JavaScript for Java</p>
+<p><a href="http://www.mozilla.org/rhino/" class="externalLink">http://www.mozilla.org/rhino/</a>
+</p>
+<p><a name="org.javolution:javolution:jar"><b>javolution</b>
+</a>
+</p>
+<p>Javolution real-time goals are simple: To make your application
+    faster and more time predictable!</p>
+<p><a href="http://javolution.org" class="externalLink">http://javolution.org</a>
+</p>
+<p><a name="org.springframework:spring:jar"><b>Spring Framework</b>
+</a>
+</p>
+<p>Spring Framework</p>
+<p><a href="http://www.springframework.org" class="externalLink">http://www.springframework.org</a>
+</p>
+<p><a name="commons-logging:commons-logging:jar"><b>Commons Logging</b>
+</a>
+</p>
+<p>Commons Logging is a thin adapter allowing configurable bridging to other,
+    well known logging systems.</p>
+<p><a href="http://commons.apache.org/logging" class="externalLink">http://commons.apache.org/logging</a>
+</p>
+<p><a name="aopalliance:aopalliance:jar"><b>AOP alliance</b>
+</a>
+</p>
+<p>AOP Alliance</p>
+<p><a href="http://aopalliance.sourceforge.net" class="externalLink">http://aopalliance.sourceforge.net</a>
+</p>
+<p><a name="cglib:cglib-nodep:jar"><b>Code Generation Library</b>
+</a>
+</p>
+<p>Code generation library with shaded ASM dependecies</p>
+<p><a href="http://cglib.sourceforge.net/" class="externalLink">http://cglib.sourceforge.net/</a>
+</p>
+<p><a name="org.codehaus.groovy:groovy-all:jar"><b>Groovy</b>
+</a>
+</p>
+<p>Groovy: A powerful, dynamic language for the JVM</p>
+<p><a href="http://groovy.codehaus.org/" class="externalLink">http://groovy.codehaus.org/</a>
+</p>
+<p><a name="commons-jexl:commons-jexl:jar"><b>Unnamed - commons-jexl:commons-jexl:jar:20070823</b>
+</a>
+</p>
+<p><a name="org.mvel:mvel2:jar"><b>mvel</b>
+</a>
+</p>
+<p><a href="http://mvel.codehaus.org/" class="externalLink">http://mvel.codehaus.org/</a>
+</p>
+<p><a name="com.thoughtworks.paranamer:paranamer:jar"><b>ParaNamer Core</b>
+</a>
+</p>
+<p><a href="http://paranamer.codehaus.org/paranamer" class="externalLink">http://paranamer.codehaus.org/paranamer</a>
+</p>
+<p><a name="javax.persistence:persistence-api:jar"><b>Enterprise JavaBeans (EJB) 3.0</b>
+</a>
+</p>
+<p>The Enterprise JavaBeans architecture is a component architecture for the development and deployment of component-based business applications.
+    The purpose of Enterprise JavaBeans (EJB) 3.0 is to improve the EJB architecture by reducing its complexity from the developer's point of view.</p>
+<p><a href="http://www.jcp.org/en/jsr/detail?id=220" class="externalLink">http://www.jcp.org/en/jsr/detail?id=220</a>
+</p>
+<p><a name="trove:trove:jar"><b>Unnamed - trove:trove:jar:2.0.3</b>
+</a>
+</p>
+</div>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2005-2009
+    
+          The OVal Development Team
+          
+  
+
+  
+    
+            
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

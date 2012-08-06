@@ -1,0 +1,13 @@
+
+syntax: regexp
+^classes$
+syntax: regexp
+^dist$
+syntax: regexp
+^made$
+syntax: regexp
+^output$
+syntax: regexp
+^template-build/web-xmls$
+syntax: regexp
+^wars$

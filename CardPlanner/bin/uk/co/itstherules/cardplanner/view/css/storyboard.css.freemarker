@@ -1,0 +1,442 @@
+        #board, #tool_bar, #doodle_target, #frame_image, #message_background, #message_container, #message, #backlog, .editable_hotspot_area, .editable_text_area, .hotspot_area, .text_area {
+            position: absolute;
+        }
+
+        body {
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+            border: 0px;
+        }
+
+        #board {
+            background: #FFFFFF;
+        }
+
+        body, #board {
+            padding: 0px;
+        }
+
+        #board, #frame_image, #doodle_target {
+            left: 0px;
+            top: 0px;
+        }
+
+        #backlog {
+            bottom: 0px;
+            width: 100%;
+        }
+
+        .backlog_tab, .backlog_tab_active {
+            margin:auto;
+            width: 108px;
+            height: 29px;
+            cursor:pointer;
+        }
+
+        .backlog_tab {
+            background: url('${tagBuilder.showImageUrl("backlog.png")}');
+        }
+
+        .backlog_tab_active {
+            background: url('${tagBuilder.showImageUrl("backlog_active.png")}');
+        }
+
+        .backlog_inner_contents {
+            background: #EEEEEE;
+            height: 250px;
+            width: 100%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            -khtml-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        #message_container {
+            background: #FFFFFF;
+            margin: auto;
+        }
+
+        #message_background {
+            background: url('${tagBuilder.showImageUrl("black-70.png")}');
+            z-index: 100;
+            left: 0px;
+            top: 0px;
+        }
+
+        #message {
+            margin: auto;
+            margin-top: 75px;
+        }
+
+        #wait_message_image {
+            background: url('${tagBuilder.showImageUrl("spinner.gif")}');
+            width:50px;
+            height:50px;
+            float:left;
+        }
+
+        #failure_message_image {
+            background: url('${tagBuilder.showImageUrl("error.png")}');
+            width:50px;
+            height:50px;
+            float:left;
+        }
+
+        #message_text {
+            margin-right:10px;
+            margin-top:10px;
+            float:left;
+        }
+
+        #doodle_target {
+            cursor: crosshair;
+        }
+
+        #color_picker {
+            width: 50px;
+            border: 1px solid #000000;
+            font-size: 10px;
+        }
+
+        #tool_bar {
+            -khtml-border-radius: 0px 0px 10px 10px;
+            -moz-border-radius: 0px 0px 10px 10px;
+            -webkit-border-radius: 0px 0px 10px 10px;
+            -o-border-radius: 0px 0px 10px 10px;
+            border-radius: 0px 0px 10px 10px;
+            z-index: 99;
+            width: 120px;
+            left:5px;
+            top:5px;
+            background: #FFFFFF;
+        }
+
+        .editable_text_area_handle, .text_area_handle {
+            width: 100%;
+        }
+
+        #tool_bar_handle, #tool_bar_body, .editable_text_area, .text_area {
+            width: 120px;
+        }
+
+        #tool_bar_handle {
+            margin-bottom: 5px;
+        }
+
+        .card_tool_buttons_container { width:150px; height:90px; }
+
+        .archived_card_tool_buttons_container { width: 75px; height: 90px; }
+
+        .card_tool_buttons_container, .archived_card_tool_buttons_container, .post_it_tool_buttons_container {
+            clear:both, padding: 0px;
+        }
+
+        .post_it_tool_buttons_container { width:110px; height:45px; clear:both, padding: 0px; }
+
+        #undo_all_button_image {
+            background: url('${tagBuilder.showImageUrl("undo_all.png")}') no-repeat;
+        }
+
+        #undo_button_image {
+            background: url('${tagBuilder.showImageUrl("undo.png")}') no-repeat;
+        }
+
+        #redo_button_image {
+            background: url('${tagBuilder.showImageUrl("redo.png")}') no-repeat;
+        }
+
+        #line_button_image {
+            background: url('${tagBuilder.showImageUrl("line.png")}') no-repeat;
+        }
+
+        #freehand_button_image {
+            background: url('${tagBuilder.showImageUrl("freehand.png")}') no-repeat;
+        }
+
+        #use_board_button_image {
+            background: url('${tagBuilder.showImageUrl("kanban_small.png")}') no-repeat center center;
+        }
+
+        #text_button_image {
+            background: url('${tagBuilder.showImageUrl("text.png")}') no-repeat center center;
+        }
+
+        #save_button_image {
+            background: url('${tagBuilder.showImageUrl("save.png")}') no-repeat center center;
+        }
+
+        #add_status_button_image {
+            background: url('${tagBuilder.showImageUrl("statuses_small.png")}') no-repeat center center;
+        }
+
+        #hotspots_add_button_image {
+            background: url('${tagBuilder.showImageUrl("hotspots_add.png")}') no-repeat center center;
+        }
+
+        #hotspots_hide_button_image {
+            background: url('${tagBuilder.showImageUrl("hotspots_hide.png")}') no-repeat center center;
+        }
+
+        #hotspots_show_button_image {
+            background: url('${tagBuilder.showImageUrl("hotspots_show.png")}') no-repeat center center;
+        }
+
+        #change_frame_button_image {
+            background: url('${tagBuilder.showImageUrl("change_frame.png")}') no-repeat center center;
+        }
+
+        #edit_board_button_image {
+            background: url('${tagBuilder.showImageUrl("hotspots_edit.png")}') no-repeat center center;
+        }
+
+        #add_card_button_image, #add_post_it_button_image {
+            width: 18px;
+            height: 11px;
+            margin-top: 5px;
+            border: 1px solid #333333;
+        }
+
+        #up_to_parent_button_image {
+            background: #FFFFFF url('${tagBuilder.showImageUrl("up_to_parent.png")}') no-repeat center center;
+        }
+
+        #add_card_button_image {
+            background: #FFFFFF url('${tagBuilder.showImageUrl("card_add.png")}') no-repeat center center;
+        }
+
+        #add_post_it_button_image {
+            background: #FFFFFF url('${tagBuilder.showImageUrl("post_it_add.png")}') no-repeat center center;
+        }
+
+        .people_button_image {
+            background: url('${tagBuilder.showImageUrl("parent.png")}') no-repeat center center;
+        }
+
+        .board_button_image {
+            background: url('${tagBuilder.showImageUrl("board.png")}') no-repeat center center;
+        }
+
+        .facts_button_image {
+            background: url('${tagBuilder.showImageUrl("comment.png")}') no-repeat center center;
+        }
+
+        .show_button_image {
+            background: url('${tagBuilder.showImageUrl("magnifying.png")}') no-repeat center center;
+        }
+
+        .edit_button_image {
+            background: url('${tagBuilder.showImageUrl("edit_pencil_none.png")}') no-repeat center center;
+        }
+
+        .archive_button_image {
+            background: url('${tagBuilder.showImageUrl("archive.png")}') no-repeat center center;
+        }
+
+        .unarchive_button_image {
+            background: url('${tagBuilder.showImageUrl("undo_all.png")}') no-repeat center center;
+        }
+
+        .delete_button_image {
+            background: url('${tagBuilder.showImageUrl("delete.png")}') no-repeat center center;
+        }
+
+        .attachments_button_image {
+            background: url('${tagBuilder.showImageUrl("attachment_medium.png")}') no-repeat center center;
+        }
+
+        #color_picker_button {
+            margin-left:35px;
+            margin-top:10px;
+            margin-bottom:10px;
+        }
+
+        #brush_sizes_buttons {
+            margin-left: 20px;
+            clear: both;
+        }
+
+        #state_buttons {
+            margin-left:5px;
+            clear: both;
+        }
+
+        .window_handle {
+            cursor: move;
+            background: url('${tagBuilder.showImageUrl("black-25.png")}');
+        }
+
+        .editable_text_area_handle, .text_area_handle, #tool_bar_handle {
+            height: 20px;
+        }
+
+        .editable_hotspot_area, .hotspot_area {
+            margin: 0px;
+        }
+
+        .editable_hotspot_area {
+            background: url('${tagBuilder.showImageUrl("red-10.png")}');
+            font-size:14px;
+            text-align: center;
+            color: #CCCCCC;
+        }
+
+        .editable_hotspot_area_inner {
+            width: 95%;
+            height: 95%;
+            margin: 5px;
+            font-size: 14px;
+            text-align: center;
+            color: #CCCCCC;
+            cursor: move;
+        }
+
+        .canvasdoodle_button_image {
+            width: 25px;
+            height: 25px;
+            margin: auto;
+        }
+
+        .button_image {
+            width: 35px;
+            height: 25px;
+            margin: auto;
+        }
+
+        .canvasdoodle_smaller_button_image, .smaller_button_image {
+            width: 20px;
+            height: 20px;
+        }
+
+        .smaller_button_image { float: left; }
+
+        .status_button {
+            background: url('${tagBuilder.showImageUrl("button_background.png")}') repeat;
+        }
+
+        .status_button_selected {
+            border: 1px solid #999999;
+            background: url('${tagBuilder.showImageUrl("button_background_hover.png")}') repeat;
+        }
+
+        .status_button, .status_button_selected {
+            padding: 4px;
+            margin-left: 5px;
+        }
+
+        .editable_text_area, .text_area {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .editable_text_area_inner, .text_area_inner {
+            background: #FFFFFF;
+            -webkit-user-select: text;
+            -khtml-user-select: text;
+            -moz-user-select: text;
+            -o-user-select: text;
+            user-select: text;
+        }
+
+        .image_button, .text_button, .smaller_image_button {
+            float: left;
+            margin-bottom: 10px;
+        }
+
+        .image_button {
+            width: 42px;
+            height: 25px;
+        }
+
+        .smaller_image_button {
+            float: left;
+            width: 20px;
+            height: 20px;
+        }
+
+        .text_button {
+            width: 100px;
+        }
+
+        .close_button {
+            width: 10px;
+            height: 10px;
+            float: right;
+            background: url('${tagBuilder.showImageUrl("delete.png")}');
+        }
+
+        .card_info, .post_it_info {
+            cursor: pointer;
+            float: right;
+            color: #FFFFFF;
+            font-weight: bold;
+            background: #000000;
+            -khtml-border-radius: 7px;
+            -moz-border-radius: 7px;
+            -webkit-border-radius: 7px;
+            -o-border-radius: 7px;
+            border-radius: 7px;
+            width: 14px;
+            height: 14px;
+            text-align: center;
+        }
+
+        .medium_size_card_background {
+            background: url('${tagBuilder.showImageUrl("card.png")}');
+            border: 1px solid #AAAAAA;
+            padding: 2px;
+            width: 86px;
+            height: 56px;
+            text-align: center;
+            cursor:move;
+        }
+
+        .medium_size_card {
+            position: absolute;
+            width: 90px;
+            height: 60px;
+        }
+
+        .medium_size_card_group {
+            margin: 2px;
+            padding: 4px;
+            width: auto;
+            float: left;
+        }
+
+        .post_it {
+            position: absolute;
+            background-image: url('${tagBuilder.showImageUrl("post_it_background.png")}');
+            font-size: 11px;
+            padding: 4px;
+            width: 80px;
+            min-height: 53px;
+            cursor: move;
+        }
+
+        .post_it_title {
+            width: 56px;
+            float: left;
+        }
+
+        .thin_border {
+            border: 1px solid #CCCCCC;
+        }
+
+        .rotate_a_wee_bit_right {
+            -moz-transform: rotate(1deg);
+            -webkit-transform: rotate(1deg);
+            -khtml-transform: rotate(1deg);
+            -o-transform: rotate(1deg);
+            transform: rotate(1deg);
+        }
+        .rotate_a_wee_bit_left {
+            -moz-transform: rotate(-1deg);
+            -webkit-transform: rotate(-1deg);
+            -khtml-transform: rotate(-1deg);
+            -o-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+        }

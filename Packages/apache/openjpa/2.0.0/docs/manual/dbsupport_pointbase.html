@@ -1,0 +1,27 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>20.&nbsp; Pointbase</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="supported_databases.html" title="Appendix&nbsp;2.&nbsp; Supported Databases"><link rel="prev" href="dbsupport_oracle.html" title="19.&nbsp; Oracle"><link rel="next" href="dbsupport_postgresql.html" title="21.&nbsp; PostgreSQL"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">20.&nbsp;
+            Pointbase
+        </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="dbsupport_oracle.html">Prev</a>&nbsp;</td><th width="60%" align="center">Appendix&nbsp;2.&nbsp;
+        Supported Databases
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="dbsupport_postgresql.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="dbsupport_pointbase"></a>20.&nbsp;
+            Pointbase
+        </h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="dbsupport_pointbase.html#dbsupport_pointbase_issues">20.1. 
+                Known issues with Pointbase
+            </a></span></dt></dl></div><div class="example"><a name="example_props_pointbase"></a><p class="title"><b>Example&nbsp;2.21.&nbsp;
+                Example properties for Pointbase
+            </b></p><div class="example-contents"><pre class="programlisting">
+openjpa.ConnectionDriverName: com.pointbase.jdbc.jdbcUniversalDriver
+openjpa.ConnectionURL: \
+    jdbc:pointbase:DB_NAME,database.home=pointbasedb,create=true,cache.size=10000,database.pagesize=30720
+</pre></div></div><br class="example-break"><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="dbsupport_pointbase_issues"></a>20.1.&nbsp;
+                Known issues with Pointbase
+            </h3></div></div></div><div class="itemizedlist"><ul type="disc"><li><p> 
+Fields of type BLOB and CLOB are limited to 1M.  Set the <code class="literal">BlobTypeName
+</code> and/or <code class="literal">ClobTypeName</code> properties of the 
+<code class="literal">openjpa.jdbc.DBDictionary</code> setting to override.  
+                    </p></li></ul></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="dbsupport_oracle.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="supported_databases.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="dbsupport_postgresql.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">19.&nbsp;
+            Oracle
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;21.&nbsp;
+            PostgreSQL
+        </td></tr></table></div></body></html>

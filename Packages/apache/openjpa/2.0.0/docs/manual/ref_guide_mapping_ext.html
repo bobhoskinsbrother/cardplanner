@@ -1,0 +1,195 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>9.&nbsp; Mapping Extensions</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="ref_guide_mapping.html" title="Chapter&nbsp;7.&nbsp; Mapping"><link rel="prev" href="ref_guide_mapping_limits.html" title="8.&nbsp; Mapping Limitations"><link rel="next" href="ref_guide_mapping_custom.html" title="10.&nbsp; Custom Mappings"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">9.&nbsp;
+            Mapping Extensions
+        </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ref_guide_mapping_limits.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;7.&nbsp;
+        Mapping
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ref_guide_mapping_custom.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ref_guide_mapping_ext"></a>9.&nbsp;
+            Mapping Extensions
+        </h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ref_guide_mapping_ext.html#ref_guide_mapping_ext_cls">9.1. 
+                Class Extensions
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_ext.html#subclass-fetch-mode">9.1.1. 
+                    Subclass Fetch Mode
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#class-strategy">9.1.2. 
+                    Strategy
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#discriminator-strategy">9.1.3. 
+                    Discriminator Strategy
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#version-strategy">9.1.4. 
+                    Version Strategy
+                </a></span></dt></dl></dd><dt><span class="section"><a href="ref_guide_mapping_ext.html#ref_guide_mapping_ext_field">9.2. 
+                Field Extensions
+            </a></span></dt><dd><dl><dt><span class="section"><a href="ref_guide_mapping_ext.html#eager-fetch-mode">9.2.1. 
+                    Eager Fetch Mode
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#nonpolymorphic">9.2.2. 
+                    Nonpolymorphic
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#class-criteria">9.2.3. 
+                    Class Criteria
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#strategy">9.2.4. 
+                    Strategy
+                </a></span></dt></dl></dd></dl></div><p>
+Mapping extensions allow you to access OpenJPA-specific functionality from your
+mappings. Note that all extensions below are specific to mappings. If you store
+your mappings separately from your persistence metadata, these extensions must
+be specified along with the mapping information, not the persistence metadata
+information.
+        </p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_mapping_ext_cls"></a>9.1.&nbsp;
+                Class Extensions
+            </h3></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ref_guide_mapping_ext.html#subclass-fetch-mode">9.1.1. 
+                    Subclass Fetch Mode
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#class-strategy">9.1.2. 
+                    Strategy
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#discriminator-strategy">9.1.3. 
+                    Discriminator Strategy
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#version-strategy">9.1.4. 
+                    Version Strategy
+                </a></span></dt></dl></div><p>
+OpenJPA recognizes the following class extensions.
+            </p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="subclass-fetch-mode"></a>9.1.1.&nbsp;
+                    Subclass Fetch Mode
+                </h4></div></div></div><a class="indexterm" name="d0e30663"></a><p>
+This extension specifies how to eagerly fetch subclass state. It overrides the
+global <a href="ref_guide_conf_jdbc.html#openjpa.jdbc.SubclassFetchMode" title="6.16.&nbsp; openjpa.jdbc.SubclassFetchMode"><code class="literal">
+openjpa.jdbc.SubclassFetchMode</code></a> property. Set the JPA
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/SubclassFetchMode.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.SubclassFetchMode</code>
+</a> annotation to a value from the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/FetchMode.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.FetchMode</code>
+</a> enum: <code class="literal">JOIN</code>, <code class="literal">PARALLEL</code>, or
+<code class="literal">NONE</code>. See <a href="ref_guide_perfpack_eager.html" title="8.&nbsp; Eager Fetching">Section&nbsp;8, &#8220;
+            Eager Fetching
+        &#8221;</a>
+ for a discussion of eager fetching.
+                </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="class-strategy"></a>9.1.2.&nbsp;
+                    Strategy
+                </h4></div></div></div><a class="indexterm" name="d0e30704"></a><p>
+The <a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/Strategy.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.Strategy</code></a>
+class annotation allows you to specify a custom mapping strategy for your class.
+See <a href="ref_guide_mapping_custom.html" title="10.&nbsp; Custom Mappings">Section&nbsp;10, &#8220;
+            Custom Mappings
+        &#8221;</a> for information on custom
+mappings.
+                </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="discriminator-strategy"></a>9.1.3.&nbsp;
+                    Discriminator Strategy
+                </h4></div></div></div><a class="indexterm" name="d0e30725"></a><p>
+The
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/DiscriminatorStrategy.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.DiscriminatorStrategy</code>
+</a> class annotation allows you to specify a custom discriminator strategy.
+See <a href="ref_guide_mapping_custom.html" title="10.&nbsp; Custom Mappings">Section&nbsp;10, &#8220;
+            Custom Mappings
+        &#8221;</a> for information on custom
+mappings.
+                </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="version-strategy"></a>9.1.4.&nbsp;
+                    Version Strategy
+                </h4></div></div></div><a class="indexterm" name="d0e30747"></a><p>
+The
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/VersionStrategy.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.VersionStrategy</code>
+</a> class annotation allows you to specify a custom version strategy. See
+<a href="ref_guide_mapping_custom.html" title="10.&nbsp; Custom Mappings">Section&nbsp;10, &#8220;
+            Custom Mappings
+        &#8221;</a> for information on custom
+mappings.
+                </p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_mapping_ext_field"></a>9.2.&nbsp;
+                Field Extensions
+            </h3></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ref_guide_mapping_ext.html#eager-fetch-mode">9.2.1. 
+                    Eager Fetch Mode
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#nonpolymorphic">9.2.2. 
+                    Nonpolymorphic
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#class-criteria">9.2.3. 
+                    Class Criteria
+                </a></span></dt><dt><span class="section"><a href="ref_guide_mapping_ext.html#strategy">9.2.4. 
+                    Strategy
+                </a></span></dt></dl></div><p>
+OpenJPA recognizes the following field extensions.
+            </p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="eager-fetch-mode"></a>9.2.1.&nbsp;
+                    Eager Fetch Mode
+                </h4></div></div></div><a class="indexterm" name="d0e30774"></a><p>
+This extension specifies how to eagerly fetch related objects. It overrides the
+global <a href="ref_guide_conf_jdbc.html#openjpa.jdbc.EagerFetchMode" title="6.4.&nbsp; openjpa.jdbc.EagerFetchMode"><code class="literal">
+openjpa.jdbc.EagerFetchMode</code></a> property. Set the JPA
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/EagerFetchMode.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.EagerFetchMode</code>
+</a> annotation to a value from the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/EagerFetchType.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.EagerFetchType</code>
+</a> enum: <code class="literal">JOIN</code>, <code class="literal">PARALLEL</code>, or
+<code class="literal">NONE</code>. See <a href="ref_guide_perfpack_eager.html" title="8.&nbsp; Eager Fetching">Section&nbsp;8, &#8220;
+            Eager Fetching
+        &#8221;</a>
+ for a discussion of eager fetching.
+                </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="nonpolymorphic"></a>9.2.2.&nbsp;
+                    Nonpolymorphic
+                </h4></div></div></div><a class="indexterm" name="d0e30815"></a><p>
+All fields in Java are polymorphic. If you declare a field of type <code class="literal">T
+</code>, you can assign any subclass of <code class="literal">T</code> to the field as
+well. This is very convenient, but can make relation traversal very inefficient
+under some inheritance strategies. It can even make querying across the field
+impossible. Often, you know that certain fields do not need to be entirely
+polymorphic. By telling OpenJPA about such fields, you can improve the
+efficiency of your relations.
+                </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+OpenJPA also includes the <code class="literal">type</code> metadata extension for
+narrowing the declared type of a field. See <a href="ref_guide_meta_ext.html#type" title="4.2.6.&nbsp; Type">Section&nbsp;4.2.6, &#8220;
+                    Type
+                &#8221;</a>.
+                    </p></div><p>
+OpenJPA defines the following extensions for nonpolymorphic values:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/Nonpolymorphic.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.Nonpolymorphic</code>
+</a>
+                        </p></li><li><p>
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/ElementNonpolymorphic.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.ElementNonpolymorphic</code>
+</a>
+                        </p></li></ul></div><p>
+The value of these extensions is a constant from the
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/NonpolymorphicType.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.NonpolymorphicType</code>
+</a> enumeration. The default value, <code class="literal">EXACT</code>, indicates
+that the relation will always be of the exact declared type. A value of
+<code class="literal">JOINABLE</code>, on the other hand, means that the relation might
+be to any joinable subclass of the declared type. This value only excludes
+table-per-class subclasses.
+                </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="class-criteria"></a>9.2.3.&nbsp;
+                    Class Criteria
+                </h4></div></div></div><a class="indexterm" name="d0e30876"></a><a class="indexterm" name="d0e30885"></a><p>
+This family of boolean extensions determines whether OpenJPA will use the
+expected class of related objects as criteria in the SQL it issues to load a
+relation field. Typically, this is not needed. The foreign key values uniquely
+identify the record for the related object. Under some rare mappings, however,
+you may need to consider both foreign key values and the expected class of the
+related object - for example, if you have an inverse relation that shares the
+foreign key with another inverse relation to an object of a different subclass.
+In these cases, set the proper class criteria extension to <code class="literal">true
+</code> to force OpenJPA to append class criteria to its select SQL.
+                </p><p>
+OpenJPA defines the following class criteria annotations for field relations and
+array or collection element relations, respectively:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/ClassCriteria.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.ClassCriteria</code></a>
+                        </p></li><li><p>
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/ElementClassCriteria.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.ElementClassCriteria</code>
+</a>
+                        </p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="strategy"></a>9.2.4.&nbsp;
+                    Strategy
+                </h4></div></div></div><a class="indexterm" name="d0e30918"></a><p>
+OpenJPA's
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/jdbc/Strategy.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.jdbc.Strategy</code></a>
+extension allows you to specify a custom mapping
+strategy or value handler for a field. See
+<a href="ref_guide_mapping_custom.html" title="10.&nbsp; Custom Mappings">Section&nbsp;10, &#8220;
+            Custom Mappings
+        &#8221;</a> for information on custom
+mappings.
+                </p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ref_guide_mapping_limits.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ref_guide_mapping.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ref_guide_mapping_custom.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">8.&nbsp;
+            Mapping Limitations
+        &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;10.&nbsp;
+            Custom Mappings
+        </td></tr></table></div></body></html>

@@ -1,0 +1,40 @@
+${tagBuilder.formStart("changeForm", "ProcessSteps", processStep.identity, action)}
+<fieldset class="gray_rounded">
+<h2>${action} Process Step</h2>
+<div style="clear:both; margin-top: 5px;">
+
+<strong>
+Title
+</strong>
+${tagBuilder.inputText({"name":"title", "class":"title" }, processStep.title!""?html, violations.isViolated("title"), "Please input a title")}
+<br/>
+
+<strong>
+Process Key
+</strong>
+${tagBuilder.select("processKey", availableSteps, processStep.processKey!"", {"id","processKey", "class":"title" })}
+<br/>
+
+
+<strong>
+Description
+</strong>
+${tagBuilder.textArea({"name":"body", "style":"width: 100%; height: 200px; text-align:left;" }, processStep.body!""?html, violations.isViolated("body"), "Please input a description")}
+<br/>
+
+
+
+<strong>
+Input
+</strong>
+${tagBuilder.inputText({"name":"input", "class":"title" }, processStep.input!""?html, violations.isViolated("input"), "Please input an input")}
+<br/>
+
+
+
+${tagBuilder.hidden({"name": "redirect"}, redirect!""?url)}
+
+</div>
+<div style="float: left; margin-top: 10px;">${tagBuilder.submit(action)}</div>
+</fieldset>
+${tagBuilder.formEnd()}

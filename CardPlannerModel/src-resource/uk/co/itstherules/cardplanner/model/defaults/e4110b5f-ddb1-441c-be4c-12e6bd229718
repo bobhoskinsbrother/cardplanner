@@ -1,0 +1,7 @@
+# SIGN_UP_EMAIL_PAGE, PageModel, e4110b5f-ddb1-441c-be4c-12e6bd229718
+navigable=false
+template.identity=ccbd639c-22f1-4bdf-b23f-75eb4fdebbe7
+parent.identity=f500a322-59c7-4384-ad5c-9dd6ab01e907
+
+title=Sign Up Emailed Confirmation Page
+body.identity=9bb5359a-5556-4119-8252-7b40e5e75894

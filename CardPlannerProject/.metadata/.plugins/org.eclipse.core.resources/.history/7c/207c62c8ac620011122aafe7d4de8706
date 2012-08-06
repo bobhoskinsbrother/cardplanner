@@ -1,0 +1,24 @@
+package uk.co.itstherules.cardplanner.model;
+
+import uk.co.itstherules.yawf.model.Entity;
+import uk.co.itstherules.yawf.model.IdentifiableDeleteableModel;
+import uk.co.itstherules.yawf.model.IdentityDeleteable;
+import uk.co.itstherules.yawf.model.persistence.ObjectCache;
+
+public final class ResurrectableThing extends IdentifiableDeleteableModel<ResurrectableThing> {
+
+	private final Class<IdentityDeleteable<?>> theClass;
+
+	public ResurrectableThing(String identity, String title, Class<Entity<?>> theClass) {
+		setIdentity(identity);
+		setTitle(title);
+		this.theClass = theClass;
+	}
+
+	public Class<Entity<?>> get() {
+		return theClass;
+	}
+
+	public ResurrectableThing defaultSetup(ObjectCache objectCache) { return this; }
+
+}

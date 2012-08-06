@@ -1,0 +1,26 @@
+Oct 18, 2009 12:57:53 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: start: Starting web application at '/StoryBoardWebsite'
+Oct 18, 2009 12:57:54 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Oct 18, 2009 1:21:25 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Oct 18, 2009 1:21:34 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application at '/StoryBoardWebsite'
+Oct 18, 2009 1:21:34 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Oct 18, 2009 1:36:38 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: stop: Stopping web application at '/StoryBoardWebsite'
+Oct 18, 2009 1:36:38 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Oct 18, 2009 2:06:34 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: undeploy: Undeploying web application at '/StoryBoardWebsite'
+Oct 18, 2009 2:06:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Oct 18, 2009 2:06:58 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Oct 18, 2009 2:07:49 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: start: Starting web application at '/StoryBoardWebsite'
+Oct 18, 2009 2:07:49 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Oct 18, 2009 2:21:06 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'

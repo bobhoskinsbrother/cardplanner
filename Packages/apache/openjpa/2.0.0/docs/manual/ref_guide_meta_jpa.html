@@ -1,0 +1,166 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>3.&nbsp; Additional JPA Metadata</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="ref_guide_meta.html" title="Chapter&nbsp;6.&nbsp; Metadata"><link rel="prev" href="ref_guide_meta_repository.html" title="2.&nbsp;Metadata Repository"><link rel="next" href="ref_guide_meta_ext.html" title="4.&nbsp; Metadata Extensions"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.&nbsp;
+            Additional JPA Metadata
+        </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ref_guide_meta_repository.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;6.&nbsp;
+        Metadata
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ref_guide_meta_ext.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ref_guide_meta_jpa"></a>3.&nbsp;
+            Additional JPA Metadata
+        </h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ref_guide_meta_jpa.html#ref_guide_meta_jpa_datastoreid">3.1. 
+                Datastore Identity
+            </a></span></dt><dt><span class="section"><a href="ref_guide_meta_jpa.html#ref_guide_meta_jpa_version">3.2. 
+                Surrogate Version
+            </a></span></dt><dt><span class="section"><a href="ref_guide_meta_jpa.html#ref_guide_meta_jpa_persistent">3.3. 
+                Persistent Field Values
+            </a></span></dt><dt><span class="section"><a href="ref_guide_meta_jpa.html#ref_guide_meta_jpa_persistent_coll">3.4. Persistent Collection Fields</a></span></dt><dt><span class="section"><a href="ref_guide_meta_jpa.html#ref_guide_meta_jpa_persistent_map">3.5. Persistent Map Fields</a></span></dt></dl></div><a class="indexterm" name="d0e27035"></a><p>
+This section describes OpenJPA's core additions to standard entity metadata. We
+present the object-relational mapping syntax to support these additions in
+<a href="ref_guide_mapping_jpa.html" title="7.&nbsp; Additional JPA Mappings">Section&nbsp;7, &#8220;
+            Additional JPA Mappings
+        &#8221;</a>. Finally,
+<a href="ref_guide_meta_ext.html" title="4.&nbsp; Metadata Extensions">Section&nbsp;4, &#8220;
+            Metadata Extensions
+        &#8221;</a> covers additional extensions to JPA
+metadata that allow you to access auxiliary OpenJPA features.
+        </p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_meta_jpa_datastoreid"></a>3.1.&nbsp;
+                Datastore Identity
+            </h3></div></div></div><a class="indexterm" name="d0e27049"></a><p>
+JPA typically requires you to declare one or more <code class="literal">Id</code> fields
+to act as primary keys. OpenJPA, however, can create and maintain a surrogate
+primary key value when you do not declare any <code class="literal">Id</code> fields. This
+form of persistent identity is called <span class="emphasis"><em>datastore identity</em></span>.
+<a href="ref_guide_pc_oid.html" title="4.&nbsp; Object Identity">Section&nbsp;4, &#8220;
+            Object Identity
+        &#8221;</a> discusses OpenJPA's support for
+datastore identity in JPA. We cover how to map your datastore identity primary
+key column in <a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_datastoreid" title="7.1.&nbsp; Datastore Identity Mapping">Section&nbsp;7.1, &#8220;
+                Datastore Identity Mapping
+            &#8221;</a>
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_meta_jpa_version"></a>3.2.&nbsp;
+                Surrogate Version
+            </h3></div></div></div><a class="indexterm" name="d0e27072"></a><p>
+Just as OpenJPA can maintain your entity's identity without any <code class="literal">Id
+</code> fields, OpenJPA can maintain your entity's optimistic version without
+any <code class="literal">Version</code> fields.
+<a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_version" title="7.2.&nbsp; Surrogate Version Mapping">Section&nbsp;7.2, &#8220;
+                Surrogate Version Mapping
+            &#8221;</a> shows you how to map
+surrogate version columns.
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_meta_jpa_persistent"></a>3.3.&nbsp;
+                Persistent Field Values
+            </h3></div></div></div><a class="indexterm" name="d0e27090"></a><p>
+JPA defines <code class="literal">Basic</code>, <code class="literal">Lob</code>, <code class="literal">Embedded
+</code>, <code class="literal">ManyToOne</code>, and <code class="literal">OneToOne</code>
+persistence strategies for direct field values. OpenJPA supports all of these
+standard strategies, but adds one of its own: <code class="literal">Persistent</code>.
+The <a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/Persistent.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.Persistent</code></a>
+metadata annotation can represent any direct field value, including custom
+types. It has the following properties:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">FetchType fetch</code>: Whether to load the field eagerly or
+lazily. Corresponds exactly to the same-named property of standard JPA
+annotations such as <a href="jpa_overview_meta_field.html#jpa_overview_meta_basic" title="2.7.&nbsp; Basic"><code class="classname"> Basic
+</code></a>. Defaults to <code class="literal">FetchType.EAGER</code>.
+                    </p></li><li><p>
+<code class="literal">CascadeType[] cascade</code>: Array of enum values defining cascade
+behavior for this field. Corresponds exactly to the same-named property of
+standard JPA annotations such as <a href="jpa_overview_meta_field.html#jpa_overview_meta_manytoone" title="2.9.&nbsp; Many To One">
+<code class="classname"> ManyToOne</code></a>. Defaults to empty array.
+                    </p></li><li><p>
+<code class="literal">String mappedBy</code>: Names the field in the related entity that
+maps this bidirectional relation. Corresponds to the same-named property of
+standard JPA annotations such as <a href="jpa_overview_meta_field.html#jpa_overview_meta_onetoone" title="2.11.&nbsp; One To One">
+<code class="classname"> OneToOne</code></a>.
+                    </p></li><li><p>
+<code class="literal">boolean optional</code>: Whether the value can be null. Corresponds
+to the same-named property of standard JPA annotations such as
+<a href="jpa_overview_meta_field.html#jpa_overview_meta_manytoone" title="2.9.&nbsp; Many To One"><code class="classname"> ManyToOne</code>
+</a>, but can apply to non-entity object values as well. Defaults to
+<code class="literal">true</code>.
+                    </p></li><li><p>
+<code class="literal">boolean embedded</code>: Set this property to <code class="literal">true
+</code> if the field value is stored as an embedded object.
+                    </p></li></ul></div><p>
+Though you can use the <code class="classname">Persistent</code> annotation in place of
+most of the standard direct field annotations mentioned above, we recommend
+primarily using it for non-standard and custom types for which no standard JPA
+annotation exists. For example, <a href="ref_guide_mapping_jpa.html#ref_guide_mapping_jpa_columns" title="7.3.&nbsp; Multi-Column Mappings">Section&nbsp;7.3, &#8220;
+                Multi-Column Mappings
+            &#8221;</a>
+ demonstrates the use of the <code class="classname">Persistent</code> annotation
+to denote a persistent <code class="classname">java.awt.Point</code> field.
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_meta_jpa_persistent_coll"></a>3.4.&nbsp;Persistent Collection Fields</h3></div></div></div><a class="indexterm" name="d0e27193"></a><p>
+JPA standardizes support for collections of entities with the <code class="literal">
+OneToMany</code> and <code class="literal">ManyToMany</code> persistence strategies.  
+OpenJPA supports these strategies, and may be extended for other strategies as 
+well.  For extended strategies, use the 
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/PersistentCollection.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.PersistentCollection</code></a> metadata 
+annotation to represents any persistent collection field.  It has the following
+properties:
+			</p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">Class elementType</code>: The class of the collection elements.  
+This information is usually taken from the parameterized collection element 
+type.  You must supply it explicitly, however, if your field isn't a 
+parameterized type.
+					</p></li><li><p>
+<code class="literal">FetchType fetch</code>: Whether to load the collection eagerly or 
+lazily.  Corresponds exactly to the same-named property of standard JPA 
+annotations such as <a href="jpa_overview_meta_field.html#jpa_overview_meta_basic" title="2.7.&nbsp; Basic"><code class="classname">
+Basic</code></a>. Defaults to <code class="literal">FetchType.LAZY</code>.
+					</p></li><li><p>
+<code class="literal">String mappedBy</code>: Names the field in the related entity that 
+maps this bidirectional relation.  Corresponds to the same-named property of 
+standard JPA annotations such as <a href="jpa_overview_meta_field.html#jpa_overview_meta_manytomany" title="2.12.&nbsp; Many To Many">
+<code class="classname">ManyToMany</code></a>.
+					</p></li><li><p>
+<code class="literal">CascadeType[] elementCascade</code>: Array of enum values defining 
+cascade behavior for the collection elements.  Corresponds exactly to the 
+<code class="literal">cascade</code> property of standard JPA annotations such as 
+<a href="jpa_overview_meta_field.html#jpa_overview_meta_manytomany" title="2.12.&nbsp; Many To Many"><code class="classname">
+ManyToMany</code></a>. Defaults to empty array.
+					</p></li><li><p>
+<code class="literal">boolean elementEmbedded</code>: Set this property to <code class="literal">true
+</code> if the elements are stored as embedded objects.
+					</p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ref_guide_meta_jpa_persistent_map"></a>3.5.&nbsp;Persistent Map Fields</h3></div></div></div><a class="indexterm" name="d0e27267"></a><p>
+JPA has limited support for maps.  If you extend JPA's standard map support to 
+encompass new mappings, use the 
+<a xmlns:xlink="http://www.w3.org/1999/xlink" href="../javadoc/org/apache/openjpa/persistence/PersistentMap.html" target="_top">
+<code class="classname">org.apache.openjpa.persistence.PersistentMap</code></a> metadata 
+annotation to represent your custom persistent map fields.  It has the 
+following properties:
+			</p><div class="itemizedlist"><ul type="disc"><li><p>
+<code class="literal">Class keyType</code>: The class of the map keys.  This information 
+is usually taken from the parameterized map key type.  You must supply it 
+explicitly, however, if your field isn't a parameterized type.
+					</p></li><li><p>
+<code class="literal">Class elementType</code>: The class of the map values.  This 
+information is usually taken from the parameterized map value type.  You must 
+supply it explicitly, however, if your field isn't a parameterized type.
+					</p></li><li><p>
+<code class="literal">FetchType fetch</code>: Whether to load the collection eagerly or 
+lazily.  Corresponds exactly to the same-named property of standard JPA 
+annotations such as <a href="jpa_overview_meta_field.html#jpa_overview_meta_basic" title="2.7.&nbsp; Basic"><code class="classname">
+Basic</code></a>. Defaults to <code class="literal">FetchType.LAZY</code>.
+					</p></li><li><p>
+<code class="literal">CascadeType[] keyCascade</code>: Array of enum values defining 
+cascade behavior for the map keys.  Corresponds exactly to the <code class="literal">cascade
+</code> property of standard JPA annotations such as 
+<a href="jpa_overview_meta_field.html#jpa_overview_meta_manytoone" title="2.9.&nbsp; Many To One"><code class="classname">
+ManyToOne</code></a>. Defaults to empty array.
+					</p></li><li><p>
+<code class="literal">CascadeType[] elementCascade</code>: Array of enum values defining 
+cascade behavior for the map values.  Corresponds exactly to the 
+<code class="literal">cascade</code> property of standard JPA annotations such as 
+<a href="jpa_overview_meta_field.html#jpa_overview_meta_manytoone" title="2.9.&nbsp; Many To One"><code class="classname">
+ManyToOne</code></a>. Defaults to empty array.
+					</p></li><li><p>
+<code class="literal">boolean keyEmbedded</code>: Set this property to <code class="literal">true
+</code> if the map keys are stored as embedded objects.
+					</p></li><li><p>
+<code class="literal">boolean elementEmbedded</code>: Set this property to <code class="literal">
+true</code> if the map values are stored as embedded objects.
+					</p></li></ul></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ref_guide_meta_repository.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ref_guide_meta.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ref_guide_meta_ext.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">2.&nbsp;Metadata Repository&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;4.&nbsp;
+            Metadata Extensions
+        </td></tr></table></div></body></html>

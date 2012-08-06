@@ -1,0 +1,31 @@
+<script>
+var state = '${state}';
+
+function refreshCanvas() {
+	new Ajax.PeriodicalUpdater('ajax', '${tagBuilder.feedUrl("Notifier", "0", "index.json")}', {
+		method: 'post',
+		frequency: 1, 
+		decay: 1,
+		evalJSON: false,
+		onSuccess: function(transport) {
+		  	var text = transport.responseText;
+			var data = text.evalJSON(true);
+		    if (data.state != state) {
+				drawCanvas(data.state);
+				state = data.state;
+			}
+		}
+	});
+}
+
+function drawCanvas(state) {
+	$('out').update(state);
+}
+
+
+Event.observe(this, 'dom:loaded',  function() { refreshCanvas(); });
+
+</script>
+<div id="out"></div>
+
+<div id="ajax" style="display: none;"></div>

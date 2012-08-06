@@ -1,0 +1,11 @@
+1330501260855	Delete element
+1330539201909	Rename method 'change'
+1330539212643	Rename method 'addAttachment'
+1330541968176	Extract local variable 'configurationModel'
+1330542174820	Rename enum constant 'EMERGN_GROUP'
+1330542179733	Rename enum constant 'EMERGN_PERSON'
+1330542383862	Rename enum constant 'FETCH_EMERGN_QUERY_PROCESS_STEP'
+1330542391167	Rename enum constant 'FETCH_EMERGN_GROUP_QUERY_PROCESS_STEP_REFERENCE'
+1330542573410	Delete element
+1330542594236	Delete element
+1330545275744	Extract local variable 'violations'

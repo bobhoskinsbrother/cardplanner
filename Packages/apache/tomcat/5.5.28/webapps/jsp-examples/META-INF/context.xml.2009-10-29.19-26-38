@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+  <Listener className="org.apache.catalina.startup.TldConfig"/>
+  <Environment
+    name="name3"
+    type="java.lang.Integer"
+    value="1"/>
+  <Environment
+    name="foo/bar/name2"
+    type="java.lang.Boolean"
+    value="true"/>
+  <Environment
+    name="foo/name4"
+    type="java.lang.Integer"
+    value="10"/>
+  <Environment
+    name="foo/name1"
+    type="java.lang.String"
+    value="value1"/>
+  <Environment
+    name="minExemptions"
+    type="java.lang.Integer"
+    value="1"/>
+</Context>

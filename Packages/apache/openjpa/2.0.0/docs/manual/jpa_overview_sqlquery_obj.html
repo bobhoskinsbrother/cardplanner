@@ -1,0 +1,63 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>2.&nbsp; Retrieving Persistent Objects with SQL</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><base href="display"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="manual.html" title="Apache OpenJPA 2.0 User's Guide"><link rel="up" href="jpa_overview_sqlquery.html" title="Chapter&nbsp;12.&nbsp; SQL Queries"><link rel="prev" href="jpa_overview_sqlquery.html" title="Chapter&nbsp;12.&nbsp; SQL Queries"><link rel="next" href="jpa_overview_mapping.html" title="Chapter&nbsp;13.&nbsp; Mapping Metadata"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.&nbsp;
+            Retrieving Persistent Objects with SQL
+        </th></tr><tr><td width="20%" align="left"><a accesskey="p" href="jpa_overview_sqlquery.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;12.&nbsp;
+        SQL Queries
+    </th><td width="20%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_mapping.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="jpa_overview_sqlquery_obj"></a>2.&nbsp;
+            Retrieving Persistent Objects with SQL
+        </h2></div></div></div><a class="indexterm" name="d0e11273"></a><a class="indexterm" name="d0e11278"></a><p>
+When you give a SQL <code class="classname">Query</code> a candidate class, it will
+return persistent instances of that class. At a minimum, your SQL must select
+the class' primary key columns, discriminator column (if mapped), and version
+column (also if mapped). The JPA runtime uses the values of the primary key
+columns to construct each result object's identity, and possibly to match it
+with a persistent object already in the <code class="classname">EntityManager</code>'s
+cache. When an object is not already cached, the implementation creates a new
+object to represent the current result row. It might use the discriminator
+column value to make sure it constructs an object of the correct subclass.
+Finally, the query records available version column data for use in optimistic
+concurrency checking, should you later change the result object and flush it
+back to the database.
+        </p><p>
+Aside from the primary key, discriminator, and version columns, any columns you
+select are used to populate the persistent fields of each result object. JPA
+implementations will compete on how effectively they map your selected data to
+your persistent instance fields.
+        </p><p>
+Let's make the discussion above concrete with an example. It uses the following
+simple mapping between a class and the database:
+        </p><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="213"><tr><td><img src="img/sqlquery-model.png"></td></tr></table></div><div class="example"><a name="jpa_overview_sqlquery_objex"></a><p class="title"><b>Example&nbsp;12.2.&nbsp;
+                Retrieving Persistent Objects
+            </b></p><div class="example-contents"><pre class="programlisting">
+Query query = em.createNativeQuery("SELECT ISBN, TITLE, PRICE, "
+    + "VERS FROM MAG WHERE PRICE &gt; 5 AND PRICE &lt; 10", Magazine.class);
+List&lt;Magazine&gt; results = (List&lt;Magazine&gt;) query.getResultList();
+for (Magazine mag : results)
+    processMagazine(mag);
+</pre></div></div><br class="example-break"><p>
+The query above works as advertised, but isn't very flexible. Let's update it to
+take in parameters for the minimum and maximum price, so we can reuse it to find
+magazines in any price range:
+        </p><div class="example"><a name="jpa_overview_sqlquery_obj_paramex"></a><p class="title"><b>Example&nbsp;12.3.&nbsp;
+                SQL Query Parameters
+            </b></p><div class="example-contents"><pre class="programlisting">
+Query query = em.createNativeQuery("SELECT ISBN, TITLE, PRICE, "
+    + "VERS FROM MAG WHERE PRICE &gt; ?1 AND PRICE &lt; ?2", Magazine.class);
+
+query.setParameter(1, 5d);
+query.setParameter(2, 10d);
+
+List&lt;Magazine&gt; results = (List&lt;Magazine&gt;) query.getResultList();
+for (Magazine mag : results)
+    processMagazine(mag);
+</pre></div></div><br class="example-break"><p>
+        <a class="indexterm" name="d0e11315"></a>
+        <a class="indexterm" name="d0e11321"></a>
+Like JDBC prepared statements, SQL queries represent parameters with question
+marks, but are followed by an integer to represent its index.
+        </p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="jpa_overview_sqlquery.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="jpa_overview_sqlquery.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="jpa_overview_mapping.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;12.&nbsp;
+        SQL Queries
+    &nbsp;</td><td width="20%" align="center"><a accesskey="h" href="manual.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;13.&nbsp;
+        Mapping Metadata
+    </td></tr></table></div></body></html>
