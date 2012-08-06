@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Context
-    docBase="/Users/benhoskins/Code/java/Packages/apache/apache-tomcat-5.5.28/server/webapps/host-manager"
-    privileged="true">
-  <Listener className="org.apache.catalina.startup.TldConfig"/>
-  <Listener className="org.apache.catalina.startup.TldConfig"/>
-</Context>

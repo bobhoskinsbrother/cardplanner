@@ -14,7 +14,325 @@
     <option name="historyRevisionsNumber" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="acb51352-a04f-4775-8ef1-639f6cea1415" name="Default" comment="" />
+    <list default="true" id="acb51352-a04f-4775-8ef1-639f6cea1415" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/.hgignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/classes/B" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/classes/uk/co/itstherules/cardplanner/controller/CardPlannerBaseTest$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/classes/uk/co/itstherules/cardplanner/controller/CardPlannerBaseTest$BaseExtension.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/classes/uk/co/itstherules/cardplanner/controller/CardPlannerBaseTest$BaseExtension2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/classes/uk/co/itstherules/cardplanner/controller/CardPlannerBaseTest$CardPlannerBaseExtension.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/classes/uk/co/itstherules/cardplanner/controller/CardPlannerBaseTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/classes/uk/co/itstherules/cardplanner/controller/IdentityDeleteableImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/classes/uk/co/itstherules/cardplanner/controller/MapBuilderTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/classes/uk/co/itstherules/cardplanner/controller/NullTemplate.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/classes/uk/co/itstherules/cardplanner/controller/shared/SharedObjectSpacesTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/classes/uk/co/itstherules/cardplanner/javascript/runner/IO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/classes/uk/co/itstherules/cardplanner/javascript/runner/JSRunner.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/classes/uk/co/itstherules/cardplanner/javascript/runner/JSTestAndDirectoryFilter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/classes/uk/co/itstherules/cardplanner/javascript/runner/JSTestFinder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/classes/uk/co/itstherules/cardplanner/javascript/runner/runner.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/classes/uk/co/itstherules/cardplanner/view/js/javascript_extensions_test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/dist/CardPlanner.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/dist/CardPlanner.war" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/made/CardPlanner-test.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/made/CardPlanner.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/output/TEST-uk.co.itstherules.cardplanner.controller.CardPlannerBaseTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/output/TEST-uk.co.itstherules.cardplanner.controller.MapBuilderTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlanner/output/TEST-uk.co.itstherules.cardplanner.controller.shared.SharedObjectSpacesTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerFunctionalTests/.hgignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerModel/.hgignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerModel/classes/uk/co/itstherules/cardplanner/DateCalendarFactoryTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerModel/classes/uk/co/itstherules/cardplanner/model/AmountModelTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerModel/classes/uk/co/itstherules/cardplanner/model/CachedInstanceTest$ContainsAmountOfInstancesOfClasses.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerModel/classes/uk/co/itstherules/cardplanner/model/CachedInstanceTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerModel/classes/uk/co/itstherules/cardplanner/model/FakeObjectCache.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerModel/classes/uk/co/itstherules/cardplanner/model/StoryBoardHotspotAreaModelTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerModel/classes/uk/co/itstherules/cardplanner/model/StoryBoardModelTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerModel/create_database.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerModel/dist/CardPlannerModel.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerModel/drop_database.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerModel/made/CardPlannerModel-test.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerModel/made/CardPlannerModel.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerModel/output/TEST-uk.co.itstherules.cardplanner.DateCalendarFactoryTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerModel/output/TEST-uk.co.itstherules.cardplanner.model.AmountModelTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerModel/output/TEST-uk.co.itstherules.cardplanner.model.CachedInstanceTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerModel/output/TEST-uk.co.itstherules.cardplanner.model.StoryBoardHotspotAreaModelTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerModel/output/TEST-uk.co.itstherules.cardplanner.model.StoryBoardModelTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/.hgignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/classes/uk/co/itstherules/cardplanner/swing/Console.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/classes/uk/co/itstherules/cardplanner/swing/ImagePanel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/CardPlanner.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/CardPlannerStandalone.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/README" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/lib/CardPlanner.war" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/lib/YAWF.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/lib/jetty-continuation.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/lib/jetty-http.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/lib/jetty-io.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/lib/jetty-jndi.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/lib/jetty-plus.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/lib/jetty-security.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/lib/jetty-server.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/lib/jetty-servlet.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/lib/jetty-util.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/lib/jetty-webapp.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/lib/jetty-xml.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/lib/servlet-api-3.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/start_cardplanner.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/dist/CardPlannerStandalone/start_cardplanner.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CardPlannerStandalone/made/CardPlannerStandalone.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/.hgignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/classes/uk/co/itstherules/binary/io/ContentTypeGuesserTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/classes/uk/co/itstherules/binary/io/StreamForwarderTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/classes/uk/co/itstherules/binary/io/ThrowOnReadByteArrayInputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/classes/uk/co/itstherules/converter/EnumConverterTest$LessSimpleToConvert.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/classes/uk/co/itstherules/converter/EnumConverterTest$SimpleToConvert.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/classes/uk/co/itstherules/converter/EnumConverterTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/classes/uk/co/itstherules/date/AtomDateConverterTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/classes/uk/co/itstherules/date/CalendarDateFactoryTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/classes/uk/co/itstherules/date/CalendarMathTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/classes/uk/co/itstherules/dimension/DimensionComparatorTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/classes/uk/co/itstherules/dimension/PassThroughDimensionSupplier.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/classes/uk/co/itstherules/dimension/coordinate/CoordinateTranslatorTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/classes/uk/co/itstherules/dimension/coordinate/SimpleRectangleTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/dist/Commons.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/made/Commons-test.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/made/Commons.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/output/TEST-uk.co.itstherules.binary.io.ContentTypeGuesserTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/output/TEST-uk.co.itstherules.binary.io.StreamForwarderTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/output/TEST-uk.co.itstherules.converter.EnumConverterTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/output/TEST-uk.co.itstherules.date.AtomDateConverterTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/output/TEST-uk.co.itstherules.date.CalendarDateFactoryTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/output/TEST-uk.co.itstherules.date.CalendarMathTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/output/TEST-uk.co.itstherules.dimension.DimensionComparatorTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/output/TEST-uk.co.itstherules.dimension.coordinate.CoordinateTranslatorTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Commons/output/TEST-uk.co.itstherules.dimension.coordinate.SimpleRectangleTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsCrypto/.hgignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsCrypto/classes/uk/co/itstherules/string/crypto/KeyConverterTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsCrypto/classes/uk/co/itstherules/string/crypto/KeyTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsCrypto/classes/uk/co/itstherules/string/crypto/KeysGeneratorTest$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsCrypto/classes/uk/co/itstherules/string/crypto/KeysGeneratorTest$UnknownCipherType.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsCrypto/classes/uk/co/itstherules/string/crypto/KeysGeneratorTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsCrypto/classes/uk/co/itstherules/string/crypto/OOIOTest$Faker.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsCrypto/classes/uk/co/itstherules/string/crypto/OOIOTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsCrypto/classes/uk/co/itstherules/string/crypto/ScrambleUnscrambleTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsCrypto/classes/who_am_i" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsCrypto/dist/CommonsCrypto.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsCrypto/made/CommonsCrypto-test.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsCrypto/made/CommonsCrypto.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsCrypto/output/TEST-uk.co.itstherules.string.crypto.KeyConverterTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsCrypto/output/TEST-uk.co.itstherules.string.crypto.KeyTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsCrypto/output/TEST-uk.co.itstherules.string.crypto.KeysGeneratorTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsCrypto/output/TEST-uk.co.itstherules.string.crypto.OOIOTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsCrypto/output/TEST-uk.co.itstherules.string.crypto.ScrambleUnscrambleTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsImage/.hgignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsImage/dist/CommonsImage.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsImage/made/CommonsImage-test.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsImage/made/CommonsImage.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsReflection/.hgignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsReflection/classes/JarLoadMe.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsReflection/classes/test/things/to/find/FindMe.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsReflection/classes/test/things/to/find/FindMeToo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsReflection/classes/test/things/to/find/subpackage/PleaseDontIgnoreMe.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsReflection/classes/uk/co/itstherules/reflection/ClassAndDirectoryFilterTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsReflection/classes/uk/co/itstherules/reflection/ClassFinderTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsReflection/dist/CommonsReflection.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsReflection/made/CommonsReflection-test.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsReflection/made/CommonsReflection.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsReflection/output/TEST-uk.co.itstherules.reflection.ClassAndDirectoryFilterTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsReflection/output/TEST-uk.co.itstherules.reflection.ClassFinderTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/.hgignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/io/BasePathToStringLoaderTest$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/io/BasePathToStringLoaderTest$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/io/BasePathToStringLoaderTest$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/io/BasePathToStringLoaderTest$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/io/BasePathToStringLoaderTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/io/InputStreamToStringLoaderTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/io/PassthroughStringLoaderTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/io/ResourcePathToStringLoaderTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/io/ThrowsWhenReadIsCalledReader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/io/ThrowsWhenReadOrCloseIsCalledReader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/io/empty.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/io/resourceloaded.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/AppendTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/AppendageRemoverTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/CamelCaseTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/ChompTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/ChopAndPrependTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/ChopTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/CollectionPrinterTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/CompositeStringManipulatorTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/ConstantizeTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/ExtensionFinderTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/FileifyTitleTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/JavaScriptEscaperTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/LineBreakConverterTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/MultiChompTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/PluraliserTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/PrefixTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/SplitCamelCaseTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/SuffixTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/TagCleanerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/TitleifyFileTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/manipulation/UrlEncoderTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/url/QueryStringParserTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/classes/uk/co/itstherules/string/url/UrlTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/dist/CommonsString.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/made/CommonsString-test.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/made/CommonsString.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.io.BasePathToStringLoaderTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.io.InputStreamToStringLoaderTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.io.PassthroughStringLoaderTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.io.ResourcePathToStringLoaderTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.AppendTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.AppendageRemoverTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.CamelCaseTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.ChompTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.ChopAndPrependTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.ChopTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.CollectionPrinterTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.CompositeStringManipulatorTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.ConstantizeTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.ExtensionFinderTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.FileifyTitleTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.JavaScriptEscaperTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.LineBreakConverterTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.MultiChompTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.PluraliserTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.PrefixTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.SplitCamelCaseTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.SuffixTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.TagCleanerTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.TitleifyFileTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.manipulation.UrlEncoderTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.url.QueryStringParserTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CommonsString/output/TEST-uk.co.itstherules.string.url.UrlTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/.hgignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/test/models/to/instantiate/TestModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/test/naughty/controller/no/empty/constructor/NoEmptyConstructorDispatch.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/twofiles/0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/twofiles/1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/twofiles_not_sequential/1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/twofiles_not_sequential/4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/twofiles_with_ds_store/0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/twofiles_with_ds_store/1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/AlwaysThrowsHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/ApplicationInfoTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/ErrorHandlerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/FakeResponse.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/NeverThrowsHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/controller/BaseTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/controller/FakeValuesProvider.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/controller/TestBaseImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/file/FileRepositoryTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/BaseValuesProviderTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/FakeHttpSession.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/FakeRequest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/FakeServletContext.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/IteratorEnumeration.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/MultipleCalled.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/MultipleNameValuesParserTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/SingleCalled.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/UrlTokenizerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/ValuesProviderFactoryTest$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/ValuesProviderFactoryTest$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/ValuesProviderFactoryTest$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/ValuesProviderFactoryTest$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/ValuesProviderFactoryTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/WebValuesProviderTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/BasicValuesProviderBinderForCachingTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/BasicValuesProviderBinderTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/BooleanFieldModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/BottomHeirarchyTestClass.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/CachedStringFieldModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/CachedStringFieldModelWithIllegalDelegate.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/ClassFieldDescriptionsTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/DateFieldModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/DelegateCachedStringFieldModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/DoubleFieldModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/EnumFieldModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/IllegalDelegateModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/IntegerFieldModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/ListOfDelegateObjectsModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/ListOfStringsFieldModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/LongFieldModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/MapOfStringsFieldModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/MiddleHeirarchyTestClass.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/RecursiveListOfDelegateObjectsModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/SimpleHeirarchyTestClass.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/SimpleTestClass.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/StringFieldModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/TestEnum.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/TitleModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/annotations/processor/TopHeirarchyTestClass.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/binders/ConvertersTest$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/binders/ConvertersTest$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/binders/ConvertersTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/binders/InterfaceImplementationProviderTest$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/binders/InterfaceImplementationProviderTest$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/binders/InterfaceImplementationProviderTest$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/binders/InterfaceImplementationProviderTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/inbound/binders/ListConverterTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/model/UriModelTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/model/UriQueryModelTest$ImNotAnEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/model/UriQueryModelTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/model/UriStringModelTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/model/persistence/AlwaysThrowsObjectCacheTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/model/serializer/BeanieMan.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/model/serializer/JsonSerialiserTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/model/serializer/LevelFive.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/model/serializer/LevelFour.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/model/serializer/LevelOne.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/model/serializer/LevelThree.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/model/serializer/LevelTwo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/register/RegisterTest$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/register/RegisterTest$NullView.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/register/RegisterTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/security/objectcache/PermissionModelTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/view/helper/LetterAbbreviatorTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/view/helper/MathHelperTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/view/helper/WordAbbreviatorTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/view/helper/XHtmlTagBuilderTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/view/xhtml/AttributesBuilderTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/view/xhtml/QueryStringBuilderTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/classes/uk/co/itstherules/yawf/view/xhtml/WikiCreoleToXhtmlTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/dist/YAWF.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/made/YAWF-test.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/made/YAWF.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.ApplicationInfoTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.ErrorHandlerTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.controller.BaseTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.file.FileRepositoryTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.inbound.BaseValuesProviderTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.inbound.MultipleNameValuesParserTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.inbound.UrlTokenizerTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.inbound.ValuesProviderFactoryTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.inbound.WebValuesProviderTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.inbound.annotations.processor.BasicValuesProviderBinderForCachingTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.inbound.annotations.processor.BasicValuesProviderBinderTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.inbound.annotations.processor.ClassFieldDescriptionsTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.inbound.binders.ConvertersTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.inbound.binders.InterfaceImplementationProviderTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.inbound.binders.ListConverterTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.model.UriModelTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.model.UriQueryModelTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.model.UriStringModelTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.model.persistence.AlwaysThrowsObjectCacheTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.model.serializer.JsonSerialiserTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.register.RegisterTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.security.objectcache.PermissionModelTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.view.helper.LetterAbbreviatorTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.view.helper.MathHelperTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.view.helper.WordAbbreviatorTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.view.helper.XHtmlTagBuilderTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.view.xhtml.AttributesBuilderTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.view.xhtml.QueryStringBuilderTest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../YAWF/output/TEST-uk.co.itstherules.yawf.view.xhtml.WikiCreoleToXhtmlTest.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="CardPlannerProject.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -80,6 +398,7 @@
   </component>
   <component name="Git.Settings">
     <option name="CHECKOUT_INCLUDE_TAGS" value="false" />
+    <option name="SSH_EXECUTABLE" value="NATIVE_SSH" />
     <option name="UPDATE_CHANGES_POLICY" value="STASH" />
     <option name="LINE_SEPARATORS_CONVERSION" value="ASK" />
   </component>
@@ -164,6 +483,16 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="CardPlannerProject" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CardPlannerProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CardPlanner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -448,7 +777,7 @@
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23577236" sideWeight="0.21922429" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32692307" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32692307" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2495935" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39966273" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
