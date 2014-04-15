@@ -1,10 +1,5 @@
 package uk.co.itstherules.cardplanner.controller.active;
 
-import java.io.IOException;
-import java.util.List;
-
-import javax.servlet.http.HttpServletResponse;
-
 import uk.co.itstherules.cardplanner.ProviderKey;
 import uk.co.itstherules.yawf.ApplicationInfo;
 import uk.co.itstherules.yawf.controller.BaseController;
@@ -18,13 +13,17 @@ import uk.co.itstherules.yawf.view.TeenyWeenyJavaScriptView;
 import uk.co.itstherules.yawf.view.TextResourceView;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+
 public final class JavaScript extends BaseController {
 
 	@Action(value="Show", requiresObjectCache=false) public void show(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory) throws IOException {
         HeaderCachingInformation.setAsNeverAskAgain(response);
 		String resourceRootPath = ApplicationInfo.getResourceRootPath(provider.getString(ProviderKey.resourceRoot.name()));
     	response.setContentType(ContentType.js.toString());
-        String filePath = new StringBuffer(resourceRootPath).append("js/").append(provider.getTitle()).toString();
+        String filePath = new StringBuilder(resourceRootPath).append("js/").append(provider.getTitle()).toString();
         new TextResourceView(filePath).renderTo(new EmptyContext(), response, provider.getApplicationRoot());
 	}
 
@@ -39,7 +38,7 @@ public final class JavaScript extends BaseController {
 
     private boolean browserAcceptsGZip(ValuesProvider provider) {
         String encoding = provider.getString("Accept-Encoding");
-        return (!"".equals(encoding) && encoding.indexOf("gzip") > -1);
+        return (!"".equals(encoding) && encoding.contains("gzip"));
     }
 
 }

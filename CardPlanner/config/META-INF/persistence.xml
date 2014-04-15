@@ -53,7 +53,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/x
 			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
 			<property name="hibernate.hbm2ddl.auto" value="update" /> 
 			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:h2:~/H2DataStore/cardplanner;FILE_LOCK=NO" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:~/Data/cardplanner;FILE_LOCK=NO" />
 			<property name="javax.persistence.jdbc.user" value="cardplanner" />
 			<property name="javax.persistence.jdbc.password" value="cardplanner" />
 		</properties>

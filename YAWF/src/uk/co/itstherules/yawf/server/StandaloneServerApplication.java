@@ -22,7 +22,7 @@ public final class StandaloneServerApplication implements Runnable {
 		if(args.length == 3) {
 			try {
 				port = Integer.valueOf(args[2]);
-			} catch (Exception e) {
+			} catch (Exception ignored) {
 			}
 		}
 		Thread thread = new Thread(new StandaloneServerApplication(root, warFile, port));
@@ -39,7 +39,7 @@ public final class StandaloneServerApplication implements Runnable {
 
 	public boolean startServer() throws Exception {
 		Log.setLog(new SystemOutLogger());
-		this.webServer = new Server(port.intValue());
+		this.webServer = new Server(port);
 		if ("".equals(this.warFile)) {
 			throw new IllegalArgumentException("warFile hasn't been specified");
 		}
@@ -52,8 +52,6 @@ public final class StandaloneServerApplication implements Runnable {
 	public void run() {
 		try {
 			startServer();
-		} catch (InterruptedException e) {
-			throw new RuntimeException(e);
 		} catch (Exception e) {
 	        throw new RuntimeException(e);
         }

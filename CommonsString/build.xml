@@ -1,8 +1,8 @@
 <project name="CommonsString" default="CommonsString">
 
-	<property file="../Commons/environments/${computer.hostname}.properties" />
-	<property file="../Commons/build.properties" />
-	<import file="../Commons/common.xml" />
+	<property file="../environments/${computer.hostname}.properties" />
+	<property file="../build.properties" />
+	<import file="../common.xml" />
 
 	<target name="CommonsString" depends="make.commons.string,test.commons.string,save.commons.string"/>
 	

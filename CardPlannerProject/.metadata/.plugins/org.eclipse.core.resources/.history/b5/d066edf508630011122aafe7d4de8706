@@ -1,5 +1,0 @@
- SURVEY_RESULTS_PERMISSION, 7fad52e7-f020-4410-acd5-0bd5294916c5, PermissionModel.class
-
-classDefinition=com.emergn.web.enablement.controller.active.SurveyResults
-instanceIdentity=*
-instanceAction=*

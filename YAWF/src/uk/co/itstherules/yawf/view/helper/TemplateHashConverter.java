@@ -1,22 +1,16 @@
 package uk.co.itstherules.yawf.view.helper;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-
+import freemarker.template.*;
 import uk.co.itstherules.yawf.model.Entity;
+import uk.co.itstherules.yawf.model.EntityComparator;
 import uk.co.itstherules.yawf.model.SimpleEntityModel;
-import freemarker.template.TemplateCollectionModel;
-import freemarker.template.TemplateHashModelEx;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateModelIterator;
+
+import java.util.*;
 
 public final class TemplateHashConverter {
 	
 	public Collection<Entity<?>> convert(TemplateHashModelEx hash, String... ignore){
-		Collection<Entity<?>> entities = new ArrayList<Entity<?>>();
+		List<Entity<?>> entities = new LinkedList<Entity<?>>();
 		List<String> ignoreList = Arrays.asList(ignore);
 		TemplateCollectionModel keys;
         try {
@@ -28,7 +22,8 @@ public final class TemplateHashConverter {
 	            	entities.add(new SimpleEntityModel(key, hash.get(key).toString()));
 	            }
 	        }
-	        return entities;
+            Collections.sort(entities, new EntityComparator());
+            return entities;
         } catch (TemplateModelException e) {
 	        throw new RuntimeException(e);
         }

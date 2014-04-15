@@ -1,8 +1,8 @@
 <project name="CardPlannerFunctionalTests" default="CardPlannerFunctionalTests">
 
-	<property file="../Commons/build.properties" />
+	<property file="../build.properties" />
 
-	<import file="../Commons/common.xml" />
+	<import file="../common.xml" />
 
 	<target name="CardPlannerFunctionalTests" depends="cardplanner.website.functional.make,cardplanner.website.functional.test" />
 

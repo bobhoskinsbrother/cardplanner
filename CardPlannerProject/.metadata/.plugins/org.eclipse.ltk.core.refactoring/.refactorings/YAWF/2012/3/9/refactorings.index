@@ -1,7 +1,0 @@
-1330590364608	Rename method 'getNulled'
-1330590423036	Rename method 'nullify'
-1330590441557	Rename enum constant 'Nulled'
-1330591158162	Rename method 'checkNotNullObject'
-1330591747715	Delete element
-1330592160512	Extract local variable 'declaredMethods'
-1330602305001	Extract local variable 'parameterTypes'

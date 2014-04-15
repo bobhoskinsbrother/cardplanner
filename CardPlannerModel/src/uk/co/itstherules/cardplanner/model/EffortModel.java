@@ -1,19 +1,18 @@
 package uk.co.itstherules.cardplanner.model;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-
 import net.sf.oval.constraint.NotNull;
 import uk.co.itstherules.cardplanner.model.CachedInstance.Identities;
 import uk.co.itstherules.cardplanner.model.type.EffortTypeModel;
-import uk.co.itstherules.cardplanner.model.type.TypeModel;
 import uk.co.itstherules.yawf.inbound.annotations.CacheInstruction;
 import uk.co.itstherules.yawf.inbound.annotations.QueryKey;
 import uk.co.itstherules.yawf.model.persistence.ObjectCache;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 
 @Entity 
-public final class EffortModel extends AmountModel<EffortModel> {
+public final class EffortModel extends AmountModel<EffortModel, EffortTypeModel> {
 
 	@ManyToOne @QueryKey(value="type", cache=CacheInstruction.FromCache) @NotNull private EffortTypeModel type;
 
@@ -27,6 +26,6 @@ public final class EffortModel extends AmountModel<EffortModel> {
 	}
 
 	@Override
-    public TypeModel getType() { return type; }
+    public EffortTypeModel getType() { return type; }
 	public void setType(EffortTypeModel type) { this.type = type; }
 }

@@ -1,8 +1,8 @@
 <project name="CommonsImage" default="CommonsImage">
 
-	<property file="../Commons/environments/${computer.hostname}.properties" />
-	<property file="../Commons/build.properties" />
-	<import file="../Commons/common.xml" />
+	<property file="../environments/${computer.hostname}.properties" />
+	<property file="../build.properties" />
+	<import file="../common.xml" />
 
 	<target name="CommonsImage" depends="make.commons.image,test.commons.image,save.commons.image"/>
 	

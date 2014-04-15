@@ -1,9 +1,9 @@
 <project name="CardPlanner" default="CardPlanner">
 
-	<property file="../Commons/environments/${computer.hostname}.properties" />
-	<property file="../Commons/build.properties" />
+	<property file="../environments/${computer.hostname}.properties" />
+	<property file="../build.properties" />
 	<property file="build.properties" />
-	<import file="../Commons/common.xml" />
+	<import file="../common.xml" />
 
 	<target name="CardPlanner" depends="make.cardplanner.website,test.cardplanner.website,save.cardplanner.website" />
 
@@ -43,7 +43,7 @@
 		</test>
 	</target>
 	
-	<target name="test.cardplanner.website.javascript">
+	<target name="test.cardplanner.website.javascript" unless="fudgeIt">
 		<java classname="uk.co.itstherules.cardplanner.javascript.runner.JSRunner" failonerror="true">
 			<classpath>
 				<pathelement location="${cardplanner.website.made.directory}/${cardplanner.website.test.jar}" />

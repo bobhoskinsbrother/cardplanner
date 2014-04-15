@@ -1,9 +1,8 @@
 <project name="YAWF" default="YAWF">
 
-	<property file="../Commons/environments/${computer.hostname}.properties" />
-	<property file="../Commons/build.properties" />
-	<property file="build.properties" />
-	<import file="../Commons/common.xml" />
+	<import file="../common.xml" />
+	<property file="../environments/${computer.hostname}.properties" />
+	<property file="../build.properties" />
 
 	<target name="YAWF" depends="make.yawf,test.yawf,save.yawf" />
 

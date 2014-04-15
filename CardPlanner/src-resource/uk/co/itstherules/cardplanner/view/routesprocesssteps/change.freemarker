@@ -23,7 +23,7 @@
 			<div id="processStep${step.identity}DetailsBody" style="display:none;">
 				<strong>${step.processKey}</strong>
 				<br/>
-				<#if (step.input != "") >
+				<#if (step.input?? && step.input != "") >
 				<strong>Input</strong>
 				<br/>
 				${step.input?html}

@@ -1,9 +1,8 @@
 <project name="CommonsCrypto" default="CommonsCrypto">
 
-	<property file="../Commons/environments/${computer.hostname}.properties" />
-	<property file="../Commons/build.properties" />
-	<property file="build.properties" />
-	<import file="../Commons/common.xml" />
+	<property file="../environments/${computer.hostname}.properties" />
+	<property file="../build.properties" />
+	<import file="../common.xml" />
 
 	<target name="CommonsCrypto" depends="make.commons.crypto,test.commons.crypto,save.commons.crypto"/>
 	

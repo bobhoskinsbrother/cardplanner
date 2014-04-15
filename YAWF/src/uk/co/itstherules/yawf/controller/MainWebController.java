@@ -1,9 +1,5 @@
 package uk.co.itstherules.yawf.controller;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletResponse;
-
 import uk.co.itstherules.yawf.controller.interfaces.Controller;
 import uk.co.itstherules.yawf.inbound.ValuesProvider;
 import uk.co.itstherules.yawf.modelview.ModelViewRegister;
@@ -13,6 +9,9 @@ import uk.co.itstherules.yawf.view.context.DefaultContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
 import uk.co.itstherules.yawf.view.xhtml.ErrorView;
 
+import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+
 
 public final class MainWebController implements Controller {
 	
@@ -20,7 +19,7 @@ public final class MainWebController implements Controller {
 
 	public MainWebController(final List<String> packages) {
 		Controller defaultInstance = new RouteProcessStepController();
-		this.controllerRegister = new PackagedClassesAssignableFrom<Controller>(defaultInstance).collect(Controller.class, packages);
+		this.controllerRegister = new PackagedClassesAssignableFrom<>(defaultInstance).collect(Controller.class, packages);
     }
 	
 	@Override public void control(final ValuesProvider provider, final HttpServletResponse response, final ModelViewRegister viewFactory) throws Exception {

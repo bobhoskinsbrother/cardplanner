@@ -1,8 +1,8 @@
 <project name="WarCardPlanner" default="WarCardPlanner">
 
-    <import file="../Commons/common.xml" />
-    <property file="../Commons/environments/${computer.hostname}.properties" />
-    <property file="../Commons/build.properties" />
+    <import file="../common.xml" />
+    <property file="../environments/${computer.hostname}.properties" />
+    <property file="../build.properties" />
     <property file="${cardplanner.website.directory}/build.properties" />
 
 	<import file="${commons.string.directory}/build.xml" />

@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
   <component name="EclipseModuleManager">
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/freemarker/2.3.16/freemarker.jar!/" value="FREEMARKER_JAR_FILE" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/oval/1.50/oval.jar!/" value="OVAL_JAR_FILE" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/junit/4.7/junit.jar!/" value="JUNIT_JAR_FILE" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/jetty/8.0.2.v20111006/lib/servlet-api-3.0.jar!/" value="SERVLET_API_JAR_FILE" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/apache/commons/io/1.4/commons-io.jar!/" value="PACKAGES_HOME/apache/commons/io/1.4/commons-io.jar" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/apache/commons/email/1.2/commons-email.jar!/" value="PACKAGES_HOME/apache/commons/email/1.2/commons-email.jar" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/apache/poi/3.2-FINAL-20081019/poi.jar!/" value="PACKAGES_HOME/apache/poi/3.2-FINAL-20081019/poi.jar" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/apache/poi/3.2-FINAL-20081019/poi-contrib.jar!/" value="PACKAGES_HOME/apache/poi/3.2-FINAL-20081019/poi-contrib.jar" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/mockito/1.8.4/mockito-all.jar!/" value="PACKAGES_HOME/mockito/1.8.4/mockito-all.jar" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/batik/1.7/batik-rasterizer.jar!/" value="PACKAGES_HOME/batik/1.7/batik-rasterizer.jar" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/batik/1.7/batik-slideshow.jar!/" value="PACKAGES_HOME/batik/1.7/batik-slideshow.jar" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/batik/1.7/batik-squiggle.jar!/" value="PACKAGES_HOME/batik/1.7/batik-squiggle.jar" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/batik/1.7/batik-svgpp.jar!/" value="PACKAGES_HOME/batik/1.7/batik-svgpp.jar" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/batik/1.7/batik-ttf2svg.jar!/" value="PACKAGES_HOME/batik/1.7/batik-ttf2svg.jar" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/batik/1.7/batik.jar!/" value="PACKAGES_HOME/batik/1.7/batik.jar" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/flexjson/1.9.2/flexjson.jar!/" value="PACKAGES_HOME/flexjson/1.9.2/flexjson.jar" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/apache/commons/fileupload/1.2.1/commons-fileupload.jar!/" value="PACKAGES_HOME/apache/commons/fileupload/1.2.1/commons-fileupload.jar" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/apache/log4j/1.2.15/log4j.jar!/" value="PACKAGES_HOME/apache/log4j/1.2.15/log4j.jar" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/apache/shiro/1.1.0/shiro-core.jar!/" value="PACKAGES_HOME/apache/shiro/1.1.0/shiro-core.jar" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/apache/shiro/1.1.0/shiro-web.jar!/" value="PACKAGES_HOME/apache/shiro/1.1.0/shiro-web.jar" />
-    <varelement var="file://$MODULE_DIR$/../../../cardplanner/Packages/apache/shiro/1.1.0/web/src/main/java" value="src:/PACKAGES_HOME/apache/shiro/1.1.0/web/src/main/java" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/recaptcha4j/0.0.7/recaptcha4j.jar!/" value="PACKAGES_HOME/recaptcha4j/0.0.7/recaptcha4j.jar" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/hibernate/3.6.1.Final/lib/optional/c3p0/c3p0-0.9.1.jar!/" value="PACKAGES_HOME/hibernate/3.6.1.Final/lib/optional/c3p0/c3p0-0.9.1.jar" />
-    <varelement var="jar://$MODULE_DIR$/../../../cardplanner/Packages/java/servlet-api/2.5-6.1.12rc1/servlet-api.jar!/" value="SERVLET_API_JAR_FILE" />
     <varelement var="jar://$FREEMARKER_JAR_FILE$!/" value="FREEMARKER_JAR_FILE" />
     <varelement var="jar://$OVAL_JAR_FILE$!/" value="OVAL_JAR_FILE" />
     <varelement var="jar://$JUNIT_JAR_FILE$!/" value="JUNIT_JAR_FILE" />
@@ -62,8 +38,26 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="CardPlanner" />
+        </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/config/META-INF/persistence.xml" />
+      </configuration>
+    </facet>
+    <facet type="web" name="Web">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/config/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/config" relative="/WEB-INF" />
+        </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/src" />
+          <root url="file://$MODULE_DIR$/src-resource" />
+          <root url="file://$MODULE_DIR$/dist" />
+          <root url="file://$MODULE_DIR$/config" />
+        </sourceRoots>
       </configuration>
     </facet>
   </component>
@@ -73,10 +67,13 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src-resource" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/test-resource" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/dist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/config" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/test-resource" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/classes" />
+      <excludeFolder url="file://$MODULE_DIR$/made" />
+      <excludeFolder url="file://$MODULE_DIR$/output" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -85,15 +82,6 @@
     <orderEntry type="module" module-name="CommonsString" />
     <orderEntry type="module" module-name="CommonsCrypto" />
     <orderEntry type="module" module-name="CardPlannerModel" />
-    <orderEntry type="module-library">
-      <library name="FREEMARKER_JAR_FILE">
-        <CLASSES>
-          <root url="jar://$FREEMARKER_JAR_FILE$!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
     <orderEntry type="module-library">
       <library name="OVAL_JAR_FILE">
         <CLASSES>
@@ -285,6 +273,8 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="junit" level="project" />
+    <orderEntry type="library" name="freemarker" level="project" />
   </component>
 </module>
 

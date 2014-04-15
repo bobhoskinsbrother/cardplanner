@@ -1,7 +1,7 @@
 <project name="Commons" default="Commons">
 
-	<property file="build.properties" />
-	<import file="common.xml" />
+	<property file="../build.properties" />
+	<import file="../common.xml" />
 
 	<target name="Commons" depends="make.commons,test.commons,save.commons"/>
 	

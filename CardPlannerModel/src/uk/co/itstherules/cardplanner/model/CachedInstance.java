@@ -15,7 +15,6 @@ import uk.co.itstherules.yawf.model.persistence.ObjectCache;
 import uk.co.itstherules.yawf.security.objectcache.GroupModel;
 import uk.co.itstherules.yawf.security.objectcache.PermissionModel;
 
-
 public final class CachedInstance {
 
 	public enum Identities implements Identity {

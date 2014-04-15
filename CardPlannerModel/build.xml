@@ -1,8 +1,8 @@
 <project name="CardPlannerModel" default="CardPlannerModel">
 
-    <import file="../Commons/common.xml" />
-    <property file="../Commons/environments/${computer.hostname}.properties" />
-    <property file="../Commons/build.properties" />
+    <import file="../common.xml" />
+    <property file="../environments/${computer.hostname}.properties" />
+    <property file="../build.properties" />
     <property file="build.properties" />
 
 	<target name="CardPlannerModel" depends="make.cardplanner.website.model,test.cardplanner.website.model,save.cardplanner.website.model" />

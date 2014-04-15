@@ -1,8 +1,0 @@
-package uk.co.itstherules.yawf.model;
-
-import uk.co.itstherules.yawf.model.persistence.ObjectCache;
-
-public interface IdentityDeleteable<T> extends IdentityProvider, Orderable, Deleteable, Pending, Nullable, Archiveable, Activeable, Timestampable {
-	T defaultSetup(ObjectCache objectCache);
-	void setIdentity(String identity); 
-}

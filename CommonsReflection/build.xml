@@ -1,8 +1,8 @@
 <project name="CommonsReflection" default="CommonsReflection">
 
-	<property file="../Commons/environments/${computer.hostname}.properties" />
-	<property file="../Commons/build.properties" />
-	<import file="../Commons/common.xml" />
+	<property file="../environments/${computer.hostname}.properties" />
+	<property file="../build.properties" />
+	<import file="../common.xml" />
 
 	<target name="CommonsReflection" depends="make.commons.reflection,test.commons.reflection,save.commons.reflection"/>
 	

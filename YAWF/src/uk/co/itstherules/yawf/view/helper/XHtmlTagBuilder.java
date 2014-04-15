@@ -1,14 +1,6 @@
 package uk.co.itstherules.yawf.view.helper;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-
+import freemarker.template.*;
 import uk.co.itstherules.date.DateConverter;
 import uk.co.itstherules.string.manipulation.Chomp;
 import uk.co.itstherules.string.manipulation.CollectionPrinter;
@@ -19,12 +11,11 @@ import uk.co.itstherules.yawf.view.MergedTextView;
 import uk.co.itstherules.yawf.view.context.DefaultContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
 import uk.co.itstherules.yawf.view.xhtml.AttributesBuilder;
-import freemarker.template.SimpleHash;
-import freemarker.template.TemplateCollectionModel;
-import freemarker.template.TemplateHashModelEx;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateModelIterator;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.text.MessageFormat;
+import java.util.*;
 
 public class XHtmlTagBuilder implements TagBuilder {
 	
@@ -96,10 +87,11 @@ public class XHtmlTagBuilder implements TagBuilder {
 	}
 	
 	private String deleteImage(String title, String image) {
-		SimpleHash hash = new SimpleHash();
-		hash.put("border", "0");
-		hash.put("title", "Delete " + title);
-		hash.put("alt", "Delete " + title);
+        final LinkedHashMap<String, String> map = new LinkedHashMap<>();
+		map.put("alt", "Delete " + title);
+		map.put("border", "0");
+		map.put("title", "Delete " + title);
+        SimpleHash hash = new SimpleHash(map);
 		return this.showImage(image, hash);
 	}
 

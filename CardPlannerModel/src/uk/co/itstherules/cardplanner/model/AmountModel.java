@@ -1,12 +1,11 @@
 package uk.co.itstherules.cardplanner.model;
 
 import net.sf.oval.constraint.NotNull;
-import uk.co.itstherules.cardplanner.model.type.TypeModel;
 import uk.co.itstherules.yawf.inbound.annotations.QueryKey;
 import uk.co.itstherules.yawf.model.IdentifiableDeleteableModel;
 
 
-public abstract class AmountModel<T extends AmountModel<T>> extends IdentifiableDeleteableModel<T> {
+public abstract class AmountModel<T extends AmountModel<T, ET>, ET> extends IdentifiableDeleteableModel<T> {
 
 	@QueryKey("amount") @NotNull private double amount;
 
@@ -22,5 +21,5 @@ public abstract class AmountModel<T extends AmountModel<T>> extends Identifiable
 	}
 
 	public double getAmount() { return amount; }
-	public abstract TypeModel getType();
+	public abstract ET getType();
 }

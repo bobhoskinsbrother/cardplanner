@@ -1,12 +1,12 @@
 package uk.co.itstherules.yawf.assertion;
 
+import uk.co.itstherules.yawf.model.Entity;
+
 import java.text.MessageFormat;
 import java.util.Collection;
 
-import uk.co.itstherules.yawf.model.Entity;
 
-
-public class Assertion {
+public final class Assertion {
 	
 	private Assertion() {}
 	

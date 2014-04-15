@@ -1,8 +1,0 @@
-package uk.co.itstherules.cardplanner.controller;
-
-public final class UsefulGlobalVariables {
-	
-	private UsefulGlobalVariables(){}
-	
-	public static final Object NO_ARGUMENT_NEEDED = null;
-}

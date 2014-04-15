@@ -5,13 +5,22 @@ We've a simple aim with CardPlanner; a shared board that can be used in a big vi
 
 There is one principal in CardPlanner; a card __is__ a board (a bit like everything is a file in unix).  So if you want to make another board, add a card.
 
+Operation Cleanup means I'm fixing a bunch of stuff I've left for a couple of years.
 
-[MotivationForBuildingCardPlanner](wiki/MotivationForBuildingCardPlanner)
+To build, go to the root of the cloned app and run ant:
 
-[HowToBuild](wiki/HowToBuild)
+```
+cd cardplanner
+ant -DfudgeIt=hellYeah -f master.xml
+```
 
-[HowToRun](wiki/HowToRun)
+To run the server:
 
-[MakeASmartboardForFiftyQuid](wiki/MakeASmartboardForFiftyQuid)
+```
+cd dist/
+unzip CardPlannerServer.zip
+cd CardPlannerServer/
+chmod a+x start_cardplanner.sh
+./start_cardplanner.sh
+```
 
-[TODO](wiki/TODO)

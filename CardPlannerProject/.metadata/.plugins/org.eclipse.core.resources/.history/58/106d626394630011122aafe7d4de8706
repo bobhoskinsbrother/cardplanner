@@ -1,5 +1,0 @@
-package uk.co.itstherules.yawf.model.persistence;
-
-public class AlwaysThrowsObjectCacheTest {
-
-}
