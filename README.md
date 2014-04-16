@@ -22,7 +22,7 @@ Yes, I broke the functional tests, and yes that's the first thing I'll fix
 __"Crap, my build failed"__
 
 The most likely cause of this is machine specific settings.  These are contained in the environments folder, as properties files.
-Simply copy the ben.properties, and name it <hostname>.properties.
+Simply copy the ben.properties, and name it {hostname}.properties.
 If you don't know your hostname, run the command "hostname" via the command line to find it out.
 
 
