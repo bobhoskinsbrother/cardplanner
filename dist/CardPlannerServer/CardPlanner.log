@@ -1,0 +1,682 @@
+Hibernate Commons Annotations 3.2.0.Final
+Hibernate 3.6.1.Final
+hibernate.properties not found
+Bytecode provider name : javassist
+using JDK 1.4 java.sql.Timestamp handling
+Hibernate EntityManager 3.6.1.Final
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.ConfigurationModel
+Bind entity uk.co.itstherules.cardplanner.model.ConfigurationModel on table ConfigurationModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.StoryBoardBrushModel
+Bind entity uk.co.itstherules.cardplanner.model.StoryBoardBrushModel on table StoryBoardBrushModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.StoryBoardLineEndModel
+Bind entity uk.co.itstherules.cardplanner.model.StoryBoardLineEndModel on table StoryBoardLineEndModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.StoryBoardLineModel
+Bind entity uk.co.itstherules.cardplanner.model.StoryBoardLineModel on table StoryBoardLineModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.StoryBoardTextAreaModel
+Bind entity uk.co.itstherules.cardplanner.model.StoryBoardTextAreaModel on table StoryBoardTextAreaModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.StoryBoardHotspotAreaModel
+Bind entity uk.co.itstherules.cardplanner.model.StoryBoardHotspotAreaModel on table StoryBoardHotspotAreaModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.type.EffortTypeModel
+Bind entity uk.co.itstherules.cardplanner.model.type.EffortTypeModel on table EffortTypeModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.type.ValueTypeModel
+Bind entity uk.co.itstherules.cardplanner.model.type.ValueTypeModel on table ValueTypeModel
+Binding entity from annotated class: uk.co.itstherules.yawf.model.CountryModel
+Bind entity uk.co.itstherules.yawf.model.CountryModel on table CountryModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.DateRangeModel
+Bind entity uk.co.itstherules.cardplanner.model.DateRangeModel on table DateRangeModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.EffortModel
+Bind entity uk.co.itstherules.cardplanner.model.EffortModel on table EffortModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.EmailDetailsModel
+Bind entity uk.co.itstherules.cardplanner.model.EmailDetailsModel on table EmailDetailsModel
+Binding entity from annotated class: uk.co.itstherules.yawf.model.FileModel
+Bind entity uk.co.itstherules.yawf.model.FileModel on table FileModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.CardFactModel
+Bind entity uk.co.itstherules.cardplanner.model.CardFactModel on table CardFactModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.StoryBoardModel
+Bind entity uk.co.itstherules.cardplanner.model.StoryBoardModel on table StoryBoardModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.CardModel
+Bind entity uk.co.itstherules.cardplanner.model.CardModel on table CardModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.CardTypeModel
+Bind entity uk.co.itstherules.cardplanner.model.CardTypeModel on table CardTypeModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.LogModel
+Bind entity uk.co.itstherules.cardplanner.model.LogModel on table LogModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.OrganisationModel
+Bind entity uk.co.itstherules.cardplanner.model.OrganisationModel on table OrganisationModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.PersonModel
+Bind entity uk.co.itstherules.cardplanner.model.PersonModel on table PersonModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.PostItModel
+Bind entity uk.co.itstherules.cardplanner.model.PostItModel on table PostItModel
+Binding entity from annotated class: uk.co.itstherules.yawf.model.SimpleAttachmentModel
+Bind entity uk.co.itstherules.yawf.model.SimpleAttachmentModel on table SimpleAttachmentModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.StatusModel
+Bind entity uk.co.itstherules.cardplanner.model.StatusModel on table StatusModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.SyncServerModel
+Bind entity uk.co.itstherules.cardplanner.model.SyncServerModel on table SyncServerModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.TagModel
+Bind entity uk.co.itstherules.cardplanner.model.TagModel on table TagModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.ValueModel
+Bind entity uk.co.itstherules.cardplanner.model.ValueModel on table ValueModel
+Binding entity from annotated class: uk.co.itstherules.yawf.model.ProcessStepModel
+Bind entity uk.co.itstherules.yawf.model.ProcessStepModel on table ProcessStepModel
+Binding entity from annotated class: uk.co.itstherules.yawf.model.PageModel
+Bind entity uk.co.itstherules.yawf.model.PageModel on table PageModel
+Binding entity from annotated class: uk.co.itstherules.yawf.model.ProcessStepReferenceModel
+Bind entity uk.co.itstherules.yawf.model.ProcessStepReferenceModel on table ProcessStepReferenceModel
+Binding entity from annotated class: uk.co.itstherules.yawf.model.RouteModel
+Bind entity uk.co.itstherules.yawf.model.RouteModel on table RouteModel
+Binding entity from annotated class: uk.co.itstherules.yawf.model.TemplateModel
+Bind entity uk.co.itstherules.yawf.model.TemplateModel on table TemplateModel
+Binding entity from annotated class: uk.co.itstherules.yawf.security.objectcache.UserModel
+Bind entity uk.co.itstherules.yawf.security.objectcache.UserModel on table UserModel
+Binding entity from annotated class: uk.co.itstherules.yawf.security.objectcache.GroupModel
+Bind entity uk.co.itstherules.yawf.security.objectcache.GroupModel on table GroupModel
+Binding entity from annotated class: uk.co.itstherules.yawf.security.objectcache.PermissionModel
+Bind entity uk.co.itstherules.yawf.security.objectcache.PermissionModel on table PermissionModel
+Binding entity from annotated class: uk.co.itstherules.yawf.view.DatabaseStoredModelView
+Bind entity uk.co.itstherules.yawf.view.DatabaseStoredModelView on table DatabaseStoredModelView
+Mapping collection: uk.co.itstherules.cardplanner.model.CardModel.children -> CardModel
+Hibernate Validator not found: ignoring
+Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+Initializing connection provider: org.hibernate.connection.C3P0ConnectionProvider
+C3P0 using driver: org.h2.Driver at URL: jdbc:h2:~/Data/cardplanner;FILE_LOCK=NO
+Connection properties: {user=cardplanner, password=****, autocommit=true, release_mode=auto}
+autocommit mode: true
+MLog clients using log4j logging.
+Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@e22f4a85 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@d012a0e9 [ acquireIncrement -> 4, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> z8kfsx91snhnvp1n1v7c2|41f1f34, idleConnectionTestPeriod -> 500, initialPoolSize -> 5, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 1000, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 15, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@dff6db58 [ description -> null, driverClass -> null, factoryClassLocation -> null, identityToken -> z8kfsx91snhnvp1n1v7c2|4498ce30, jdbcUrl -> jdbc:h2:~/Data/cardplanner;FILE_LOCK=NO, properties -> {user=******, password=******, autocommit=true, release_mode=auto} ], preferredTestQuery -> null, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, factoryClassLocation -> null, identityToken -> z8kfsx91snhnvp1n1v7c2|52947011, numHelperThreads -> 3 ]
+Database ->
+       name : H2
+    version : 1.3.165 (2012-03-18)
+      major : 1
+      minor : 3
+Driver ->
+       name : H2 JDBC Driver
+    version : 1.3.165 (2012-03-18)
+      major : 1
+      minor : 3
+Using dialect: org.hibernate.dialect.H2Dialect
+Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+Transaction strategy: org.hibernate.transaction.JDBCTransactionFactory
+No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+Automatic flush during beforeCompletion(): disabled
+Automatic session close at end of transaction: disabled
+JDBC batch size: 15
+JDBC batch updates for versioned data: disabled
+Scrollable result sets: enabled
+JDBC3 getGeneratedKeys(): enabled
+Connection release mode: auto
+Default batch fetch size: 1
+Generate SQL with comments: disabled
+Order SQL updates by primary key: disabled
+Order SQL inserts for batching: disabled
+Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+Using ASTQueryTranslatorFactory
+Query language substitutions: {}
+JPA-QL strict compliance: enabled
+Second-level cache: enabled
+Query cache: disabled
+Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+Optimize cache for minimal puts: disabled
+Structured second-level cache entries: disabled
+Echoing all SQL to stdout
+Statistics: disabled
+Deleted entity synthetic identifier rollback: disabled
+Default entity-mode: pojo
+Named query checking : enabled
+Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+building session factory
+Type registration [characters_clob] overrides previous : org.hibernate.type.PrimitiveCharacterArrayClobType@6e416a04
+Type registration [wrapper_materialized_blob] overrides previous : org.hibernate.type.WrappedMaterializedBlobType@565788a1
+Type registration [clob] overrides previous : org.hibernate.type.ClobType@2119eb5f
+Type registration [java.sql.Clob] overrides previous : org.hibernate.type.ClobType@2119eb5f
+Type registration [blob] overrides previous : org.hibernate.type.BlobType@3f4afce
+Type registration [java.sql.Blob] overrides previous : org.hibernate.type.BlobType@3f4afce
+Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@1a46c9c6
+Type registration [wrapper_characters_clob] overrides previous : org.hibernate.type.CharacterArrayClobType@4ae8fbfd
+Type registration [materialized_clob] overrides previous : org.hibernate.type.MaterializedClobType@5fd868c9
+Not binding factory to JNDI, no JNDI name configured
+Running hbm2ddl schema update
+fetching database metadata
+updating schema
+table found: CARDPLANNER.PUBLIC.CARDFACTMODEL
+columns: [added, identity, x, y, hexcolour, sortorder, z, objectstate, title, body, updated]
+foreign keys: []
+indexes: [primary_key_4]
+table found: CARDPLANNER.PUBLIC.CARDMODEL
+columns: [parent_identity, added, effort_identity, type_identity, objectstate, title, body, status_identity, expanded, value_identity, identity, x, y, sortorder, z, updated, storyboard_identity]
+foreign keys: [fk67d719d9e7ae99f3, fk67d719d9b3b0b667, fk67d719d9770d7809, fk67d719d95080ddbf, fk67d719d958198991, fk67d719d934b97767]
+indexes: [fk67d719d934b97767_index_9, fk67d719d958198991_index_9, fk67d719d9e7ae99f3_index_9, fk67d719d9b3b0b667_index_9, primary_key_9, fk67d719d9770d7809_index_9, fk67d719d95080ddbf_index_9]
+table found: CARDPLANNER.PUBLIC.CARDMODEL_CARDFACTMODEL
+columns: [facts_identity, cardmodel_identity]
+foreign keys: [fk4d8dae716be7dc8, fk4d8dae7e61d502]
+indexes: [primary_key_a, constraint_index_a]
+table found: CARDPLANNER.PUBLIC.CARDMODEL_PERSONMODEL
+columns: [people_identity, cards_identity]
+foreign keys: [fk7a025f4e93f02af8, fk7a025f4eda35cee7]
+indexes: [fk7a025f4eda35cee7_index_e, primary_key_e]
+table found: CARDPLANNER.PUBLIC.CARDMODEL_SIMPLEATTACHMENTMODEL
+columns: [attachments_identity, cardmodel_identity]
+foreign keys: [fkce3c6daee61d502, fkce3c6dae511c566f]
+indexes: [primary_key_e9, fkce3c6dae511c566f_index_e]
+table found: CARDPLANNER.PUBLIC.CARDMODEL_TAGMODEL
+columns: [tags_identity, cards_identity]
+foreign keys: [fk930e7b75977a2e4e, fk930e7b7593f02af8]
+indexes: [fk930e7b75977a2e4e_index_5, primary_key_5]
+table found: CARDPLANNER.PUBLIC.CARDTYPEMODEL
+columns: [added, identity, x, y, hexcolour, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_b]
+table found: CARDPLANNER.PUBLIC.CONFIGURATIONMODEL
+columns: [firstrun, added, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_99]
+table found: CARDPLANNER.PUBLIC.COUNTRYMODEL
+columns: [languagecode, added, identity, countrycode, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_e3]
+table found: CARDPLANNER.PUBLIC.DATABASESTOREDMODELVIEW
+columns: [added, identity, x, y, sortorder, z, objectstate, title, updated, content, key]
+foreign keys: []
+indexes: [primary_key_3]
+table found: CARDPLANNER.PUBLIC.DATERANGEMODEL
+columns: [todate, added, identity, x, y, sortorder, z, objectstate, title, updated, fromdate]
+foreign keys: []
+indexes: [primary_key_e7]
+table found: CARDPLANNER.PUBLIC.EFFORTMODEL
+columns: [added, identity, x, type_identity, y, sortorder, z, objectstate, title, updated]
+foreign keys: [fkedb7857d57f7a1ad]
+indexes: [primary_key_c, fkedb7857d57f7a1ad_index_c]
+table found: CARDPLANNER.PUBLIC.EFFORTTYPEMODEL
+columns: [added, rate, identity, x, conversionstring, y, sortorder, z, objectstate, title, type, updated]
+foreign keys: []
+indexes: [primary_key_31]
+table found: CARDPLANNER.PUBLIC.EMAILDETAILSMODEL
+columns: [added, emailfromname, emailhost, objectstate, title, emailpassword, emailfromemail, identity, emailusername, x, y, sortorder, z, updated]
+foreign keys: []
+indexes: [primary_key_7]
+table found: CARDPLANNER.PUBLIC.FILEMODEL
+columns: [filename, added, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_58]
+table found: CARDPLANNER.PUBLIC.GROUPMODEL
+columns: [added, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_6]
+table found: CARDPLANNER.PUBLIC.GROUPMODEL_PERMISSIONMODEL
+columns: [permissions_identity, groupmodel_identity]
+foreign keys: [fka5a37045fcf160e9, fka5a370454583b887]
+indexes: [fka5a370454583b887_index_b, fka5a37045fcf160e9_index_b]
+table found: CARDPLANNER.PUBLIC.LOGMODEL
+columns: [date, fromstatus_identity, identity, action, card_identity, tostatus_identity]
+foreign keys: [fk7ae13665334d157d, fk7ae13665699969eb, fk7ae13665ee8828c]
+indexes: [fk7ae13665334d157d_index_a, primary_key_a7, fk7ae13665699969eb_index_a, fk7ae13665ee8828c_index_a]
+table found: CARDPLANNER.PUBLIC.ORGANISATIONMODEL
+columns: [added, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_b6]
+table found: CARDPLANNER.PUBLIC.ORGANISATIONMODEL_ORGANISATIONTYPES
+columns: [organisationtypes, organisationmodel_identity]
+foreign keys: [fkfa7335cf2b7644c2]
+indexes: [fkfa7335cf2b7644c2_index_2]
+table found: CARDPLANNER.PUBLIC.PAGEMODEL
+columns: [parent_identity, added, navigable, objectstate, title, body_identity, identity, x, y, sortorder, z, template_identity, updated]
+foreign keys: [fkab2109ba2caf05d8, fkab2109bae99e2600, fkab2109bad2eee5db]
+indexes: [primary_key_d, fkab2109bad2eee5db_index_d, fkab2109ba2caf05d8_index_d, fkab2109bae99e2600_index_d]
+table found: CARDPLANNER.PUBLIC.PERMISSIONMODEL
+columns: [added, identity, x, classdefinition, y, sortorder, z, objectstate, title, instanceaction, instanceidentity, updated]
+foreign keys: []
+indexes: [primary_key_e2]
+table found: CARDPLANNER.PUBLIC.PERSONMODEL
+columns: [firstname, visible, gender, added, initials, objectstate, title, lastname, identity, x, y, user_identity, sortorder, z, picture_identity, updated]
+foreign keys: [fk490be4b4b066a7a4, fk490be4b45e735ce1]
+indexes: [fk490be4b4b066a7a4_index_6, primary_key_67, fk490be4b45e735ce1_index_6]
+table found: CARDPLANNER.PUBLIC.PERSONMODEL_ORGANISATIONMODEL
+columns: [personmodel_identity, organisations_identity]
+foreign keys: [fk2e0d4b844b024fb8, fk2e0d4b848365b622]
+indexes: [primary_key_ad, fk2e0d4b844b024fb8_index_a]
+table found: CARDPLANNER.PUBLIC.POSTITMODEL
+columns: [colour, added, identity, x, y, sortorder, z, postitattachment_identity, objectstate, title, body, updated]
+foreign keys: [fk2033de80861ab1]
+indexes: [fk2033de80861ab1_index_b, primary_key_bb]
+table found: CARDPLANNER.PUBLIC.PROCESSSTEPMODEL
+columns: [input, added, identity, x, y, sortorder, z, processkey, objectstate, title, body, updated]
+foreign keys: []
+indexes: [primary_key_e97]
+table found: CARDPLANNER.PUBLIC.PROCESSSTEPMODEL_PROCESSSTEPREFERENCEMODEL
+columns: [references_identity, processstepmodel_identity]
+foreign keys: [fkcc6d8e68b2a928f, fkcc6d8e682a8953c]
+indexes: [constraint_index_8, primary_key_8]
+table found: CARDPLANNER.PUBLIC.PROCESSSTEPREFERENCEMODEL
+columns: [added, step_identity, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: [fkb6fbd391459bbd1]
+indexes: [primary_key_70, fkb6fbd391459bbd1_index_7]
+table found: CARDPLANNER.PUBLIC.PROCESSSTEPREFERENCEMODEL_PROCESSSTEPREFERENCEMODEL
+columns: [processstepreferencemodel_identity, inputsteps_identity]
+foreign keys: [fke62fcdb3f9e7f1ab, fke62fcdb3aad9dc7]
+indexes: [fke62fcdb3aad9dc7_index_8, fke62fcdb3f9e7f1ab_index_8]
+table found: CARDPLANNER.PUBLIC.ROUTEMODEL
+columns: [added, routeprocessstep_identity, objectstate, title, routeidentity, identity, x, y, sortorder, z, routeaction, routecontroller, updated]
+foreign keys: [fkac393a80f728732]
+indexes: [fkac393a80f728732_index_5, primary_key_54]
+table found: CARDPLANNER.PUBLIC.SIMPLEATTACHMENTMODEL
+columns: [added, identity, x, y, sortorder, z, objectstate, title, updated, filemodel_identity, applicationname]
+foreign keys: [fk4a02eb94e98837eb]
+indexes: [primary_key_46, fk4a02eb94e98837eb_index_4]
+table found: CARDPLANNER.PUBLIC.STATUSMODEL
+columns: [added, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_4b]
+table found: CARDPLANNER.PUBLIC.STORYBOARDBRUSHMODEL
+columns: [color, size, added, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_8d]
+table found: CARDPLANNER.PUBLIC.STORYBOARDHOTSPOTAREAMODEL
+columns: [added, identity, x, width, y, sortorder, z, objectstate, title, updated, status_identity, height]
+foreign keys: [fkfded79beb3b0b667]
+indexes: [fkfded79beb3b0b667_index_5, primary_key_5c]
+table found: CARDPLANNER.PUBLIC.STORYBOARDLINEENDMODEL
+columns: [added, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_1]
+table found: CARDPLANNER.PUBLIC.STORYBOARDLINEMODEL
+columns: [brush_identity, added, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: [fkfbe30384d36dc5fe]
+indexes: [primary_key_2, fkfbe30384d36dc5fe_index_2]
+table found: CARDPLANNER.PUBLIC.STORYBOARDLINEMODEL_STORYBOARDLINEENDMODEL
+columns: [points_identity, storyboardlinemodel_identity]
+foreign keys: [fkb4364fee55e3d688, fkb4364feefb195722]
+indexes: [fkb4364feefb195722_index_1, constraint_index_1]
+table found: CARDPLANNER.PUBLIC.STORYBOARDMODEL
+columns: [added, identity, x, width, y, sortorder, z, objectstate, frametype, title, updated, height]
+foreign keys: []
+indexes: [primary_key_9a]
+table found: CARDPLANNER.PUBLIC.STORYBOARDMODEL_POSTITMODEL
+columns: [storyboardmodel_identity, postits_identity]
+foreign keys: [fk10b188b7b73e2cb8, fk10b188b74ca8f442]
+indexes: [fk10b188b74ca8f442_index_f, constraint_index_f]
+table found: CARDPLANNER.PUBLIC.STORYBOARDMODEL_STORYBOARDHOTSPOTAREAMODEL
+columns: [hotspotareas_identity, storyboardmodel_identity]
+foreign keys: [fkaaaeb7c5f00ecd3f, fkaaaeb7c54ca8f442]
+indexes: [fkaaaeb7c54ca8f442_index_8, constraint_index_8e]
+table found: CARDPLANNER.PUBLIC.STORYBOARDMODEL_STORYBOARDLINEMODEL
+columns: [lines_identity, storyboardmodel_identity]
+foreign keys: [fkde26f5d2dfd3a47, fkde26f5d4ca8f442]
+indexes: [fkde26f5d4ca8f442_index_6, constraint_index_6]
+table found: CARDPLANNER.PUBLIC.STORYBOARDMODEL_STORYBOARDTEXTAREAMODEL
+columns: [textareas_identity, storyboardmodel_identity]
+foreign keys: [fk55bfffb74ca8f442, fk55bfffb71419c67]
+indexes: [fk55bfffb74ca8f442_index_2, constraint_index_2]
+table found: CARDPLANNER.PUBLIC.STORYBOARDTEXTAREAMODEL
+columns: [added, identity, x, width, y, sortorder, z, objectstate, title, updated, height]
+foreign keys: []
+indexes: [primary_key_b3]
+table found: CARDPLANNER.PUBLIC.SYNCSERVERMODEL
+columns: [synctype, added, requirespassword, objectstate, title, url, password, identity, x, y, sortorder, z, updated, username]
+foreign keys: []
+indexes: [primary_key_ab]
+table found: CARDPLANNER.PUBLIC.TAGMODEL
+columns: [added, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_1e]
+table found: CARDPLANNER.PUBLIC.TEMPLATEMODEL
+columns: [template, added, objectstate, title, content, templatemarkup, modeltype, identity, templatetype, x, y, sortorder, z, updated]
+foreign keys: []
+indexes: [primary_key_af]
+table found: CARDPLANNER.PUBLIC.USERMODEL
+columns: [password, added, identity, x, y, sortorder, z, objectstate, title, updated, email, username]
+foreign keys: []
+indexes: [primary_key_bb1]
+table found: CARDPLANNER.PUBLIC.USERMODEL_GROUPMODEL
+columns: [usermodel_identity, groups_identity]
+foreign keys: [fk2ae38ceb7a5ba65f, fk2ae38ceb2cdeee91]
+indexes: [primary_key_38, fk2ae38ceb7a5ba65f_index_3]
+table found: CARDPLANNER.PUBLIC.VALUEMODEL
+columns: [added, identity, x, type_identity, y, sortorder, z, objectstate, title, updated]
+foreign keys: [fkef9c9458910e4fda]
+indexes: [fkef9c9458910e4fda_index_9, primary_key_97]
+table found: CARDPLANNER.PUBLIC.VALUETYPEMODEL
+columns: [added, rate, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_c6]
+schema update complete
+Hibernate Commons Annotations 3.2.0.Final
+Hibernate 3.6.1.Final
+hibernate.properties not found
+Bytecode provider name : javassist
+using JDK 1.4 java.sql.Timestamp handling
+Hibernate EntityManager 3.6.1.Final
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.ConfigurationModel
+Bind entity uk.co.itstherules.cardplanner.model.ConfigurationModel on table ConfigurationModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.StoryBoardBrushModel
+Bind entity uk.co.itstherules.cardplanner.model.StoryBoardBrushModel on table StoryBoardBrushModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.StoryBoardLineEndModel
+Bind entity uk.co.itstherules.cardplanner.model.StoryBoardLineEndModel on table StoryBoardLineEndModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.StoryBoardLineModel
+Bind entity uk.co.itstherules.cardplanner.model.StoryBoardLineModel on table StoryBoardLineModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.StoryBoardTextAreaModel
+Bind entity uk.co.itstherules.cardplanner.model.StoryBoardTextAreaModel on table StoryBoardTextAreaModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.StoryBoardHotspotAreaModel
+Bind entity uk.co.itstherules.cardplanner.model.StoryBoardHotspotAreaModel on table StoryBoardHotspotAreaModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.type.EffortTypeModel
+Bind entity uk.co.itstherules.cardplanner.model.type.EffortTypeModel on table EffortTypeModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.type.ValueTypeModel
+Bind entity uk.co.itstherules.cardplanner.model.type.ValueTypeModel on table ValueTypeModel
+Binding entity from annotated class: uk.co.itstherules.yawf.model.CountryModel
+Bind entity uk.co.itstherules.yawf.model.CountryModel on table CountryModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.DateRangeModel
+Bind entity uk.co.itstherules.cardplanner.model.DateRangeModel on table DateRangeModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.EffortModel
+Bind entity uk.co.itstherules.cardplanner.model.EffortModel on table EffortModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.EmailDetailsModel
+Bind entity uk.co.itstherules.cardplanner.model.EmailDetailsModel on table EmailDetailsModel
+Binding entity from annotated class: uk.co.itstherules.yawf.model.FileModel
+Bind entity uk.co.itstherules.yawf.model.FileModel on table FileModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.CardFactModel
+Bind entity uk.co.itstherules.cardplanner.model.CardFactModel on table CardFactModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.StoryBoardModel
+Bind entity uk.co.itstherules.cardplanner.model.StoryBoardModel on table StoryBoardModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.CardModel
+Bind entity uk.co.itstherules.cardplanner.model.CardModel on table CardModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.CardTypeModel
+Bind entity uk.co.itstherules.cardplanner.model.CardTypeModel on table CardTypeModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.LogModel
+Bind entity uk.co.itstherules.cardplanner.model.LogModel on table LogModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.OrganisationModel
+Bind entity uk.co.itstherules.cardplanner.model.OrganisationModel on table OrganisationModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.PersonModel
+Bind entity uk.co.itstherules.cardplanner.model.PersonModel on table PersonModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.PostItModel
+Bind entity uk.co.itstherules.cardplanner.model.PostItModel on table PostItModel
+Binding entity from annotated class: uk.co.itstherules.yawf.model.SimpleAttachmentModel
+Bind entity uk.co.itstherules.yawf.model.SimpleAttachmentModel on table SimpleAttachmentModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.StatusModel
+Bind entity uk.co.itstherules.cardplanner.model.StatusModel on table StatusModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.SyncServerModel
+Bind entity uk.co.itstherules.cardplanner.model.SyncServerModel on table SyncServerModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.TagModel
+Bind entity uk.co.itstherules.cardplanner.model.TagModel on table TagModel
+Binding entity from annotated class: uk.co.itstherules.cardplanner.model.ValueModel
+Bind entity uk.co.itstherules.cardplanner.model.ValueModel on table ValueModel
+Binding entity from annotated class: uk.co.itstherules.yawf.model.ProcessStepModel
+Bind entity uk.co.itstherules.yawf.model.ProcessStepModel on table ProcessStepModel
+Binding entity from annotated class: uk.co.itstherules.yawf.model.PageModel
+Bind entity uk.co.itstherules.yawf.model.PageModel on table PageModel
+Binding entity from annotated class: uk.co.itstherules.yawf.model.ProcessStepReferenceModel
+Bind entity uk.co.itstherules.yawf.model.ProcessStepReferenceModel on table ProcessStepReferenceModel
+Binding entity from annotated class: uk.co.itstherules.yawf.model.RouteModel
+Bind entity uk.co.itstherules.yawf.model.RouteModel on table RouteModel
+Binding entity from annotated class: uk.co.itstherules.yawf.model.TemplateModel
+Bind entity uk.co.itstherules.yawf.model.TemplateModel on table TemplateModel
+Binding entity from annotated class: uk.co.itstherules.yawf.security.objectcache.UserModel
+Bind entity uk.co.itstherules.yawf.security.objectcache.UserModel on table UserModel
+Binding entity from annotated class: uk.co.itstherules.yawf.security.objectcache.GroupModel
+Bind entity uk.co.itstherules.yawf.security.objectcache.GroupModel on table GroupModel
+Binding entity from annotated class: uk.co.itstherules.yawf.security.objectcache.PermissionModel
+Bind entity uk.co.itstherules.yawf.security.objectcache.PermissionModel on table PermissionModel
+Binding entity from annotated class: uk.co.itstherules.yawf.view.DatabaseStoredModelView
+Bind entity uk.co.itstherules.yawf.view.DatabaseStoredModelView on table DatabaseStoredModelView
+Mapping collection: uk.co.itstherules.cardplanner.model.CardModel.children -> CardModel
+Hibernate Validator not found: ignoring
+Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+Initializing connection provider: org.hibernate.connection.C3P0ConnectionProvider
+C3P0 using driver: org.h2.Driver at URL: jdbc:h2:~/Data/cardplanner;FILE_LOCK=NO
+Connection properties: {user=cardplanner, password=****, autocommit=true, release_mode=auto}
+autocommit mode: true
+MLog clients using log4j logging.
+Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@98d43a90 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@bf82ec53 [ acquireIncrement -> 4, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> z8kfsx91snja5se4q3ow|853fbb9, idleConnectionTestPeriod -> 500, initialPoolSize -> 5, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 1000, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 15, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@81cff645 [ description -> null, driverClass -> null, factoryClassLocation -> null, identityToken -> z8kfsx91snja5se4q3ow|5e25449c, jdbcUrl -> jdbc:h2:~/Data/cardplanner;FILE_LOCK=NO, properties -> {user=******, password=******, autocommit=true, release_mode=auto} ], preferredTestQuery -> null, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, factoryClassLocation -> null, identityToken -> z8kfsx91snja5se4q3ow|672b2355, numHelperThreads -> 3 ]
+Database ->
+       name : H2
+    version : 1.3.165 (2012-03-18)
+      major : 1
+      minor : 3
+Driver ->
+       name : H2 JDBC Driver
+    version : 1.3.165 (2012-03-18)
+      major : 1
+      minor : 3
+Using dialect: org.hibernate.dialect.H2Dialect
+Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+Transaction strategy: org.hibernate.transaction.JDBCTransactionFactory
+No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+Automatic flush during beforeCompletion(): disabled
+Automatic session close at end of transaction: disabled
+JDBC batch size: 15
+JDBC batch updates for versioned data: disabled
+Scrollable result sets: enabled
+JDBC3 getGeneratedKeys(): enabled
+Connection release mode: auto
+Default batch fetch size: 1
+Generate SQL with comments: disabled
+Order SQL updates by primary key: disabled
+Order SQL inserts for batching: disabled
+Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+Using ASTQueryTranslatorFactory
+Query language substitutions: {}
+JPA-QL strict compliance: enabled
+Second-level cache: enabled
+Query cache: disabled
+Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+Optimize cache for minimal puts: disabled
+Structured second-level cache entries: disabled
+Echoing all SQL to stdout
+Statistics: disabled
+Deleted entity synthetic identifier rollback: disabled
+Default entity-mode: pojo
+Named query checking : enabled
+Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+building session factory
+Type registration [materialized_clob] overrides previous : org.hibernate.type.MaterializedClobType@7b5dbf16
+Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@96936
+Type registration [wrapper_materialized_blob] overrides previous : org.hibernate.type.WrappedMaterializedBlobType@61327bee
+Type registration [wrapper_characters_clob] overrides previous : org.hibernate.type.CharacterArrayClobType@183a96b
+Type registration [blob] overrides previous : org.hibernate.type.BlobType@628a2ad3
+Type registration [java.sql.Blob] overrides previous : org.hibernate.type.BlobType@628a2ad3
+Type registration [clob] overrides previous : org.hibernate.type.ClobType@3afaf010
+Type registration [java.sql.Clob] overrides previous : org.hibernate.type.ClobType@3afaf010
+Type registration [characters_clob] overrides previous : org.hibernate.type.PrimitiveCharacterArrayClobType@57513436
+Not binding factory to JNDI, no JNDI name configured
+Running hbm2ddl schema update
+fetching database metadata
+updating schema
+table found: CARDPLANNER.PUBLIC.CARDFACTMODEL
+columns: [added, identity, x, y, hexcolour, sortorder, z, objectstate, title, body, updated]
+foreign keys: []
+indexes: [primary_key_4]
+table found: CARDPLANNER.PUBLIC.CARDMODEL
+columns: [parent_identity, added, effort_identity, type_identity, objectstate, title, body, status_identity, expanded, value_identity, identity, x, y, sortorder, z, updated, storyboard_identity]
+foreign keys: [fk67d719d9e7ae99f3, fk67d719d9b3b0b667, fk67d719d9770d7809, fk67d719d95080ddbf, fk67d719d958198991, fk67d719d934b97767]
+indexes: [fk67d719d934b97767_index_9, fk67d719d958198991_index_9, fk67d719d9e7ae99f3_index_9, fk67d719d9b3b0b667_index_9, primary_key_9, fk67d719d9770d7809_index_9, fk67d719d95080ddbf_index_9]
+table found: CARDPLANNER.PUBLIC.CARDMODEL_CARDFACTMODEL
+columns: [facts_identity, cardmodel_identity]
+foreign keys: [fk4d8dae716be7dc8, fk4d8dae7e61d502]
+indexes: [primary_key_a, constraint_index_a]
+table found: CARDPLANNER.PUBLIC.CARDMODEL_PERSONMODEL
+columns: [people_identity, cards_identity]
+foreign keys: [fk7a025f4e93f02af8, fk7a025f4eda35cee7]
+indexes: [fk7a025f4eda35cee7_index_e, primary_key_e]
+table found: CARDPLANNER.PUBLIC.CARDMODEL_SIMPLEATTACHMENTMODEL
+columns: [attachments_identity, cardmodel_identity]
+foreign keys: [fkce3c6daee61d502, fkce3c6dae511c566f]
+indexes: [primary_key_e9, fkce3c6dae511c566f_index_e]
+table found: CARDPLANNER.PUBLIC.CARDMODEL_TAGMODEL
+columns: [tags_identity, cards_identity]
+foreign keys: [fk930e7b75977a2e4e, fk930e7b7593f02af8]
+indexes: [fk930e7b75977a2e4e_index_5, primary_key_5]
+table found: CARDPLANNER.PUBLIC.CARDTYPEMODEL
+columns: [added, identity, x, y, hexcolour, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_b]
+table found: CARDPLANNER.PUBLIC.CONFIGURATIONMODEL
+columns: [firstrun, added, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_99]
+table found: CARDPLANNER.PUBLIC.COUNTRYMODEL
+columns: [languagecode, added, identity, countrycode, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_e3]
+table found: CARDPLANNER.PUBLIC.DATABASESTOREDMODELVIEW
+columns: [added, identity, x, y, sortorder, z, objectstate, title, updated, content, key]
+foreign keys: []
+indexes: [primary_key_3]
+table found: CARDPLANNER.PUBLIC.DATERANGEMODEL
+columns: [todate, added, identity, x, y, sortorder, z, objectstate, title, updated, fromdate]
+foreign keys: []
+indexes: [primary_key_e7]
+table found: CARDPLANNER.PUBLIC.EFFORTMODEL
+columns: [added, identity, x, type_identity, y, sortorder, z, objectstate, title, updated]
+foreign keys: [fkedb7857d57f7a1ad]
+indexes: [primary_key_c, fkedb7857d57f7a1ad_index_c]
+table found: CARDPLANNER.PUBLIC.EFFORTTYPEMODEL
+columns: [added, rate, identity, x, conversionstring, y, sortorder, z, objectstate, title, type, updated]
+foreign keys: []
+indexes: [primary_key_31]
+table found: CARDPLANNER.PUBLIC.EMAILDETAILSMODEL
+columns: [added, emailfromname, emailhost, objectstate, title, emailpassword, emailfromemail, identity, emailusername, x, y, sortorder, z, updated]
+foreign keys: []
+indexes: [primary_key_7]
+table found: CARDPLANNER.PUBLIC.FILEMODEL
+columns: [filename, added, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_58]
+table found: CARDPLANNER.PUBLIC.GROUPMODEL
+columns: [added, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_6]
+table found: CARDPLANNER.PUBLIC.GROUPMODEL_PERMISSIONMODEL
+columns: [permissions_identity, groupmodel_identity]
+foreign keys: [fka5a37045fcf160e9, fka5a370454583b887]
+indexes: [fka5a370454583b887_index_b, fka5a37045fcf160e9_index_b]
+table found: CARDPLANNER.PUBLIC.LOGMODEL
+columns: [date, fromstatus_identity, identity, action, card_identity, tostatus_identity]
+foreign keys: [fk7ae13665334d157d, fk7ae13665699969eb, fk7ae13665ee8828c]
+indexes: [fk7ae13665334d157d_index_a, primary_key_a7, fk7ae13665699969eb_index_a, fk7ae13665ee8828c_index_a]
+table found: CARDPLANNER.PUBLIC.ORGANISATIONMODEL
+columns: [added, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_b6]
+table found: CARDPLANNER.PUBLIC.ORGANISATIONMODEL_ORGANISATIONTYPES
+columns: [organisationtypes, organisationmodel_identity]
+foreign keys: [fkfa7335cf2b7644c2]
+indexes: [fkfa7335cf2b7644c2_index_2]
+table found: CARDPLANNER.PUBLIC.PAGEMODEL
+columns: [parent_identity, added, navigable, objectstate, title, body_identity, identity, x, y, sortorder, z, template_identity, updated]
+foreign keys: [fkab2109ba2caf05d8, fkab2109bae99e2600, fkab2109bad2eee5db]
+indexes: [primary_key_d, fkab2109bad2eee5db_index_d, fkab2109ba2caf05d8_index_d, fkab2109bae99e2600_index_d]
+table found: CARDPLANNER.PUBLIC.PERMISSIONMODEL
+columns: [added, identity, x, classdefinition, y, sortorder, z, objectstate, title, instanceaction, instanceidentity, updated]
+foreign keys: []
+indexes: [primary_key_e2]
+table found: CARDPLANNER.PUBLIC.PERSONMODEL
+columns: [firstname, visible, gender, added, initials, objectstate, title, lastname, identity, x, y, user_identity, sortorder, z, picture_identity, updated]
+foreign keys: [fk490be4b4b066a7a4, fk490be4b45e735ce1]
+indexes: [fk490be4b4b066a7a4_index_6, primary_key_67, fk490be4b45e735ce1_index_6]
+table found: CARDPLANNER.PUBLIC.PERSONMODEL_ORGANISATIONMODEL
+columns: [personmodel_identity, organisations_identity]
+foreign keys: [fk2e0d4b844b024fb8, fk2e0d4b848365b622]
+indexes: [primary_key_ad, fk2e0d4b844b024fb8_index_a]
+table found: CARDPLANNER.PUBLIC.POSTITMODEL
+columns: [colour, added, identity, x, y, sortorder, z, postitattachment_identity, objectstate, title, body, updated]
+foreign keys: [fk2033de80861ab1]
+indexes: [fk2033de80861ab1_index_b, primary_key_bb]
+table found: CARDPLANNER.PUBLIC.PROCESSSTEPMODEL
+columns: [input, added, identity, x, y, sortorder, z, processkey, objectstate, title, body, updated]
+foreign keys: []
+indexes: [primary_key_e97]
+table found: CARDPLANNER.PUBLIC.PROCESSSTEPMODEL_PROCESSSTEPREFERENCEMODEL
+columns: [references_identity, processstepmodel_identity]
+foreign keys: [fkcc6d8e68b2a928f, fkcc6d8e682a8953c]
+indexes: [constraint_index_8, primary_key_8]
+table found: CARDPLANNER.PUBLIC.PROCESSSTEPREFERENCEMODEL
+columns: [added, step_identity, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: [fkb6fbd391459bbd1]
+indexes: [primary_key_70, fkb6fbd391459bbd1_index_7]
+table found: CARDPLANNER.PUBLIC.PROCESSSTEPREFERENCEMODEL_PROCESSSTEPREFERENCEMODEL
+columns: [processstepreferencemodel_identity, inputsteps_identity]
+foreign keys: [fke62fcdb3f9e7f1ab, fke62fcdb3aad9dc7]
+indexes: [fke62fcdb3aad9dc7_index_8, fke62fcdb3f9e7f1ab_index_8]
+table found: CARDPLANNER.PUBLIC.ROUTEMODEL
+columns: [added, routeprocessstep_identity, objectstate, title, routeidentity, identity, x, y, sortorder, z, routeaction, routecontroller, updated]
+foreign keys: [fkac393a80f728732]
+indexes: [fkac393a80f728732_index_5, primary_key_54]
+table found: CARDPLANNER.PUBLIC.SIMPLEATTACHMENTMODEL
+columns: [added, identity, x, y, sortorder, z, objectstate, title, updated, filemodel_identity, applicationname]
+foreign keys: [fk4a02eb94e98837eb]
+indexes: [primary_key_46, fk4a02eb94e98837eb_index_4]
+table found: CARDPLANNER.PUBLIC.STATUSMODEL
+columns: [added, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_4b]
+table found: CARDPLANNER.PUBLIC.STORYBOARDBRUSHMODEL
+columns: [color, size, added, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_8d]
+table found: CARDPLANNER.PUBLIC.STORYBOARDHOTSPOTAREAMODEL
+columns: [added, identity, x, width, y, sortorder, z, objectstate, title, updated, status_identity, height]
+foreign keys: [fkfded79beb3b0b667]
+indexes: [fkfded79beb3b0b667_index_5, primary_key_5c]
+table found: CARDPLANNER.PUBLIC.STORYBOARDLINEENDMODEL
+columns: [added, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_1]
+table found: CARDPLANNER.PUBLIC.STORYBOARDLINEMODEL
+columns: [brush_identity, added, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: [fkfbe30384d36dc5fe]
+indexes: [primary_key_2, fkfbe30384d36dc5fe_index_2]
+table found: CARDPLANNER.PUBLIC.STORYBOARDLINEMODEL_STORYBOARDLINEENDMODEL
+columns: [points_identity, storyboardlinemodel_identity]
+foreign keys: [fkb4364fee55e3d688, fkb4364feefb195722]
+indexes: [fkb4364feefb195722_index_1, constraint_index_1]
+table found: CARDPLANNER.PUBLIC.STORYBOARDMODEL
+columns: [added, identity, x, width, y, sortorder, z, objectstate, frametype, title, updated, height]
+foreign keys: []
+indexes: [primary_key_9a]
+table found: CARDPLANNER.PUBLIC.STORYBOARDMODEL_POSTITMODEL
+columns: [storyboardmodel_identity, postits_identity]
+foreign keys: [fk10b188b7b73e2cb8, fk10b188b74ca8f442]
+indexes: [fk10b188b74ca8f442_index_f, constraint_index_f]
+table found: CARDPLANNER.PUBLIC.STORYBOARDMODEL_STORYBOARDHOTSPOTAREAMODEL
+columns: [hotspotareas_identity, storyboardmodel_identity]
+foreign keys: [fkaaaeb7c5f00ecd3f, fkaaaeb7c54ca8f442]
+indexes: [fkaaaeb7c54ca8f442_index_8, constraint_index_8e]
+table found: CARDPLANNER.PUBLIC.STORYBOARDMODEL_STORYBOARDLINEMODEL
+columns: [lines_identity, storyboardmodel_identity]
+foreign keys: [fkde26f5d2dfd3a47, fkde26f5d4ca8f442]
+indexes: [fkde26f5d4ca8f442_index_6, constraint_index_6]
+table found: CARDPLANNER.PUBLIC.STORYBOARDMODEL_STORYBOARDTEXTAREAMODEL
+columns: [textareas_identity, storyboardmodel_identity]
+foreign keys: [fk55bfffb74ca8f442, fk55bfffb71419c67]
+indexes: [fk55bfffb74ca8f442_index_2, constraint_index_2]
+table found: CARDPLANNER.PUBLIC.STORYBOARDTEXTAREAMODEL
+columns: [added, identity, x, width, y, sortorder, z, objectstate, title, updated, height]
+foreign keys: []
+indexes: [primary_key_b3]
+table found: CARDPLANNER.PUBLIC.SYNCSERVERMODEL
+columns: [synctype, added, requirespassword, objectstate, title, url, password, identity, x, y, sortorder, z, updated, username]
+foreign keys: []
+indexes: [primary_key_ab]
+table found: CARDPLANNER.PUBLIC.TAGMODEL
+columns: [added, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_1e]
+table found: CARDPLANNER.PUBLIC.TEMPLATEMODEL
+columns: [template, added, objectstate, title, content, templatemarkup, modeltype, identity, templatetype, x, y, sortorder, z, updated]
+foreign keys: []
+indexes: [primary_key_af]
+table found: CARDPLANNER.PUBLIC.USERMODEL
+columns: [password, added, identity, x, y, sortorder, z, objectstate, title, updated, email, username]
+foreign keys: []
+indexes: [primary_key_bb1]
+table found: CARDPLANNER.PUBLIC.USERMODEL_GROUPMODEL
+columns: [usermodel_identity, groups_identity]
+foreign keys: [fk2ae38ceb7a5ba65f, fk2ae38ceb2cdeee91]
+indexes: [primary_key_38, fk2ae38ceb7a5ba65f_index_3]
+table found: CARDPLANNER.PUBLIC.VALUEMODEL
+columns: [added, identity, x, type_identity, y, sortorder, z, objectstate, title, updated]
+foreign keys: [fkef9c9458910e4fda]
+indexes: [fkef9c9458910e4fda_index_9, primary_key_97]
+table found: CARDPLANNER.PUBLIC.VALUETYPEMODEL
+columns: [added, rate, identity, x, y, sortorder, z, objectstate, title, updated]
+foreign keys: []
+indexes: [primary_key_c6]
+schema update complete
