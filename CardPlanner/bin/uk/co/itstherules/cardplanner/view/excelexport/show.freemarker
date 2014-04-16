@@ -1,9 +1,0 @@
-<h2>Excel Export</h2>
-
-<br/>
-In order to back up the information to an xls sheet, please click on the link below and save the file somewhere nice and safe.<br/><br/>
-
-<br/>
-<#assign file_name = "cardplanner_backup_"+dateProvider.now()+".xls" />
-${tagBuilder.feedLink("ExcelExport", file_name, "0", "Get me my XLS file please!")} ${tagBuilder.showImage("xls.png")}<br/><br/>
-

@@ -1,5 +1,0 @@
-# uk.co.itstherules.yawf.model.ProcessStepModel, 325cd364-9334-4c85-b3bd-2ed3d5e97e4f
-processKey=StringInput
-body=
-input=/uk.co.itstherules.yawf.security.objectcache.GroupModel?title=assessment
-title=Fetch Assessment Group Query

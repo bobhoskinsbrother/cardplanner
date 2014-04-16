@@ -1,6 +1,0 @@
-# LOGIN_SHOW_BODY, uk.co.itstherules.yawf.model.TemplateModel, 89a913c7-baa0-4894-91c5-0c42a2cad7c7
-templateType=FromModelView
-templateMarkup=FreeMarker
-template=LoginShow
-title=LoginShow
-modelType=Body

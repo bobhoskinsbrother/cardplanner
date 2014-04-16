@@ -1,4 +1,0 @@
-# uk.co.itstherules.yawf.model.ProcessStepModel, f803d13f-7f10-47ae-8f93-57ab7f17af7d
-processKey=StringInput
-input=/uk.co.itstherules.yawf.security.objectcache.GroupModel?title=base
-title=Fetch Base Group Query

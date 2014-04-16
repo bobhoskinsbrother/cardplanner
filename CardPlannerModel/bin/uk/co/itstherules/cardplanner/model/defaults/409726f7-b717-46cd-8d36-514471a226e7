@@ -1,5 +1,0 @@
-# ProcessStepModel, 409726f7-b717-46cd-8d36-514471a226e7
-processKey=StringInput
-body=
-input=uk.co.itstherules.cardplanner.model.PersonModel
-title=Person Class

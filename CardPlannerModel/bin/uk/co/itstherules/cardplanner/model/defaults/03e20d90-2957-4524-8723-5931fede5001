@@ -1,6 +1,0 @@
-# CLEAN_TEMPLATE, TemplateModel, 03e20d90-2957-4524-8723-5931fede5001
-template=Clean
-title=Clean CardPlanner Template
-templateType=FromModelView
-templateMarkup=FreeMarker
-modelType=Frame

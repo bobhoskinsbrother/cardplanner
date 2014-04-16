@@ -1,9 +1,0 @@
-<h1>Tag - <em>${tag.title?html}</em></h1>
-<div id="cards">
-<#if cards?size==0>There are no cards associated with this tag</#if>
-	<#list cards as card>
-		<h3>
-		${tagBuilder.showLink("Cards", card.title?url, card.identity, card.title?html, {}, { "class":"lightwindow", "params":"lightwindow_type=external,lightwindow_width=728,lightwindow_height=520"})}<br/>
-		</h3>
-	</#list>
-</div>
