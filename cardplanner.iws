@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e2a0034-e6b2-49ad-a351-34b4f927d7b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cardplanner.iml" afterPath="$PROJECT_DIR$/cardplanner.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cardplanner.iws" afterPath="$PROJECT_DIR$/cardplanner.iws" />
     </list>
     <ignored path="cardplanner.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,24 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
-              <caret line="24" column="54" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ben.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/environments/ben.properties">
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="136">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.071204185" vertical-offset="0" max-vertical-offset="955">
+              <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -114,6 +103,7 @@
         <option value="$PROJECT_DIR$/CardPlannerModel/src/uk/co/itstherules/cardplanner/model/ValueModel.java" />
         <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/routesprocesssteps/change.freemarker" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -186,20 +176,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="environments" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -659,7 +635,7 @@
       <workItem from="1397508330828" duration="11093000" />
       <workItem from="1397591924024" duration="6071000" />
       <workItem from="1397672482438" duration="230000" />
-      <workItem from="1397673695165" duration="433000" />
+      <workItem from="1397673695165" duration="1564000" />
     </task>
     <task id="LOCAL-00001" summary="BMH: Making the build a little more sane, fixing up a bunch of small errors, in prep to getting the functional tests working again">
       <created>1397597743552</created>
@@ -669,7 +645,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25325000" />
+    <option name="totallyTimeSpent" value="26456000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-4" width="1865" height="1085" extended-state="6" />
@@ -761,13 +737,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/Packages/freemarker/2.3.16/freemarker.jar!/freemarker/template/SimpleHash.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14604811" vertical-offset="0" max-vertical-offset="1173">
-          <caret line="6" column="112" selection-start-line="6" selection-start-column="105" selection-end-line="6" selection-end-column="124" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/Packages/freemarker/2.3.16/freemarker.jar!/freemarker/template/TemplateCollectionModel.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14604811" vertical-offset="0" max-vertical-offset="582">
@@ -1023,7 +992,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="454" max-vertical-offset="1088">
           <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding>
-            <element signature="e#3104#3121#0" expanded="true" />
+            <element signature="e#3104#3121#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1075,7 +1044,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="192" max-vertical-offset="1683">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1115,14 +1084,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/environments/ben.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="955">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
@@ -1132,6 +1093,22 @@
       </provider>
       <provider selected="true" editor-type-id="MarkdownPreviewEditor">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/environments/ben.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="955">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.071204185" vertical-offset="0" max-vertical-offset="955">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
@@ -1186,7 +1163,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>YAWF</last-edited>
+          <last-edited>cardplanner</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
