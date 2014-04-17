@@ -1,19 +1,11 @@
 package uk.co.itstherules.yawf.inbound;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.StringTokenizer;
-
 import org.apache.commons.fileupload.FileItem;
-
 import uk.co.itstherules.date.DateConverter;
+import uk.co.itstherules.string.manipulation.ListParser;
 import uk.co.itstherules.yawf.FileStuff;
+
+import java.util.*;
 
 public abstract class AbstractValuesProvider implements ValuesProvider {
 
@@ -51,21 +43,11 @@ public abstract class AbstractValuesProvider implements ValuesProvider {
 	public abstract String getString(String key, String defaultString);
 	
 	public Set<String> getSet(String key) {
-		return new LinkedHashSet<String>(getList(key));
+		return new LinkedHashSet<>(getList(key));
 	}
 	
 	public List<String> getList(String key) {
-		String values = getString(key);
-		List<String> list = new ArrayList<String>();
-		if(values != null && (!"".equals(values))) {
-			StringTokenizer tokenizer = new StringTokenizer(values, "[],", false);
-			while (tokenizer.hasMoreElements()) {
-	            String value = (String) tokenizer.nextElement();
-	            list.add(value);
-            }
-			return list;
-		}
-		return new ArrayList<String>();
+        return ListParser.parse(getString(key));
 	}
 	
     public Map<String, String> getMap(String key, Map<String, String> defaultMap) {

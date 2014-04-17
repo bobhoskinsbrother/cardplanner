@@ -55,7 +55,7 @@ public class ProcessStepConnectorPlanExecutor extends BaseProcessStep<NullEntity
     }
 
 	private ProcessStep<?> createNewProcessStepForKey(String key) {
-		return ProcessStepRegister.createStepFor(key);
+		return ProcessStepRegisterListener.createStepFor(key);
 	}
 	
 	@Override public String getKey() { return "ProcessStepConnectorPlanExecutor"; }

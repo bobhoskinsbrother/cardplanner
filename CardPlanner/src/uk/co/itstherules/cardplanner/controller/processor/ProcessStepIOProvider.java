@@ -6,14 +6,14 @@ import java.util.Set;
 
 import uk.co.itstherules.yawf.controller.processor.ProcessStep;
 import uk.co.itstherules.yawf.controller.processor.ProcessStep.ProcessStepType;
-import uk.co.itstherules.yawf.controller.processor.ProcessStepRegister;
+import uk.co.itstherules.yawf.controller.processor.ProcessStepRegisterListener;
 import uk.co.itstherules.yawf.model.ClassDescriptionModel;
 
 public class ProcessStepIOProvider {
 	
 	public List<String> getInput(String key) {
 		List<String> required = new LinkedList<String>();
-		ClassDescriptionModel[] requiredClasses = ProcessStepRegister.getStep(key).getInputs();
+		ClassDescriptionModel[] requiredClasses = ProcessStepRegisterListener.getStep(key).getInputs();
 		for (ClassDescriptionModel current : requiredClasses) {
 			required.add(current.toString());
         }
@@ -21,15 +21,15 @@ public class ProcessStepIOProvider {
 	}
 	
 	public String getOutput(String key) {
-		return ProcessStepRegister.getStep(key).getOutput().toString();
+		return ProcessStepRegisterListener.getStep(key).getOutput().toString();
 	}
 	
 	public ProcessStepType getProcessStepType(String key) {
-		return ProcessStepRegister.getStep(key).getProcessStepType();
+		return ProcessStepRegisterListener.getStep(key).getProcessStepType();
 	}
 
 	public Set<ProcessStep<?>> allProcessSteps() {
-		return ProcessStepRegister.availableSteps();
+		return ProcessStepRegisterListener.availableSteps();
     }
 
 	

@@ -1,22 +1,22 @@
 package uk.co.itstherules.ui.pages.show;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
 import uk.co.itstherules.ui.pages.Page;
 
 public class LoginPage extends Page<LoginPage> {
 
-	@FindBy(name="username") private WebElement username;
-	@FindBy(name="password") private WebElement password;
-	@FindBy(name="completeAction") private WebElement submitButton;
+	private WebElement username;
+	private WebElement password;
+	private WebElement submitButton;
 
 	
 	public LoginPage(String appRoot, WebDriver driver) {
 		super(driver, appRoot);
-		PageFactory.initElements(driver, this);
+        username = driver.findElement(By.name("username"));
+        password = driver.findElement(By.name("password"));
+        submitButton = driver.findElement(By.name("completeAction"));
     }
 
 	@Override

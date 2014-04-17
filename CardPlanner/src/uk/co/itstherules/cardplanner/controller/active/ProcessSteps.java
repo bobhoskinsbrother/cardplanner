@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import uk.co.itstherules.cardplanner.controller.CardPlannerBase;
 import uk.co.itstherules.cardplanner.view.MergedTextView;
 import uk.co.itstherules.yawf.StringCollectionToEntityListConverter;
-import uk.co.itstherules.yawf.controller.processor.ProcessStepRegister;
+import uk.co.itstherules.yawf.controller.processor.ProcessStepRegisterListener;
 import uk.co.itstherules.yawf.dispatcher.Action;
 import uk.co.itstherules.yawf.inbound.ValuesProvider;
 import uk.co.itstherules.yawf.inbound.annotations.processor.QueryKeyViolations;
@@ -59,7 +59,7 @@ public class ProcessSteps extends CardPlannerBase<ProcessStepModel> {
 		View view = new MergedTextView("processsteps/change.freemarker");
 		String root = provider.getApplicationRoot();
 		ViewContext context = new EmptyContext();
-		Set<String> availableSteps = ProcessStepRegister.availableKeys();
+		Set<String> availableSteps = ProcessStepRegisterListener.availableKeys();
 		context.put("violations", violations);
 		context.put("availableSteps", new StringCollectionToEntityListConverter().convert(availableSteps));
 		context.put("processStep", object);

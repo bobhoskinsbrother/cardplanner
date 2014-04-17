@@ -32,10 +32,6 @@
 		<param-value>/CardPlanner.root</param-value>
 	</context-param>
 	<context-param>
-		<param-name>moduleConfigurationClasses</param-name>
-		<param-value>uk.co.itstherules.cardplanner.initialization.CardPlannerModuleConfiguration</param-value>
-	</context-param>
-	<context-param>
 		<param-name>resourceRoot</param-name>
 		<param-value>uk.co.itstherules.cardplanner.view</param-value>
 	</context-param>
@@ -46,10 +42,6 @@
 	<context-param>
 		<param-name>viewRoot</param-name>
 		<param-value>uk.co.itstherules.cardplanner.view.active</param-value>
-	</context-param>
-	<context-param>
-		<param-name>processRoot</param-name>
-		<param-value>uk.co.itstherules.cardplanner.controller.processor.active</param-value>
 	</context-param>
 	<context-param>
 		<param-name>defaultHomePage</param-name>
@@ -98,6 +90,19 @@
 	</listener>
     <listener>
         <listener-class>uk.co.itstherules.cardplanner.controller.shared.SharedObjectSpacesListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>uk.co.itstherules.cardplanner.listener.CardPlannerListener</listener-class>
+    </listener>
+
+
+    <!--TODO: ProcessStepRegisterListener requires the processRoot in order to find the process steps - need to make the dependency more explicit -->
+    <context-param>
+   		<param-name>processRoot</param-name>
+   		<param-value>uk.co.itstherules.cardplanner.controller.processor.active</param-value>
+   	</context-param>
+    <listener>
+        <listener-class>uk.co.itstherules.yawf.controller.processor.ProcessStepRegisterListener</listener-class>
     </listener>
 
 

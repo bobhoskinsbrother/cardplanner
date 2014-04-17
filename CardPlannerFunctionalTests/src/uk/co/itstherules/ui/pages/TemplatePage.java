@@ -1,27 +1,28 @@
 package uk.co.itstherules.ui.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
 import uk.co.itstherules.ui.pages.show.LoginPage;
 
-public abstract class TemplatePage<T> extends Page<T> { 
-	
-	@FindBy(id="sideBarTab") private WebElement sideBarTab;
-	@FindBy(id="logout") private WebElement logoutButton;
-	
-	public TemplatePage(WebDriver driver, String appRoot) {
-		super(driver, appRoot);
+public abstract class TemplatePage<T> extends Page<T> {
+
+    private WebElement sideBarTab;
+    private WebElement logoutButton;
+
+    public TemplatePage(WebDriver driver, String appRoot) {
+        super(driver, appRoot);
+        sideBarTab = driver.findElement(By.id("sideBarTab"));
+        logoutButton = driver.findElement(By.id("logout"));
     }
 
-	public LoginPage clickLogout(Page<?> page) {
-		logoutButton.click();
-	    return new LoginPage(appRoot, driver);
+    public LoginPage clickLogout(Page<?> page) {
+        logoutButton.click();
+        return new LoginPage(appRoot, driver);
     }
 
-	public void openLinksPanel() {
-		sideBarTab.click();
+    public void openLinksPanel() {
+        sideBarTab.click();
     }
-	
+
 }

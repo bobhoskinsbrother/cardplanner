@@ -12,12 +12,10 @@ import uk.co.itstherules.ui.pages.list.SignUpForWorkPage;
 
 public class CanSignUpForWorkTest {
 
-    private static String file;
     private static WebDriver driver;
 
     @BeforeClass
     public static void setup() throws Exception {
-        file = "simple";
         driver = WebDriverInstance.get();
     }
 
@@ -28,7 +26,7 @@ public class CanSignUpForWorkTest {
 
     @Test
     public void canViewThePage() throws Exception {
-        DataInitializer.initializeData(file, "CardPlanner");
+        DataInitializer.initializeData("simple", "CardPlanner");
         new SignUpForWorkPage(driver, "http://localhost:9999/Simple").navigateTo("0");
         BrowserWait.forText(driver, "Sign Up For Work", 5000);
     }

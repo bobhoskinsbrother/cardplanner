@@ -2,25 +2,23 @@ package uk.co.itstherules.string.manipulation;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 public final class CollectionConverter {
 
 	public String convert(Collection<?> set) {
-		StringBuffer buffer = new StringBuffer();
+		StringBuilder b = new StringBuilder();
 		for (Object object : set) {
-			buffer.append(object.toString());
-			buffer.append(",");
+			b.append(object.toString());
+			b.append(",");
 		}
 		if(set.size() > 0) {
-			return buffer.substring(0, buffer.length()-1);
+			return b.substring(0, b.length()-1);
 		}
-		return buffer.toString();
+		return b.toString();
 	}
 	
 	public String convert(Object... set) {
-		List<Object> list = Arrays.asList(set);
-		return convert(list);
+        return convert(Arrays.asList(set));
 	}
 
 }

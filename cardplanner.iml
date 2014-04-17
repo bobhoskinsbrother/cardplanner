@@ -17,7 +17,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="freemarker" level="project" />
     <orderEntry type="library" name="oval" level="project" />
-    <orderEntry type="library" name="selenium" level="project" />
+    <orderEntry type="library" name="selenium-firefox" level="project" />
   </component>
 </module>
 

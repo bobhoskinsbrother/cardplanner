@@ -3,8 +3,6 @@ package uk.co.itstherules.ui.pages;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-
 import uk.co.itstherules.ui.functions.BrowserWait;
 
 public abstract class Page<T> implements Navigable<T> { 
@@ -35,7 +33,6 @@ public abstract class Page<T> implements Navigable<T> {
     		toAppend = optionalString.substring(0, optionalString.lastIndexOf("&"));
     	}
 		driver.get(new StringBuilder().append(appRoot).append("/").append(getController()).append("/").append(getAction()).append("/").append(identity).append("/index.xhtml").append(toAppend).toString());
-        PageFactory.initElements(driver, this);
 		return (T) this;
 	}
 	

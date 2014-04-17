@@ -1,10 +1,8 @@
 package uk.co.itstherules.ui.pages.add;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
 import uk.co.itstherules.ui.pages.Page;
 import uk.co.itstherules.ui.pages.change.ChangeTypePage;
 import uk.co.itstherules.ui.pages.list.PeoplePage;
@@ -14,14 +12,14 @@ public class AddSignUpPage extends Page<AddSignUpPage> {
 	protected final WebDriver driver;
 	protected final String appRoot;
 	
-	@FindBy(name = "title") private WebElement titleField;
-	@FindBy(name = "firstName") private WebElement firstNameField;
-	@FindBy(name = "lastName") private WebElement lastNameField;
-	@FindBy(name = "initials") private WebElement initialsField;
-	@FindBy(name = "email") private WebElement emailField;
-	@FindBy(name = "password") private WebElement passwordField;
-	@FindBy(name = "confirmPassword") private WebElement confirmPasswordField;
-	@FindBy(name = "completeAction") private WebElement completeActionButton;
+	private WebElement titleField;
+	private WebElement firstNameField;
+	private WebElement lastNameField;
+	private WebElement initialsField;
+	private WebElement emailField;
+	private WebElement passwordField;
+	private WebElement confirmPasswordField;
+	private WebElement completeActionButton;
 
 	private final ChangeTypePage changeType = ChangeTypePage.Add;
 	
@@ -30,7 +28,14 @@ public class AddSignUpPage extends Page<AddSignUpPage> {
 		super(driver, appRoot);
 		this.appRoot = appRoot;
 		this.driver = driver;
-		PageFactory.initElements(driver, this);
+        titleField = driver.findElement(By.name("title"));
+        firstNameField = driver.findElement(By.name("firstName"));
+        lastNameField = driver.findElement(By.name("lastName"));
+        initialsField = driver.findElement(By.name("initials"));
+        emailField = driver.findElement(By.name("email"));
+        passwordField = driver.findElement(By.name("password"));
+        confirmPasswordField = driver.findElement(By.name("confirmPassword"));
+        completeActionButton = driver.findElement(By.name("completeAction"));
     }
 
 
