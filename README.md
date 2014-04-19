@@ -24,7 +24,6 @@ To run the server after building:
 ```
 cd dist/
 unzip CardPlannerServer.zip
-cd CardPlannerServer/
 chmod a+x start_cardplanner.sh
 ./start_cardplanner.sh
 ```
