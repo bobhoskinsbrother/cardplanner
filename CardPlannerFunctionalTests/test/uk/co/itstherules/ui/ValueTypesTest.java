@@ -3,6 +3,7 @@ package uk.co.itstherules.ui;
 import junit.framework.Assert;
 
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
@@ -12,6 +13,7 @@ import uk.co.itstherules.ui.pages.list.ValueTypesPage;
 import uk.co.itstherules.ui.personas.BasicPersona;
 import uk.co.itstherules.ui.personas.Scrappy2;
 
+@Ignore
 public class ValueTypesTest {
 
     private static String file;

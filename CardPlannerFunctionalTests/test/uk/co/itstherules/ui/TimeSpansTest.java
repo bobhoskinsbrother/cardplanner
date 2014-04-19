@@ -2,6 +2,7 @@ package uk.co.itstherules.ui;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
@@ -10,6 +11,7 @@ import uk.co.itstherules.ui.functions.BrowserWait;
 import uk.co.itstherules.ui.functions.DataInitializer;
 import uk.co.itstherules.ui.pages.list.TimeSpansPage;
 
+@Ignore
 public class TimeSpansTest {
 
     private static String file;

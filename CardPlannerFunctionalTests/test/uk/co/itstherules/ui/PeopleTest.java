@@ -1,9 +1,6 @@
 package uk.co.itstherules.ui;
 
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.WebDriver;
 
 import uk.co.itstherules.junit.extension.WebDriverInstance;
@@ -13,6 +10,7 @@ import uk.co.itstherules.ui.pages.change.ChangeTypePage;
 import uk.co.itstherules.ui.pages.list.PeoplePage;
 import uk.co.itstherules.ui.personas.BasicPersona;
 
+@Ignore
 public class PeopleTest {
 
     private static String file;

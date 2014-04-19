@@ -4,7 +4,7 @@
     <property file="../build.properties"/>
     <dirname property="cardplanner.functional.basedir" file="${ant.file.CardPlannerFunctionalTests}"/>
 
-    <target name="CardPlannerFunctionalTests" depends="make.cardplanner.functional"/>
+    <target name="CardPlannerFunctionalTests" depends="make.cardplanner.functional,test.cardplanner.functional"/>
 
     <target name="make.cardplanner.functional" depends="clean.cardplanner.functional">
         <make module="${cardplanner.functional.basedir}" jarname="${cardplanner.functional.jar}" source="src" targetdir="made">

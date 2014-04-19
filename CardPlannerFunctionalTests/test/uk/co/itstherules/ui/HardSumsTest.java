@@ -2,6 +2,7 @@ package uk.co.itstherules.ui;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
@@ -9,6 +10,8 @@ import uk.co.itstherules.junit.extension.WebDriverInstance;
 import uk.co.itstherules.ui.functions.BrowserWait;
 import uk.co.itstherules.ui.functions.DataInitializer;
 import uk.co.itstherules.ui.pages.list.HardSumsPage;
+
+@Ignore
 
 public class HardSumsTest {
 

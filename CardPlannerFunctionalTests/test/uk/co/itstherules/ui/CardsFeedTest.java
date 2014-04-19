@@ -1,15 +1,16 @@
 package uk.co.itstherules.ui;
 
-import java.io.StringReader;
-
 import org.custommonkey.xmlunit.Diff;
 import org.custommonkey.xmlunit.XMLUnit;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
-
 import uk.co.itstherules.ui.functions.DataInitializer;
 import uk.co.itstherules.ui.pages.feed.CardsFeed;
 
+import java.io.StringReader;
+
+@Ignore
 public class CardsFeedTest {
 
     private static final String file = "simple";

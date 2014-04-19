@@ -21,7 +21,7 @@
 	</target>
 
 	<target name="test.cardplanner.master">
-		<antcall target="CardPlannerFunctionalTests.test.cardplanner.functional" />
+		<antcall target="CardPlannerFunctionalTests.CardPlannerFunctionalTests" />
 	</target>
 
 	<target name="save.cardplanner.master">

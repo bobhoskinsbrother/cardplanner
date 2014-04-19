@@ -1,21 +1,7 @@
 package uk.co.itstherules.cardplanner.view.active;
 
-import java.io.IOException;
-import java.util.Set;
-
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
-import org.apache.poi.hssf.usermodel.HSSFDataFormat;
-import org.apache.poi.hssf.usermodel.HSSFRichTextString;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-
+import org.apache.poi.hssf.usermodel.*;
 import uk.co.itstherules.cardplanner.model.CardModel;
-import uk.co.itstherules.cardplanner.model.LogModel;
 import uk.co.itstherules.cardplanner.model.PersonModel;
 import uk.co.itstherules.cardplanner.model.TagModel;
 import uk.co.itstherules.yawf.controller.ContentType;
@@ -27,6 +13,11 @@ import uk.co.itstherules.yawf.model.persistence.ObjectCache;
 import uk.co.itstherules.yawf.modelview.ModelView;
 import uk.co.itstherules.yawf.view.context.ViewContext;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Set;
+
 
 public class ExcelExportXls implements ModelView {
 
@@ -36,11 +27,9 @@ public class ExcelExportXls implements ModelView {
 
     public void renderTo(ObjectCache objectCache, ValuesProvider valuesProvider, HttpServletResponse response, ViewContext mixInContext, QueryKeyViolations violations) {
 		Set<CardModel> cards = objectCache.all(CardModel.class, ObjectState.Active);
-		Set<LogModel> logs = objectCache.all(LogModel.class);
 
 		HSSFWorkbook workBook = new HSSFWorkbook();
 	    HSSFSheet cardsSheet = workBook.createSheet("Cards");
-	    HSSFSheet logsSheet = workBook.createSheet("Logs");
 	    HSSFCellStyle cellStyle = workBook.createCellStyle();
 	    HSSFDataFormat dataFormat = workBook.createDataFormat();
 	    short format = dataFormat.getFormat("dd/MM/yyyy hh:mm");
@@ -66,17 +55,6 @@ public class ExcelExportXls implements ModelView {
 	        HSSFCell cell13 = row.createCell(13);
 			cell13.setCellStyle(cellStyle);
 			cell13.setCellValue(card.getUpdated());
-	        count++;
-        }
-	    count = 0;
-	    for (LogModel log : logs) {
-	        HSSFRow row = logsSheet.createRow(count);
-	        row.createCell(0).setCellValue(new HSSFRichTextString(title(log.getCard())));
-	        row.createCell(1).setCellValue(new HSSFRichTextString(title(log.getFromStatus())));
-	        row.createCell(2).setCellValue(new HSSFRichTextString(log.getAction()));
-	        HSSFCell cell4 = row.createCell(3);
-			cell4.setCellStyle(cellStyle);
-			cell4.setCellValue(log.getDate());
 	        count++;
         }
         try {

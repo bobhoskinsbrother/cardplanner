@@ -4,6 +4,7 @@ import junit.framework.Assert;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
@@ -13,6 +14,7 @@ import uk.co.itstherules.ui.pages.list.CardTypesPage;
 import uk.co.itstherules.ui.personas.BasicPersona;
 import uk.co.itstherules.ui.personas.Scrappy2;
 
+@Ignore
 public class CardTypesTest {
 
     private static String file;

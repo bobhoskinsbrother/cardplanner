@@ -1,9 +1,6 @@
 package uk.co.itstherules.ui;
 
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -14,6 +11,7 @@ import uk.co.itstherules.ui.pages.change.ChangeStatusPage;
 import uk.co.itstherules.ui.pages.list.StatusesPage;
 import uk.co.itstherules.ui.personas.BasicPersona;
 
+@Ignore
 public class StatusesTest {
 
     private static String file;

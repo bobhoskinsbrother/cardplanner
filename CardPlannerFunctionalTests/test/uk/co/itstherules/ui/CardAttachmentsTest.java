@@ -1,9 +1,6 @@
 package uk.co.itstherules.ui;
 
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +13,7 @@ import uk.co.itstherules.ui.functions.DataInitializer;
 import uk.co.itstherules.ui.pages.list.CardAttachmentsPage;
 import uk.co.itstherules.ui.personas.BasicPersona;
 
+@Ignore
 public class CardAttachmentsTest {
 
     private static WebDriver driver;
