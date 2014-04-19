@@ -10,13 +10,14 @@ Operation Cleanup means I'm fixing a bunch of stuff I've left for a couple of ye
 To build, go to the root of the cloned app and run ant:
 
 ```
+git clone git@github.com:bobhoskinsbrother/cardplanner.git
 cd cardplanner
-ant -DskipTests=hellYeah
+ant
 ```
 
-__"Why, -DskipTests?"__
+__Hmm, Not Many Functional Test...__
 
-Yes, I broke the functional tests, and yes that's the first thing I'll fix
+Yes, I broke the functional tests, and am slowly but surely putting them back.
 
 
 To run the server after building:
