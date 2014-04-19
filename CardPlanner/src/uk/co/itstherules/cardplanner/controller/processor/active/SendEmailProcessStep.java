@@ -1,18 +1,11 @@
 package uk.co.itstherules.cardplanner.controller.processor.active;
 
-import java.text.MessageFormat;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletResponse;
-
-import uk.co.itstherules.cardplanner.controller.processor.BaseSetupAccountProcessStep;
 import uk.co.itstherules.cardplanner.model.CachedInstance.Identities;
 import uk.co.itstherules.cardplanner.model.EmailDetailsModel;
 import uk.co.itstherules.cardplanner.model.PersonModel;
 import uk.co.itstherules.cardplanner.model.SpecialInstances;
 import uk.co.itstherules.yawf.assertion.Assertion;
+import uk.co.itstherules.yawf.controller.processor.BaseProcessStep;
 import uk.co.itstherules.yawf.controller.processor.ProcessStep;
 import uk.co.itstherules.yawf.inbound.MapValuesProvider;
 import uk.co.itstherules.yawf.inbound.ValuesProvider;
@@ -28,7 +21,13 @@ import uk.co.itstherules.yawf.modelview.PageModelView;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
 
-public final class SendEmailProcessStep extends BaseSetupAccountProcessStep<PersonModel> {
+import javax.servlet.http.HttpServletResponse;
+import java.text.MessageFormat;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+public final class SendEmailProcessStep extends BaseProcessStep<PersonModel> {
 	
 	public static final String KEY = "SendEmail";
 

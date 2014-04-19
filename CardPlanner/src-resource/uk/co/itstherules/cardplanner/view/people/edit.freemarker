@@ -23,26 +23,6 @@ Event.observe(document, 'dom:loaded',  function() {
 	var value = $('picture.identity').value;
 	if('0' == value) { selectPicture('${nullAttachment.identity}'); } 
 	else { selectPicture(value); }
-	
-	Event.observe('editForm', 'submit', function(event) {
-		var password = $('password');
-		var confirmPassword = $('confirmPassword');
-		
-		if(password.value != confirmPassword.value) {
-			password.addClassName('errorbackground');
-			confirmPassword.addClassName('errorbackground');
-			password.addClassName('errorborder');
-			confirmPassword.addClassName('errorborder');
-			Event.stop(event);
-		} else {
-			password.removeClassName('errorbackground');
-			confirmPassword.removeClassName('errorbackground');
-			password.removeClassName('errorborder');
-			confirmPassword.removeClassName('errorborder');
-		}
-	});
-	
-	
 });
            
 function selectPicture(identity) {
@@ -115,50 +95,12 @@ function colour(identity, backgroundColour) {
 			</div>
 
 
-
-			<div class="line">
-				<div class="left">
-					${bag["SignUp.change.userName.legend"]} 
-				</div>
-				<div class="right">
-				${instance.user.userName!""}
-				</div>
-				<div class="line">
-				</div>
-			</div>
-
-
-			<div class="line">
-				<div class="left">
-					${bag["SignUp.change.password.legend"]} 
-				</div>
-				<div class="right">
-				${tagBuilder.passwordText({"name":"user.password", "id":"user.password", "style":"float: left;" }, "", violations.getViolationMessages("user.password"))}
-					<div style="float: left;margin-left: 10px; width: 190px;">${tagBuilder.passwordStrengthMeter("passwordStrengthCheck", "user.password")}</div>
-				</div>
-				<div class="line">
-				</div>
-			</div>
-
-
-
-			<div class="line">
-				<div class="left">
-					${bag["SignUp.change.confirmPassword.legend"]} 
-				</div>
-				<div class="right">
-				${tagBuilder.passwordText({"name":"user.confirmPassword", "id":"user.confirmPassword" }, "", violations.getViolationMessages("user.confirmPassword"))}
-				</div>
-				<div class="line">
-				</div>
-			</div>
-
 			<div class="line">
 				<div class="left">
 					${bag["SignUp.change.emailAddress.legend"]} 
 				</div>
 				<div class="right">
-				${tagBuilder.inputText({"name":"user.email", "id":"user.email" }, instance.email!"", violations.getViolationMessages("user.email"))}
+				${tagBuilder.inputText({"name":"email", "id":"email" }, instance.email!"", violations.getViolationMessages("email"))}
 				</div>
 				<div class="line">
 				

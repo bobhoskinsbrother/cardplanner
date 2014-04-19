@@ -21,8 +21,6 @@
                         ${tagBuilder.listLink("Pages", "list.xhtml",  tagBuilder.showImage("pages_small.png") + " Pages")}
                         ${tagBuilder.showLink("Admin", "index.xhtml", tagBuilder.showImage("admin_small.png") + " Admin")}
                         ${tagBuilder.listLink("Logs", "index.xhtml", tagBuilder.showImage("logs_small.png") + " Logs")}
-                        <hr/>
-                        ${tagBuilder.showLink("Logout", "index.xhtml", "0", tagBuilder.showImage("logout_small.png") + " Logout", {}, {"id":"logout"})}
                     </td>
                 </tr>
             </table>

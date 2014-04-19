@@ -5,7 +5,7 @@ Hey, if you're reading this, you've already unzipped the files you need to run t
 
 
 PRE-REQUISITES
-You will need JRE 1.6 (Java 6 - not included) to run the software.
+You will need JRE 1.7 (Java 7 - not included) to run the software.
 
 
 GETTING STARTED
@@ -14,6 +14,4 @@ Then point Firefox to http://localhost:9999/CardPlanner
 
 
 BACKGROUND INFO
-This code has been built on MacOSX 10.6 Snow Leopard, and has been tested on MacOSX, Ubuntu 9.04, and Windows XP 
-
-Versioning follows the apache standard set out at: http://apr.apache.org/versioning.html
+This code has been built and tested on Ubuntu 13.04

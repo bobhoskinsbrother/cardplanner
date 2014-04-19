@@ -1,62 +1,64 @@
-<project name="CommonsImage" default="CommonsImage">
+<project name="CommonsImage" default="CommonsImage" basedir=".">
 
-	<property file="../environments/${computer.hostname}.properties" />
-	<property file="../build.properties" />
-	<import file="../common.xml" />
+    <include file="../common.xml"/>
+    <property file="../build.properties"/>
+    <dirname property="commons.image.basedir" file="${ant.file.CommonsImage}"/>
+    <property name="commons.string.basedir" value="${commons.image.basedir}/../${commons.string}"/>
 
-	<target name="CommonsImage" depends="make.commons.image,test.commons.image,save.commons.image"/>
-	
-	<target name="make.commons.image" depends="clean.commons.image">
-		<make 
-			module="${commons.image.directory}" 
-			jarname="${commons.image.jar}"
-			source="src"
-			targetdir="made">
-			<make.classpath>
-				<classpath>
-					<pathelement location="${commons.string.dist.directory}/${commons.string.jar}"/>
-				</classpath>
-			</make.classpath>
-		</make>
-		<make 
-			module="${commons.image.directory}" 
-			jarname="${commons.image.test.jar}"
-			source="test"
-			targetdir="made">
-			<make.classpath>
-				<classpath>
-					<pathelement location="${commons.image.made.directory}/${commons.image.jar}"/>
-					<pathelement location="${commons.string.dist.directory}/${commons.string.jar}"/>
-					<pathelement location="${junit.jar}"/>
-				</classpath>
-			</make.classpath>
-		</make>
-	</target>
-	
-	<target name="test.commons.image">
-		<test jarname="${commons.image.made.directory}/${commons.image.test.jar}" basedir="${commons.image.directory}">
-			<test.classpath>
-				<classpath>
-					<pathelement location="${commons.image.made.directory}/${commons.image.test.jar}"/>
-					<pathelement location="${commons.image.made.directory}/${commons.image.jar}"/>
-					<pathelement location="${commons.string.dist.directory}/${commons.string.jar}"/>
-					<pathelement location="${junit.jar}"/>
-				</classpath>
-			</test.classpath>
-		</test>
-	</target>
-	
-	<target name="save.commons.image">
-		<save targetdir="${commons.image.directory}/dist">
-			<save.fileset>
-				<fileset dir="${commons.image.made.directory}" includes="${commons.image.jar}"/>
-			</save.fileset>
-		</save>
-	</target>
-	
-	<target name="clean.commons.image">
-		<init.dir dir="${commons.image.made.directory}"/>
-		<init.dir dir="${commons.image.dist.directory}"/>
-	</target>
+
+    <echo message="${commons.string.basedir}"/>
+
+    <target name="CommonsImage" depends="make.commons.image,test.commons.image,save.commons.image"/>
+
+    <target name="make.commons.image" depends="clean.commons.image">
+        <make module="${commons.image.basedir}" jarname="${commons.image.jar}" source="src" targetdir="made">
+            <make.classpath>
+                <classpath>
+                    <pathelement location="${commons.string.basedir}/${dist}/${commons.string.jar}"/>
+                </classpath>
+            </make.classpath>
+        </make>
+        <make module="${commons.image.basedir}" jarname="${commons.image.test.jar}" source="test" targetdir="made">
+            <make.classpath>
+                <classpath>
+                    <pathelement location="${commons.string.basedir}/${dist}/${commons.string.jar}"/>
+                    <pathelement location="${commons.image.basedir}/${made}/${commons.image.jar}"/>
+                    <fileset refid="unit.fileset"/>
+                </classpath>
+            </make.classpath>
+        </make>
+    </target>
+
+    <target name="test.commons.image">
+        <test jarname="${commons.image.basedir}/${made}/${commons.image.test.jar}"
+              basedir="${commons.image.basedir}">
+            <test.classpath>
+                <classpath>
+                    <pathelement location="${commons.image.basedir}/${made}/${commons.image.test.jar}"/>
+                    <pathelement location="${commons.image.basedir}/${made}/${commons.image.jar}"/>
+                    <pathelement location="${commons.string.basedir}/${dist}/${commons.string.jar}"/>
+                    <fileset refid="unit.fileset"/>
+                </classpath>
+            </test.classpath>
+        </test>
+    </target>
+
+    <target name="save.commons.image">
+        <save targetdir="${commons.image.basedir}/${dist}">
+            <save.fileset>
+                <fileset dir="${commons.image.basedir}/${made}" includes="${commons.image.jar}"/>
+            </save.fileset>
+        </save>
+    </target>
+
+    <target name="clean.commons.image">
+        <init.dir dir="${commons.image.basedir}/${made}"/>
+        <init.dir dir="${commons.image.basedir}/${dist}"/>
+    </target>
+
+
+    <fileset id="unit.fileset" dir="${commons.image.basedir}/../libs/test/unit">
+        <include name="*.jar"/>
+    </fileset>
 
 </project>

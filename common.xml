@@ -1,8 +1,5 @@
 <project name="CommonBuild" default="empty" xmlns:ac="antlib:net.sf.antcontrib">
 
-    <exec executable="hostname" outputproperty="computer.hostname"/>
-    <property file="environments/${computer.hostname}.properties" />
-
     <property file="build.properties" />
 	<target name="empty"/>
 

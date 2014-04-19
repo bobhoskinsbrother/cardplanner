@@ -1,6 +1,0 @@
-# SIGN_UP_ADD_BODY, uk.co.itstherules.yawf.model.TemplateModel, b79fcc3b-09a1-4791-a85a-b20c4d670297
-templateType=FromModelView
-templateMarkup=FreeMarker
-modelType=Body
-template=SignUpAdd
-title=SignUpAdd

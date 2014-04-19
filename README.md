@@ -11,19 +11,12 @@ To build, go to the root of the cloned app and run ant:
 
 ```
 cd cardplanner
-ant -DfudgeIt=hellYeah -f master.xml
+ant -DskipTests=hellYeah
 ```
 
-__"Why, -DfudgeIt?"__
+__"Why, -DskipTests?"__
 
 Yes, I broke the functional tests, and yes that's the first thing I'll fix
-
-
-__"Crap, my build failed"__
-
-The most likely cause of this is machine specific settings.  These are contained in the environments folder, as properties files.
-Simply copy the ben.properties, and name it {hostname}.properties.
-If you don't know your hostname, run the command "hostname" via the command line to find it out.
 
 
 To run the server after building:

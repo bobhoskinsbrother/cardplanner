@@ -12,6 +12,7 @@
       <entry name="!?*.flex" />
       <entry name="!?*.kt" />
       <entry name="!?*.clj" />
+      <entry name="!?*.properties" />
     </wildcardResourcePatterns>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="false">
@@ -158,13 +159,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CardPlanner/CardPlanner.iml" filepath="$PROJECT_DIR$/CardPlanner/CardPlanner.iml" />
       <module fileurl="file://$PROJECT_DIR$/CardPlannerFunctionalTests/CardPlannerFunctionalTests.iml" filepath="$PROJECT_DIR$/CardPlannerFunctionalTests/CardPlannerFunctionalTests.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CardPlannerModel/CardPlannerModel.iml" filepath="$PROJECT_DIR$/CardPlannerModel/CardPlannerModel.iml" />
       <module fileurl="file://$PROJECT_DIR$/Commons/Commons.iml" filepath="$PROJECT_DIR$/Commons/Commons.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CommonsCrypto/CommonsCrypto.iml" filepath="$PROJECT_DIR$/CommonsCrypto/CommonsCrypto.iml" />
       <module fileurl="file://$PROJECT_DIR$/CommonsImage/CommonsImage.iml" filepath="$PROJECT_DIR$/CommonsImage/CommonsImage.iml" />
       <module fileurl="file://$PROJECT_DIR$/CommonsReflection/CommonsReflection.iml" filepath="$PROJECT_DIR$/CommonsReflection/CommonsReflection.iml" />
       <module fileurl="file://$PROJECT_DIR$/CommonsString/CommonsString.iml" filepath="$PROJECT_DIR$/CommonsString/CommonsString.iml" />
-      <module fileurl="file://$PROJECT_DIR$/YAWF/YAWF.iml" filepath="$PROJECT_DIR$/YAWF/YAWF.iml" />
       <module fileurl="file://$PROJECT_DIR$/cardplanner.iml" filepath="$PROJECT_DIR$/cardplanner.iml" />
     </modules>
   </component>
@@ -175,91 +173,91 @@
     <mapping directory="" vcs="Git" />
   </component>
   <component name="libraryTable">
-    <library name="freemarker">
+    <library name="functional_tests">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/Packages/freemarker/2.3.16/freemarker.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/test/functional/cglib-nodep-2.1_3.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/test/functional/commons-codec-1.8.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/test/functional/commons-exec-1.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/test/functional/commons-io-2.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/test/functional/commons-logging-1.1.3.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/test/functional/guava-15.0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/test/functional/httpclient-4.3.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/test/functional/httpcore-4.3.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/test/functional/jna-3.4.0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/test/functional/json-20080701.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/test/functional/platform-3.4.0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/test/functional/selenium-api-2.41.0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/test/functional/selenium-firefox-driver-2.41.0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/test/functional/selenium-remote-driver-2.41.0.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
     </library>
-    <library name="Jetty">
+    <library name="release_libs">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-annotations.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-continuation.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-ajp.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-servlet.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-all.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-websocket.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-util.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-xml.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-deploy.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-servlets.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-http.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-security.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-webapp.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-jmx.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-overlay-deployer.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-io.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-rewrite.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-plus.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-server.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-policy.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-client.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/jetty-jndi.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/jetty/8.0.2.v20111006/lib/servlet-api-3.0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/activation-1.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/antlr-2.7.6.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/batik-rasterizer-1.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/batik-slideshow-1.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/batik-squiggle-1.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/batik-svgpp-1.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/batik-ttf2svg-1.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/c3p0-0.9.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/commons-codec-1.4.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/commons-collections-3.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/commons-email-1.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/commons-fileupload-1.2.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/commons-httpclient-3.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/commons-io-1.4.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/dom4j-1.6.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/flexjson-1.9.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/freemarker-2.3.16.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/h2-1.3.165.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/hibernate-jpa-2.0-api-1.0.0.Final.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/hibernate3.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/javassist-3.12.0.GA.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty-annotations.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty-client.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty-continuation.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty-deploy.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty-http.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty-io.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty-jmx.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty-jndi.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty-plus.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty-rewrite.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty-security.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty-server.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty-servlet.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty-servlets.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty-util.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty-webapp.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty-xml.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jta-1.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/mail-1.4.3.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/opencsv-2.0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/oval-1.50.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/poi-3.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/poi-contrib-3.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/recaptcha4j-0.0.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/servlet-api-3.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/slf4j-api-1.7.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/slf4j-simple-1.7.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/yuicompressor-2.4.7.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
     </library>
-    <library name="junit">
+    <library name="unit_tests">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/Packages/junit/4.7/junit.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/test/unit/junit-4.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/test/unit/mockito-all-1.8.4.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/test/unit/xmlunit-1.2.jar!/" />
       </CLASSES>
       <JAVADOC />
-      <SOURCES />
-    </library>
-    <library name="oval">
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/Packages/oval/1.50/oval.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
-    </library>
-    <library name="selenium-firefox">
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/Packages/selenium/2.41.0/cglib-nodep-2.1_3.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/selenium/2.41.0/commons-codec-1.8.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/selenium/2.41.0/commons-exec-1.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/selenium/2.41.0/commons-io-2.2.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/selenium/2.41.0/commons-logging-1.1.3.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/selenium/2.41.0/guava-15.0.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/selenium/2.41.0/httpclient-4.3.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/selenium/2.41.0/httpcore-4.3.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/selenium/2.41.0/jna-3.4.0.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/selenium/2.41.0/json-20080701.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/selenium/2.41.0/platform-3.4.0.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/selenium/2.41.0/selenium-api-2.41.0.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/selenium/2.41.0/selenium-firefox-driver-2.41.0.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/selenium/2.41.0/selenium-remote-driver-2.41.0.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
-    </library>
-    <library name="slf4j">
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/Packages/slf4j/1.5.11/slf4j-api.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/slf4j/1.5.11/slf4j-log4j.jar!/" />
-        <root url="jar://$PROJECT_DIR$/Packages/apache/log4j/1.2.15/log4j.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
-    </library>
-    <library name="xmlunit">
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/Packages/xmlunit/1.2/xmlunit.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/libs/test/unit/mockito-all-1.8.4.jar!/" />
+      </SOURCES>
     </library>
   </component>
 </project>

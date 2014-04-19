@@ -1,55 +1,56 @@
-<project name="Commons" default="Commons">
+<project name="Commons" default="Commons" basedir=".">
 
-	<property file="../build.properties" />
-	<import file="../common.xml" />
+    <include file="../common.xml"/>
+    <property file="../build.properties"/>
+    <dirname property="commons.basedir" file="${ant.file.Commons}"/>
 
-	<target name="Commons" depends="make.commons,test.commons,save.commons"/>
-	
-	<target name="make.commons" depends="clean.commons">
-		<make 
-			module="${commons.directory}" 
-			jarname="${commons.jar}"
-			source="src"
-			targetdir="made">
-			<make.classpath><classpath/></make.classpath>
-		</make>
-		<make 
-			module="${commons.directory}" 
-			jarname="${commons.test.jar}"
-			source="test"
-			targetdir="made">
-			<make.classpath>
-				<classpath>
-					<pathelement location="${commons.made.directory}/${commons.jar}"/>
-					<pathelement location="${junit.jar}"/>
-				</classpath>
-			</make.classpath>
-		</make>
-	</target>
-	
-	<target name="test.commons">
-		<test jarname="${commons.made.directory}/${commons.test.jar}" basedir="${commons.directory}">
-			<test.classpath>
-				<classpath>
-					<pathelement location="${commons.made.directory}/${commons.test.jar}"/>
-					<pathelement location="${commons.made.directory}/${commons.jar}"/>
-					<pathelement location="${junit.jar}"/>
-				</classpath>
-			</test.classpath>
-		</test>
-	</target>
-	
-	<target name="save.commons">
-		<save targetdir="${commons.directory}/dist">
-			<save.fileset>
-				<fileset dir="${commons.made.directory}" includes="${commons.jar}"/>
-			</save.fileset>
-		</save>
-	</target>
-	
-	<target name="clean.commons">
-		<init.dir dir="${commons.made.directory}"/>
-		<init.dir dir="${commons.dist.directory}"/>
-	</target>
+    <target name="Commons" depends="make.commons,test.commons,save.commons"/>
+
+    <target name="make.commons" depends="clean.commons">
+        <make module="${commons.basedir}" jarname="${commons.jar}" source="src" targetdir="made">
+            <make.classpath>
+                <classpath/>
+            </make.classpath>
+        </make>
+        <make module="${commons.basedir}" jarname="${commons.test.jar}" source="test" targetdir="made">
+            <make.classpath>
+                <classpath>
+                    <pathelement location="${commons.basedir}/${made}/${commons.jar}"/>
+                    <fileset refid="unit.fileset"/>
+                </classpath>
+            </make.classpath>
+        </make>
+    </target>
+
+    <target name="test.commons">
+        <test jarname="${commons.basedir}/${made}/${commons.test.jar}"
+              basedir="${commons.basedir}">
+            <test.classpath>
+                <classpath>
+                    <pathelement location="${commons.basedir}/${made}/${commons.test.jar}"/>
+                    <pathelement location="${commons.basedir}/${made}/${commons.jar}"/>
+                    <fileset refid="unit.fileset"/>
+                </classpath>
+            </test.classpath>
+        </test>
+    </target>
+
+    <target name="save.commons">
+        <save targetdir="${commons.basedir}/${dist}">
+            <save.fileset>
+                <fileset dir="${commons.basedir}/${made}" includes="${commons.jar}"/>
+            </save.fileset>
+        </save>
+    </target>
+
+    <target name="clean.commons">
+        <init.dir dir="${commons.basedir}/${made}"/>
+        <init.dir dir="${commons.basedir}/${dist}"/>
+    </target>
+
+
+    <fileset id="unit.fileset" dir="${commons.basedir}/../libs/test/unit">
+        <include name="*.jar"/>
+    </fileset>
 
 </project>

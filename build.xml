@@ -1,42 +1,42 @@
-<project name="CardPlannerServer" default="CardPlannerServer">
+<project name="cardplanner" default="CardPlannerMaster" basedir=".">
 
-	<property file="environments/${computer.hostname}.properties" />
-	<property file="build.properties" />
-	<import file="common.xml" />
+    <property file="build.properties" />
+    <dirname property="master.basedir" file="${ant.file.cardplanner}"/>
 
-	<target name="CardPlannerServer" depends="cardplanner.server.standalone.make" />
+	<import file="${master.basedir}/${commons}/build.xml" />
+	<import file="${master.basedir}/${commons.string}/build.xml" />
+	<import file="${master.basedir}/${commons.reflection}/build.xml" />
+	<import file="${master.basedir}/${commons.image}/build.xml" />
+	<import file="${master.basedir}/${cardplanner}/build.xml" />
+	<import file="${master.basedir}/${cardplanner.functional}/build.xml" />
 
-	<target name="cardplanner.server.standalone.make" depends="cardplanner.server.standalone.clean">
-		<make
-			module="${cardplanner.server.standalone.directory}"
-			jarname="${cardplanner.server.standalone.jar}"
-			source="src"
-			targetdir="made">
-			<make.classpath>
-				<classpath>
-					<pathelement location="${cardplanner.website.dist.directory}/${cardplanner.website.jar}" />
-					<pathelement location="${yawf.dist.directory}/${yawf.jar}" />
-					<pathelement location="${servlet-api.jar}"/>
-					<pathelement location="${jetty-server.jar}" />
-					<pathelement location="${jetty-servlet.jar}" />
-					<pathelement location="${jetty-http.jar}" />
-					<pathelement location="${jetty-webapp.jar}" />
-					<pathelement location="${jetty-util.jar}" />
-					<pathelement location="${jetty-io.jar}" />
-					<pathelement location="${jetty-security.jar}" />
-					<pathelement location="${jetty-xml.jar}" />
-					<pathelement location="${jetty-plus.jar}" />
-					<pathelement location="${jetty-jndi.jar}" />
-					<pathelement location="${jetty-continuation.jar}" />
-				</classpath>
-			</make.classpath>
-		</make>
+	<target name="CardPlannerMaster" depends="make.cardplanner.master,test.cardplanner.master, save.cardplanner.master" />
+
+	<target name="make.cardplanner.master">
+		<antcall target="Commons.Commons" />
+		<antcall target="CommonsString.CommonsString" />
+		<antcall target="CommonsReflection.CommonsReflection" />
+		<antcall target="CommonsImage.CommonsImage" />
+		<antcall target="CardPlanner.CardPlanner" />
 	</target>
 
-
-	<target name="cardplanner.server.standalone.clean">
-		<init.dir dir="${cardplanner.server.standalone.made.directory}"/>
-		<init.dir dir="${cardplanner.server.standalone.dist.directory}"/>
+	<target name="test.cardplanner.master">
+		<antcall target="CardPlannerFunctionalTests.test.cardplanner.functional" />
 	</target>
+
+	<target name="save.cardplanner.master">
+		<sequential>
+			<zip destfile="${master.basedir}/${dist}/CardPlannerServer.zip">
+                <zipfileset dir="${master.basedir}/sh" prefix="." includes="**/*"/>
+                <zipfileset dir="${master.basedir}/libs/release/" includes="*.jar" prefix="libs"/>
+                <zipfileset dir="${master.basedir}/${cardplanner}/${dist}/" includes="*.jar" prefix="libs"/>
+                <zipfileset dir="${master.basedir}/${commons}/${dist}/" includes="*.jar" prefix="libs"/>
+                <zipfileset dir="${master.basedir}/${commons.string}/${dist}/" includes="*.jar" prefix="libs"/>
+                <zipfileset dir="${master.basedir}/${commons.reflection}/${dist}/" includes="*.jar" prefix="libs"/>
+                <zipfileset dir="${master.basedir}/${commons.image}/${dist}/" includes="*.jar" prefix="libs"/>
+			</zip>
+		</sequential>
+	</target>
+
 
 </project>

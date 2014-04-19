@@ -1,10 +1,11 @@
 package uk.co.itstherules.reflection;
 
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 import java.io.File;
 
-import org.junit.Test;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class ClassAndDirectoryFilterTest {
 	
@@ -12,7 +13,7 @@ public class ClassAndDirectoryFilterTest {
     public void canAccept() throws Exception {
 		ClassAndDirectoryFilter unit = new ClassAndDirectoryFilter();
 		assertTrue(unit.accept(new File("badgers.class")));
-		assertTrue(unit.accept(new File("test-resource")));
+		assertTrue(unit.accept(new File("./")));
 		assertFalse(unit.accept(new File("badgers.blast")));
     }
 	

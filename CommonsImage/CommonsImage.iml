@@ -14,7 +14,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="module" module-name="CommonsString" />
-    <orderEntry type="library" name="junit" level="project" />
+    <orderEntry type="library" name="unit_tests" level="project" />
   </component>
 </module>
 

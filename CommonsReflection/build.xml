@@ -1,62 +1,64 @@
-<project name="CommonsReflection" default="CommonsReflection">
+<project name="CommonsReflection" default="CommonsReflection" basedir=".">
 
-	<property file="../environments/${computer.hostname}.properties" />
-	<property file="../build.properties" />
-	<import file="../common.xml" />
+    <include file="../common.xml"/>
+    <property file="../build.properties"/>
+    <dirname property="commons.reflection.basedir" file="${ant.file.CommonsReflection}"/>
+    <property name="commons.string.basedir" value="${commons.reflection.basedir}/../${commons.string}"/>
 
-	<target name="CommonsReflection" depends="make.commons.reflection,test.commons.reflection,save.commons.reflection"/>
-	
-	<target name="make.commons.reflection" depends="clean.commons.reflection">
-		<make 
-			module="${commons.reflection.directory}" 
-			jarname="${commons.reflection.jar}"
-			source="src"
-			targetdir="made">
-			<make.classpath>
-				<classpath>
-					<pathelement location="${commons.string.dist.directory}/${commons.string.jar}"/>
-				</classpath>
-			</make.classpath>
-		</make>
-		<make 
-			module="${commons.reflection.directory}" 
-			jarname="${commons.reflection.test.jar}"
-			source="test"
-			targetdir="made">
-			<make.classpath>
-				<classpath>
-					<pathelement location="${commons.reflection.made.directory}/${commons.reflection.jar}"/>
-					<pathelement location="${commons.string.dist.directory}/${commons.string.jar}"/>
-					<pathelement location="${junit.jar}"/>
-				</classpath>
-			</make.classpath>
-		</make>
-	</target>
-	
-	<target name="test.commons.reflection">
-		<test jarname="${commons.reflection.made.directory}/${commons.reflection.test.jar}" basedir="${commons.reflection.directory}">
-			<test.classpath>
-				<classpath>
-					<pathelement location="${commons.reflection.made.directory}/${commons.reflection.test.jar}"/>
-					<pathelement location="${commons.reflection.made.directory}/${commons.reflection.jar}"/>
-					<pathelement location="${commons.string.dist.directory}/${commons.string.jar}"/>
-					<pathelement location="${junit.jar}"/>
-				</classpath>
-			</test.classpath>
-		</test>
-	</target>
-	
-	<target name="save.commons.reflection">
-		<save targetdir="${commons.reflection.directory}/dist">
-			<save.fileset>
-				<fileset dir="${commons.reflection.made.directory}" includes="${commons.reflection.jar}"/>
-			</save.fileset>
-		</save>
-	</target>
-	
-	<target name="clean.commons.reflection">
-		<init.dir dir="${commons.reflection.made.directory}"/>
-		<init.dir dir="${commons.reflection.dist.directory}"/>
-	</target>
+
+    <echo message="${commons.string.basedir}"/>
+
+    <target name="CommonsReflection" depends="make.commons.reflection,test.commons.reflection,save.commons.reflection"/>
+
+    <target name="make.commons.reflection" depends="clean.commons.reflection">
+        <make module="${commons.reflection.basedir}" jarname="${commons.reflection.jar}" source="src" targetdir="made">
+            <make.classpath>
+                <classpath>
+                    <pathelement location="${commons.string.basedir}/${dist}/${commons.string.jar}"/>
+                </classpath>
+            </make.classpath>
+        </make>
+        <make module="${commons.reflection.basedir}" jarname="${commons.reflection.test.jar}" source="test" targetdir="made">
+            <make.classpath>
+                <classpath>
+                    <pathelement location="${commons.string.basedir}/${dist}/${commons.string.jar}"/>
+                    <pathelement location="${commons.reflection.basedir}/${made}/${commons.reflection.jar}"/>
+                    <fileset refid="unit.fileset"/>
+                </classpath>
+            </make.classpath>
+        </make>
+    </target>
+
+    <target name="test.commons.reflection">
+        <test jarname="${commons.reflection.basedir}/${made}/${commons.reflection.test.jar}"
+              basedir="${commons.reflection.basedir}">
+            <test.classpath>
+                <classpath>
+                    <pathelement location="${commons.reflection.basedir}/${made}/${commons.reflection.test.jar}"/>
+                    <pathelement location="${commons.reflection.basedir}/${made}/${commons.reflection.jar}"/>
+                    <pathelement location="${commons.string.basedir}/${dist}/${commons.string.jar}"/>
+                    <fileset refid="unit.fileset"/>
+                </classpath>
+            </test.classpath>
+        </test>
+    </target>
+
+    <target name="save.commons.reflection">
+        <save targetdir="${commons.reflection.basedir}/${dist}">
+            <save.fileset>
+                <fileset dir="${commons.reflection.basedir}/${made}" includes="${commons.reflection.jar}"/>
+            </save.fileset>
+        </save>
+    </target>
+
+    <target name="clean.commons.reflection">
+        <init.dir dir="${commons.reflection.basedir}/${made}"/>
+        <init.dir dir="${commons.reflection.basedir}/${dist}"/>
+    </target>
+
+
+    <fileset id="unit.fileset" dir="${commons.reflection.basedir}/../libs/test/unit">
+        <include name="*.jar"/>
+    </fileset>
 
 </project>

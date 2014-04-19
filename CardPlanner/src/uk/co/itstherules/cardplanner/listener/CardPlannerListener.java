@@ -29,8 +29,9 @@ public class CardPlannerListener implements ServletContextListener {
     }
 
     private void setupDefaultBundles() {
+        final ResourceBundle bundle = ResourceBundle.getBundle("uk/co/itstherules/cardplanner/listener/errormessages");
         ResourceBundleMessageResolver messageResolver = ResourceBundleMessageResolver.class.cast(Validator.getMessageResolver());
-        messageResolver.addMessageBundle(ResourceBundle.getBundle("/uk/co/itstherules/yawf/internationalised/errormessages"));
+        messageResolver.addMessageBundle(bundle);
     }
 
     private void setupDefaultFolders(ServletContext servletContext) {
