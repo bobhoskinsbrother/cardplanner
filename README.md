@@ -7,7 +7,7 @@ There is one principal in CardPlanner; a card __is__ a board (a bit like everyth
 
 Operation Cleanup means I'm fixing a bunch of stuff I've left for a couple of years.
 
-To build, go to the root of the cloned app and run ant:
+To build, clone the app, go to the root, and run ant:
 
 ```
 git clone git@github.com:bobhoskinsbrother/cardplanner.git

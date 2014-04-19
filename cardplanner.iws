@@ -71,8 +71,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37427577" vertical-offset="0" max-vertical-offset="863">
-              <caret line="19" column="78" selection-start-line="19" selection-start-column="78" selection-end-line="19" selection-end-column="78" />
+            <state vertical-scroll-proportion="0.17728853" vertical-offset="0" max-vertical-offset="863">
+              <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -861,7 +861,7 @@
       <workItem from="1397841930630" duration="2843000" />
       <workItem from="1397844798749" duration="38613000" />
       <workItem from="1397928718865" duration="48000" />
-      <workItem from="1397928782263" duration="3806000" />
+      <workItem from="1397928782263" duration="3873000" />
     </task>
     <task id="LOCAL-00001" summary="BMH: Making the build a little more sane, fixing up a bunch of small errors, in prep to getting the functional tests working again">
       <created>1397597743552</created>
@@ -871,7 +871,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97970000" />
+    <option name="totallyTimeSpent" value="98037000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-4" width="1865" height="1085" extended-state="6" />
@@ -1359,8 +1359,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37427577" vertical-offset="0" max-vertical-offset="863">
-          <caret line="19" column="78" selection-start-line="19" selection-start-column="78" selection-end-line="19" selection-end-column="78" />
+        <state vertical-scroll-proportion="0.17728853" vertical-offset="0" max-vertical-offset="863">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
           <folding />
         </state>
       </provider>
