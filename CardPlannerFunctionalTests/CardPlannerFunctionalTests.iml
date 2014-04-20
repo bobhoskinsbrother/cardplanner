@@ -135,6 +135,7 @@
       <excludeFolder url="file://$MODULE_DIR$/classes" />
       <excludeFolder url="file://$MODULE_DIR$/dist" />
       <excludeFolder url="file://$MODULE_DIR$/made" />
+      <excludeFolder url="file://$MODULE_DIR$/output" />
     </content>
     <orderEntry type="module" module-name="CardPlanner" />
     <orderEntry type="sourceFolder" forTests="false" />
