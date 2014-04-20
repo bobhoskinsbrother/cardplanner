@@ -2,37 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e2a0034-e6b2-49ad-a351-34b4f927d7b9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/DataFixtures.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/DataInitializer.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/AdminTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/AdminTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/personas/BasicPersona.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/personas/BasicPersona.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/BrowserWait.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/BrowserWait.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CanSignUpForWorkTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CanSignUpForWorkTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardAttachmentsTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardAttachmentsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/CardPlanner.iml" afterPath="$PROJECT_DIR$/CardPlanner/CardPlanner.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/server/CardPlannerConfigBuilder.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/server/CardPlannerConfigBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/CardPlannerFunctionalTests.iml" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/CardPlannerFunctionalTests.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/server/CardPlannerServer.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/server/CardPlannerServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardPlannerTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardPlannerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardTypesTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardTypesTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardsFeedTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardsFeedTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardsTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardsTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/DataFixtures.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/DataFixtures.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/EffortTypesTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/EffortTypesTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/ExcelExportTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/ExcelExportTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/HardSumsTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/HardSumsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/LogsTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/LogsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/MyCardsTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/MyCardsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/PagesTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/PagesTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/PeopleTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/PeopleTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/PostItTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/PostItTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/ResurrectDeadThingsTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/ResurrectDeadThingsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/SignUpTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/SignUpTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/StatusesTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/StatusesTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/TagsTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/TagsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/TimeSpansTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/TimeSpansTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/TypesPage.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/TypesPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/ValueTypesTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/ValueTypesTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cardplanner.iws" afterPath="$PROJECT_DIR$/cardplanner.iws" />
     </list>
     <ignored path="cardplanner.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,11 +26,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CardTypesTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CardTypesTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardTypesTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.7817869" vertical-offset="102" max-vertical-offset="1649">
-              <caret line="67" column="30" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="653" max-vertical-offset="1649">
+              <caret line="89" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EffortTypesTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/EffortTypesTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.11218569" vertical-offset="401" max-vertical-offset="1632">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -70,8 +53,31 @@
       <file leaf-file-name="DataFixtures.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/DataFixtures.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="98" max-vertical-offset="680">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
+              <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+              <folding>
+                <element signature="e#767#768#0" expanded="true" />
+                <element signature="e#864#865#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EffortTypeModel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/type/EffortTypeModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
+              <caret line="20" column="72" selection-start-line="20" selection-start-column="72" selection-end-line="20" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TypeType.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/type/TypeType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+              <caret line="4" column="16" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -126,7 +132,6 @@
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardPlannerTest.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardsFeedTest.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardsTest.java" />
-        <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/EffortTypesTest.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/ExcelExportTest.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/HardSumsTest.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/LogsTest.java" />
@@ -153,6 +158,7 @@
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/TypesPage.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardTypesTest.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/DataFixtures.java" />
+        <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/EffortTypesTest.java" />
       </list>
     </option>
   </component>
@@ -419,41 +425,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CardTypesTest">
-    <configuration default="false" name="CardTypesTest.editCardType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="uk.co.itstherules.ui.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="CardPlannerFunctionalTests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="uk.co.itstherules.ui" />
-      <option name="MAIN_CLASS_NAME" value="uk.co.itstherules.ui.CardTypesTest" />
-      <option name="METHOD_NAME" value="editCardType" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.EffortTypesTest">
     <configuration default="false" name="CardTypesTest.addCardType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -552,6 +524,34 @@
       <option name="MAIN_CLASS_NAME" value="uk.co.itstherules.ui.CardTypesTest" />
       <option name="METHOD_NAME" value="addAndDeleteCardType" />
       <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="EffortTypesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="uk.co.itstherules.ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="CardPlannerFunctionalTests" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="uk.co.itstherules.ui" />
+      <option name="MAIN_CLASS_NAME" value="uk.co.itstherules.ui.EffortTypesTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -809,19 +809,19 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Application.StandaloneServerApplication" />
       <item index="1" class="java.lang.String" itemvalue="Remote.Debug Server" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.CardTypesTest.editCardType" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.CardTypesTest.addCardType" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.CardTypesTest.cannotAddEmptyCardType" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.CardTypesTest" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.CardTypesTest.addAndDeleteCardType" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.CardTypesTest.addCardType" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.CardTypesTest.cannotAddEmptyCardType" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.CardTypesTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.CardTypesTest.addAndDeleteCardType" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.EffortTypesTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.CardTypesTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.CardTypesTest.addAndDeleteCardType" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.CardTypesTest.cannotAddEmptyCardType" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.CardTypesTest.addCardType" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.CardTypesTest.editCardType" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.EffortTypesTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.CardTypesTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.CardTypesTest.addAndDeleteCardType" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.CardTypesTest.cannotAddEmptyCardType" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.CardTypesTest.addCardType" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
@@ -864,7 +864,7 @@
       <workItem from="1397945065490" duration="514000" />
       <workItem from="1397945596710" duration="63000" />
       <workItem from="1397945671075" duration="28000" />
-      <workItem from="1397945713580" duration="4675000" />
+      <workItem from="1397945713580" duration="5491000" />
     </task>
     <task id="LOCAL-00001" summary="BMH: Making the build a little more sane, fixing up a bunch of small errors, in prep to getting the functional tests working again">
       <created>1397597743552</created>
@@ -874,7 +874,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113034000" />
+    <option name="totallyTimeSpent" value="113850000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-4" width="1865" height="1085" extended-state="6" />
@@ -949,23 +949,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17728853" vertical-offset="0" max-vertical-offset="863">
-          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/8d423afc-bc42-47e4-a8ba-f9d0726fa7b9">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="904">
@@ -1033,13 +1016,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1252" max-vertical-offset="1870">
           <caret line="111" column="44" selection-start-line="111" selection-start-column="44" selection-end-line="111" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/EffortTypesTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="321" max-vertical-offset="935">
-          <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1336,18 +1312,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/DataFixtures.java">
+    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardTypesTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="98" max-vertical-offset="680">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="653" max-vertical-offset="1649">
+          <caret line="89" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/type/TypeType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardTypesTest.java">
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/type/EffortTypeModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7817869" vertical-offset="102" max-vertical-offset="1649">
-          <caret line="67" column="30" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
+          <caret line="20" column="72" selection-start-line="20" selection-start-column="72" selection-end-line="20" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/DataFixtures.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
+          <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+          <folding>
+            <element signature="e#767#768#0" expanded="true" />
+            <element signature="e#864#865#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/EffortTypesTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11218569" vertical-offset="401" max-vertical-offset="1632">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

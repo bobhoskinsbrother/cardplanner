@@ -1,6 +1,7 @@
 package uk.co.itstherules.ui.functions;
 
 import uk.co.itstherules.cardplanner.model.CardTypeModel;
+import uk.co.itstherules.cardplanner.model.type.EffortTypeModel;
 import uk.co.itstherules.yawf.inbound.MapValuesProvider;
 import uk.co.itstherules.yawf.inbound.ValuesProvider;
 import uk.co.itstherules.yawf.inbound.annotations.processor.BasicValuesProviderBinder;
@@ -23,6 +24,19 @@ public class DataFixtures {
     public void destroy(IdentityDeleteable<?> object) {
         objectCache.destroy(object);
         objectCache.commit();
+    }
+
+    public EffortTypeModel saveEffortType(String title, String type, String rate) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("title", title);
+        map.put("type", type);
+        map.put("rate", rate);
+        MapValuesProvider provider = new MapValuesProvider(map);
+        final EffortTypeModel instance = new EffortTypeModel().defaultSetup(objectCache);
+        bind(provider, instance);
+        objectCache.save(instance);
+        objectCache.commit();
+        return instance;
     }
 
     public CardTypeModel saveCardType(String title, String colour) {
