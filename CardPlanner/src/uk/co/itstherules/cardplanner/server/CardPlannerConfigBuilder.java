@@ -8,22 +8,71 @@ import uk.co.itstherules.yawf.model.EntityManagerListener;
 import uk.co.itstherules.yawf.server.ServerConfigReceiver;
 import uk.co.itstherules.yawf.servlet.YAWFServlet;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import static uk.co.itstherules.cardplanner.server.CardPlannerConfigBuilder.TargetEnvironment.TEST;
+
 public final class CardPlannerConfigBuilder {
 
-    public void build(ServerConfigReceiver receiver) {
+    public enum TargetEnvironment {
+        TEST, PRODUCTION
+    }
+
+    public void build(ServerConfigReceiver receiver, TargetEnvironment targetEnvironment) {
+        Map<String, String> map;
+        if(targetEnvironment == TEST) {
+            map = testEnvironment();
+        } else {
+            map = productionEnvironment();
+        }
         receiver.contextParams(contextParams())
                 .localeMappings(localeMappings())
                 .welcomeFiles("index.xhtml", "index.html")
-                .listener(new EntityManagerListener())
+                .listener(new EntityManagerListener(map))
                 .listener(new CardPlannerListener())
                 .listener(new SharedObjectSpacesListener())
                 .listener(new ProcessStepRegisterListener())
                 .filter("/*", new ClientIdentityFilter())
                 .servlet("/*", new YAWFServlet());
     }
+
+
+    private static Map<String, String> productionEnvironment() {
+        final HashMap<String, String> map = new HashMap<>();
+        shared(map);
+        map.put("javax.persistence.jdbc.url", "jdbc:h2:~/Data/cardplanner;FILE_LOCK=NO;MVCC=true");
+        map.put("javax.persistence.jdbc.user", "cardplanner");
+        map.put("javax.persistence.jdbc.password", "cardplanner");
+        map.put("connection.provider_class", "org.hibernate.connection.C3P0ConnectionProvider");
+        map.put("hibernate.c3p0.acquire_increment", "4");
+        map.put("hibernate.c3p0.idle_test_period", "500");
+        map.put("hibernate.c3p0.max_size", "100");
+        map.put("hibernate.c3p0.max_statements", "15");
+        map.put("hibernate.c3p0.min_size", "5");
+        map.put("hibernate.c3p0.timeout", "1000");
+        return map;
+    }
+
+    public static Map<String, String> testEnvironment() {
+        final HashMap<String, String> map = new HashMap<>();
+        shared(map);
+        map.put("javax.persistence.jdbc.url", "jdbc:h2:mem:cardplanner;MVCC=true");
+        map.put("javax.persistence.jdbc.user", "cardplanner");
+        map.put("javax.persistence.jdbc.password", "cardplanner");
+        return map;
+    }
+
+    private static void shared(HashMap<String, String> map) {
+        map.put("hibernate.archive.autodetection", "class");
+        map.put("hibernate.show_sql", "true");
+        map.put("hibernate.format_sql", "true");
+        map.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
+        map.put("hibernate.hbm2ddl.auto", "update");
+        map.put("javax.persistence.jdbc.driver", "org.h2.Driver");
+    }
+
 
     private Map<String, String> contextParams() {
         Map<String, String> map = new LinkedHashMap<>();

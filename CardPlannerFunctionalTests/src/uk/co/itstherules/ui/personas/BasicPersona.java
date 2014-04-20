@@ -1,7 +1,6 @@
 package uk.co.itstherules.ui.personas;
 
 import org.openqa.selenium.WebElement;
-
 import uk.co.itstherules.ui.pages.Page;
 import uk.co.itstherules.ui.pages.TemplatePage;
 import uk.co.itstherules.ui.pages.add.AddSignUpPage;
@@ -9,17 +8,7 @@ import uk.co.itstherules.ui.pages.change.ChangeCardPage;
 import uk.co.itstherules.ui.pages.change.ChangePersonPage;
 import uk.co.itstherules.ui.pages.change.ChangePostItPage;
 import uk.co.itstherules.ui.pages.change.ChangeStatusPage;
-import uk.co.itstherules.ui.pages.list.CardAttachmentsPage;
-import uk.co.itstherules.ui.pages.list.CardManipulationPage;
-import uk.co.itstherules.ui.pages.list.CardPlannerPage;
-import uk.co.itstherules.ui.pages.list.CardTypesPage;
-import uk.co.itstherules.ui.pages.list.CardsPage;
-import uk.co.itstherules.ui.pages.list.EffortTypesPage;
-import uk.co.itstherules.ui.pages.list.PeoplePage;
-import uk.co.itstherules.ui.pages.list.PostItPage;
-import uk.co.itstherules.ui.pages.list.StatusesPage;
-import uk.co.itstherules.ui.pages.list.TypesPage;
-import uk.co.itstherules.ui.pages.list.ValueTypesPage;
+import uk.co.itstherules.ui.pages.list.*;
 import uk.co.itstherules.ui.pages.show.LoginPage;
 import uk.co.itstherules.ui.pages.show.ShowCardPage;
 import uk.co.itstherules.ui.pages.show.ShowPostItPage;

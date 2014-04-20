@@ -5,10 +5,8 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-
 import uk.co.itstherules.junit.extension.WebDriverInstance;
 import uk.co.itstherules.ui.functions.BrowserWait;
-import uk.co.itstherules.ui.functions.DataInitializer;
 import uk.co.itstherules.ui.pages.list.LogsPage;
 
 @Ignore
@@ -31,12 +29,10 @@ public class LogsTest {
     @Test
     public void canViewThePage() throws Exception {
         try {
-            DataInitializer.initializeData(file + "_one_card", "CardPlanner");
             new LogsPage(driver, "http://localhost:9999/Simple").navigateTo("0");
             BrowserWait.forText(driver, "CardPlanner", 5000);
         } catch (Exception e) {
             throw new RuntimeException(e);
-        } finally {
         }
     }
 

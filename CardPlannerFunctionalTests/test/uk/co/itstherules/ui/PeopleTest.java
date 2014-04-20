@@ -2,9 +2,7 @@ package uk.co.itstherules.ui;
 
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
-
 import uk.co.itstherules.junit.extension.WebDriverInstance;
-import uk.co.itstherules.ui.functions.DataInitializer;
 import uk.co.itstherules.ui.pages.change.ChangePersonPage;
 import uk.co.itstherules.ui.pages.change.ChangeTypePage;
 import uk.co.itstherules.ui.pages.list.PeoplePage;
@@ -29,7 +27,6 @@ public class PeopleTest {
 
     @Test
     public void canEditDaphneToNorville() throws Exception {
-        DataInitializer.initializeData(file + "_one_card", "CardPlanner");
         BasicPersona norville = new BasicPersona("norville");
         PeoplePage peoplePage = new PeoplePage("http://localhost:9999/Simple", driver).navigateTo("0");
         ChangePersonPage selected = norville.selectEdit(peoplePage, 0);
@@ -40,7 +37,6 @@ public class PeopleTest {
 
     @Test
     public void canAddWithNoImage() throws Exception {
-        DataInitializer.initializeData(file, "CardPlanner");
         ChangePersonPage addCardPage = new ChangePersonPage("http://localhost:9999/Simple", driver, ChangeTypePage.Add).navigateTo("0");
         BasicPersona norville = new BasicPersona("norville");
         PeoplePage peoplePage = (PeoplePage) norville.add(addCardPage);
@@ -51,7 +47,6 @@ public class PeopleTest {
 
     @Test
     public void canAddWithAnImage() throws Exception {
-        DataInitializer.initializeData(file + "_one_card", "CardPlanner");
         ChangePersonPage addCardPage = new ChangePersonPage("http://localhost:9999/Simple", driver, ChangeTypePage.Add).navigateTo("0");
         BasicPersona freddie = new BasicPersona("freddie");
         PeoplePage people = (PeoplePage) freddie.add(addCardPage);

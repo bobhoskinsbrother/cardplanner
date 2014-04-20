@@ -2,9 +2,7 @@ package uk.co.itstherules.ui;
 
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
-
 import uk.co.itstherules.junit.extension.WebDriverInstance;
-import uk.co.itstherules.ui.functions.DataInitializer;
 import uk.co.itstherules.ui.pages.change.ChangePostItPage;
 import uk.co.itstherules.ui.pages.change.ChangeTypePage;
 import uk.co.itstherules.ui.pages.list.PostItPage;
@@ -34,7 +32,6 @@ public class PostItTest {
 
     @Test
     public void addAPostItWithoutAttachment() throws Exception {
-        DataInitializer.initializeData(file, "CardPlanner");
         ChangePostItPage addPostItPage = new ChangePostItPage("http://localhost:9999/Simple", driver, ChangeTypePage.Add).navigateTo("0");
         BasicPersona daphne = new BasicPersona("daphne");
         PostItPage listPostItPage = (PostItPage) daphne.addPostIt(addPostItPage);

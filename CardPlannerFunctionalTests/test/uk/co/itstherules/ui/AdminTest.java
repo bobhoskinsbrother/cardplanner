@@ -13,6 +13,7 @@ import java.net.URI;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static uk.co.itstherules.cardplanner.server.CardPlannerConfigBuilder.TargetEnvironment.TEST;
 import static uk.co.itstherules.junit.extension.WebMatcher.onThePage;
 
 public class AdminTest {
@@ -24,7 +25,7 @@ public class AdminTest {
     @BeforeClass
     public static void setup() throws Exception {
         pageLookup = WebDriverInstance.get();
-        server = new CardPlannerServer();
+        server = new CardPlannerServer(TEST);
         uri = server.port(0).startServer();
     }
 

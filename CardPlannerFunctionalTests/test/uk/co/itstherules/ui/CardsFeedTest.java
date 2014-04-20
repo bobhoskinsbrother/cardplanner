@@ -5,7 +5,6 @@ import org.custommonkey.xmlunit.XMLUnit;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
-import uk.co.itstherules.ui.functions.DataInitializer;
 import uk.co.itstherules.ui.pages.feed.CardsFeed;
 
 import java.io.StringReader;
@@ -18,7 +17,6 @@ public class CardsFeedTest {
     @Test
     public void canConsumeAFeed() throws Exception {
         String separator = System.getProperty("line.separator");
-        DataInitializer.initializeData(file + "_one_item", "CardPlanner");
         String xml = new CardsFeed("http://localhost:9999/Simple").atomFeedFor("0");
         XMLUnit.setIgnoreWhitespace(true);
         String expected = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" + separator +
@@ -57,7 +55,6 @@ public class CardsFeedTest {
     public void canConsumeAFeedWithTwo() throws Exception {
         String separator = System.getProperty("line.separator");
 
-        DataInitializer.initializeData(file + "_two_item", "CardPlanner");
         String xml = new CardsFeed("http://localhost:9999/Simple").atomFeedFor("0");
 
         XMLUnit.setIgnoreWhitespace(true);

@@ -6,10 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-
 import uk.co.itstherules.junit.extension.WebDriverInstance;
 import uk.co.itstherules.ui.functions.BrowserWait;
-import uk.co.itstherules.ui.functions.DataInitializer;
 import uk.co.itstherules.ui.pages.list.CardAttachmentsPage;
 import uk.co.itstherules.ui.personas.BasicPersona;
 
@@ -30,7 +28,6 @@ public class CardAttachmentsTest {
 
     @Test
     public void addAnAttachment() throws Exception {
-        DataInitializer.initializeData("simple_one_card", "CardPlanner");
         BasicPersona norville = new BasicPersona("norville");
         CardAttachmentsPage page = new CardAttachmentsPage("http://localhost:9999/Simple", driver);
         page = norville.browseToAttachmentsForCard(page);
@@ -41,7 +38,6 @@ public class CardAttachmentsTest {
 
     @Test
     public void associateAnExistingAttachment() throws Exception {
-        DataInitializer.initializeData("simple_one_card", "CardPlanner");
         BasicPersona norville = new BasicPersona("norville");
         CardAttachmentsPage page = new CardAttachmentsPage("http://localhost:9999/Simple", driver);
         page = norville.browseToAttachmentsForCard(page);

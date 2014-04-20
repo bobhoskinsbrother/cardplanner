@@ -1,71 +1,91 @@
 package uk.co.itstherules.ui;
 
-import junit.framework.Assert;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+import uk.co.itstherules.cardplanner.model.CardTypeModel;
+import uk.co.itstherules.cardplanner.server.CardPlannerServer;
 import uk.co.itstherules.junit.extension.WebDriverInstance;
-import uk.co.itstherules.ui.functions.DataInitializer;
+import uk.co.itstherules.ui.functions.BrowserWait;
+import uk.co.itstherules.ui.functions.DataFixtures;
 import uk.co.itstherules.ui.pages.list.CardTypesPage;
 import uk.co.itstherules.ui.personas.BasicPersona;
 import uk.co.itstherules.ui.personas.Scrappy2;
 
-@Ignore
+import java.net.URI;
+
+import static junit.framework.Assert.assertTrue;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
+import static uk.co.itstherules.cardplanner.server.CardPlannerConfigBuilder.TargetEnvironment.TEST;
+import static uk.co.itstherules.junit.extension.WebMatcher.onThePage;
+
 public class CardTypesTest {
 
-    private static String file;
-    private static WebDriver driver;
+    private static WebDriver pageLookup;
+    private static CardPlannerServer server;
+    private static URI uri;
 
     @BeforeClass
     public static void setup() throws Exception {
-        file = "simple";
-        driver = WebDriverInstance.get();
+        pageLookup = WebDriverInstance.get();
+        server = new CardPlannerServer(TEST);
+        uri = server.port(0).startServer();
     }
 
     @AfterClass
     public static void destroy() {
         WebDriverInstance.destroy();
+        server.destroy();
     }
+
 
     @Test
     public void deleteCardType() throws Exception {
-        DataInitializer.initializeData(file + "_one_card", "CardPlanner");
+        new DataFixtures().saveCardType("Task", "#FF9900");
         BasicPersona norville = new BasicPersona("norville");
-        CardTypesPage page = new CardTypesPage("http://localhost:9999/CardPlanner", driver).navigateTo("0");
+        CardTypesPage page = new CardTypesPage(uri.toString(), pageLookup).navigateTo("0");
+        BrowserWait.forElement(pageLookup, By.name("deleteButton"), 5000);
         page = norville.delete(page, 0);
-        Assert.assertFalse(page.containsText(norville.getMemory().getCardTypeTitle(), 0));
+        assertFalse(page.containsText(norville.getMemory().getCardTypeTitle(), 0));
     }
 
     @Test
     public void editCardType() throws Exception {
-        DataInitializer.initializeData(file + "_one_card", "CardPlanner");
-        BasicPersona norville = new BasicPersona("norville");
-        CardTypesPage page = new CardTypesPage("http://localhost:9999/CardPlanner", driver).navigateTo("0");
-        page = norville.selectEdit(page, 0);
-        page = norville.edit(page);
-        Assert.assertTrue(page.containsText(norville.getMemory().getCardTypeTitle()));
+        DataFixtures dataFixtures = new DataFixtures();
+        CardTypeModel reply=null;
+        try {
+            reply = dataFixtures.saveCardType("Task", "#FF9900");
+            BasicPersona norville = new BasicPersona("norville");
+            CardTypesPage page = new CardTypesPage(uri.toString(), pageLookup).navigateTo("0");
+            page = norville.selectEdit(page, 0);
+            norville.edit(page);
+            assertThat(norville.getMemory().getCardTypeTitle(), is(onThePage(pageLookup)));
+        } finally {
+            dataFixtures.destroy(reply);
+        }
+
     }
 
     @Test
-    public void addCardType() throws Exception {
-        DataInitializer.initializeData(file, "CardPlanner");
+    public void addAndDeleteCardType() throws Exception {
         BasicPersona norville = new BasicPersona("norville");
-        CardTypesPage page = new CardTypesPage("http://localhost:9999/CardPlanner", driver).navigateTo("0");
+        CardTypesPage page = new CardTypesPage(uri.toString(), pageLookup).navigateTo("0");
         page = norville.add(page);
-        Assert.assertTrue(page.containsText(norville.getMemory().getCardTypeTitle()));
+        assertTrue(page.containsText(norville.getMemory().getCardTypeTitle()));
+        page = norville.delete(page, 0);
+        assertFalse(page.containsText(norville.getMemory().getCardTypeTitle(), 0));
     }
 
     @Test
     public void cannotAddEmptyCardType() throws Exception {
-        DataInitializer.initializeData(file, "CardPlanner");
-        CardTypesPage page = new CardTypesPage("http://localhost:9999/CardPlanner", driver).navigateTo("0");
+        CardTypesPage page = new CardTypesPage(uri.toString(), pageLookup).navigateTo("0");
         BasicPersona scrappy = new Scrappy2();
         page = scrappy.add(page);
-        Assert.assertTrue(page.containsErrorForTitleField());
+        assertTrue(page.containsErrorForTitleField());
     }
 
 }

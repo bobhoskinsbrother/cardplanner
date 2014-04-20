@@ -2,11 +2,9 @@ package uk.co.itstherules.ui;
 
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
-
 import uk.co.itstherules.junit.extension.WebDriverInstance;
 import uk.co.itstherules.ui.functions.BrowserWait;
 import uk.co.itstherules.ui.functions.Constants;
-import uk.co.itstherules.ui.functions.DataInitializer;
 import uk.co.itstherules.ui.pages.change.ChangeCardPage;
 import uk.co.itstherules.ui.pages.change.ChangeTypePage;
 import uk.co.itstherules.ui.pages.list.ArchivedCardsPage;
@@ -36,7 +34,6 @@ public class CardsTest {
 
     @Test
     public void editAnCard() throws Exception {
-        DataInitializer.initializeData(file + "_one_card", "CardPlanner");
         BasicPersona norville = new BasicPersona("norville");
         CardsPage cardsPage = new CardsPage("http://localhost:9999/Simple", driver).navigateTo("0");
         ChangeCardPage selected = norville.selectEdit(cardsPage, 0);
@@ -46,7 +43,6 @@ public class CardsTest {
 
     @Test
     public void addAnCardWithoutTagsWithWikiText() throws Exception {
-        DataInitializer.initializeData(file, "CardPlanner");
         ChangeCardPage addCardPage = new ChangeCardPage("http://localhost:9999/Simple", driver, ChangeTypePage.Add).navigateTo("0");
         BasicPersona daphne = new BasicPersona("daphne");
         CardsPage listCardsPage = (CardsPage) daphne.add(addCardPage);
@@ -60,7 +56,6 @@ public class CardsTest {
 
     @Test
     public void cantAddAnIncompleteCard() throws Exception {
-        DataInitializer.initializeData(file, "CardPlanner");
         ChangeCardPage addCardPage = new ChangeCardPage("http://localhost:9999/Simple", driver, ChangeTypePage.Add).navigateTo("0");
         Adder scrappy = new Scrappy2();
         addCardPage = (ChangeCardPage) scrappy.add(addCardPage);
@@ -69,7 +64,6 @@ public class CardsTest {
 
     @Test
     public void addAnCardWithTags() throws Exception {
-        DataInitializer.initializeData(file, "CardPlanner");
         ChangeCardPage addCardPage = new ChangeCardPage("http://localhost:9999/Simple", driver, ChangeTypePage.Add).navigateTo("0");
         BasicPersona terry = new BasicPersona("terry");
         CardsPage listCardsPage = (CardsPage) terry.add(addCardPage);
@@ -84,7 +78,6 @@ public class CardsTest {
 
     @Test
     public void showAnCard() throws Exception {
-        DataInitializer.initializeData(file + "_one_card", "CardPlanner");
         BasicPersona scrappy = new BasicPersona("scrappy");
         CardsPage cardsPage = new CardsPage("http://localhost:9999/Simple", driver).navigateTo("0");
         ShowCardPage selected = scrappy.selectShow(cardsPage, 0);
@@ -95,7 +88,6 @@ public class CardsTest {
 
     @Test
     public void deleteAnCard() throws Exception {
-        DataInitializer.initializeData(file + "_one_card", "CardPlanner");
         BasicPersona scrappy = new BasicPersona("scrappy");
         CardsPage cardsPage = new CardsPage("http://localhost:9999/Simple", driver).navigateTo("0");
         CardManipulationPage<?> selected = scrappy.delete(cardsPage, 0);
@@ -105,7 +97,6 @@ public class CardsTest {
 
     @Test
     public void archiveAnCard() throws Exception {
-        DataInitializer.initializeData(file + "_one_card", "CardPlanner");
         BasicPersona scrappy = new BasicPersona("scrappy");
         CardsPage cardsPage = new CardsPage("http://localhost:9999/Simple", driver).navigateTo("0");
         CardManipulationPage<?> selected = scrappy.selectArchive(cardsPage, 0);
@@ -118,7 +109,6 @@ public class CardsTest {
 
     @Test
     public void dragHeirarchy() throws Exception {
-        DataInitializer.initializeData(file + "_two_cards", "CardPlanner");
         BasicPersona daphne = new BasicPersona("daphne");
         CardsPage cardsPage = new CardsPage("http://localhost:9999/Simple", driver).navigateTo("0");
         cardsPage = daphne.dragCardIntoCard(cardsPage, 0, 1);

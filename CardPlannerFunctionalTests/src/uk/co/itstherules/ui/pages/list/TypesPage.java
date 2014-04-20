@@ -3,7 +3,7 @@ package uk.co.itstherules.ui.pages.list;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+import uk.co.itstherules.ui.functions.BrowserWait;
 import uk.co.itstherules.ui.pages.Page;
 
 public abstract class TypesPage<T> extends Page<T> {
@@ -21,6 +21,7 @@ public abstract class TypesPage<T> extends Page<T> {
     }
 
 	public void setTitle(String title) {
+        BrowserWait.untilVisible(driver, By.name("title"), 1000);
 		clearAndPopulate(driver.findElement(By.name("title")), title);
     }
 

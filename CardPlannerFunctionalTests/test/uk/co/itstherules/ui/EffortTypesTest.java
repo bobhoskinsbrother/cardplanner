@@ -1,15 +1,12 @@
 package uk.co.itstherules.ui;
 
 import junit.framework.Assert;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-
 import uk.co.itstherules.junit.extension.WebDriverInstance;
-import uk.co.itstherules.ui.functions.DataInitializer;
 import uk.co.itstherules.ui.pages.list.EffortTypesPage;
 import uk.co.itstherules.ui.personas.BasicPersona;
 import uk.co.itstherules.ui.personas.Scrappy2;
@@ -32,7 +29,6 @@ public class EffortTypesTest {
 
     @Test
     public void deleteEffortType() throws Exception {
-        DataInitializer.initializeData(databaseFile + "_one_card", "CardPlanner");
         BasicPersona norville = new BasicPersona("norville");
         EffortTypesPage page = new EffortTypesPage("http://localhost:9999/CardPlanner", driver).navigateTo("0");
         page = norville.delete(page, 0);
@@ -41,7 +37,6 @@ public class EffortTypesTest {
 
     @Test
     public void editEffortType() throws Exception {
-        DataInitializer.initializeData(databaseFile + "_one_card", "CardPlanner");
         BasicPersona norville = new BasicPersona("norville");
         EffortTypesPage page = new EffortTypesPage("http://localhost:9999/CardPlanner", driver).navigateTo("0");
         page = norville.selectEdit(page, 0);
@@ -52,7 +47,6 @@ public class EffortTypesTest {
 
     @Test
     public void addEffortType() throws Exception {
-        DataInitializer.initializeData(databaseFile, "CardPlanner");
         BasicPersona norville = new BasicPersona("norville");
         EffortTypesPage page = new EffortTypesPage("http://localhost:9999/CardPlanner", driver).navigateTo("0");
         page = norville.add(page);
@@ -61,7 +55,6 @@ public class EffortTypesTest {
 
     @Test
     public void cannotAddEmptyEffortType() throws Exception {
-        DataInitializer.initializeData(databaseFile, "CardPlanner");
         EffortTypesPage page = new EffortTypesPage("http://localhost:9999/CardPlanner", driver).navigateTo("0");
         BasicPersona scrappy = new Scrappy2();
         page = scrappy.add(page);
