@@ -1,0 +1,6 @@
+# Verify Captcha, uk.co.itstherules.yawf.model.ProcessStepReferenceModel, 8D50ED91-ADC5-4DF9-A068-1454F38F3B42
+inputSteps.0.identity=EBF00FE1-8B15-443E-854E-DE370D6D8145
+step.identity=a77b3bc6-06a0-4f23-87bb-a84ffce95b20
+x=123
+y=208
+title=Verify ReCaptcha

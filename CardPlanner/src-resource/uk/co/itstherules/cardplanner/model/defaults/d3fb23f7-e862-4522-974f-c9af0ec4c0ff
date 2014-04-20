@@ -1,0 +1,6 @@
+# CARDPLANNER_TEMPLATE, TemplateModel, d3fb23f7-e862-4522-974f-c9af0ec4c0ff
+templateType=FromModelView
+templateMarkup=FreeMarker
+modelType=Frame
+template=Template
+title=Main CardPlanner Template with Links

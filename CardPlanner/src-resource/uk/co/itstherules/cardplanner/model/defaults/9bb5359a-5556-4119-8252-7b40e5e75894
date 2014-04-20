@@ -1,0 +1,6 @@
+# SIGN_UP_EMAIL_BODY, uk.co.itstherules.yawf.model.TemplateModel, 9bb5359a-5556-4119-8252-7b40e5e75894
+template=SignUpEmail
+templateMarkup=FreeMarker
+templateType=FromModelView
+modelType=Body
+title=SignUp Email to Confirm

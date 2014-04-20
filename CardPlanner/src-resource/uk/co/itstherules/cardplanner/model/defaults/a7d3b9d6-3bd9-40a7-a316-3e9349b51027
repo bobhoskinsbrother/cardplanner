@@ -1,0 +1,5 @@
+# ProcessStepModel, a7d3b9d6-3bd9-40a7-a316-3e9349b51027
+processKey=StringInput
+body=
+input=/uk.co.itstherules.cardplanner.model.PageModel?identity=15cc9ac4-7b00-48a6-8ce3-d5d38a818e24
+title=Fetch Team to Accept Person Page Query

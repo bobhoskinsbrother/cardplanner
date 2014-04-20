@@ -1,0 +1,5 @@
+# IDEAL_DAY_EFFORT_TYPE, EffortTypeModel, bed78a3f-9c04-40a9-b565-0889f9d782e2
+objectState=Invisible
+title=Ideal Day
+rate=1.0
+type=NumericBased

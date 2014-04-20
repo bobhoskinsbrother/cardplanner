@@ -1,0 +1,95 @@
+<div><input type="hidden" id="${identifier}" name="${identifier}" value="${identityListHelper.flatten(selected)}" />
+<div style="float: left">
+<fieldset class="gray_rounded">
+<legend>Available</legend> 
+<select id="${identifier}LeftList" size="8" multiple="multiple" style="width: 200px">
+<#list available as currentlyAvailable> 
+<option value="${currentlyAvailable.identity}">${currentlyAvailable.title}</option>
+</#list>
+</select>
+</fieldset>
+</div>
+<div style="float: left; margin-top:30px;">
+<input type="button" onclick="$('${identifier}').add()" value="&gt;" style="width: 40px;" />
+<div style="clear:both;"></div>
+<input type="button" onclick="$('${identifier}').addAll()" value="&gt;&gt;" style="width: 40px;" />
+<div style="clear:both;"></div>
+<input type="button" onclick="$('${identifier}').remove()" value="&lt;" style="width: 40px;" /> 
+<div style="clear:both;"></div>
+<input type="button" onclick="$('${identifier}').removeAll()" value="&lt;&lt;" style="width: 40px;" />
+</div>
+<div style="float: left">
+<fieldset class="gray_rounded">
+<legend>Selected</legend> 
+<select id="${identifier}RightList" size="8" multiple="multiple" style="width: 200px">
+<#list selected as currentlySelected> 
+<option value="${currentlySelected.identity}">${currentlySelected.title}</option>
+</#list>
+</select>
+</fieldset>
+</div>
+
+
+<script type="text/javascript">
+//<![CDATA[
+           
+	$("${identifier}").valuesArray = [${identityListHelper.flatten(all)}];
+
+	$("${identifier}").add = function() {
+		$("${identifier}").process("${identifier}LeftList", "${identifier}RightList", false);
+	}
+
+	$("${identifier}").remove = function() {
+		$("${identifier}").process("${identifier}RightList", "${identifier}LeftList", false);
+	}
+	
+	$("${identifier}").addAll = function() {
+		$("${identifier}").process("${identifier}LeftList", "${identifier}RightList", true);
+	}
+
+	$("${identifier}").removeAll = function() {
+		$("${identifier}").process("${identifier}RightList", "${identifier}LeftList", true);
+	}	
+
+	$("${identifier}").process = function(firstListIdentifier, secondListIdentifier, moveAll) {	
+		var firstList = $(firstListIdentifier);
+		var secondList = $(secondListIdentifier);
+		var firstChild = firstList.firstChild;
+		var secondChild = secondList.firstChild;
+		while(firstChild != null) {
+			var nextChild = firstChild.nextSibling;
+			if (firstChild.nodeType == 1 && (firstChild.selected == true || moveAll)) {
+				firstChild.selected = false;
+				while (secondChild != null) {
+				    if (secondChild.nodeType == 1 && parseInt(firstChild.value) < parseInt(secondChild.value)) {
+						secondList.insertBefore(firstChild, secondChild);
+						break;
+					}
+					secondChild = secondChild.nextSibling;
+				}
+				if (secondChild == null) {
+					secondList.appendChild(firstChild);
+				}
+			}
+            firstChild = nextChild;
+		}
+		$("${identifier}").updateSelectionParam();
+	}
+	
+	$("${identifier}").updateSelectionParam = function() {
+		var secondList = $("${identifier}RightList");
+		var options = secondList.options;
+		var values = "";
+		for (var i = 0; i < options.length; i++) {
+			var option = options.card(i);
+			values += ",";
+			values += option.value;
+		}
+		if(values.length > 0) {
+			values = values.substring(1);
+		}
+		$("${identifier}").value = values;
+	}
+//]]>	
+</script></div>
+<div style="clear:both;"></div>

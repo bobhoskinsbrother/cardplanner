@@ -1,0 +1,7 @@
+# SIGN_UP_CREATE_ROUTE, db80bb6f-c69e-42e3-b5f5-dd4205d28b9e, RouteModel.class
+
+title=SignUp Create
+routeController=SignUp
+routeAction=Create
+routeIdentity=0
+routeProcessStep.identity=C3EB05C0-88CA-4570-A529-6BB40A08E8CD

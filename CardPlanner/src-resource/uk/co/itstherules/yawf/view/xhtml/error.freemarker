@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>YAWF</title>
+</head>
+<body style="font-family: Arial;">
+<h3>YAWF - An error has occurred</h3>
+
+
+
+
+<h3>Oops</h3>
+Looks like something has gone wrong.  <br/><br/>
+For all you technically minded folks you can find out what has gone wrong by 'Viewing Source' of this page and looking for 
+<strong>&lt;!-- ERROR_START</strong> in the source.  That's where you'll find a lovely stack trace...
+
+<!-- ERROR_START
+
+
+${error.message!""}
+<#list error.stackTrace as stackTrace>
+${stackTrace.toString()}
+</#list>
+
+
+/ERROR_START -->
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+  
