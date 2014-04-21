@@ -124,7 +124,7 @@ public abstract class AbstractValuesProvider implements ValuesProvider {
     }
 
 	public String toString() {
-		StringBuffer buffer = new StringBuffer();
+		StringBuilder buffer = new StringBuilder();
 		buffer.append("CrudController: ");
 		buffer.append(getController());
 		buffer.append(FileStuff.LINE_ENDING);

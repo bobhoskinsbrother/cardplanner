@@ -3,7 +3,7 @@ package uk.co.itstherules.ui.pages;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import uk.co.itstherules.ui.functions.BrowserWait;
+import uk.co.itstherules.ui.functions.Wait;
 
 public abstract class Page<T> implements Navigable<T> { 
 	
@@ -22,7 +22,7 @@ public abstract class Page<T> implements Navigable<T> {
 	
     @SuppressWarnings("unchecked")
     @Override public T navigateTo(String identity, String... optional) {
-    	StringBuffer optionalString = new StringBuffer();
+    	StringBuilder optionalString = new StringBuilder();
     	String toAppend = "";
     	if(optional.length > 0) {
             optionalString.append("?");
@@ -32,7 +32,8 @@ public abstract class Page<T> implements Navigable<T> {
             }
     		toAppend = optionalString.substring(0, optionalString.lastIndexOf("&"));
     	}
-		driver.get(new StringBuilder().append(appRoot).append("/").append(getController()).append("/").append(getAction()).append("/").append(identity).append("/index.xhtml").append(toAppend).toString());
+        final String path = appRoot + "/" + getController() + "/" + getAction() + "/" + identity + "/index.xhtml" + toAppend;
+        driver.get(path);
 		return (T) this;
 	}
 	
@@ -57,7 +58,7 @@ public abstract class Page<T> implements Navigable<T> {
 
 	public boolean containsText(String text, long waitPeriod) {
 		try {
-			BrowserWait.forText(driver, text, waitPeriod);
+			Wait.forText(driver, text, waitPeriod);
 			return true;
 		} catch (Exception e) {
 			return false;

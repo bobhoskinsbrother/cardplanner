@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import uk.co.itstherules.cardplanner.server.CardPlannerServer;
 import uk.co.itstherules.junit.extension.WebDriverInstance;
-import uk.co.itstherules.ui.functions.BrowserWait;
+import uk.co.itstherules.ui.functions.Wait;
 import uk.co.itstherules.ui.pages.list.SignUpForWorkPage;
 
 import java.net.URI;
@@ -14,7 +14,7 @@ import java.net.URI;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static uk.co.itstherules.cardplanner.server.CardPlannerConfigBuilder.TargetEnvironment.TEST;
-import static uk.co.itstherules.junit.extension.WebMatcher.onThePage;
+import static uk.co.itstherules.junit.extension.WebMatcher.textOnThePage;
 
 public class CanSignUpForWorkTest {
 
@@ -39,8 +39,8 @@ public class CanSignUpForWorkTest {
     @Test
     public void canViewThePage() throws Exception {
         new SignUpForWorkPage(pageLookup, uri.toString()).navigateTo("0");
-        BrowserWait.forText(pageLookup, "Sign Up For Work", 5000);
-        assertThat("Sign Up For Work", is(onThePage(pageLookup)));
+        Wait.forText(pageLookup, "Sign Up For Work", 5000);
+        assertThat("Sign Up For Work", is(textOnThePage(pageLookup)));
     }
 
 }

@@ -246,7 +246,9 @@
         <root url="jar://$PROJECT_DIR$/libs/release/yuicompressor-2.4.7.jar!/" />
       </CLASSES>
       <JAVADOC />
-      <SOURCES />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ideaLibSources/commons-fileupload-1.2.1-sources.jar!/" />
+      </SOURCES>
     </library>
     <library name="unit_tests">
       <CLASSES>

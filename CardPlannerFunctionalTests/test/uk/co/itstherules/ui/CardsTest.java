@@ -3,7 +3,7 @@ package uk.co.itstherules.ui;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import uk.co.itstherules.junit.extension.WebDriverInstance;
-import uk.co.itstherules.ui.functions.BrowserWait;
+import uk.co.itstherules.ui.functions.Wait;
 import uk.co.itstherules.ui.functions.Constants;
 import uk.co.itstherules.ui.pages.change.ChangeCardPage;
 import uk.co.itstherules.ui.pages.change.ChangeTypePage;
@@ -38,7 +38,7 @@ public class CardsTest {
         CardsPage cardsPage = new CardsPage("http://localhost:9999/Simple", driver).navigateTo("0");
         ChangeCardPage selected = norville.selectEdit(cardsPage, 0);
         norville.edit(selected);
-        BrowserWait.forText(driver, norville.getMemory().getCardTitle(), 5000);
+        Wait.forText(driver, norville.getMemory().getCardTitle(), 5000);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class CardsTest {
         CardsPage listCardsPage = (CardsPage) daphne.add(addCardPage);
         Assert.assertTrue(listCardsPage.containsText(daphne.getMemory().getCardTitle()));
         ShowCardPage showCardPage = daphne.selectShow(listCardsPage, 0);
-        BrowserWait.forFrame(driver, Constants.LIGHTWINDOW_IFRAME, 5000);
+        Wait.forFrame(driver, Constants.LIGHTWINDOW_IFRAME, 5000);
         Assert.assertTrue(showCardPage.containsText(daphne.getMemory().getCardTitle()));
         Assert.assertTrue(showCardPage.containsText("As Daphne I need <strong>Scooby</strong> to be brave so that we can catch that nefarious criminal pretending to be a ghost"));
     }
@@ -81,7 +81,7 @@ public class CardsTest {
         BasicPersona scrappy = new BasicPersona("scrappy");
         CardsPage cardsPage = new CardsPage("http://localhost:9999/Simple", driver).navigateTo("0");
         ShowCardPage selected = scrappy.selectShow(cardsPage, 0);
-        BrowserWait.forText(driver, scrappy.getMemory().getCardTitle(), 5000);
+        Wait.forText(driver, scrappy.getMemory().getCardTitle(), 5000);
         Assert.assertTrue(selected.containsText(scrappy.getMemory().getCardBody()));
     }
 
@@ -113,7 +113,7 @@ public class CardsTest {
         CardsPage cardsPage = new CardsPage("http://localhost:9999/Simple", driver).navigateTo("0");
         cardsPage = daphne.dragCardIntoCard(cardsPage, 0, 1);
         daphne.selectShow(cardsPage, 1);
-        BrowserWait.forText(driver, daphne.getMemory().getCardParent(), 10000);
+        Wait.forText(driver, daphne.getMemory().getCardParent(), 10000);
     }
 
 }

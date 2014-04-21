@@ -6,7 +6,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import uk.co.itstherules.junit.extension.WebDriverInstance;
-import uk.co.itstherules.ui.functions.BrowserWait;
+import uk.co.itstherules.ui.functions.Wait;
 import uk.co.itstherules.ui.pages.list.TimeSpansPage;
 
 @Ignore
@@ -29,7 +29,7 @@ public class TimeSpansTest {
     @Test
     public void canViewThePage() throws Exception {
         new TimeSpansPage(driver, "http://localhost:9999/Simple").navigateTo("0");
-        BrowserWait.forText(driver, "Time Spans", 5000);
+        Wait.forText(driver, "Time Spans", 5000);
     }
 
 //	@Test public void editATag() throws Exception {

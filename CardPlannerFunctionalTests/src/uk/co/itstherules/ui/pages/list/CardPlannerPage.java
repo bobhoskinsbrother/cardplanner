@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
-import uk.co.itstherules.ui.functions.BrowserWait;
+import uk.co.itstherules.ui.functions.Wait;
 
 public class CardPlannerPage extends CardManipulationPage<CardPlannerPage> {
 
@@ -77,7 +77,7 @@ public class CardPlannerPage extends CardManipulationPage<CardPlannerPage> {
 	        	break;
 	        }
         }
-		BrowserWait.forText(driver, "<!--SwimLaneAmount=" + swimLaneAmount + "-->", 5000);
+		Wait.forText(driver, "<!--SwimLaneAmount=" + swimLaneAmount + "-->", 5000);
 		return this;
     }
 

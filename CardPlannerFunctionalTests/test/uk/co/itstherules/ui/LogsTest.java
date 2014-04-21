@@ -6,7 +6,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import uk.co.itstherules.junit.extension.WebDriverInstance;
-import uk.co.itstherules.ui.functions.BrowserWait;
+import uk.co.itstherules.ui.functions.Wait;
 import uk.co.itstherules.ui.pages.list.LogsPage;
 
 @Ignore
@@ -30,7 +30,7 @@ public class LogsTest {
     public void canViewThePage() throws Exception {
         try {
             new LogsPage(driver, "http://localhost:9999/Simple").navigateTo("0");
-            BrowserWait.forText(driver, "CardPlanner", 5000);
+            Wait.forText(driver, "CardPlanner", 5000);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

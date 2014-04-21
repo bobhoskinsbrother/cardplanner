@@ -3,36 +3,29 @@ package uk.co.itstherules.ui.pages.list;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import uk.co.itstherules.ui.functions.Wait;
 import uk.co.itstherules.ui.pages.Page;
 
 public class CardAttachmentsPage extends Page<CardAttachmentsPage> {
 
-    private WebElement titleField;
-    private WebElement toggleUploadFormButton;
-    private WebElement attachmentField;
-    private WebElement notAttachedPanel;
-    private WebElement uploadButton;
-
     public CardAttachmentsPage(String appRoot, WebDriver driver) {
         super(driver, appRoot);
-        titleField = driver.findElement(By.id("title"));
-        toggleUploadFormButton = driver.findElement(By.id("toggleVisibility"));
-        attachmentField = driver.findElement(By.id("attachment.file"));
-        notAttachedPanel = driver.findElement(By.id("attachmentsScrollerArea"));
-        uploadButton = driver.findElement(By.id("completeAction"));
     }
 
-    public WebElement getAttachmentField() { return attachmentField; }
+    public WebElement getAttachmentField() { return driver.findElement(By.id("attachment.file")); }
 
-    public WebElement getTitleField() { return titleField; }
+    public WebElement getTitleField() {
+        Wait.untilVisible(driver, By.id("title"), 5000);
+        return driver.findElement(By.id("title"));
+    }
 
-    public WebElement getToggleUploadFormButton() { return toggleUploadFormButton; }
+    public WebElement getToggleUploadFormButton() { return driver.findElement(By.id("toggleVisibility")); }
 
-    public WebElement getUploadButton() { return uploadButton; }
+    public WebElement getUploadButton() { return driver.findElement(By.name("completeAction")); }
 
     public WebElement getAttachedPanel() { return driver.findElement(By.id("attached")); }
 
-    public WebElement getNotAttachedPanel() { return notAttachedPanel; }
+    public WebElement getNotAttachedPanel() { return driver.findElement(By.id("attachmentsScrollerArea")); }
 
     @Override
     public String getAction() {
@@ -44,4 +37,7 @@ public class CardAttachmentsPage extends Page<CardAttachmentsPage> {
         return "CardAttachments";
     }
 
+    public WebElement uploadedFileLink() {
+        return driver.findElement(By.linkText("This is a title for... (...)"));
+    }
 }

@@ -3,7 +3,7 @@ package uk.co.itstherules.ui.pages.list;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import uk.co.itstherules.ui.functions.BrowserWait;
+import uk.co.itstherules.ui.functions.Wait;
 import uk.co.itstherules.ui.functions.Constants;
 import uk.co.itstherules.ui.pages.Editable;
 import uk.co.itstherules.ui.pages.Page;
@@ -30,7 +30,7 @@ public abstract class CardManipulationPage<T> extends Page<T> implements Editabl
     @Override
     public ChangeCardPage selectEditCard(int index) {
         clickCard("editToolButton", index);
-        BrowserWait.forElement(driver, By.name("title"), 6000);
+        Wait.forElement(driver, By.name("title"), 6000);
         return new ChangeCardPage(appRoot, driver, ChangeTypePage.Edit);
     }
 
@@ -42,7 +42,7 @@ public abstract class CardManipulationPage<T> extends Page<T> implements Editabl
     private void clickCard(String name, int index) {
         WebElement toolButton = driver.findElements(By.name(name)).get(index);
         toolButton.click();
-        BrowserWait.forFrame(driver, Constants.LIGHTWINDOW_IFRAME, 5000);
+        Wait.forFrame(driver, Constants.LIGHTWINDOW_IFRAME, 5000);
     }
 
     private CardManipulationPage<?> selectConfirmBasedButton(String buttonName, int index) {

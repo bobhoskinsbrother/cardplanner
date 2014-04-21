@@ -1,15 +1,5 @@
 package uk.co.itstherules.cardplanner.model;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-
 import net.sf.oval.constraint.NoSelfReference;
 import net.sf.oval.constraint.NotNull;
 import uk.co.itstherules.cardplanner.model.CachedInstance.Identities;
@@ -21,6 +11,10 @@ import uk.co.itstherules.yawf.model.IdentifiableDeleteableModel;
 import uk.co.itstherules.yawf.model.SimpleAttachmentModel;
 import uk.co.itstherules.yawf.model.persistence.ObjectCache;
 import uk.co.itstherules.yawf.model.serializer.Json;
+
+import javax.persistence.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity 
 public final class CardModel extends IdentifiableDeleteableModel<CardModel>  {
@@ -51,10 +45,10 @@ public final class CardModel extends IdentifiableDeleteableModel<CardModel>  {
 		this.effort = SpecialInstances.retrieve(objectCache, Identities.DEFAULT_EFFORT);
 		this.value = SpecialInstances.retrieve(objectCache, Identities.DEFAULT_VALUE);
 		this.status = SpecialInstances.retrieve(objectCache, Identities.THE_BACKLOG);
-		this.tags = new LinkedHashSet<TagModel>();
-		this.facts = new LinkedHashSet<CardFactModel>();
-		this.people = new LinkedHashSet<PersonModel>();
-		this.attachments = new LinkedHashSet<SimpleAttachmentModel>();
+		this.tags = new LinkedHashSet<>();
+		this.facts = new LinkedHashSet<>();
+		this.people = new LinkedHashSet<>();
+		this.attachments = new LinkedHashSet<>();
 		this.expanded = true;
 		this.storyBoard = new StoryBoardModel().defaultSetup(objectCache);
 		this.storyBoard.setCard(this);

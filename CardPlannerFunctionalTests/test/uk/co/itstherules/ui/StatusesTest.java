@@ -4,7 +4,7 @@ import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import uk.co.itstherules.junit.extension.WebDriverInstance;
-import uk.co.itstherules.ui.functions.BrowserWait;
+import uk.co.itstherules.ui.functions.Wait;
 import uk.co.itstherules.ui.pages.change.ChangeStatusPage;
 import uk.co.itstherules.ui.pages.list.StatusesPage;
 import uk.co.itstherules.ui.personas.BasicPersona;
@@ -32,7 +32,7 @@ public class StatusesTest {
         StatusesPage statusesPage = new StatusesPage("http://localhost:9999/Simple", driver).navigateTo("0");
         ChangeStatusPage selected = norville.selectEdit(statusesPage, 0);
         norville.edit(selected);
-        BrowserWait.forText(driver, norville.getMemory().getStatusTitle(), 5000);
+        Wait.forText(driver, norville.getMemory().getStatusTitle(), 5000);
     }
 
     @Test

@@ -66,8 +66,8 @@ public final class CardPlannerConfigBuilder {
 
     private static void shared(HashMap<String, String> map) {
         map.put("hibernate.archive.autodetection", "class");
-        map.put("hibernate.show_sql", "true");
-        map.put("hibernate.format_sql", "true");
+        map.put("hibernate.show_sql", "false");
+        map.put("hibernate.format_sql", "false");
         map.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
         map.put("hibernate.hbm2ddl.auto", "update");
         map.put("javax.persistence.jdbc.driver", "org.h2.Driver");

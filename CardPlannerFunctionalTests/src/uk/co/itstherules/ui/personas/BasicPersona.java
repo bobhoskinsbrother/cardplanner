@@ -226,10 +226,10 @@ public class BasicPersona extends BaseBasicPersona<Page<?>> implements Editor, V
 		return cardPlannerPage;
     }
 
-	public CardAttachmentsPage uploadWith(CardAttachmentsPage page) {
+	public CardAttachmentsPage uploadWith(CardAttachmentsPage page, String filePath) {
 		page.getToggleUploadFormButton().click();
 		page.getTitleField().sendKeys(personaData.getAttachmentTitle());
-		page.getAttachmentField().sendKeys(personaData.getFilePathForUpload());
+		page.getAttachmentField().sendKeys(filePath);
 		page.getUploadButton().click();
 		return page;
     }
@@ -324,4 +324,7 @@ public class BasicPersona extends BaseBasicPersona<Page<?>> implements Editor, V
 	    return page;
     }
 
+    public void clickOnUploadedFileOn(CardAttachmentsPage page) {
+        page.uploadedFileLink().click();
+    }
 }

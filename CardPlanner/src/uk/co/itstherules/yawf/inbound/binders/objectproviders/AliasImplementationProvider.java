@@ -27,12 +27,10 @@ public class AliasImplementationProvider<T> implements ImplementationProvider<T>
 	        	IdentityDeleteable.class.cast(instance).defaultSetup(objectCache);
 	        }
 			return instance;
-        } catch (InstantiationException e) {
-	        throw new RuntimeException(e);
-        } catch (IllegalAccessException e) {
+        } catch (InstantiationException | IllegalAccessException e) {
 	        throw new RuntimeException(e);
         }
-	}
+    }
 
 	@Override
     public boolean canHandle(Class<?> theClass, ObjectCache objectCache, ValuesProvider provider) {

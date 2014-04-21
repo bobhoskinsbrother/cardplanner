@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-import uk.co.itstherules.ui.functions.BrowserWait;
+import uk.co.itstherules.ui.functions.Wait;
 import uk.co.itstherules.ui.functions.Constants;
 import uk.co.itstherules.ui.pages.Addable;
 import uk.co.itstherules.ui.pages.Editable;
@@ -29,8 +29,8 @@ public class StatusesPage extends Page<StatusesPage> implements Editable<ChangeS
     public ChangeStatusPage selectEditCard(int index) {
         WebElement editStatusLink = driver.findElements(By.name("editStatusLink")).get(index);
         editStatusLink.click();
-        BrowserWait.forFrame(driver, Constants.LIGHTWINDOW_IFRAME, 5000);
-        BrowserWait.forElement(driver, By.name("title"), 6000);
+        Wait.forFrame(driver, Constants.LIGHTWINDOW_IFRAME, 5000);
+        Wait.forElement(driver, By.name("title"), 6000);
         return new ChangeStatusPage(appRoot, driver, ChangeTypePage.Edit);
     }
 
@@ -46,8 +46,8 @@ public class StatusesPage extends Page<StatusesPage> implements Editable<ChangeS
     public ChangeStatusPage selectAdd() {
         WebElement addStatusLink = driver.findElement(By.id("addStatus"));
         addStatusLink.click();
-        BrowserWait.forFrame(driver, Constants.LIGHTWINDOW_IFRAME, 5000);
-        BrowserWait.forElement(driver, By.name("title"), 6000);
+        Wait.forFrame(driver, Constants.LIGHTWINDOW_IFRAME, 5000);
+        Wait.forElement(driver, By.name("title"), 6000);
         return new ChangeStatusPage(appRoot, driver, ChangeTypePage.Add);
     }
 

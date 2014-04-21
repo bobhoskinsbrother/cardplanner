@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import java.text.MessageFormat;
 import java.util.Calendar;
 
-public class BrowserWait {
+public class Wait {
 
     public static void tryToClick(WebDriver driver, By finderType, long millis) {
         Question<By> question = new Question<By>() {

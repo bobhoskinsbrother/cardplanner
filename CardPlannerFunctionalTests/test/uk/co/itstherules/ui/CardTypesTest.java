@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import uk.co.itstherules.cardplanner.model.CardTypeModel;
 import uk.co.itstherules.cardplanner.server.CardPlannerServer;
 import uk.co.itstherules.junit.extension.WebDriverInstance;
-import uk.co.itstherules.ui.functions.BrowserWait;
+import uk.co.itstherules.ui.functions.Wait;
 import uk.co.itstherules.ui.functions.DataFixtures;
 import uk.co.itstherules.ui.pages.list.CardTypesPage;
 import uk.co.itstherules.ui.personas.BasicPersona;
@@ -21,7 +21,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static uk.co.itstherules.cardplanner.server.CardPlannerConfigBuilder.TargetEnvironment.TEST;
-import static uk.co.itstherules.junit.extension.WebMatcher.onThePage;
+import static uk.co.itstherules.junit.extension.WebMatcher.textOnThePage;
 
 public class CardTypesTest {
 
@@ -48,7 +48,7 @@ public class CardTypesTest {
         new DataFixtures().saveCardType("Task", "#FF9900");
         BasicPersona norville = new BasicPersona("norville");
         CardTypesPage page = new CardTypesPage(uri.toString(), pageLookup).navigateTo("0");
-        BrowserWait.forElement(pageLookup, By.name("deleteButton"), 5000);
+        Wait.forElement(pageLookup, By.name("deleteButton"), 5000);
         page = norville.delete(page, 0);
         assertFalse(page.containsText(norville.getMemory().getCardTypeTitle(), 0));
     }
@@ -63,7 +63,7 @@ public class CardTypesTest {
             CardTypesPage page = new CardTypesPage(uri.toString(), pageLookup).navigateTo("0");
             page = norville.selectEdit(page, 0);
             norville.edit(page);
-            assertThat(norville.getMemory().getCardTypeTitle(), is(onThePage(pageLookup)));
+            assertThat(norville.getMemory().getCardTypeTitle(), is(textOnThePage(pageLookup)));
         } finally {
             dataFixtures.destroy(reply);
         }

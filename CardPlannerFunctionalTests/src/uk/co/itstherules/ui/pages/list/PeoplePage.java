@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import uk.co.itstherules.ui.functions.BrowserWait;
+import uk.co.itstherules.ui.functions.Wait;
 import uk.co.itstherules.ui.functions.Constants;
 import uk.co.itstherules.ui.pages.Editable;
 import uk.co.itstherules.ui.pages.Page;
@@ -23,8 +23,8 @@ public class PeoplePage extends Page<PeoplePage> implements Editable<ChangePerso
 	public ChangePersonPage selectEditCard(int index) {
 		WebElement editPersonLink = driver.findElements(By.name("editPersonLink")).get(index);
 		editPersonLink.click();
-		BrowserWait.forFrame(driver, Constants.LIGHTWINDOW_IFRAME, 5000);
-		BrowserWait.forElement(driver, By.name("firstName"), 6000);
+		Wait.forFrame(driver, Constants.LIGHTWINDOW_IFRAME, 5000);
+		Wait.forElement(driver, By.name("firstName"), 6000);
 		return new ChangePersonPage(appRoot, driver, ChangeTypePage.Edit);
 	}
 
