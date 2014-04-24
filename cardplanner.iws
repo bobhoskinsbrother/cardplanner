@@ -2,58 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e2a0034-e6b2-49ad-a351-34b4f927d7b9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/TempFileWriter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/TempFileWriterTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test-resource/B" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test-resource/base/simple.oodb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test-resource/config/common.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test-resource/config/moderatestoryboard.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test-resource/config/simple.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test-resource/config/simple_with_login.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test-resource/simple/simple.oodb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test-resource/simple_one_item/Upload/10c3780b-ccdb-4d6b-98b7-f97c21cbbdd0/0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test-resource/simple_one_item/Upload/10c3780b-ccdb-4d6b-98b7-f97c21cbbdd0/0_Thumbnail.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test-resource/simple_one_item/simple.oodb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test-resource/simple_one_item_three_statuses/simple.oodb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test-resource/simple_two_items/simple.oodb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test-resource/two_items/simple.oodb" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/BrowserWait.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/Wait.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/AbstractValuesProvider.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/AbstractValuesProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/AdminTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/AdminTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/binders/objectproviders/AliasImplementationProvider.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/binders/objectproviders/AliasImplementationProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/personas/BasicPersona.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/personas/BasicPersona.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CanSignUpForWorkTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CanSignUpForWorkTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/CardAttachmentsPage.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/CardAttachmentsPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardAttachmentsTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardAttachmentsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/CardManipulationPage.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/CardManipulationPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/CardModel.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/CardModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/server/CardPlannerConfigBuilder.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/server/CardPlannerConfigBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/CardPlannerPage.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/CardPlannerPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardPlannerTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardPlannerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardTypesTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardTypesTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardsTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/DataFixtures.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/DataFixtures.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/EffortTypesTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/EffortTypesTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/ExcelExportTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/ExcelExportTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/binders/FileModelBinder.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/binders/FileModelBinder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/HardSumsTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/HardSumsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/binders/ListOfStringBinder.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/binders/ListOfStringBinder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/LogsTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/LogsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/MyCardsTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/MyCardsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/Page.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/Page.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/binders/objectproviders/PassthroughImplementationProvider.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/binders/objectproviders/PassthroughImplementationProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/PeoplePage.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/PeoplePage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/PostItPage.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/PostItPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/ResurrectDeadThingsTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/ResurrectDeadThingsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/StatusesPage.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/StatusesPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/StatusesTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/StatusesTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/TagsTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/TagsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/TimeSpansTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/TimeSpansTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/TypesPage.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/TypesPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/junit/extension/WebMatcher.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/junit/extension/WebMatcher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cardplanner.ipr" afterPath="$PROJECT_DIR$/cardplanner.ipr" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/FieldRepresentation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/QueryKeyAnnotationsProcessor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/QueryKeyAnnotationsProcessorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/BasicValuesProviderBinderTest.java" afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/BasicValuesProviderBinderTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/instantiator/Instantiator.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/instantiator/Instantiator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/annotations/QueryKey.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/annotations/QueryKey.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cardplanner.iws" afterPath="$PROJECT_DIR$/cardplanner.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test-resource/personas/norville.properties" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test-resource/personas/norville.properties" />
     </list>
     <ignored path="cardplanner.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,21 +31,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CardAttachmentsTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardAttachmentsTest.java">
+      <file leaf-file-name="QueryKeyAnnotationsProcessorTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/QueryKeyAnnotationsProcessorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6426117" vertical-offset="510" max-vertical-offset="1751">
-              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.48706895" vertical-offset="2523" max-vertical-offset="3451">
+              <caret line="175" column="60" selection-start-line="175" selection-start-column="60" selection-end-line="175" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QueryKeyAnnotationsProcessor.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/QueryKeyAnnotationsProcessor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="1156">
+              <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataFixtures.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/DataFixtures.java">
+      <file leaf-file-name="BaseValuesProviderBinder.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/annotations/processor/BaseValuesProviderBinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="1020">
-              <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1394" max-vertical-offset="1666">
+              <caret line="82" column="48" selection-start-line="82" selection-start-column="25" selection-end-line="82" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Instantiator.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/instantiator/Instantiator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="459">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -121,12 +98,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/build.xml" />
-        <option value="$PROJECT_DIR$/build.xml" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/CardTypeModel.java" />
-        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/SpecialInstances.java" />
-        <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/MyCardsTest.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/SignUpTest.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardPlannerTest.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardsFeedTest.java" />
@@ -172,6 +143,12 @@
         <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/binders/ListOfStringBinder.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/DataFixtures.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardAttachmentsTest.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/BasicValuesProviderBinderTest.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/instantiator/Instantiator.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/FieldRepresentation.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/annotations/QueryKey.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/QueryKeyAnnotationsProcessor.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/QueryKeyAnnotationsProcessorTest.java" />
       </list>
     </option>
   </component>
@@ -180,10 +157,10 @@
     <config-path />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="56" />
-    <option name="y" value="-4" />
-    <option name="width" value="1865" />
-    <option name="height" value="1085" />
+    <option name="x" value="57" />
+    <option name="y" value="24" />
+    <option name="width" value="1863" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -228,7 +205,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -257,132 +233,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlannerFunctionalTests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlannerFunctionalTests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlannerFunctionalTests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="defaults" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlannerFunctionalTests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -393,7 +250,7 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../js/ben" />
@@ -434,76 +291,20 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CardAttachmentsTest.addAnAttachment">
-    <configuration default="false" name="CardTypesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.QueryKeyAnnotationsProcessorTest.throwsWhenTryingToFollowANullField">
+    <configuration default="false" name="QueryKeyAnnotationsProcessorTest.stillFollowsObjectEvenWhenNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="uk.co.itstherules.ui.*" />
+          <option name="PATTERN" value="uk.co.itstherules.yawf.inbound.annotations.processor.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <module name="CardPlannerFunctionalTests" />
+      <module name="CardPlanner" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="uk.co.itstherules.ui" />
-      <option name="MAIN_CLASS_NAME" value="uk.co.itstherules.ui.CardTypesTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="EffortTypesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="uk.co.itstherules.ui.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="CardPlannerFunctionalTests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="uk.co.itstherules.ui" />
-      <option name="MAIN_CLASS_NAME" value="uk.co.itstherules.ui.EffortTypesTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="CardAttachmentsTest.writeATempFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="uk.co.itstherules.ui.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="CardPlannerFunctionalTests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="uk.co.itstherules.ui" />
-      <option name="MAIN_CLASS_NAME" value="uk.co.itstherules.ui.CardAttachmentsTest" />
-      <option name="METHOD_NAME" value="writeATempFile" />
+      <option name="PACKAGE_NAME" value="uk.co.itstherules.yawf.inbound.annotations.processor" />
+      <option name="MAIN_CLASS_NAME" value="uk.co.itstherules.yawf.inbound.annotations.processor.QueryKeyAnnotationsProcessorTest" />
+      <option name="METHOD_NAME" value="stillFollowsObjectEvenWhenNull" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -525,53 +326,19 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="CardAttachmentsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="QueryKeyAnnotationsProcessorTest.stillFollowsNestedFieldWhenNullAndCreatesANewObject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="uk.co.itstherules.ui.*" />
+          <option name="PATTERN" value="uk.co.itstherules.yawf.inbound.annotations.processor.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <module name="CardPlannerFunctionalTests" />
+      <module name="CardPlanner" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="uk.co.itstherules.ui" />
-      <option name="MAIN_CLASS_NAME" value="uk.co.itstherules.ui.CardAttachmentsTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="CardAttachmentsTest.addAnAttachment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="uk.co.itstherules.ui.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="CardPlannerFunctionalTests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="uk.co.itstherules.ui" />
-      <option name="MAIN_CLASS_NAME" value="uk.co.itstherules.ui.CardAttachmentsTest" />
-      <option name="METHOD_NAME" value="addAnAttachment" />
+      <option name="PACKAGE_NAME" value="uk.co.itstherules.yawf.inbound.annotations.processor" />
+      <option name="MAIN_CLASS_NAME" value="uk.co.itstherules.yawf.inbound.annotations.processor.QueryKeyAnnotationsProcessorTest" />
+      <option name="METHOD_NAME" value="stillFollowsNestedFieldWhenNullAndCreatesANewObject" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -588,8 +355,90 @@
         <option name="TRANSPORT" value="0" />
         <option name="LOCAL" value="true" />
       </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="QueryKeyAnnotationsProcessorTest.stillFollowsNestedFieldEvenWhenNullButDoesntCreateAnObject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="uk.co.itstherules.yawf.inbound.annotations.processor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="CardPlanner" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="uk.co.itstherules.yawf.inbound.annotations.processor" />
+      <option name="MAIN_CLASS_NAME" value="uk.co.itstherules.yawf.inbound.annotations.processor.QueryKeyAnnotationsProcessorTest" />
+      <option name="METHOD_NAME" value="stillFollowsNestedFieldEvenWhenNullButDoesntCreateAnObject" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="QueryKeyAnnotationsProcessorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="uk.co.itstherules.yawf.inbound.annotations.processor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="CardPlanner" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="uk.co.itstherules.yawf.inbound.annotations.processor" />
+      <option name="MAIN_CLASS_NAME" value="uk.co.itstherules.yawf.inbound.annotations.processor.QueryKeyAnnotationsProcessorTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="QueryKeyAnnotationsProcessorTest.throwsWhenTryingToFollowANullField" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="uk.co.itstherules.yawf.inbound.annotations.processor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="CardPlanner" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="uk.co.itstherules.yawf.inbound.annotations.processor" />
+      <option name="MAIN_CLASS_NAME" value="uk.co.itstherules.yawf.inbound.annotations.processor.QueryKeyAnnotationsProcessorTest" />
+      <option name="METHOD_NAME" value="throwsWhenTryingToFollowANullField" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -735,9 +584,6 @@
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
-      <method />
-    </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -836,19 +682,19 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Application.StandaloneServerApplication" />
       <item index="1" class="java.lang.String" itemvalue="Remote.Debug Server" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.CardTypesTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.EffortTypesTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.CardAttachmentsTest.writeATempFile" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.CardAttachmentsTest" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.CardAttachmentsTest.addAnAttachment" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.QueryKeyAnnotationsProcessorTest.stillFollowsObjectEvenWhenNull" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.QueryKeyAnnotationsProcessorTest.stillFollowsNestedFieldWhenNullAndCreatesANewObject" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.QueryKeyAnnotationsProcessorTest.stillFollowsNestedFieldEvenWhenNullButDoesntCreateAnObject" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.QueryKeyAnnotationsProcessorTest" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.QueryKeyAnnotationsProcessorTest.throwsWhenTryingToFollowANullField" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.CardAttachmentsTest.addAnAttachment" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.CardAttachmentsTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.CardAttachmentsTest.writeATempFile" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.EffortTypesTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.CardTypesTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.QueryKeyAnnotationsProcessorTest.throwsWhenTryingToFollowANullField" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.QueryKeyAnnotationsProcessorTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.QueryKeyAnnotationsProcessorTest.stillFollowsNestedFieldEvenWhenNullButDoesntCreateAnObject" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.QueryKeyAnnotationsProcessorTest.stillFollowsNestedFieldWhenNullAndCreatesANewObject" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.QueryKeyAnnotationsProcessorTest.stillFollowsObjectEvenWhenNull" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
@@ -891,7 +737,9 @@
       <workItem from="1397945065490" duration="514000" />
       <workItem from="1397945596710" duration="63000" />
       <workItem from="1397945671075" duration="28000" />
-      <workItem from="1397945713580" duration="25042000" />
+      <workItem from="1397945713580" duration="36248000" />
+      <workItem from="1398359469840" duration="16000" />
+      <workItem from="1398359526218" duration="141000" />
     </task>
     <task id="LOCAL-00001" summary="BMH: Making the build a little more sane, fixing up a bunch of small errors, in prep to getting the functional tests working again">
       <created>1397597743552</created>
@@ -901,38 +749,38 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133401000" />
+    <option name="totallyTimeSpent" value="144764000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="56" y="-4" width="1865" height="1085" extended-state="6" />
-    <editor active="true" />
+    <frame x="57" y="24" width="1863" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.338558" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39916405" sideWeight="0.5002684" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3615465" sideWeight="0.49973163" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3615465" sideWeight="0.49973163" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24906066" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24906066" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40020898" sideWeight="0.49973163" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5809822" sideWeight="0.49973163" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.338558" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -975,7 +823,7 @@
           <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="56" />
+      <option name="time" value="59" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -983,159 +831,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src-resource/uk/co/itstherules/cardplanner/model/defaults/658c9802-f227-458d-958a-ceba3b88ddd0">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="9" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/MapBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.073275864" vertical-offset="0" max-vertical-offset="928">
-          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardTypesTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45043105" vertical-offset="398" max-vertical-offset="1649">
-          <caret line="48" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/test/unit/junit-4.7.jar!/org/junit/internal/runners/statements/RunBefores.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23556583" vertical-offset="0" max-vertical-offset="866">
-          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/test/unit/junit-4.7.jar!/org/junit/runner/JUnitCore.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56478405" vertical-offset="0" max-vertical-offset="903">
-          <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/test/unit/junit-4.7.jar!/org/junit/runners/ParentRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5224719" vertical-offset="198" max-vertical-offset="1088">
-          <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/test/unit/junit-4.7.jar!/org/junit/runners/BlockJUnit4ClassRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1547">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/test/unit/junit-4.7.jar!/org/junit/internal/runners/statements/RunAfters.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22921348" vertical-offset="0" max-vertical-offset="890">
-          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/annotations/processor/BaseValuesProviderBinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="485" max-vertical-offset="1360">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding>
-            <element signature="e#1808#1816#0" expanded="false" />
-            <element signature="e#1962#1978#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/DefaultValuesProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="391">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#355#356#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/cardattachments/list.freemarker">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.846153" vertical-offset="1581" max-vertical-offset="3468">
-          <caret line="131" column="180" selection-start-line="131" selection-start-column="171" selection-end-line="131" selection-end-column="180" />
-          <folding>
-            <marker date="1397498224152" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/MultipartRequestValuesProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="403" max-vertical-offset="1054">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/servlet/YAWFServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="250" max-vertical-offset="731">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/AbstractValuesProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67025864" vertical-offset="1486" max-vertical-offset="2414">
-          <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
-          <folding>
-            <element signature="e#901#902#0" expanded="true" />
-            <element signature="e#933#934#0" expanded="true" />
-            <element signature="e#2874#2875#0" expanded="true" />
-            <element signature="e#2921#2922#0" expanded="true" />
-            <element signature="e#3481#3496#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/test/unit/junit-4.7.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48991355" vertical-offset="0" max-vertical-offset="347">
-          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/CardAttachmentsPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.80422264" vertical-offset="108" max-vertical-offset="663">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="e#1285#1286#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/junit/extension/WebMatcher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33849558" vertical-offset="0" max-vertical-offset="904">
           <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
-          <folding>
-            <element signature="e#680#681#0" expanded="true" />
-            <element signature="e#740#741#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1143,9 +842,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8119469" vertical-offset="473" max-vertical-offset="1377">
           <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-          <folding>
-            <element signature="e#2999#3000#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1153,7 +849,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26327434" vertical-offset="0" max-vertical-offset="904">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1161,7 +856,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3114224" vertical-offset="0" max-vertical-offset="928">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1169,7 +863,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13005464" vertical-offset="0" max-vertical-offset="915">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1177,7 +870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.29726776" vertical-offset="0" max-vertical-offset="915">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1195,7 +887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33297414" vertical-offset="3176" max-vertical-offset="4947">
           <caret line="236" column="31" selection-start-line="236" selection-start-column="31" selection-end-line="236" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1203,7 +894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1989">
           <caret line="31" column="59" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1211,7 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
           <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1219,7 +908,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39547414" vertical-offset="177" max-vertical-offset="3553">
           <caret line="52" column="17" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1227,7 +915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18579236" vertical-offset="0" max-vertical-offset="915">
           <caret line="19" column="125" selection-start-line="19" selection-start-column="125" selection-end-line="19" selection-end-column="125" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1235,7 +922,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34806034" vertical-offset="0" max-vertical-offset="928">
           <caret line="23" column="18" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1243,7 +929,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8351293" vertical-offset="92" max-vertical-offset="1020">
           <caret line="77" column="19" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1251,7 +936,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1853">
           <caret line="124" column="40" selection-start-line="124" selection-start-column="40" selection-end-line="124" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1259,7 +943,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09289618" vertical-offset="0" max-vertical-offset="1360">
           <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1267,7 +950,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1275,7 +957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1336207" vertical-offset="46" max-vertical-offset="1173">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1283,7 +964,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1291,7 +971,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34806034" vertical-offset="0" max-vertical-offset="928">
           <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1299,7 +978,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
           <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1307,7 +985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1315,7 +992,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.073275864" vertical-offset="0" max-vertical-offset="928">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1323,7 +999,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
           <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1331,7 +1006,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07431694" vertical-offset="0" max-vertical-offset="915">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1339,7 +1013,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07431694" vertical-offset="0" max-vertical-offset="915">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1347,7 +1020,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44590163" vertical-offset="0" max-vertical-offset="915">
           <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1355,7 +1027,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
           <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1363,7 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1567" max-vertical-offset="2941">
           <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1371,7 +1041,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="632" max-vertical-offset="1547">
           <caret line="86" column="35" selection-start-line="86" selection-start-column="35" selection-end-line="86" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1379,7 +1048,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
           <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1387,23 +1055,138 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.054956898" vertical-offset="153" max-vertical-offset="1088">
           <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/DataFixtures.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="1020">
+        <state vertical-scroll-proportion="0.8513661" vertical-offset="105" max-vertical-offset="1020">
           <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardAttachmentsTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6426117" vertical-offset="510" max-vertical-offset="1751">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.018318966" vertical-offset="510" max-vertical-offset="1751">
+          <caret line="52" column="41" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/test/test/models/to/instantiate/TestModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.073275864" vertical-offset="0" max-vertical-offset="1309">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/test/test/naughty/controller/no/empty/constructor/NoEmptyConstructorDispatch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.073275864" vertical-offset="0" max-vertical-offset="928">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/StringFieldModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/BasicValuesProviderBinderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1704918" vertical-offset="0" max-vertical-offset="5202">
+          <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/CachedStringFieldModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.073275864" vertical-offset="0" max-vertical-offset="928">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/DelegateCachedStringFieldModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.073275864" vertical-offset="0" max-vertical-offset="928">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="1064" max-vertical-offset="51085">
+          <caret line="107" column="19" selection-start-line="107" selection-start-column="19" selection-end-line="107" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/IntegerFieldModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.073275864" vertical-offset="0" max-vertical-offset="928">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/binders/IntegerBinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07431694" vertical-offset="0" max-vertical-offset="915">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/annotations/CacheInstruction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.036637932" vertical-offset="0" max-vertical-offset="928">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/annotations/processor/BaseValuesProviderBinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1360">
+          <caret line="82" column="48" selection-start-line="82" selection-start-column="25" selection-end-line="82" selection-end-column="57" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/instantiator/Instantiator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/FieldRepresentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23814656" vertical-offset="0" max-vertical-offset="928">
+          <caret line="13" column="81" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/annotations/QueryKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1648707" vertical-offset="0" max-vertical-offset="928">
+          <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/QueryKeyAnnotationsProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="149" max-vertical-offset="1037">
+          <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/inbound/annotations/processor/QueryKeyAnnotationsProcessorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48706895" vertical-offset="2523" max-vertical-offset="3451">
+          <caret line="175" column="60" selection-start-line="175" selection-start-column="60" selection-end-line="175" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1459,7 +1242,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>CardPlannerFunctionalTests</last-edited>
+          <last-edited>cardplanner</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

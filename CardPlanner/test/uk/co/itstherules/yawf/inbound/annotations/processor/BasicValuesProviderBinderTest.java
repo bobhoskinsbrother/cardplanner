@@ -1,17 +1,12 @@
 package uk.co.itstherules.yawf.inbound.annotations.processor;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.junit.Assert;
 import org.junit.Test;
-
 import uk.co.itstherules.yawf.inbound.MapValuesProvider;
 import uk.co.itstherules.yawf.inbound.binders.objectproviders.ImplementationProviderRegister;
 
+import java.util.*;
+
+import static org.junit.Assert.*;
 
 public class BasicValuesProviderBinderTest {
 
@@ -21,9 +16,9 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe", "cheeseStrings");
 		StringFieldModel model = new StringFieldModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertFalse(violations.isRegistered());
-		Assert.assertEquals("cheeseStrings", model.getString());
-		Assert.assertNull(model.getString2());
+		assertFalse(violations.isRegistered());
+		assertEquals("cheeseStrings", model.getString());
+		assertNull(model.getString2());
     }
 	
 	@Test public void canBindInteger() {
@@ -32,9 +27,9 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe", "42");
 		IntegerFieldModel model = new IntegerFieldModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertFalse(violations.isRegistered());
-		Assert.assertEquals(new Integer(42), model.getInteger());
-		Assert.assertNull(model.getInteger2());
+		assertFalse(violations.isRegistered());
+		assertEquals(new Integer(42), model.getInteger());
+		assertNull(model.getInteger2());
     }
 	
 	
@@ -44,9 +39,9 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe", "badgers");
 		IntegerFieldModel model = new IntegerFieldModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertTrue(violations.isRegistered());
-		Assert.assertEquals(new Integer(0), model.getInteger());
-		Assert.assertNull(model.getInteger2());
+		assertTrue(violations.isRegistered());
+		assertEquals(new Integer(0), model.getInteger());
+		assertNull(model.getInteger2());
     }
 	
 	@Test public void canBindBoolean() {
@@ -55,9 +50,9 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe", "false");
 		BooleanFieldModel model = new BooleanFieldModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertFalse(violations.isRegistered());
-		Assert.assertEquals(Boolean.FALSE, model.getBoolean());
-		Assert.assertNull(model.getBoolean2());
+		assertFalse(violations.isRegistered());
+		assertEquals(Boolean.FALSE, model.getBoolean());
+		assertNull(model.getBoolean2());
     }
 
 	@Test public void cannotBindNonBoolean() {
@@ -66,9 +61,9 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe", "wibble");
 		BooleanFieldModel model = new BooleanFieldModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertTrue(violations.isRegistered());
-		Assert.assertNull(model.getBoolean());
-		Assert.assertNull(model.getBoolean2());
+		assertTrue(violations.isRegistered());
+		assertNull(model.getBoolean());
+		assertNull(model.getBoolean2());
     }
 	
 	
@@ -78,9 +73,9 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe", "42");
 		LongFieldModel model = new LongFieldModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertFalse(violations.isRegistered());
-		Assert.assertEquals(new Long(42), model.getLong());
-		Assert.assertNull(model.getLong2());
+		assertFalse(violations.isRegistered());
+		assertEquals(new Long(42), model.getLong());
+		assertNull(model.getLong2());
     }	
 	
 	@Test public void cannotBindNonLong() {
@@ -89,9 +84,9 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe", "bleh_bump_on_yer_head_like_this");
 		LongFieldModel model = new LongFieldModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertTrue(violations.isRegistered());
-		Assert.assertEquals(new Long(0), model.getLong());
-		Assert.assertNull(model.getLong2());
+		assertTrue(violations.isRegistered());
+		assertEquals(new Long(0), model.getLong());
+		assertNull(model.getLong2());
     }
 	
 	@Test public void canBindDouble() {
@@ -100,9 +95,9 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe", "42");
 		DoubleFieldModel model = new DoubleFieldModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertFalse(violations.isRegistered());
-		Assert.assertEquals(new Double(42), model.getDouble());
-		Assert.assertNull(model.getDouble2());
+		assertFalse(violations.isRegistered());
+		assertEquals(new Double(42), model.getDouble());
+		assertNull(model.getDouble2());
     }	
 	
 	@Test public void cannotBindNonDouble() {
@@ -111,9 +106,9 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe", "bleh_bump_on_yer_head_like_this");
 		DoubleFieldModel model = new DoubleFieldModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertTrue(violations.isRegistered());
-		Assert.assertEquals(new Double(0.0), model.getDouble());
-		Assert.assertNull(model.getDouble2());
+		assertTrue(violations.isRegistered());
+		assertEquals(new Double(0.0), model.getDouble());
+		assertNull(model.getDouble2());
     }
 
 	@Test public void canBindDate() {
@@ -122,14 +117,14 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe", "October 21, 2009");
 		DateFieldModel model = new DateFieldModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertFalse(violations.isRegistered());
+		assertFalse(violations.isRegistered());
 		Date date = model.getDate();
 		Calendar instance = Calendar.getInstance();
 		instance.setTime(date);
-		Assert.assertEquals(Calendar.OCTOBER, instance.get(Calendar.MONTH));
-		Assert.assertEquals(21, instance.get(Calendar.DAY_OF_MONTH));
-		Assert.assertEquals(2009, instance.get(Calendar.YEAR));
-		Assert.assertNull(model.getDate2());
+		assertEquals(Calendar.OCTOBER, instance.get(Calendar.MONTH));
+		assertEquals(21, instance.get(Calendar.DAY_OF_MONTH));
+		assertEquals(2009, instance.get(Calendar.YEAR));
+		assertNull(model.getDate2());
     }	
 	
 	@Test public void cannotBindNonDate() {
@@ -138,9 +133,9 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe", "bleh_bump_on_yer_head_like_this");
 		DateFieldModel model = new DateFieldModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertTrue(violations.isRegistered());
-		Assert.assertNull(model.getDate());
-		Assert.assertNull(model.getDate2());
+		assertTrue(violations.isRegistered());
+		assertNull(model.getDate());
+		assertNull(model.getDate2());
     }
 
 	@Test public void canBindListOfDelegateObjects() {
@@ -153,13 +148,13 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe.4.title", "bed");
 		ListOfDelegateObjectsModel model = new ListOfDelegateObjectsModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertFalse(violations.isRegistered());
+		assertFalse(violations.isRegistered());
 		List<TitleModel> titles = model.getTitles();
-		Assert.assertEquals("every", titles.get(0).getTitle());
-		Assert.assertEquals("dog", titles.get(1).getTitle());
-		Assert.assertEquals("has", titles.get(2).getTitle());
-		Assert.assertEquals("its", titles.get(3).getTitle());
-		Assert.assertEquals("bed", titles.get(4).getTitle());
+		assertEquals("every", titles.get(0).getTitle());
+		assertEquals("dog", titles.get(1).getTitle());
+		assertEquals("has", titles.get(2).getTitle());
+		assertEquals("its", titles.get(3).getTitle());
+		assertEquals("bed", titles.get(4).getTitle());
     }	
 
 	@Test public void canBindListOfDelegateObjectsAFewLayersDeep() {
@@ -187,31 +182,31 @@ public class BasicValuesProviderBinderTest {
 		map.put("delegates.1.delegates.0.title", "pebbles flintstone");
 		RecursiveListOfDelegateObjectsModel model = new RecursiveListOfDelegateObjectsModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertFalse(violations.isRegistered());
+		assertFalse(violations.isRegistered());
 		List<RecursiveListOfDelegateObjectsModel> delegates = model.getDelegates();
 		
-		Assert.assertEquals("flintstone family", model.getTitle());
-		Assert.assertEquals("pebbles flintstone", delegates.get(1).getDelegates().get(0).getTitle());
-		Assert.assertEquals(2, delegates.get(1).getDelegates().get(0).getDelegates().size());
-		Assert.assertEquals("pebbles and bambams love child (obviously when they're a bit older)", delegates.get(1).getDelegates().get(0).getDelegates().get(0).getTitle());
-		Assert.assertEquals("pebbles child after the divorce", delegates.get(1).getDelegates().get(0).getDelegates().get(1).getTitle());
+		assertEquals("flintstone family", model.getTitle());
+		assertEquals("pebbles flintstone", delegates.get(1).getDelegates().get(0).getTitle());
+		assertEquals(2, delegates.get(1).getDelegates().get(0).getDelegates().size());
+		assertEquals("pebbles and bambams love child (obviously when they're a bit older)", delegates.get(1).getDelegates().get(0).getDelegates().get(0).getTitle());
+		assertEquals("pebbles child after the divorce", delegates.get(1).getDelegates().get(0).getDelegates().get(1).getTitle());
 		
-		Assert.assertEquals("fred flintstone", delegates.get(0).getTitle());
-		Assert.assertEquals("wilma flintstone", delegates.get(1).getTitle());
-		Assert.assertEquals("Dino", delegates.get(2).getTitle());
-		Assert.assertEquals("Green", delegates.get(3).getTitle());
-		Assert.assertEquals("Bream", delegates.get(4).getTitle());
-		Assert.assertEquals("Queen", delegates.get(4).getRifle());
-		Assert.assertEquals("Bean", delegates.get(5).getTitle());
-		Assert.assertEquals("Seen", delegates.get(6).getTitle());
-		Assert.assertEquals("Obscene", delegates.get(7).getTitle());
-		Assert.assertEquals("Ream", delegates.get(8).getTitle());
-		Assert.assertEquals("Lean", delegates.get(9).getTitle());
-		Assert.assertEquals("Free", delegates.get(10).getTitle());
-		Assert.assertEquals("Gleen", delegates.get(11).getTitle());
-		Assert.assertEquals("Pee", delegates.get(12).getTitle());
-		Assert.assertEquals("Wii", delegates.get(13).getTitle());
-		Assert.assertEquals("Beam", delegates.get(14).getTitle());
+		assertEquals("fred flintstone", delegates.get(0).getTitle());
+		assertEquals("wilma flintstone", delegates.get(1).getTitle());
+		assertEquals("Dino", delegates.get(2).getTitle());
+		assertEquals("Green", delegates.get(3).getTitle());
+		assertEquals("Bream", delegates.get(4).getTitle());
+		assertEquals("Queen", delegates.get(4).getRifle());
+		assertEquals("Bean", delegates.get(5).getTitle());
+		assertEquals("Seen", delegates.get(6).getTitle());
+		assertEquals("Obscene", delegates.get(7).getTitle());
+		assertEquals("Ream", delegates.get(8).getTitle());
+		assertEquals("Lean", delegates.get(9).getTitle());
+		assertEquals("Free", delegates.get(10).getTitle());
+		assertEquals("Gleen", delegates.get(11).getTitle());
+		assertEquals("Pee", delegates.get(12).getTitle());
+		assertEquals("Wii", delegates.get(13).getTitle());
+		assertEquals("Beam", delegates.get(14).getTitle());
     }
 	
 	@Test public void canBindListOfStrings() {
@@ -220,14 +215,14 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe", "every,dog,has,its,bed");
 		ListOfStringsFieldModel model = new ListOfStringsFieldModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertFalse(violations.isRegistered());
+		assertFalse(violations.isRegistered());
 		List<String> strings = model.getStrings();
-		Assert.assertEquals("every", strings.get(0));
-		Assert.assertEquals("dog", strings.get(1));
-		Assert.assertEquals("has", strings.get(2));
-		Assert.assertEquals("its", strings.get(3));
-		Assert.assertEquals("bed", strings.get(4));
-		Assert.assertNull(model.getStrings2());
+		assertEquals("every", strings.get(0));
+		assertEquals("dog", strings.get(1));
+		assertEquals("has", strings.get(2));
+		assertEquals("its", strings.get(3));
+		assertEquals("bed", strings.get(4));
+		assertNull(model.getStrings2());
     }	
 	
 	@Test public void canBindAnEmptyListOfStrings() {
@@ -236,9 +231,9 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe", "");
 		ListOfStringsFieldModel model = new ListOfStringsFieldModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertFalse(violations.isRegistered());
-		Assert.assertEquals(0, model.getStrings().size());
-		Assert.assertNull(model.getStrings2());
+		assertFalse(violations.isRegistered());
+		assertEquals(0, model.getStrings().size());
+		assertNull(model.getStrings2());
     }
 
 	@Test public void canBindMapOfStrings() {
@@ -247,14 +242,14 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe", "one=every,two=dog,three=has,four=its,five=bed");
 		MapOfStringsFieldModel model = new MapOfStringsFieldModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertFalse(violations.isRegistered());
+		assertFalse(violations.isRegistered());
 		Map<String, String> strings = model.getStrings();
-		Assert.assertEquals("every", strings.get("one"));
-		Assert.assertEquals("dog", strings.get("two"));
-		Assert.assertEquals("has", strings.get("three"));
-		Assert.assertEquals("its", strings.get("four"));
-		Assert.assertEquals("bed", strings.get("five"));
-		Assert.assertNull(model.getStrings2());
+		assertEquals("every", strings.get("one"));
+		assertEquals("dog", strings.get("two"));
+		assertEquals("has", strings.get("three"));
+		assertEquals("its", strings.get("four"));
+		assertEquals("bed", strings.get("five"));
+		assertNull(model.getStrings2());
     }	
 	
 	@Test public void canBindAnEmptyMapOfStrings() {
@@ -263,9 +258,9 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe", "");
 		MapOfStringsFieldModel model = new MapOfStringsFieldModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertFalse(violations.isRegistered());
-		Assert.assertNull(model.getStrings().get(""));
-		Assert.assertNull(model.getStrings2());
+		assertFalse(violations.isRegistered());
+		assertNull(model.getStrings().get(""));
+		assertNull(model.getStrings2());
     }
 	
 	@Test public void canBindEnum() {
@@ -274,10 +269,10 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe", "Maybe");
 		EnumFieldModel model = new EnumFieldModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertFalse(violations.isRegistered());
+		assertFalse(violations.isRegistered());
 		TestEnum reply = model.getEnum();
-		Assert.assertEquals(TestEnum.Maybe, reply);
-		Assert.assertNull(model.getEnum2());
+		assertEquals(TestEnum.Maybe, reply);
+		assertNull(model.getEnum2());
     }	
 	
 	
@@ -287,9 +282,9 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe", "IDontExist");
 		EnumFieldModel model = new EnumFieldModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertTrue(violations.isRegistered());
-		Assert.assertNull(model.getEnum());
-		Assert.assertNull(model.getEnum2());
+		assertTrue(violations.isRegistered());
+		assertNull(model.getEnum());
+		assertNull(model.getEnum2());
     }
 	
 	@Test public void cannotBindAnEmptyEnum() {
@@ -298,9 +293,9 @@ public class BasicValuesProviderBinderTest {
 		map.put("bindToMe", "");
 		EnumFieldModel model = new EnumFieldModel();
 		QueryKeyViolations violations = unit.bind(new MapValuesProvider(map), model, null);
-		Assert.assertTrue(violations.isRegistered());
-		Assert.assertNull(model.getEnum());
-		Assert.assertNull(model.getEnum2());
+		assertTrue(violations.isRegistered());
+		assertNull(model.getEnum());
+		assertNull(model.getEnum2());
     }
 
 }
