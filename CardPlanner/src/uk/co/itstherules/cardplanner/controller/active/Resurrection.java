@@ -1,10 +1,5 @@
 package uk.co.itstherules.cardplanner.controller.active;
 
-import java.io.IOException;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletResponse;
-
 import uk.co.itstherules.cardplanner.model.ResurrectableThing;
 import uk.co.itstherules.cardplanner.model.ResurrectableThings;
 import uk.co.itstherules.cardplanner.view.MergedTextView;
@@ -20,6 +15,10 @@ import uk.co.itstherules.yawf.modelview.ModelViewRegister;
 import uk.co.itstherules.yawf.view.View;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Set;
 
 
 public final class Resurrection extends BaseController {
@@ -52,7 +51,7 @@ public final class Resurrection extends BaseController {
 		ResurrectableThings resurrectableThings = new ResurrectableThings();
 		ResurrectableThing thing = resurrectableThings.get(thingIdentity);
 		Class<? extends IdentityDeleteable<?>> classType = thing.get();
-		IdentityDeleteable<?> retrieved = objectCache.retrieveByIdentity(classType, provider.getIdentity());
+		IdentityDeleteable<?> retrieved = objectCache.retrieveByIdentity(classType, provider.getIdentity(), ObjectState.Deleted);
 		retrieved.activate();
 		objectCache.save(retrieved);
 		response.sendRedirect(response.encodeRedirectURL(listUrl("index.xhtml", thing.getIdentity(), provider.getApplicationRoot())));

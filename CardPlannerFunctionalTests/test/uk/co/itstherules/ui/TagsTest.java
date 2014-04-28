@@ -111,16 +111,4 @@ public class TagsTest {
     }
 
 
-
-    @Test
-    public void deleteTag() throws Exception {
-        new DataFixtures().saveTag("Delete Me Tag");
-        TagsPage tagsPage = new TagsPage(pageLookup, uri.toString());
-        tagsPage.navigateTo("0");
-        tagsPage.confirmAs(true);
-        pageLookup.findElement(By.name("deleteButton")).click();
-        assertFalse(tagsPage.containsText("Delete Me Tag", 1000));
-    }
-
-
 }

@@ -69,4 +69,12 @@ public class StoryBoardPage extends CardManipulationPage<StoryBoardPage> {
         }
         return this;
     }
+
+    public void deleteCard(String cardId) {
+        openBacklog();
+        driver.findElement(By.className("card_info")).click();
+        String deleteButtonId = "delete_card_button" + cardId;
+        confirmAs(true);
+        driver.findElement(By.id(deleteButtonId)).click();
+    }
 }

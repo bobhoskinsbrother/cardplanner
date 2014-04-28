@@ -24,7 +24,7 @@ First of all select the type of thing you want to resurrect (be it a Status, or 
 <input type="hidden" name="type" value="${resurrectableThing.identity}" />
 <div class="not_draggable" style="float:left; margin-right: 4px;">
 <div style="height:48px; overflow:hidden;"><strong>${abbreviator.abbreviate(thing.title, 5)}</strong></div>
-<input type="image" value="UnDelete" src="${tagBuilder.showUrl("Images","undelete.png")}"/>
+<input id="undelete_${thing.identity}" type="image" value="UnDelete" src="${tagBuilder.showUrl("Images","undelete.png")}"/>
 </div>
 </form>
 </#list>
