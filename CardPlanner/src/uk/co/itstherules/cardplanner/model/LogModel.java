@@ -3,6 +3,7 @@ package uk.co.itstherules.cardplanner.model;
 import net.sf.oval.constraint.NotNull;
 import uk.co.itstherules.yawf.model.IdentityDeleteable;
 import uk.co.itstherules.yawf.model.IdentityGenerator;
+import uk.co.itstherules.yawf.model.ObjectState;
 import uk.co.itstherules.yawf.model.persistence.ObjectCache;
 import uk.co.itstherules.yawf.model.serializer.Json;
 
@@ -18,6 +19,7 @@ public final class LogModel implements IdentityDeleteable<LogModel>, Comparable<
     @OneToOne(cascade = CascadeType.ALL) @NotNull private StatusModel fromStatus;
     @OneToOne(cascade = CascadeType.ALL) @NotNull private StatusModel toStatus;
     @Temporal(TemporalType.TIMESTAMP) @NotNull private Date date;
+    @Enumerated(EnumType.STRING) protected ObjectState objectState;
     @NotNull private String action;
 
     public LogModel() {}
@@ -29,6 +31,7 @@ public final class LogModel implements IdentityDeleteable<LogModel>, Comparable<
         this.toStatus = toStatus;
         this.action = action;
 		this.date = new Date(GregorianCalendar.getInstance().getTimeInMillis());
+        this.objectState = ObjectState.Active;
 	}
 
 	public Date getDate() { return date; }

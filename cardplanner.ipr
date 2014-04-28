@@ -191,7 +191,9 @@
         <root url="jar://$PROJECT_DIR$/libs/test/functional/selenium-remote-driver-2.41.0.jar!/" />
       </CLASSES>
       <JAVADOC />
-      <SOURCES />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ideaLibSources/selenium-api-2.41.0-sources.jar!/" />
+      </SOURCES>
     </library>
     <library name="release_libs">
       <CLASSES>

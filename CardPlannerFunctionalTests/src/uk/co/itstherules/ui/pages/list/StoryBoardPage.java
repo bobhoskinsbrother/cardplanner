@@ -30,10 +30,10 @@ public class StoryBoardPage extends CardManipulationPage<StoryBoardPage> {
 	}
 
     
-    public StoryBoardPage dragOnto(String columnIdentity, String cardIdentity) {
-        WebElement toDrag = driver.findElement(By.id(cardIdentity));
-		WebElement column = driver.findElement(By.id(columnIdentity));
-        return dragOnto(toDrag, column);
+    public StoryBoardPage dragOnto(String toDragId, String toDragOntoId) {
+        WebElement toDrag = driver.findElement(By.id(toDragId));
+		WebElement toDragOnto = driver.findElement(By.id(toDragOntoId));
+        return dragOnto(toDrag, toDragOnto);
 	}
 
 	public StoryBoardPage selectSwimLaneAmount(int swimLaneAmount) {
@@ -60,4 +60,13 @@ public class StoryBoardPage extends CardManipulationPage<StoryBoardPage> {
 	    return "StoryBoard";
     }
 
+    public StoryBoardPage openBacklog() {
+        driver.findElement(By.id("backlog_tab")).click();
+        try {
+            Thread.sleep(750);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        return this;
+    }
 }

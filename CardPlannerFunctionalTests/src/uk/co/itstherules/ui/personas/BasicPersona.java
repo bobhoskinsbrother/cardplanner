@@ -202,22 +202,22 @@ public class BasicPersona extends BaseBasicPersona<Page<?>> implements Editor, V
     }
 
 	public StoryBoardPage dragCardOntoCardPlannerBacklog(StoryBoardPage cardPlanner) {
-		cardPlanner.dragOnto(personaData.getCardPlannerBacklogIdentity(), personaData.getFirstCard());
+		cardPlanner.dragOnto(personaData.getFirstCard(), personaData.getCardPlannerBacklogIdentity());
 		return cardPlanner;
     }
 
 	public StoryBoardPage dragCardOntoFirstCardPlannerColumn(StoryBoardPage cardPlanner, int rowNumber) {
-		cardPlanner.dragOnto(personaData.getFirstCardPlannerColumnIdentity(rowNumber), personaData.getFirstCard());
+		cardPlanner.dragOnto(personaData.getFirstCard(), personaData.getFirstCardPlannerColumnIdentity(rowNumber));
 		return cardPlanner;
     }
 	
 	public StoryBoardPage dragCardOntoSecondCardPlannerColumn(StoryBoardPage cardPlanner, int rowNumber) {
-		cardPlanner.dragOnto(personaData.getSecondCardPlannerColumnIdentity(rowNumber), personaData.getFirstCard());
+		cardPlanner.dragOnto(personaData.getFirstCard(), personaData.getSecondCardPlannerColumnIdentity(rowNumber));
 		return cardPlanner;
     }
 	
 	public StoryBoardPage dragCardOntoThirdCardPlannerColumn(StoryBoardPage cardPlanner, int rowNumber) {
-		cardPlanner.dragOnto(personaData.getThirdCardPlannerColumnIdentity(rowNumber), personaData.getFirstCard());
+		cardPlanner.dragOnto(personaData.getFirstCard(), personaData.getThirdCardPlannerColumnIdentity(rowNumber));
 		return cardPlanner;
     }
 

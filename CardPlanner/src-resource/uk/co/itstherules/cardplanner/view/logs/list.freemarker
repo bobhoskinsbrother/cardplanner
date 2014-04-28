@@ -2,14 +2,16 @@
 <table class="log_table">
 <tr>
 <th>Card</th>
-<th>Status</th>
+<th>From Status</th>
+<th>To Status</th>
 <th>Action</th>
 <th>Date</th>
 </tr>
 <#list logs as log>
 <tr>
 <td>${log.card.title?html}</td>
-<td>${log.status.title?html}</td>
+<td>${log.fromStatus.title?html}</td>
+<td>${log.toStatus.title?html}</td>
 <td>${log.action}</td>
 <td>${log.date?datetime}</td>
 </tr>
