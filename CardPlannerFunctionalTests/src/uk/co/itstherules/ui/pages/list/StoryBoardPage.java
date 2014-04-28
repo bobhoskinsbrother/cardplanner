@@ -1,23 +1,22 @@
 package uk.co.itstherules.ui.pages.list;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-
 import uk.co.itstherules.ui.functions.Wait;
 
-public class CardPlannerPage extends CardManipulationPage<CardPlannerPage> {
+import java.util.List;
+
+public class StoryBoardPage extends CardManipulationPage<StoryBoardPage> {
 
 
-	public CardPlannerPage(String appRoot, WebDriver driver) {
+	public StoryBoardPage(String appRoot, WebDriver driver) {
 		super(appRoot, driver);
     }
 
-	public CardPlannerPage dragOnto(WebElement toDrag, WebElement toDragOnto) {
+	public StoryBoardPage dragOnto(WebElement toDrag, WebElement toDragOnto) {
 		Actions builder = new Actions(driver);
 		Action dragAndDrop = builder.clickAndHold(toDrag).moveToElement(toDragOnto).release(toDragOnto).build();
 		dragAndDrop.perform();
@@ -31,43 +30,13 @@ public class CardPlannerPage extends CardManipulationPage<CardPlannerPage> {
 	}
 
     
-    public CardPlannerPage dragOnto(String columnIdentity, String cardIdentity) {
+    public StoryBoardPage dragOnto(String columnIdentity, String cardIdentity) {
+        WebElement toDrag = driver.findElement(By.id(cardIdentity));
 		WebElement column = driver.findElement(By.id(columnIdentity));
-		WebElement card = driver.findElement(By.id(cardIdentity));
-		WebElement toDrag = card;
-		WebElement toDragOnto = column;
-		Actions builder = new Actions(driver);
-		Action dragAndDrop = builder.clickAndHold(toDrag).moveToElement(toDragOnto).release(toDragOnto).build();
-		dragAndDrop.perform();
-		try {
-			//TODO: a less horrible way to handle AJAX events
-	        Thread.sleep(750);
-        } catch (InterruptedException e) {
-	        throw new RuntimeException(e);
-        }
-		return this;
+        return dragOnto(toDrag, column);
 	}
 
-	public boolean columnContainsCard(String columnIdentity, String cardIdentity) {
-		WebElement column = driver.findElement(By.id(columnIdentity));
-		try {
-			column.findElement(By.id(cardIdentity));
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
-    }
-
-	public boolean swimLaneExists(String column) {
-		try {
-			driver.findElement(By.id(column));
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
-    }
-
-	public CardPlannerPage selectSwimLaneAmount(int swimLaneAmount) {
+	public StoryBoardPage selectSwimLaneAmount(int swimLaneAmount) {
 		String stringLaneAmount = String.valueOf(swimLaneAmount);
 		WebElement swimLaneAmountSelect = driver.findElement(By.id("selectSwimLaneAmount"));
 		List<WebElement> options = swimLaneAmountSelect.findElements(By.tagName("option"));
@@ -83,12 +52,12 @@ public class CardPlannerPage extends CardManipulationPage<CardPlannerPage> {
 
 	@Override
     public String getAction() {
-	    return "List";
+	    return "Show";
     }
 
 	@Override
     public String getController() {
-	    return "CardPlanner";
+	    return "StoryBoard";
     }
 
 }

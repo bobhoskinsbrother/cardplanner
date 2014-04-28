@@ -1,32 +1,33 @@
 var SideBarView = {
-		
-	isExtended: false,
-	
-	toggle: function() {
-		if(SideBarView.isExtended == false) {
-			SideBarView.extend();
-		} else {
-			SideBarView.retract();
-		}
-	},
-	
-	extend: function() {
-		new Effect.BlindDown($('sideBarContents'), {scaleX: 'true', scaleY: 'true;', scaleContent: false });
-		$('sideBarTabImage').src = $('sideBarTabImage').src.replace(/(\.[^.]+)$/, '_active$1');
-		new Effect.Fade('sideBarContents', { duration:1.0, from:0.0, to:1.0 });
-		SideBarView.isExtended = true;
-	},
 
-	retract: function() {
-		new Effect.BlindUp($('sideBarContents'), {scaleX: 'true', scaleY: 'true;', scaleContent: false, afterFinish: function() { Event.observe($('sideBarTab'), 'click', SideBarView.extend, true); }});
-		$('sideBarTabImage').src = $('sideBarTabImage').src.replace(/_active(\.[^.]+)$/, '$1');
-		new Effect.Fade('sideBarContents', { duration:1.0, from:1.0, to:0.0 });
-		SideBarView.isExtended=false;
-	},
-	
-	initialize: function() {
-		Event.observe($('sideBarTab'), 'click', SideBarView.toggle, true);
-	}
-}
-
+    isExtended: false,
+    toggle: function () {
+        if (SideBarView.isExtended == false) {
+            SideBarView.extend();
+        } else {
+            SideBarView.retract();
+        }
+    },
+    extend: function () {
+        new Effect.BlindDown($('sideBarContents'), { duration: 0.3, scaleX: 'true', scaleY: 'true;', scaleContent: false });
+        var tab = $('sideBarTab');
+        tab.addClassName("sidebar_tab_image_active");
+        tab.removeClassName("sidebar_tab_image");
+        new Effect.Fade('sideBarContents', { duration: 0.3, from: 0.0, to: 1.0 });
+        SideBarView.isExtended = true;
+    },
+    retract: function () {
+        new Effect.BlindUp($('sideBarContents'), { duration: 0.3, scaleX: 'true', scaleY: 'true;', scaleContent: false });
+        var tab = $('sideBarTab');
+        tab.addClassName("sidebar_tab_image");
+        tab.removeClassName("sidebar_tab_image_active");
+        new Effect.Fade('sideBarContents', { duration: 0.3, from: 1.0, to: 0.0 });
+        SideBarView.isExtended = false;
+    },
+    initialize: function () {
+        var tab = $('sideBarTab');
+        Event.observe(tab, 'click', SideBarView.toggle, true);
+        Event.observe(tab, 'touchstart', SideBarView.toggle, true);
+    }
+};
 Event.observe(window, 'dom:loaded', SideBarView.initialize, true);

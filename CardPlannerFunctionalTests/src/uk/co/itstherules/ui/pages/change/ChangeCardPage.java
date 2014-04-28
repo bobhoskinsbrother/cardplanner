@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import uk.co.itstherules.ui.pages.Page;
-import uk.co.itstherules.ui.pages.list.CardPlannerPage;
+import uk.co.itstherules.ui.pages.list.StoryBoardPage;
 import uk.co.itstherules.ui.pages.list.CardsPage;
 
 public class ChangeCardPage extends Page<ChangeCardPage> {
@@ -65,7 +65,7 @@ public class ChangeCardPage extends Page<ChangeCardPage> {
         if (driver.getTitle().contains("List Cards")) {
             return new CardsPage(appRoot, driver);
         } else if (driver.getTitle().contains("Plan Cards")) {
-            return new CardPlannerPage(appRoot, driver);
+            return new StoryBoardPage(appRoot, driver);
         } else {
             return this;
         }

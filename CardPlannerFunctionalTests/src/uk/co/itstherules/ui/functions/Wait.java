@@ -1,7 +1,9 @@
 package uk.co.itstherules.ui.functions;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.text.MessageFormat;
 import java.util.Calendar;
@@ -27,6 +29,20 @@ public class Wait {
         forQuestion(driver, question, finderType, millis);
     }
 
+    public static void untilElementIsGone(WebDriver driver, By finderType, long millis) {
+        Question<By> question = new Question<By>() {
+            public boolean isAnswered(WebDriver driver, By by) throws Exception {
+                try {
+                    WebElement element = driver.findElement(by);
+                    return !element.isDisplayed();
+                } catch (NoSuchElementException e) {
+                    return true;
+                }
+            }
+        };
+        forQuestion(driver, question, finderType, millis);
+    }
+
     public static void forElement(WebDriver driver, By finderType, long millis) {
         Question<By> question = new Question<By>() {
             public boolean isAnswered(WebDriver driver, By by) throws Exception {
@@ -47,7 +63,7 @@ public class Wait {
         forQuestion(driver, question, frameIdentity, millis);
     }
 
-    public static void forTitle(WebDriver driver, String title, final long millis) {
+    public static void forPageWithTitle(WebDriver driver, String title, final long millis) {
         Question<String> question = new Question<String>() {
             public boolean isAnswered(WebDriver driver, String title) throws Exception { return title.equals(driver.getTitle()); }
         };
@@ -71,21 +87,23 @@ public class Wait {
                 if (question.isAnswered(driver, object)) {
                     return;
                 } else {
-                    Thread.sleep(50);
-                    current = Calendar.getInstance().getTimeInMillis();
-                    System.out.println("Retrying browser at " + Calendar.getInstance().getTime());
+                    current = sleepABit();
                 }
             } catch (Exception e) {
                 try {
-                    Thread.sleep(50);
-                    current = Calendar.getInstance().getTimeInMillis();
-                    System.out.println("Retrying browser at " + Calendar.getInstance().getTime());
+                    current = sleepABit();
                 } catch (InterruptedException e1) {
                     throw new RuntimeException(e);
                 }
             }
         }
         throw new RuntimeException(MessageFormat.format("Timed out after {0} milliseconds", millis));
+    }
+
+    private static long sleepABit() throws InterruptedException {
+        Thread.sleep(50);
+        System.out.println("Retrying browser at " + Calendar.getInstance().getTime());
+        return Calendar.getInstance().getTimeInMillis();
     }
 
     private interface Question<T> {

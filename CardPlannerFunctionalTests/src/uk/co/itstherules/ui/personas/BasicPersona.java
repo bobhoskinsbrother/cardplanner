@@ -201,29 +201,29 @@ public class BasicPersona extends BaseBasicPersona<Page<?>> implements Editor, V
 		return personaData.getCardPlannerBacklogIdentity();
     }
 
-	public CardPlannerPage dragCardOntoCardPlannerBacklog(CardPlannerPage cardPlanner) {
+	public StoryBoardPage dragCardOntoCardPlannerBacklog(StoryBoardPage cardPlanner) {
 		cardPlanner.dragOnto(personaData.getCardPlannerBacklogIdentity(), personaData.getFirstCard());
 		return cardPlanner;
     }
 
-	public CardPlannerPage dragCardOntoFirstCardPlannerColumn(CardPlannerPage cardPlanner, int rowNumber) {
+	public StoryBoardPage dragCardOntoFirstCardPlannerColumn(StoryBoardPage cardPlanner, int rowNumber) {
 		cardPlanner.dragOnto(personaData.getFirstCardPlannerColumnIdentity(rowNumber), personaData.getFirstCard());
 		return cardPlanner;
     }
 	
-	public CardPlannerPage dragCardOntoSecondCardPlannerColumn(CardPlannerPage cardPlanner, int rowNumber) {
+	public StoryBoardPage dragCardOntoSecondCardPlannerColumn(StoryBoardPage cardPlanner, int rowNumber) {
 		cardPlanner.dragOnto(personaData.getSecondCardPlannerColumnIdentity(rowNumber), personaData.getFirstCard());
 		return cardPlanner;
     }
 	
-	public CardPlannerPage dragCardOntoThirdCardPlannerColumn(CardPlannerPage cardPlanner, int rowNumber) {
+	public StoryBoardPage dragCardOntoThirdCardPlannerColumn(StoryBoardPage cardPlanner, int rowNumber) {
 		cardPlanner.dragOnto(personaData.getThirdCardPlannerColumnIdentity(rowNumber), personaData.getFirstCard());
 		return cardPlanner;
     }
 
-	public CardPlannerPage selectSwimLaneAmount(CardPlannerPage cardPlannerPage, int swimLaneAmount) {
-		cardPlannerPage.selectSwimLaneAmount(swimLaneAmount);
-		return cardPlannerPage;
+	public StoryBoardPage selectSwimLaneAmount(StoryBoardPage storyBoardPage, int swimLaneAmount) {
+		storyBoardPage.selectSwimLaneAmount(swimLaneAmount);
+		return storyBoardPage;
     }
 
 	public CardAttachmentsPage uploadWith(CardAttachmentsPage page, String filePath) {

@@ -1,5 +1,6 @@
 package uk.co.itstherules.ui.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -50,11 +51,6 @@ public abstract class Page<T> implements Navigable<T> {
 	public boolean containsText(String text) {
 		return containsText(text, 1000);
 	}
-	
-	protected boolean displaysErrorFor(WebElement element) {
-		String classAttribute = element.getAttribute("class");
-		return classAttribute.contains("errorbackground") && classAttribute.contains("errorborder");
-    }
 
 	public boolean containsText(String text, long waitPeriod) {
 		try {
@@ -79,13 +75,15 @@ public abstract class Page<T> implements Navigable<T> {
 	    ((JavascriptExecutor)driver).executeScript("window.confirm = function(msg){ return "+String.valueOf(confirm)+"; };");
 	}
 
-	public boolean containsTextBeforeText(String textExpectedFirst, String textExpectedSecond) {
-		return driver.getPageSource().indexOf(textExpectedFirst) < driver.getPageSource().indexOf(textExpectedSecond);
-    }
-
 	public void scrollTo(int pixels) {
 		//more hacky crap to scrollTo on the page
 	    ((JavascriptExecutor)driver).executeScript("scrollTo(0, "+String.valueOf(pixels)+");");
     }
+
+    public void clickLinksTab() {
+        final WebElement sideTab = driver.findElement(By.id("sideBarTab"));
+        sideTab.click();
+    }
+
 
 }

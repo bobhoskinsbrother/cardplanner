@@ -521,9 +521,19 @@ div.autocomplete ul li {
 	width:34px;
 }
 
-#sideBarTab img {
+.sidebar_tab_image,.sidebar_tab_image_active {
 	border:0px solid #FFFFFF;
 	top: 75px;
+    width: 34px;
+    height: 163px;
+}
+
+.sidebar_tab_image {
+    background-image: url('${tagBuilder.showImageUrl("links.png")}');
+}
+
+.sidebar_tab_image_active {
+    background-image: url('${tagBuilder.showImageUrl("links_active.png")}');
 }
 
 #sideBarContents{

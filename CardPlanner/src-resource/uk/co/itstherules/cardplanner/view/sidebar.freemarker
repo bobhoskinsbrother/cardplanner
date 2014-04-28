@@ -1,5 +1,5 @@
 <div id="sideBar" class="centre">
-    <a href="javascript:void(0);" id="sideBarTab">${tagBuilder.showImage("links.png", {"alt":"Side Bar", "id":"sideBarTabImage"})}</a>
+    <div id="sideBarTab" class="sidebar_tab_image"> </div>
     <div id="sideBarContents" style="display:none;">
         <div id="sideBarContentsInner">
             <table border="0" cellpadding="0" cellspacing="0" style="width:272px;">
