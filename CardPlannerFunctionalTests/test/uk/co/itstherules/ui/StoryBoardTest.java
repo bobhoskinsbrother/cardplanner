@@ -16,7 +16,6 @@ import static uk.co.itstherules.cardplanner.server.CardPlannerConfigBuilder.Targ
 
 public class StoryBoardTest {
 
-
     private static WebDriver pageLookup;
     private static CardPlannerServer server;
     private static URI uri;

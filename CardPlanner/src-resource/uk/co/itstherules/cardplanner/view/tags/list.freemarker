@@ -1,5 +1,5 @@
 <h2>Tags
-${tagBuilder.addLink("Tags", "index.xhtml", tagBuilder.showImage("tag_add.png", {"style":"border:1px solid #BBBBBB;"}), {}, {"class":"lightwindow", "params":"lightwindow_type=external,lightwindow_width=722,lightwindow_height=510"})}
+${tagBuilder.addLink("Tags", "index.xhtml", tagBuilder.showImage("tag_add.png", {"style":"border:1px solid #BBBBBB;"}), {}, { "id":"addTag", "class":"lightwindow", "params":"lightwindow_type=external,lightwindow_width=722,lightwindow_height=510"})}
 </h2>
 <#assign count = 0 />
 <#list tags as tag>

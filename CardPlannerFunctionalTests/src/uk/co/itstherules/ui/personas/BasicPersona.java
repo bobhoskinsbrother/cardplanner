@@ -32,30 +32,30 @@ public class BasicPersona extends BaseBasicPersona<Page<?>> implements Editor, V
 		return edit(changeable);
 	}
 
-	private Page<?> change(ChangeCardPage changeable) {
+	private Page<?> change(ChangeCardPage changeCardPage) {
 		String title = personaData.getCardTitle();
 		String body = personaData.getCardBody();
 		String effortAmount = personaData.getEffortAmount();
 		String valueAmount = personaData.getValueAmount();
 		String[] tags = personaData.getTags();
 		if (!"".equals(title)) {
-			changeable = changeable.setTitle(title);
+			changeCardPage = changeCardPage.setTitle(title);
 		}
 		if (!"".equals(body)) {
-			changeable = changeable.setBody(body);
+			changeCardPage = changeCardPage.setBody(body);
 		}
 		if (!"".equals(effortAmount)) {
-			changeable = changeable.setEffortAmount(effortAmount);
+			changeCardPage = changeCardPage.setEffortAmount(effortAmount);
 		}
 		if (!"".equals(valueAmount)) {
-			changeable = changeable.setValueAmount(valueAmount);
+			changeCardPage = changeCardPage.setValueAmount(valueAmount);
 		}
 		if (tags.length>0) {
 			for (String tag : tags) {
-				changeable = changeable.addTag(tag);
+				changeCardPage = changeCardPage.addTag(tag);
 			}
 		}
-		return changeable.clickComplete();
+		return changeCardPage.clickComplete();
 	}
 
 	private StatusesPage change(ChangeStatusPage addStatusPage) {

@@ -2,6 +2,7 @@ package uk.co.itstherules.ui.functions;
 
 import uk.co.itstherules.cardplanner.model.CardModel;
 import uk.co.itstherules.cardplanner.model.CardTypeModel;
+import uk.co.itstherules.cardplanner.model.TagModel;
 import uk.co.itstherules.cardplanner.model.type.EffortTypeModel;
 import uk.co.itstherules.yawf.MapBuilder;
 import uk.co.itstherules.yawf.inbound.MapValuesProvider;
@@ -66,4 +67,10 @@ public class DataFixtures {
         }
     }
 
+    public TagModel saveTag(String title) {
+        TagModel tag = new TagModel().defaultSetup(objectCache);
+        Map<String, Object> map = new MapBuilder<String, Object>().put("title", title).build();
+        bindAndSave(tag, map);
+        return tag;
+    }
 }

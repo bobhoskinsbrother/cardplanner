@@ -1,12 +1,11 @@
 package uk.co.itstherules.cardplanner.model;
 
-import java.util.Set;
+import uk.co.itstherules.yawf.model.IdentifiableDeleteableModel;
+import uk.co.itstherules.yawf.model.persistence.ObjectCache;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-
-import uk.co.itstherules.yawf.model.IdentifiableDeleteableModel;
-import uk.co.itstherules.yawf.model.persistence.ObjectCache;
+import java.util.Set;
 
 @Entity
 public final class TagModel extends IdentifiableDeleteableModel<TagModel> {
@@ -16,7 +15,6 @@ public final class TagModel extends IdentifiableDeleteableModel<TagModel> {
 	@ManyToMany(mappedBy="tags") private Set<CardModel> cards;
 	
     public TagModel defaultSetup(ObjectCache objectCache) {
-		this.setIdentity("0");
 		this.setTitle("");
 		this.setSortOrder(0);
 		return this;
@@ -30,11 +28,6 @@ public final class TagModel extends IdentifiableDeleteableModel<TagModel> {
 
 	@Override
 	public String toString() {
-		StringBuffer buffer = new StringBuffer();
-		buffer.append(getIdentity());
-		buffer.append(getTitle());
-		buffer.append(", ");
-		buffer.append(getSortOrder());
-		return buffer.toString();
+        return new StringBuilder(getIdentity()).append(getTitle()).append(", ").append(getSortOrder()).toString();
 	}
 }
