@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e2a0034-e6b2-49ad-a351-34b4f927d7b9" name="Default" comment="BMH: adding double click feature on cards">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/IdentifiableDeleteableModel.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/IdentifiableDeleteableModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/StoryBoardTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/StoryBoardTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/TagsTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/TagsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/junit/extension/WebDriverInstance.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/junit/extension/WebDriverInstance.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cardplanner.ipr" afterPath="$PROJECT_DIR$/cardplanner.ipr" />
+    <list default="true" id="8e2a0034-e6b2-49ad-a351-34b4f927d7b9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cardplanner.iws" afterPath="$PROJECT_DIR$/cardplanner.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/storyboard_viewer_1_0.js" afterPath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/storyboard_viewer_1_0.js" />
     </list>
     <ignored path="cardplanner.iws" />
     <ignored path=".idea/workspace.xml" />
