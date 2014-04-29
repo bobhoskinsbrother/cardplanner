@@ -2,7 +2,6 @@ package uk.co.itstherules.junit.extension;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
 
 public class WebDriverInstance {
 
@@ -28,9 +27,6 @@ public class WebDriverInstance {
 
     private static void init() {
         if (DRIVER == null) {
-//            FirefoxProfile profile = new FirefoxProfile();
-//            profile.setEnableNativeEvents(true);
-//            WebDriverInstance.DRIVER = new FirefoxDriver(profile);
             WebDriverInstance.DRIVER = new FirefoxDriver();
         }
     }
