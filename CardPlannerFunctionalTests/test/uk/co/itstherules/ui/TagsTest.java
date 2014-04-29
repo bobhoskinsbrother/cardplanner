@@ -2,6 +2,7 @@ package uk.co.itstherules.ui;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -91,6 +92,35 @@ public class TagsTest {
 
         tagsPage.focus();
         Wait.forText(pageLookup, "I'm Another Tag", 5000);
+
+    }
+
+    @Ignore @Test
+    public void cannotDuplicateTag() throws Exception {
+        TagsPage tagsPage = new TagsPage(pageLookup, uri.toString());
+        tagsPage.navigateTo("0");
+        Wait.forText(pageLookup, "Tags", 5000);
+
+        tagsPage.clickOnAdd();
+
+        Wait.forFrame(pageLookup, Constants.LIGHTWINDOW_IFRAME, 5000);
+        Wait.forElement(pageLookup, By.id("title"), 5000);
+
+        tagsPage.setTitle("I'm A Tag");
+        tagsPage.completeAction();
+        tagsPage.focus();
+
+        Wait.forText(pageLookup, "I'm A Tag", 5000);
+
+        tagsPage.clickOnAdd();
+
+        Wait.forFrame(pageLookup, Constants.LIGHTWINDOW_IFRAME, 5000);
+        Wait.forElement(pageLookup, By.id("title"), 5000);
+
+        tagsPage.setTitle("I'm A Tag");
+        tagsPage.completeAction();
+
+        Wait.forText(pageLookup, "This tag is a duplicate", 5000);
 
     }
 

@@ -162,7 +162,7 @@ var StoryBoard = {
             },
 
             toggle: function() {
-                Effect.toggle(StoryBoard.Backlog.View.backlogContents(), 'blind', { scaleContent: false });
+                Effect.toggle(StoryBoard.Backlog.View.backlogContents(), 'blind', { duration:0.3, scaleContent: false });
                 if (StoryBoard.Backlog.Controller.isActive) {
                     StoryBoard.Backlog.Controller.inActive();
                 } else {
@@ -301,6 +301,7 @@ var StoryBoard = {
 
             build: function(card) {
                 var cardInnerView = View.build('div', { 'id':'_inner_' + card.identity, 'class': 'medium_size_card_background'}, card.title);
+                Event.observe(cardInnerView, 'dblclick', StoryBoard.Card.Controller.doubleClick);
                 var cardView = View.build('div', { 'id':'_' + card.identity, 'title': card.title, 'class': 'medium_size_card shadow', 'style':'background: ' + card.type.colour + ';'});
                 cardView.appendChild(cardInnerView);
                 StoryBoard.Card.InfoButton.View.addTo(cardView);
@@ -323,6 +324,12 @@ var StoryBoard = {
         },
 
         Controller: {
+
+            doubleClick: function(event){
+                var target = event.target;
+                var identity = target.getAttribute("id").substr("_inner_".length);
+                StoryBoard.Card.Controller.Show.now(identity);
+            },
 
             add: function(identity, title) {
                 Document.Comms.PopOver.Controller.show('Add Card','StoryBoard','AddCard','0','index.xhtml','cardIdentity=' + identity + '&cardTitle=' + encodeURIComponent(title));
@@ -351,7 +358,7 @@ var StoryBoard = {
                     'status.identity': statusIdentity,
                     'x': cardDimensions.x,
                     'y': cardDimensions.y
-                }
+                };
 
                 var cardX = cardDimensions.x - boardDimensions.x, cardY = cardDimensions.y - boardDimensions.y
                 cardView.setStyle({'left': cardX+'px', 'top': cardY+'px' });
@@ -376,7 +383,7 @@ var StoryBoard = {
                     'status.identity': statusIdentity,
                     'x': cardX,
                     'y': cardY
-                }
+                };
                 StoryBoard.Card.Controller.Save.now(parameters);
                 cardView.setStyle({'left': cardX+'px', 'top': cardY+'px' });
                 cardView.parentNode.removeChild(cardView);
@@ -517,7 +524,7 @@ var StoryBoard = {
                     Document.Comms.Notification.Controller.show('The card \'' + card.title + '\' has been added');
                     StoryBoard.Card.View.initialize([card]);
                 },
-                delete: function(card) {
+                "delete": function(card) {
                     Document.Comms.Notification.Controller.show('The card \'' + card.title + '\' has been deleted');
                     $('_' + card.identity).remove();
                 },

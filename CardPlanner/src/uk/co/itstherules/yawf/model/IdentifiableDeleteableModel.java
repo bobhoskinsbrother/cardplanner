@@ -11,6 +11,7 @@ import javax.persistence.MappedSuperclass;
 
 import net.sf.oval.constraint.NotBlank;
 import net.sf.oval.constraint.NotNull;
+import uk.co.itstherules.yawf.assertion.Assertion;
 import uk.co.itstherules.yawf.inbound.annotations.QueryKey;
 import uk.co.itstherules.yawf.model.serializer.Json;
 
@@ -78,7 +79,8 @@ public abstract class IdentifiableDeleteableModel<T> implements Entity<T>, Compa
 	public void setAdded(Date added) { this.added = added; }
 
 	public int compareTo(Entity<T> other) {
-		String identity = this.getIdentity();
+        Assertion.checkNotNull(other);
+        String identity = this.getIdentity();
 		String otherIdentity = other.getIdentity();
 		return identity.compareTo(otherIdentity);
 	}

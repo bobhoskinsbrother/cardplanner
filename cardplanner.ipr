@@ -20,6 +20,7 @@
       </profile>
     </annotationProcessing>
   </component>
+  <component name="CopyrightManager" default="" />
   <component name="DependencyValidationManager">
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
@@ -31,6 +32,7 @@
     <type id="Osmorc" />
     <type id="web" />
   </component>
+  <component name="IdProvider" IDEtalkID="C6F55B79390EAC1624C08B2B958B342B" />
   <component name="Palette2">
     <group name="Swing">
       <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.png" removable="false" auto-create-binding="false" can-attach-label="false">
@@ -193,6 +195,8 @@
       <JAVADOC />
       <SOURCES>
         <root url="jar://$USER_HOME$/.ideaLibSources/selenium-api-2.41.0-sources.jar!/" />
+        <root url="jar://$USER_HOME$/.ideaLibSources/selenium-firefox-driver-2.41.0-sources.jar!/" />
+        <root url="jar://$USER_HOME$/.ideaLibSources/selenium-remote-driver-2.41.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="release_libs">
