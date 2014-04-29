@@ -55,7 +55,7 @@ public class DoubleClickCardTest {
         page.toggleBacklog();
         Wait.forElement(pageLookup, By.id(cardId), 1000);
         WebElement element = pageLookup.findElement(By.id(cardId));
-        String targetPanelId = "_1e5da83b-0a9d-4428-af28-7187b8718d2b";
+        String targetPanelId = TestConstants.IN_PROGRESS_HOTSPOT_ID;
         page.dragOnto(cardId, targetPanelId);
         Actions actions = new Actions(pageLookup);
         Action action = actions.doubleClick(element).build();

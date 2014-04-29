@@ -48,7 +48,7 @@ public class LogsTest {
         page.toggleBacklog();
         Wait.forElement(pageLookup, By.id(cardId), 1000);
 
-        String targetPanelId = "_1e5da83b-0a9d-4428-af28-7187b8718d2b";
+        String targetPanelId = TestConstants.IN_PROGRESS_HOTSPOT_ID;
         page.dragOnto(cardId, targetPanelId);
 
         LogsPage logsPage = new LogsPage(pageLookup, uri.toString());
