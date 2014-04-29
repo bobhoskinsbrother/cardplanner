@@ -4,6 +4,7 @@ import uk.co.itstherules.cardplanner.model.CardModel;
 import uk.co.itstherules.cardplanner.model.CardTypeModel;
 import uk.co.itstherules.cardplanner.model.TagModel;
 import uk.co.itstherules.cardplanner.model.type.EffortTypeModel;
+import uk.co.itstherules.cardplanner.model.type.ValueTypeModel;
 import uk.co.itstherules.yawf.MapBuilder;
 import uk.co.itstherules.yawf.inbound.MapValuesProvider;
 import uk.co.itstherules.yawf.inbound.ValuesProvider;
@@ -31,6 +32,13 @@ public class DataFixtures {
     public EffortTypeModel saveEffortType(String title, String type, String rate) {
         EffortTypeModel instance = new EffortTypeModel().defaultSetup(objectCache);
         Map<String, Object> m = new MapBuilder<String, Object>().put("title", title).put("type", type).put("rate", rate).build();
+        bindAndSave(instance, m);
+        return instance;
+    }
+
+    public ValueTypeModel saveValueType(String title, String rate) {
+        ValueTypeModel instance = new ValueTypeModel().defaultSetup(objectCache);
+        Map<String, Object> m = new MapBuilder<String, Object>().put("title", title).put("rate", rate).build();
         bindAndSave(instance, m);
         return instance;
     }
