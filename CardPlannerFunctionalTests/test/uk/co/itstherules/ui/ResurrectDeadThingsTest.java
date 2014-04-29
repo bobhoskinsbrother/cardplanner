@@ -61,7 +61,7 @@ public class ResurrectDeadThingsTest {
         assertFalse(deadThingsPage.containsText("I am an card that"));
 
         storyBoardPage.navigateTo("0");
-        storyBoardPage.openBacklog();
+        storyBoardPage.toggleBacklog();
 
         assertTrue(storyBoardPage.containsText("I am an card that"));
 

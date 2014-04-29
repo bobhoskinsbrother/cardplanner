@@ -4,14 +4,14 @@ ${tagBuilder.addLink("Tags", "index.xhtml", tagBuilder.showImage("tag_add.png", 
 <#assign count = 0 />
 <#list tags as tag>
 <h3>
-<a href="javascript:void(0);" onclick="Effect.toggle('tagId${count}', 'slide');" title="Expand">${tagBuilder.showImage("down.png")}</a>
+<a class="expandTag" href="javascript:void(0);" onclick="Effect.toggle('tagId${count}', 'slide');" title="Expand">${tagBuilder.showImage("down.png")}</a>
 
 ${tagBuilder.editLink("Tags", tag.title?url, tag.identity, tag.title?html, {}, {"class":"lightwindow", "params":"lightwindow_type=external,lightwindow_width=722,lightwindow_height=510"})}
 ${tagBuilder.deleteLink("Tags", tag.title?url, tag.identity, tag.title?html)}
 </h3>
 <div id="tagId${count}" style="display:none;margin-left: 20px;" >
 <#list cards as card>
-<#if card.containsTag(tag)>${tagBuilder.showLink("Cards", card.title?url, card.identity, card.title?html, {}, {"class":"lightwindow", "params":"lightwindow_type=external,lightwindow_width=722,lightwindow_height=460"})}<br/></#if>
+<#if card.containsTag(tag)>${tagBuilder.link("StoryBoard", "ShowCard", card.identity, card.title?html, {"id":"_"+card.identity,"class":"lightwindow", "params":"lightwindow_type=external,lightwindow_width=722,lightwindow_height=460"})}<br/></#if>
 </#list>
 </div>
 

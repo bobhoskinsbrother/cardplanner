@@ -29,10 +29,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/x
 		<class>uk.co.itstherules.cardplanner.model.SyncServerModel</class>
 		<class>uk.co.itstherules.cardplanner.model.TagModel</class>
 		<class>uk.co.itstherules.cardplanner.model.ValueModel</class>
-		<class>uk.co.itstherules.yawf.model.ProcessStepModel</class>
 		<class>uk.co.itstherules.yawf.model.PageModel</class>
-		<class>uk.co.itstherules.yawf.model.ProcessStepReferenceModel</class>
-		<class>uk.co.itstherules.yawf.model.RouteModel</class>
 		<class>uk.co.itstherules.yawf.model.TemplateModel</class>
 		<class>uk.co.itstherules.yawf.view.DatabaseStoredModelView</class>
 		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>

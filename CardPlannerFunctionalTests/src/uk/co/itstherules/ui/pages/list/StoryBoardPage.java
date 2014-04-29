@@ -60,7 +60,7 @@ public class StoryBoardPage extends CardManipulationPage<StoryBoardPage> {
 	    return "StoryBoard";
     }
 
-    public StoryBoardPage openBacklog() {
+    public StoryBoardPage toggleBacklog() {
         driver.findElement(By.id("backlog_tab")).click();
         try {
             Thread.sleep(750);
@@ -71,7 +71,7 @@ public class StoryBoardPage extends CardManipulationPage<StoryBoardPage> {
     }
 
     public void deleteCard(String cardId) {
-        openBacklog();
+        toggleBacklog();
         driver.findElement(By.className("card_info")).click();
         String deleteButtonId = "delete_card_button" + cardId;
         confirmAs(true);

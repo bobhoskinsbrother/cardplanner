@@ -45,7 +45,7 @@ public class LogsTest {
         StoryBoardPage page = new StoryBoardPage(uri.toString(), pageLookup);
         page.navigateTo("0");
 
-        page.openBacklog();
+        page.toggleBacklog();
         Wait.forElement(pageLookup, By.id(cardId), 1000);
 
         String targetPanelId = "_1e5da83b-0a9d-4428-af28-7187b8718d2b";

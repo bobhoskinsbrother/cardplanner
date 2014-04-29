@@ -3,7 +3,6 @@ package uk.co.itstherules.cardplanner.server;
 import uk.co.itstherules.cardplanner.controller.shared.SharedObjectSpacesListener;
 import uk.co.itstherules.cardplanner.filter.ClientIdentityFilter;
 import uk.co.itstherules.cardplanner.listener.CardPlannerListener;
-import uk.co.itstherules.yawf.controller.processor.ProcessStepRegisterListener;
 import uk.co.itstherules.yawf.model.EntityManagerListener;
 import uk.co.itstherules.yawf.server.ServerConfigReceiver;
 import uk.co.itstherules.yawf.servlet.YAWFServlet;
@@ -33,7 +32,6 @@ public final class CardPlannerConfigBuilder {
                 .listener(new EntityManagerListener(map))
                 .listener(new CardPlannerListener())
                 .listener(new SharedObjectSpacesListener())
-                .listener(new ProcessStepRegisterListener())
                 .filter("/*", new ClientIdentityFilter())
                 .servlet("/*", new YAWFServlet());
     }

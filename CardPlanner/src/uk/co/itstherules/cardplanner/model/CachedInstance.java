@@ -49,42 +49,6 @@ public final class CachedInstance {
 		DEFAULT_VALUE("9e54ecdf-9d22-4d22-8186-b73edfc554e8", ValueModel.class),
 		
 		BASE_PERSON("fba82635-9578-4801-b377-05423ea059dd", PersonModel.class),
-		INVISIBLE_ROUTE("9261a612-0aca-4ec5-b47f-485f2de773ce", RouteModel.class),
-
-		CREATE_ENTITY_PROCESS_STEP("7ad45417-e973-4530-a140-fd35ce3d2251", ProcessStepModel.class),
-		SET_POSTED_VALUES_INTO_ENTITY_PROCESS_STEP("dcd1a35f-0237-42c0-afdd-84aa48a50101", ProcessStepModel.class),
-		FETCH_INDIVIDUAL_OBJECT_PROCESS_STEP("f7e56f83-98c0-44c5-8ade-750abdd0cfcc", ProcessStepModel.class),
-		SET_ENTITY_AS_PENDING_PROCESS_STEP("5d8a9420-d1a8-4d8a-a6cd-fc3becb6d656", ProcessStepModel.class),
-		SAVE_ENTITY_PROCESS_STEP("fd9b317f-a286-42a5-b8a7-568a826a2c85", ProcessStepModel.class),
-		VIEW_PAGE_WITH_ENTITY_PROCESS_STEP("bfb00155-4b6c-4e18-9c84-5bb84890710a", ProcessStepModel.class),
-		PERSON_CLASS_PROCESS_STEP("409726f7-b717-46cd-8d36-514471a226e7", ProcessStepModel.class),
-		FETCH_ASSESSMENT_GROUP_QUERY_PROCESS_STEP("325cd364-9334-4c85-b3bd-2ed3d5e97e4f", ProcessStepModel.class),
-		FETCH_BASE_QUERY_PROCESS_STEP("f803d13f-7f10-47ae-8f93-57ab7f17af7d", ProcessStepModel.class),
-		VERIFY_RE_CAPTCHA_PROCESS_STEP("a77b3bc6-06a0-4f23-87bb-a84ffce95b20", ProcessStepModel.class),
-
-		FETCH_TEAM_TO_ACCEPT_PERSON_PAGE_QUERY_PROCESS_STEP("a7d3b9d6-3bd9-40a7-a316-3e9349b51027", ProcessStepModel.class),
-		ADD_PERSON_TO_GROUP_PROCESS_STEP("f969f8fd-c76d-40d3-bbc0-e49edffcf3c4", ProcessStepModel.class),
-
-		PERSON_CLASS_PROCESS_STEP_REFERENCE("388B7A91-57E6-4CBB-A247-F90775BF1AD8", ProcessStepReferenceModel.class),
-		CREATE_PERSON_PROCESS_STEP_REFERENCE("3DEFFB14-BCB8-4494-B05B-55E5AB53D3BC", ProcessStepReferenceModel.class),
-		SET_POSTED_VALUES_INTO_ENTITY_PROCESS_STEP_REFERENCE("EBF00FE1-8B15-443E-854E-DE370D6D8145", ProcessStepReferenceModel.class),
-		
-		FETCH_BASE_GROUP_QUERY_PROCESS_STEP_REFERENCE("95159B5A-BD72-413A-A6CE-708319894FD3", ProcessStepReferenceModel.class),
-		FETCH_GROUP_PROCESS_STEP_REFERENCE("BE7140EF-2A12-480B-B7D1-A24D810031DD", ProcessStepReferenceModel.class),
-
-		VERIFY_RE_CAPTCHA_PROCESS_STEP_REFERENCE("8D50ED91-ADC5-4DF9-A068-1454F38F3B42", ProcessStepReferenceModel.class),
-
-		ADD_PERSON_TO_GROUP_PROCESS_STEP_REFERENCE("35E03558-701E-4C9B-9AE4-9314ACDDEEC9", ProcessStepReferenceModel.class),
-		SET_ENTITY_AS_PENDING_PROCESS_STEP_REFERENCE("BA899191-82C8-4378-AF2E-2981C95B8C93", ProcessStepReferenceModel.class),
-		SAVE_ENTITY_PROCESS_STEP_REFERENCE("E9D1D29A-19C8-4B77-B964-6D469957AD2A", ProcessStepReferenceModel.class),
-
-		FETCH_TEAM_TO_ACCEPT_PERSON_PAGE_QUERY_PROCESS_STEP_REFERENCE("781AB0B4-F236-47E6-9714-0DA554CCFCD4", ProcessStepReferenceModel.class),
-		FETCH_PAGE_PROCESS_STEP_REFERENCE("2B1A3FBD-DD5E-4F15-BE41-A730AAD6B57E", ProcessStepReferenceModel.class),
-		
-		VIEW_PAGE_WITH_ENTITY_PROCESS_STEP_REFERENCE("C3EB05C0-88CA-4570-A529-6BB40A08E8CD", ProcessStepReferenceModel.class),
-
-		SIGN_UP_SHOW_ROUTE("1c45979c-9733-40c3-bdb1-f3bab10cb6ab", RouteModel.class),
-		SIGN_UP_CREATE_ROUTE("db80bb6f-c69e-42e3-b5f5-dd4205d28b9e", RouteModel.class)
 		;
 		
 
@@ -146,38 +110,6 @@ public final class CachedInstance {
 			instances.persistIfNotExists(Identities.SIGN_UP_TEAM_TO_ACCEPT_PAGE);
 			
 			instances.persistIfNotExists(Identities.BASE_PERSON);
-	
-			instances.persistIfNotExists(Identities.CREATE_ENTITY_PROCESS_STEP);
-			instances.persistIfNotExists(Identities.SET_POSTED_VALUES_INTO_ENTITY_PROCESS_STEP);
-			instances.persistIfNotExists(Identities.FETCH_INDIVIDUAL_OBJECT_PROCESS_STEP);
-			instances.persistIfNotExists(Identities.SET_ENTITY_AS_PENDING_PROCESS_STEP);
-			instances.persistIfNotExists(Identities.SAVE_ENTITY_PROCESS_STEP);
-			instances.persistIfNotExists(Identities.VIEW_PAGE_WITH_ENTITY_PROCESS_STEP);
-			instances.persistIfNotExists(Identities.PERSON_CLASS_PROCESS_STEP);
-			instances.persistIfNotExists(Identities.FETCH_ASSESSMENT_GROUP_QUERY_PROCESS_STEP);
-			instances.persistIfNotExists(Identities.FETCH_BASE_QUERY_PROCESS_STEP);
-			instances.persistIfNotExists(Identities.FETCH_TEAM_TO_ACCEPT_PERSON_PAGE_QUERY_PROCESS_STEP);
-			instances.persistIfNotExists(Identities.ADD_PERSON_TO_GROUP_PROCESS_STEP);
-			instances.persistIfNotExists(Identities.VERIFY_RE_CAPTCHA_PROCESS_STEP);
-			
-			instances.persistIfNotExists(Identities.INVISIBLE_ROUTE);
-			
-			instances.persistIfNotExists(Identities.PERSON_CLASS_PROCESS_STEP_REFERENCE);
-			instances.persistIfNotExists(Identities.CREATE_PERSON_PROCESS_STEP_REFERENCE);
-			instances.persistIfNotExists(Identities.SET_POSTED_VALUES_INTO_ENTITY_PROCESS_STEP_REFERENCE);
-			instances.persistIfNotExists(Identities.VERIFY_RE_CAPTCHA_PROCESS_STEP_REFERENCE);
-	
-			instances.persistIfNotExists(Identities.FETCH_BASE_GROUP_QUERY_PROCESS_STEP_REFERENCE);
-			instances.persistIfNotExists(Identities.FETCH_GROUP_PROCESS_STEP_REFERENCE);
-			instances.persistIfNotExists(Identities.ADD_PERSON_TO_GROUP_PROCESS_STEP_REFERENCE);
-			instances.persistIfNotExists(Identities.SET_ENTITY_AS_PENDING_PROCESS_STEP_REFERENCE);
-			instances.persistIfNotExists(Identities.SAVE_ENTITY_PROCESS_STEP_REFERENCE);
-			instances.persistIfNotExists(Identities.FETCH_TEAM_TO_ACCEPT_PERSON_PAGE_QUERY_PROCESS_STEP_REFERENCE);
-			instances.persistIfNotExists(Identities.FETCH_PAGE_PROCESS_STEP_REFERENCE);
-			instances.persistIfNotExists(Identities.VIEW_PAGE_WITH_ENTITY_PROCESS_STEP_REFERENCE);
-			
-			instances.persistIfNotExists(Identities.SIGN_UP_SHOW_ROUTE);
-			instances.persistIfNotExists(Identities.SIGN_UP_CREATE_ROUTE);
 	
 			if(countCountries(objectCache)==0) {
 				for (Country country : Country.values()) { objectCache.save(country(country)); }

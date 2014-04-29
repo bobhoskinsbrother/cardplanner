@@ -44,7 +44,6 @@ public class AdminTest {
         assertThat("Excel Export", is(textOnThePage(pageLookup)));
         assertThat("Setup Email Details", is(textOnThePage(pageLookup)));
         assertThat("Resurrect Dead Things", is(textOnThePage(pageLookup)));
-        assertThat("Customise Routes", is(textOnThePage(pageLookup)));
     }
 
 

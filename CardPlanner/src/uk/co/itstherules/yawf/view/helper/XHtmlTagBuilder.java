@@ -251,7 +251,11 @@ public class XHtmlTagBuilder implements TagBuilder {
 	public String link(String controller, String action, String title, String identity, String name, TemplateHashModelEx queryStringHash) {
 		return link(url.url(controller, action, identity, title, hashConverter.convert(queryStringHash)), name);
 	}
-	
+
+	public String link(String controller, String action, String identity, String title, TemplateHashModelEx attributes) {
+		return link(url.url(controller, action, identity, title), title, attributes);
+	}
+
 	public String listLink(String controller, String title) {
 		return link(url.list(controller, title), "List " + controller);
 	}

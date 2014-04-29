@@ -18,7 +18,7 @@ public final class MainWebController implements Controller {
 	private final Register<Controller> register;
 
 	public MainWebController(final List<String> packages) {
-		Controller defaultInstance = new RouteProcessStepController();
+		Controller defaultInstance = new NullController();
 		register = new PackagedClassesAssignableFrom<>(defaultInstance).collect(Controller.class, packages);
     }
 	

@@ -1,7 +1,0 @@
-# uk.co.itstherules.yawf.model.ProcessStepReferenceModel, 35E03558-701E-4C9B-9AE4-9314ACDDEEC9
-inputSteps.0.identity=8D50ED91-ADC5-4DF9-A068-1454F38F3B42
-inputSteps.1.identity=BE7140EF-2A12-480B-B7D1-A24D810031DD
-step.identity=f969f8fd-c76d-40d3-bbc0-e49edffcf3c4
-x=293
-y=208
-title=Add Person to Group Reference

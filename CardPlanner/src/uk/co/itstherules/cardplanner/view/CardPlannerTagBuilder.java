@@ -1,14 +1,14 @@
 package uk.co.itstherules.cardplanner.view;
 
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
-
+import freemarker.template.SimpleHash;
+import freemarker.template.TemplateHashModelEx;
 import uk.co.itstherules.yawf.model.Entity;
 import uk.co.itstherules.yawf.view.helper.TagBuilder;
 import uk.co.itstherules.yawf.view.helper.XHtmlTagBuilder;
-import freemarker.template.SimpleHash;
-import freemarker.template.TemplateHashModelEx;
+
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 
 public class CardPlannerTagBuilder implements TagBuilder {
 	
@@ -229,7 +229,11 @@ public class CardPlannerTagBuilder implements TagBuilder {
 	    return delegate.link(url, title, hash);
     }
 
-	public String listLink(String controller, String title) {
+    @Override public String link(String controller, String action, String identity, String title, TemplateHashModelEx attributes) {
+        return delegate.link(controller, action, identity, title, attributes);
+    }
+
+    public String listLink(String controller, String title) {
 	    return delegate.listLink(controller, title);
     }
 

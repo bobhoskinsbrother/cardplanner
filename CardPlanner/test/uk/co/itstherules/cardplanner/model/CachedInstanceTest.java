@@ -62,12 +62,9 @@ public class CachedInstanceTest {
 		assertThat(emailDetailsModel.getIdentity(), is(Identities.EMAIL_DETAILS.getIdentity()));
 
 		assertThat(objects, contains(2, PersonModel.class));
-		assertThat(objects, contains(3, RouteModel.class));
 		assertThat(objects, contains(4, StatusModel.class));
 		assertThat(objects, contains(7, PageModel.class));
 		assertThat(objects, contains(10, TemplateModel.class));
-		assertThat(objects, contains(12, ProcessStepModel.class));
-		assertThat(objects, contains(12, ProcessStepReferenceModel.class));
 	}
 	
 	

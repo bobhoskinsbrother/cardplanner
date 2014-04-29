@@ -1,11 +1,11 @@
 package uk.co.itstherules.yawf.view.helper;
 
+import freemarker.template.TemplateHashModelEx;
+import uk.co.itstherules.yawf.model.Entity;
+
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
-
-import uk.co.itstherules.yawf.model.Entity;
-import freemarker.template.TemplateHashModelEx;
 
 public interface TagBuilder {
 	String addLink(String controller, String title);
@@ -108,6 +108,8 @@ public interface TagBuilder {
 	String link(String url, String title);
 
 	String link(String url, String title, TemplateHashModelEx hash);
+
+    String link(String controller, String action, String identity, String title, TemplateHashModelEx attributes);
 
 	String listLink(String controller, String title);
 
