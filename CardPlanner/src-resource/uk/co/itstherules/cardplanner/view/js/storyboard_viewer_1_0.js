@@ -390,7 +390,7 @@ var StoryBoard = {
                 backlogView.appendChild(cardView);
             },
 
-            startMovingCard: function() {
+            startMovingCard: function(event) {
                 StoryBoard.Card.Toolbar.View.removeAll();
             },
 
@@ -647,7 +647,7 @@ var StoryBoard = {
                 if (height > storyBoardHeight) height = storyBoardHeight;
                 if (y < 1) y = 1;
                 var hotspotAreaView = View.build('div', { 'id': '_' + status.identity, 'class': 'hotspot_area', 'style':'position: absolute; left: ' + x + 'px; top: ' + y + 'px; width: ' + width + 'px; height: ' + height + 'px' });
-                Droppables.add(hotspotAreaView, { onDrop: StoryBoard.Card.Controller.droppedCard, greedy: false, accept: 'medium_size_card' });
+                Droppables.add(hotspotAreaView, { hoverclass:'hotspot_area_hover', onDrop: StoryBoard.Card.Controller.droppedCard, greedy: false, accept: 'medium_size_card' });
                 return hotspotAreaView;
             },
 

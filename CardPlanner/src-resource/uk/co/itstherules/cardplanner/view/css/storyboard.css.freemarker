@@ -1,4 +1,4 @@
-        #board, #tool_bar, #doodle_target, #frame_image, #message_background, #message_container, #message, #backlog, .editable_hotspot_area, .editable_text_area, .hotspot_area, .text_area {
+        #board, #tool_bar, #doodle_target, #frame_image, #message_background, #message_container, #message, #backlog, .editable_hotspot_area, .editable_text_area,.hotspot_area_hover, .hotspot_area, .text_area {
             position: absolute;
         }
 
@@ -273,16 +273,25 @@
             height: 20px;
         }
 
-        .editable_hotspot_area, .hotspot_area {
+        .editable_hotspot_area, .hotspot_area, .hotspot_area_hover {
             margin: 0px;
         }
 
-        .editable_hotspot_area {
-            background: url('${tagBuilder.showImageUrl("red-10.png")}');
+        .editable_hotspot_area, .hotspot_area_hover {
             font-size:14px;
             text-align: center;
             color: #CCCCCC;
         }
+
+        .editable_hotspot_area {
+            background: url('${tagBuilder.showImageUrl("red-10.png")}');
+        }
+
+        .hotspot_area_hover {
+            background: url('${tagBuilder.showImageUrl("black_05.png")}');
+        }
+
+        .hotspot_area_hover
 
         .editable_hotspot_area_inner {
             width: 95%;
