@@ -20,6 +20,8 @@ import java.util.Set;
 public final class CardModel extends IdentifiableDeleteableModel<CardModel>  {
 
 	@QueryKey("body") private String body;
+	@QueryKey("width") private Integer width;
+	@QueryKey("height") private Integer height;
 	@OneToOne(cascade=CascadeType.PERSIST) @QueryKey(value="effort", cache=CacheInstruction.FromCache) @NotNull private EffortModel effort;
 	@OneToOne(cascade=CascadeType.PERSIST) @QueryKey(value="value", cache=CacheInstruction.FromCache) @NotNull private ValueModel value;
     @OneToOne @QueryKey(value="type", cache=CacheInstruction.FromCache) @NotNull private CardTypeModel type;
@@ -68,8 +70,10 @@ public final class CardModel extends IdentifiableDeleteableModel<CardModel>  {
 	public CardModel getParent() { return parent; }
 	public CardTypeModel getType() { return type; }
 	public boolean isExpanded() { return expanded; }
+    public Integer getWidth() { return width; }
+    public Integer getHeight() { return height; }
 
-	public void setBody(String body) { this.body = body; }
+    public void setBody(String body) { this.body = body; }
 	public void setValue(ValueModel value) { this.value = value; }
 	public void setTags(Set<TagModel> tags) { this.tags = tags; }
 	public void setFacts(Set<CardFactModel> facts) { this.facts = facts; }
@@ -100,6 +104,8 @@ public final class CardModel extends IdentifiableDeleteableModel<CardModel>  {
         clone.x = x;
         clone.y = y;
         clone.z = z;
+        clone.width = width;
+        clone.height = height;
         clone.setSortOrder(getSortOrder());
 		clone.body = body;
 		clone.parent = parent;

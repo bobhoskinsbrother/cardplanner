@@ -1,7 +1,5 @@
 package uk.co.itstherules.cardplanner.view.active;
 
-import java.util.Arrays;
-
 import uk.co.itstherules.cardplanner.model.CardService;
 import uk.co.itstherules.cardplanner.model.StatusService;
 import uk.co.itstherules.cardplanner.view.MergedTextView;
@@ -14,6 +12,8 @@ import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.SingleValueContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
 
+import java.util.Arrays;
+
 public class StoryBoardShow extends BaseModelView {
 
     @Override
@@ -24,7 +24,7 @@ public class StoryBoardShow extends BaseModelView {
         context.put("cards", new CardService().children(objectCache, provider.getIdentity()));
         context.put("backlog", new StatusService().backlog(objectCache));
         context.putAll(mixInContext);
-        Simple simpleTemplate = new Simple(Arrays.asList("storyboard", "humane"), Arrays.asList("browserintelligence_1_0", "canvasbuilder_1_0", "canvasdoodle_readonly_1_0", "pxdecorator_1_0", "storyboard_viewer_1_0", "humane"));
+        Simple simpleTemplate = new Simple(Arrays.asList("storyboard", "humane"), Arrays.asList("resizeable", "browserintelligence_1_0", "canvasbuilder_1_0", "canvasdoodle_readonly_1_0", "pxdecorator_1_0", "storyboard_viewer_1_0", "humane"));
         return simpleTemplate.asText(objectCache, provider, new SingleValueContext("content", view.asText(context, root)), violations);
     }
 }

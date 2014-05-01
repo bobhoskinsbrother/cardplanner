@@ -35,7 +35,8 @@ Resizeable.prototype = {
 			minHeight : 0,
 			minWidth : 0,
 			zindex : 1000,
-			resize : null
+			resize : null,
+            constrainAspectRatio: false
 		}, arguments[1] || {});
 
 		this.element = $(element);
@@ -135,40 +136,65 @@ Resizeable.prototype = {
 		this.resizing = false;
 	},
 	draw : function(event) {
-		var pointer = [ Event.pointerX(event), Event.pointerY(event) ];
+		var pointer = { x: Event.pointerX(event), y: Event.pointerY(event) };
 		var style = this.element.style;
-		if (this.currentDirection.indexOf('n') != -1) {
-			var pointerMoved = this.startY - pointer[1];
-			var margin = Element.getStyle(this.element, 'margin-top') || "0";
-			var newHeight = this.startHeight + pointerMoved;
-			if (newHeight > this.options.minHeight) {
-				style.height = newHeight + "px";
-				style.top = (this.startTop - pointerMoved - parseInt(margin))
-						+ "px";
-			}
-		}
-		if (this.currentDirection.indexOf('w') != -1) {
-			var pointerMoved = this.startX - pointer[0];
-			var margin = Element.getStyle(this.element, 'margin-left') || "0";
-			var newWidth = this.startWidth + pointerMoved;
-			if (newWidth > this.options.minWidth) {
-				style.left = (this.startLeft - pointerMoved - parseInt(margin))
-						+ "px";
-				style.width = newWidth + "px";
-			}
-		}
-		if (this.currentDirection.indexOf('s') != -1) {
-			var newHeight = this.startHeight + pointer[1] - this.startY;
-			if (newHeight > this.options.minHeight) {
-				style.height = newHeight + "px";
-			}
-		}
-		if (this.currentDirection.indexOf('e') != -1) {
-			var newWidth = this.startWidth + pointer[0] - this.startX;
-			if (newWidth > this.options.minWidth) {
-				style.width = newWidth + "px";
-			}
-		}
+        if(this.options.constrainAspectRatio) {
+            if (this.currentDirection.indexOf('e') != -1) {
+                var newWidth = this.startWidth + pointer.x - this.startX;
+                if (newWidth > this.options.minWidth) {
+                    var ratio = newWidth / this.startWidth;
+                    var newHeight = this.startHeight * ratio;
+                    style.width = newWidth + "px";
+                    style.height = newHeight + "px";
+                }
+            }
+            if (this.currentDirection.indexOf('w') != -1) {
+                var pointerMoved = this.startX - pointer.x;
+                var margin = Element.getStyle(this.element, 'margin-left') || "0";
+                var newWidth = this.startWidth + pointerMoved;
+                if (newWidth > this.options.minWidth) {
+                    var ratio = newWidth / this.startWidth;
+                    var newHeight = this.startHeight * ratio;
+                    style.left = (this.startLeft - pointerMoved - parseInt(margin))
+                            + "px";
+                    style.width = newWidth + "px";
+                    style.height = newHeight + "px";
+                }
+            }
+        } else {
+            if (this.currentDirection.indexOf('n') != -1) {
+                var pointerMoved = this.startY - pointer.y;
+                var margin = Element.getStyle(this.element, 'margin-top') || "0";
+                var newHeight = this.startHeight + pointerMoved;
+                if (newHeight > this.options.minHeight) {
+                    style.height = newHeight + "px";
+                    style.top = (this.startTop - pointerMoved - parseInt(margin))
+                            + "px";
+                }
+            }
+            if (this.currentDirection.indexOf('w') != -1) {
+                var pointerMoved = this.startX - pointer.x;
+                var margin = Element.getStyle(this.element, 'margin-left') || "0";
+                var newWidth = this.startWidth + pointerMoved;
+                if (newWidth > this.options.minWidth) {
+                    style.left = (this.startLeft - pointerMoved - parseInt(margin))
+                            + "px";
+                    style.width = newWidth + "px";
+                }
+            }
+            if (this.currentDirection.indexOf('s') != -1) {
+                var newHeight = this.startHeight + pointer.y - this.startY;
+                if (newHeight > this.options.minHeight) {
+                    style.height = newHeight + "px";
+                }
+            }
+            if (this.currentDirection.indexOf('e') != -1) {
+                var newWidth = this.startWidth + pointer.x - this.startX;
+                if (newWidth > this.options.minWidth) {
+                    style.width = newWidth + "px";
+                }
+            }
+        }
 		if (style.visibility == "hidden")
 			style.visibility = ""; // fix gecko rendering
 	},
@@ -176,18 +202,18 @@ Resizeable.prototype = {
 		return (val >= low && val < high);
 	},
 	directions : function(event) {
-		var pointer = [ Event.pointerX(event), Event.pointerY(event) ];
+		var pointer = {x: Event.pointerX(event), y:Event.pointerY(event) };
 		var offsets = Position.cumulativeOffset(this.element);
 
 		var cursor = '';
-		if (this.between(pointer[1] - offsets[1], 0, this.options.top))
+		if (this.between(pointer.y - offsets[1], 0, this.options.top))
 			cursor += 'n';
-		if (this.between((offsets[1] + this.element.offsetHeight) - pointer[1],
+		if (this.between((offsets[1] + this.element.offsetHeight) - pointer.y,
 				0, this.options.bottom))
 			cursor += 's';
-		if (this.between(pointer[0] - offsets[0], 0, this.options.left))
+		if (this.between(pointer.x - offsets[0], 0, this.options.left))
 			cursor += 'w';
-		if (this.between((offsets[0] + this.element.offsetWidth) - pointer[0],
+		if (this.between((offsets[0] + this.element.offsetWidth) - pointer.x,
 				0, this.options.right))
 			cursor += 'e';
 

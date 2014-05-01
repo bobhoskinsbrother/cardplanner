@@ -394,17 +394,21 @@
         }
 
         .medium_size_card_background {
-            background: url('${tagBuilder.showImageUrl("card.png")}');
-            border: 1px solid #AAAAAA;
-            padding: 2px;
-            width: 86px;
-            height: 56px;
+            background: url('${tagBuilder.showImageUrl("card_medium.png")}');
+            border: 0px solid #AAAAAA;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
             text-align: center;
             cursor:move;
+            background-size: 100% auto;
+            text-overflow: ellipsis;
+            overflow: hidden;
         }
 
         .medium_size_card {
             position: absolute;
+            border: 2px solid #AAAAAA;
             width: 90px;
             height: 60px;
         }
