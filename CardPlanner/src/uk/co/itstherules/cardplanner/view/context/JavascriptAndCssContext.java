@@ -1,17 +1,15 @@
 package uk.co.itstherules.cardplanner.view.context;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import uk.co.itstherules.yawf.view.context.BaseContext;
 import uk.co.itstherules.yawf.view.context.MapContext;
 import uk.co.itstherules.yawf.view.helper.TagBuilder;
 import uk.co.itstherules.yawf.view.helper.XHtmlTagBuilder;
 
-public class JavascriptAndCssContext extends BaseContext {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
-    public static final String LINE_SEPARATOR = System.getProperty("line.separator");
+public class JavascriptAndCssContext extends BaseContext {
 
     private enum Css {
 		GENERAL,
@@ -62,11 +60,11 @@ public class JavascriptAndCssContext extends BaseContext {
         for(Css value : Css.values()) {
             files.add(value.toString());
         }
-        StringBuffer buffer = new StringBuffer(tagBuilder.loadCss(files));
+        StringBuilder b = new StringBuilder(tagBuilder.loadCss(files));
         if(!cssList.isEmpty()) {
-            buffer.append(tagBuilder.loadCss(cssList));
+            b.append(tagBuilder.loadCss(cssList));
         }
-        return buffer.toString();
+        return b.toString();
     }
 
     private String makeJavaScriptTags(List<String> javascriptList, TagBuilder tagBuilder) {
@@ -74,11 +72,11 @@ public class JavascriptAndCssContext extends BaseContext {
         for(JavaScript value : JavaScript.values()) {
             files.add(value.toString());
         }
-        StringBuffer buffer = new StringBuffer(tagBuilder.loadScripts(files));
+        StringBuilder b = new StringBuilder(tagBuilder.loadScripts(files));
         if(!javascriptList.isEmpty()) {
-            buffer.append(tagBuilder.loadScripts(javascriptList));
+            b.append(tagBuilder.loadScripts(javascriptList));
         }
-        return buffer.toString();
+        return b.toString();
     }
 
 }
