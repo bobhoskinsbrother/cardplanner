@@ -15,6 +15,7 @@ import java.net.URI;
 
 import static uk.co.itstherules.cardplanner.server.CardPlannerConfigBuilder.TargetEnvironment.TEST;
 
+@Ignore
 public class ResizeCardTest {
 
     private static WebDriver pageLookup;

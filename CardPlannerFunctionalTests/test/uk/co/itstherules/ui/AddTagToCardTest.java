@@ -5,7 +5,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import uk.co.itstherules.cardplanner.model.CardModel;
 import uk.co.itstherules.cardplanner.server.CardPlannerServer;
 import uk.co.itstherules.junit.extension.WebDriverInstance;
@@ -56,10 +55,8 @@ public class AddTagToCardTest {
         Wait.forFrame(pageLookup, Constants.LIGHTWINDOW_IFRAME, 5000);
         Wait.forElement(pageLookup, By.id("title"), 5000);
 
-        WebElement tag = pageLookup.findElement(By.id("tag"));
-        tag.clear();
-        tag.sendKeys("LaserTag");
-        pageLookup.findElement(By.id("addTagButton")).click();
+        page.addTag("LaserTag");
+
         pageLookup.findElement(By.id("completeAction")).click();
         page.focus();
 

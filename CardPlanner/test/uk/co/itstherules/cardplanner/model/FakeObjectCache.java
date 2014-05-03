@@ -1,12 +1,5 @@
 package uk.co.itstherules.cardplanner.model;
 
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import uk.co.itstherules.yawf.model.FileIdentityDeleteable;
 import uk.co.itstherules.yawf.model.IdentityDeleteable;
 import uk.co.itstherules.yawf.model.ObjectState;
@@ -15,11 +8,17 @@ import uk.co.itstherules.yawf.model.persistence.ObjectCache;
 import uk.co.itstherules.yawf.model.persistence.ObjectCacheActionNotAuthorized;
 import uk.co.itstherules.yawf.model.persistence.QueryConditions;
 
-public class FakeObjectCache implements ObjectCache {
+import java.math.BigInteger;
+import java.util.*;
+
+public class FakeObjectCache<T extends IdentityDeleteable<?>> implements ObjectCache {
 
 	private List<Object> objects;
-	
-	public FakeObjectCache() { this.objects = new ArrayList<Object>(); }
+    private Set<T> primed;
+
+    public FakeObjectCache(Set<T> primed) {
+        this.primed = primed;
+        this.objects = new ArrayList<Object>(); }
 	
 	public List<Object> getObjects() {
 	    return objects;
@@ -40,7 +39,7 @@ public class FakeObjectCache implements ObjectCache {
 	}
 	
     public <T extends IdentityDeleteable<?>> Set<T> all(Class<T> type, ObjectState... states) {
-	    throw new RuntimeException("TODO: Not yet implemented");
+        return (Set<T>) primed;
     }
 	
     
@@ -129,7 +128,7 @@ public class FakeObjectCache implements ObjectCache {
 	}
 	
 	public <T extends IdentityDeleteable<?>> Set<T> all(Class<T> type, QueryConditions fieldValues, ObjectState... states) {
-	    throw new RuntimeException("TODO: Not yet implemented");
+        return (Set<T>) primed;
     }
 
 	public Set<String> metaModelClasses() {

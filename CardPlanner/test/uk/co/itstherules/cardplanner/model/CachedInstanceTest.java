@@ -7,8 +7,10 @@ import org.junit.internal.matchers.TypeSafeMatcher;
 import uk.co.itstherules.cardplanner.model.CachedInstance.Identities;
 import uk.co.itstherules.cardplanner.model.type.EffortTypeModel;
 import uk.co.itstherules.cardplanner.model.type.ValueTypeModel;
-import uk.co.itstherules.yawf.model.*;
+import uk.co.itstherules.yawf.model.SimpleAttachmentModel;
+import uk.co.itstherules.yawf.model.TemplateModel;
 
+import java.util.HashSet;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -19,7 +21,7 @@ public class CachedInstanceTest {
 	
 	@Test
 	public void checkThatDefaultObjectsAreStored() {
-		FakeObjectCache fakeObjectCache = new FakeObjectCache();
+		FakeObjectCache fakeObjectCache = new FakeObjectCache(new HashSet());
 		CachedInstance unit = new CachedInstance();
 		
 		unit.initialise(fakeObjectCache);

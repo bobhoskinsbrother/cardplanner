@@ -38,6 +38,30 @@ public class StoryBoardTest {
     }
 
     @Test
+    public void canAddACard() throws Exception {
+        StoryBoardPage page = new StoryBoardPage(uri.toString(), pageLookup);
+        page.navigateTo("0");
+
+        page.clickCardAdd();
+
+        Wait.forFrame(pageLookup, Constants.LIGHTWINDOW_IFRAME, 5000);
+        Wait.forElement(pageLookup, By.id("title"), 5000);
+
+        page
+                .setTitle("I'm a new card")
+                .setBody("**Well, well, well**  It's all gone a bit funny")
+                .setEffort("Ideal Day", 2.5)
+                .setValue("Currency", 2100)
+                .setCardType("User Story")
+                .setStatus("Planned")
+                .addTag("Funny")
+                .completeAction();
+        page.focus();
+        assertTrue(page.containsText("I'm a new card"));
+        System.out.println();
+    }
+
+    @Test
     public void canChangeStatusOfCardByDragging() throws Exception {
         CardModel card = new DataFixtures().saveSimpleCard();
         String cardId = "_" + card.getIdentity();

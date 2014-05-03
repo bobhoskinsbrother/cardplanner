@@ -1,23 +1,21 @@
 package uk.co.itstherules.yawf.view;
 
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
+import uk.co.itstherules.yawf.FreemarkerTemplateProvider;
+import uk.co.itstherules.yawf.controller.ContentType;
+import uk.co.itstherules.yawf.view.context.ViewContext;
+import uk.co.itstherules.yawf.view.helper.TagBuilder;
+import uk.co.itstherules.yawf.view.helper.XHtmlTagBuilder;
+
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletResponse;
-
-import uk.co.itstherules.yawf.FreemarkerTemplateProvider;
-import uk.co.itstherules.yawf.controller.ContentType;
-import uk.co.itstherules.yawf.view.context.ViewContext;
-import uk.co.itstherules.yawf.view.helper.TagBuilder;
-import uk.co.itstherules.yawf.view.helper.XHtmlTagBuilder;
-import uk.co.itstherules.yawf.view.xhtml.WikiCreoleToXhtml;
-import freemarker.template.Configuration;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
 
 public abstract class BaseView implements View {
 
@@ -44,7 +42,7 @@ public abstract class BaseView implements View {
 		Map<String, Object> context = new LinkedHashMap<String, Object>();
 		TagBuilder tagBuilder = new XHtmlTagBuilder(root);
 		context.put("tagBuilder", tagBuilder);
-		context.put("wikifier", new WikiCreoleToXhtml(tagBuilder));
+		context.put("markdown", new Markdown());
 		context.put("root", root);
 		return context;
     }

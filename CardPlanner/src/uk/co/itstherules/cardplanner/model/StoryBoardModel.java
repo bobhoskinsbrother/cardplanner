@@ -1,21 +1,20 @@
 package uk.co.itstherules.cardplanner.model;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-
 import uk.co.itstherules.yawf.inbound.annotations.QueryKey;
 import uk.co.itstherules.yawf.model.IdentifiableDeleteableModel;
 import uk.co.itstherules.yawf.model.persistence.ObjectCache;
 import uk.co.itstherules.yawf.model.serializer.Json;
 
-@Entity public final class StoryBoardModel extends IdentifiableDeleteableModel<StoryBoardModel>  {
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
+@Entity public class StoryBoardModel extends IdentifiableDeleteableModel<StoryBoardModel>  {
 
 	@QueryKey("hotspotAreas") @OneToMany(cascade=CascadeType.ALL) private List<StoryBoardHotspotAreaModel> hotspotAreas;
 	@QueryKey("textAreas") @OneToMany(cascade=CascadeType.ALL) private List<StoryBoardTextAreaModel> textAreas;
@@ -117,6 +116,10 @@ import uk.co.itstherules.yawf.model.serializer.Json;
         hotspotAreas.remove(hotSpot);
     }
 
+
+    public void addLine(int startX, int startY, int endX, int endY) {
+        lines.add(makeLine(startX, startY, endX, endY));
+    }
 
     public void addVerticalLine(int x, int endY) {
         lines.add(makeLine(x, 0, x, endY));

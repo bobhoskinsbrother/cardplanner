@@ -246,6 +246,7 @@
         <root url="jar://$PROJECT_DIR$/libs/release/slf4j-api-1.7.7.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/slf4j-simple-1.7.7.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/yuicompressor-2.4.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/markdown4j-2.2.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>

@@ -1,14 +1,13 @@
 package uk.co.itstherules.cardplanner.model;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import junit.framework.Assert;
-
 import org.junit.Test;
-
 import uk.co.itstherules.yawf.inbound.MapValuesProvider;
 import uk.co.itstherules.yawf.inbound.annotations.processor.BasicValuesProviderBinder;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 
 public class StoryBoardHotspotAreaModelTest {
 	
@@ -53,7 +52,7 @@ public class StoryBoardHotspotAreaModelTest {
 		storyBoardValues.put("width","10");
 		storyBoardValues.put("height","10");
 
-		new BasicValuesProviderBinder().bind(new MapValuesProvider(storyBoardValues), unit, new FakeObjectCache());
+		new BasicValuesProviderBinder().bind(new MapValuesProvider(storyBoardValues), unit, new FakeObjectCache(new HashSet()));
     }
 
 	private void bindHotspotAreaTo2(StoryBoardHotspotAreaModel unit) {
@@ -63,7 +62,7 @@ public class StoryBoardHotspotAreaModelTest {
 		storyBoardValues.put("width","15");
 		storyBoardValues.put("height","15");
 		
-		new BasicValuesProviderBinder().bind(new MapValuesProvider(storyBoardValues), unit, new FakeObjectCache());
+		new BasicValuesProviderBinder().bind(new MapValuesProvider(storyBoardValues), unit, new FakeObjectCache(new HashSet()));
 	}
 
 }

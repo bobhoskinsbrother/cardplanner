@@ -16,7 +16,7 @@ ${tagBuilder.showCss("general.css")}
 		</h3>
 	</div>
 	<div style="clear:both;height:265px;margin-top:15px;margin-bottom:15px;text-align:left;overflow: auto;">
-		${wikifier.manipulate(card.body)}
+		${markdown.manipulate(card.body)}
 	</div>
 	<div style="clear:both; vertical-align: top; width:642px; margin:auto; height:30px;">
 		<div style="float: left;clear:both;">
