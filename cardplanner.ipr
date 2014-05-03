@@ -195,8 +195,6 @@
       <JAVADOC />
       <SOURCES>
         <root url="jar://$USER_HOME$/.ideaLibSources/selenium-api-2.41.0-sources.jar!/" />
-        <root url="jar://$USER_HOME$/.ideaLibSources/selenium-firefox-driver-2.41.0-sources.jar!/" />
-        <root url="jar://$USER_HOME$/.ideaLibSources/selenium-remote-driver-2.41.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="release_libs">
@@ -211,7 +209,6 @@
         <root url="jar://$PROJECT_DIR$/libs/release/c3p0-0.9.1.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/commons-codec-1.4.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/commons-collections-3.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/commons-email-1.2.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/commons-fileupload-1.2.1.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/commons-httpclient-3.1.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/commons-io-1.4.jar!/" />
@@ -245,7 +242,6 @@
         <root url="jar://$PROJECT_DIR$/libs/release/oval-1.50.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/poi-3.2.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/poi-contrib-3.2.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/recaptcha4j-0.0.7.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/servlet-api-3.1.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/slf4j-api-1.7.7.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/slf4j-simple-1.7.7.jar!/" />

@@ -1,10 +1,5 @@
 package uk.co.itstherules.cardplanner.controller.active;
 
-import java.io.IOException;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletResponse;
-
 import uk.co.itstherules.cardplanner.controller.CardPlannerBase;
 import uk.co.itstherules.cardplanner.model.CachedInstance.Identities;
 import uk.co.itstherules.cardplanner.model.PersonModel;
@@ -18,13 +13,16 @@ import uk.co.itstherules.yawf.inbound.ValuesProvider;
 import uk.co.itstherules.yawf.inbound.annotations.processor.QueryKeyViolations;
 import uk.co.itstherules.yawf.model.ObjectState;
 import uk.co.itstherules.yawf.model.SimpleAttachmentModel;
-import uk.co.itstherules.yawf.model.captcha.Captcha;
 import uk.co.itstherules.yawf.model.persistence.ObjectCache;
 import uk.co.itstherules.yawf.modelview.ModelViewRegister;
 import uk.co.itstherules.yawf.view.View;
 import uk.co.itstherules.yawf.view.context.ChangeContext;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Set;
 
 
 public final class People extends CardPlannerBase<PersonModel> {
@@ -45,12 +43,10 @@ public final class People extends CardPlannerBase<PersonModel> {
 	@Override @Action("List")
 	public void list(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory) throws IOException {
 		Set<PersonModel> people = objectCache.all(PersonModel.class, "visible", true);
-		Set<PersonModel> pending = objectCache.all(PersonModel.class, ObjectState.Pending);
 		people.remove(SpecialInstances.retrieve(objectCache, Identities.INVISIBLE_PERSON));
 		View view = new MergedTextView("people/list.freemarker");
 		ViewContext context = new EmptyContext();
 		context.put("people", people);
-		context.put("pending", pending);
 		context.put("camelCase", new CamelCase());
 		String root = provider.getApplicationRoot();
 		getTemplate(view.asText(context, root), getTitle(), "List People").renderTo(objectCache, provider, response, new EmptyContext(), new QueryKeyViolations());
@@ -69,7 +65,6 @@ public final class People extends CardPlannerBase<PersonModel> {
 		context.put("person", person);
 		context.put("camelCase", new CamelCase());
 		context.put("attachments", attachments);
-	    context.put("captcha", Captcha.getHtml(provider));
 		String root = provider.getApplicationRoot();
 		getPop(view.asText(context, root), getTitle(), "").renderTo(objectCache, provider, response, new EmptyContext(), violations);
     }

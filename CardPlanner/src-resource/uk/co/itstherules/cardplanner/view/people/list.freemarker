@@ -1,4 +1,4 @@
-<#macro print person pending>
+<#macro print person>
 
 
 <#if person.picture.isImage()>
@@ -7,9 +7,6 @@
 <#assign picture = tagBuilder.showImage("initials.png")/>
 </#if>
 <#assign className = "personActive" />
-<#if pending>
-<#assign className = "personPending" />
-</#if>
 <div title="${person.firstName?html} ${person.lastName?html}" id="_${person.identity}" class="${className}">
 <div  id="_${person.identity}Internal" class="white_rounded" style="overflow:hidden; float:left; text-align:right; width:100px;min-height:70px; margin:4px;">
 <span style="float:right;margin:6px; background-color:#FFFFFF;padding-left:2px;padding-right:2px;">${person.firstName!""?html} ${person.lastName!""?html} (${person.initials})</span>
@@ -24,6 +21,8 @@ ${tagBuilder.editLink("People", "${person.firstName} ${person.lastName}"?url, pe
 <div style="clear: both;"></div>
 </div>
 </#macro>
+
+
 <style type="text/css">
 .personPending { cursor: move; }
 .personPending, .personActive { float: left; }
@@ -78,10 +77,9 @@ ${tagBuilder.addLink("People", "index.xhtml", tagBuilder.showImage("person_add.p
 </h2>
 
 <div id="people" style="min-height:100px; width:98%; clear:both; margin-top: 10px;" class="gray_rounded">
-<h3>Active</h3>
 <div id="activePeople" style="min-height:100px;">
 <#list people as person>
-<@print person false />
+<@print person />
 </#list>
 <#if people?size==0>
 <div id="noActivePeople">
@@ -89,14 +87,5 @@ There are currently no people defined
 </div>
 </#if>
 </div>
-<div style="clear:both;"></div>
-</div>
-
-<div id="pending" style="min-height:100px; width:98%; clear:both;margin-top: 10px;" class="gray_rounded">
-<h3>Pending</h3>
-<#list pending as person>
-<@print person true />
-</#list>
-<#if pending?size==0>There are currently no pending people</#if>
 <div style="clear:both;"></div>
 </div>

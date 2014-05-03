@@ -2,11 +2,100 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e2a0034-e6b2-49ad-a351-34b4f927d7b9" name="Default" comment="BMH: adding double click feature on cards">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/ResizeCardTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src-resource/uk/co/itstherules/cardplanner/model/defaults/658c9802-f227-458d-958a-ceba3b88ddd0" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/CardPlannerFunctionalTests.iml" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/CardPlannerFunctionalTests.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/0410ecfe-a346-4f3b-85fd-b16ce044d3cb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/0ca28b66-0ace-4334-990e-faa5aa8771ec" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/15cc9ac4-7b00-48a6-8ce3-d5d38a818e24" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/3d9af2d8-a303-4134-bb4e-268109bd57de" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/409726f7-b717-46cd-8d36-514471a226e7" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/7e6feb71-d276-4375-be0e-76e34149757d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/9440fca8-f3f8-48dd-b042-dbef2a08bea2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/95159B5A-BD72-413A-A6CE-708319894FD3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/9bb5359a-5556-4119-8252-7b40e5e75894" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/b79fcc3b-09a1-4791-a85a-b20c4d670297" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/db937b0a-71ac-48ae-856e-ca3879bec52e" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/e4110b5f-ddb1-441c-be4c-12e6bd229718" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/f4847e22-a2d6-4786-8ae6-cbc399e58fbd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/burnup/list.freemarker" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/emaildetails/edit.freemarker" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/array_extensions.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/binder-0.3.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/burnup_1_0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/cardfinder.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/dateslider.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/dateslider_orig.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/helpers.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/horizontalscroller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/logger.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/models.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/passwordstrength.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/progressbar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/randompassword.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/validators.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/login.freemarker" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/signup/add.freemarker" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/signup/show.freemarker" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/signupconfirm/show.freemarker" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/signupteamtoaccept/show.freemarker" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/BurnUp.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/Countries.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/EmailDetails.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/Pages.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/BurnUpDayModel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/BurnUpLineModel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/BurnUpModel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/BurnUpService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/EmailDetailsModel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/OrganisationModel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/SyncServerModel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/BaseBurnUp.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/active/AddBurnUp.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/active/EditBurnUp.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/active/SignUpAdd.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/active/SignUpConfirmShow.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/active/SignUpEmail.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/active/SignUpShow.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/active/SignUpTeamToAccept.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/CountryModel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/PageModel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/captcha/Captcha.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/email/EmailDetails.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/email/Emailer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/email/GMailer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/email/Mailer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/email/UnableToSendEmailException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/modelview/PageModelView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/add/AddSignUpPage.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/HardSumsPage.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/PagesPage.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/show/ShowSignUpPage.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/release/commons-email-1.2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/release/recaptcha4j-0.0.7.jar" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/AdminTest.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/AdminTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/personas/BasicPersona.java" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/personas/BasicPersona.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/CachedInstance.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/CachedInstance.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/cardplanner/model/CachedInstanceTest.java" afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/cardplanner/model/CachedInstanceTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/server/CardPlannerConfigBuilder.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/server/CardPlannerConfigBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/CardPlannerTagBuilder.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/CardPlannerTagBuilder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/context/JavascriptAndCssContext.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/context/JavascriptAndCssContext.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/People.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/People.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/PersonModel.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/PersonModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/SideBarModelView.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/SideBarModelView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/view/helper/TagBuilder.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/view/helper/TagBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/active/Template.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/active/Template.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/view/helper/XHtmlTagBuilder.java" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/view/helper/XHtmlTagBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cardplanner.ipr" afterPath="$PROJECT_DIR$/cardplanner.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cardplanner.iws" afterPath="$PROJECT_DIR$/cardplanner.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/people/edit.freemarker" afterPath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/people/edit.freemarker" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/eedb859f-21a9-49b1-ad4d-65f98ee28841" afterPath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/eedb859f-21a9-49b1-ad4d-65f98ee28841" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/fba82635-9578-4801-b377-05423ea059dd" afterPath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/fba82635-9578-4801-b377-05423ea059dd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/javascript_extensions.js" afterPath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/javascript_extensions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/cardattachments/list.freemarker" afterPath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/cardattachments/list.freemarker" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/people/list.freemarker" afterPath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/people/list.freemarker" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/listener/pagecontent.properties" afterPath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/listener/pagecontent.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/CardPlanner/src-resource/META-INF/persistence.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/admin/show.freemarker" afterPath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/admin/show.freemarker" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/sidebar.freemarker" afterPath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/sidebar.freemarker" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/xhtmltagbuilder.js" afterPath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/xhtmltagbuilder.js" />
     </list>
     <ignored path="cardplanner.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,11 +118,71 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ResizeCardTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/ResizeCardTest.java">
+      <file leaf-file-name="CachedInstance.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/CachedInstance.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36894825" vertical-offset="51" max-vertical-offset="731">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1513">
+              <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="persistence.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/META-INF/persistence.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="952">
+              <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersonModel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/PersonModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="People.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/People.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="1139">
+              <caret line="46" column="53" selection-start-line="46" selection-start-column="53" selection-end-line="46" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list.freemarker" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/people/list.freemarker">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.05" vertical-offset="800" max-vertical-offset="1632">
+              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CachedInstanceTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/cardplanner/model/CachedInstanceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="369" max-vertical-offset="1598">
+              <caret line="61" column="38" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/AdminTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7022767" vertical-offset="109" max-vertical-offset="680">
+              <caret line="44" column="73" selection-start-line="44" selection-start-column="73" selection-end-line="44" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -64,39 +213,13 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/CardPlannerPage.java" />
-        <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardPlannerTest.java" />
-        <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/Page.java" />
-        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/css/general.css.freemarker" />
-        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/sidebar.freemarker" />
-        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/sidebar.js" />
-        <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/Wait.java" />
-        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/persistence/JPAObjectCache.java" />
-        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/TagModel.java" />
-        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/tags/show.freemarker" />
-        <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/personas/BasicPersona.java" />
-        <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/TagsPage.java" />
-        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/LogModel.java" />
-        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/logs/list.freemarker" />
-        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/ResurrectableThing.java" />
-        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/Resurrection.java" />
-        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/resurrection/list.freemarker" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/ResurrectDeadThingsPage.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/DeleteTagTest.java" />
         <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/IdentifiableDeleteableModel.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/TagsTest.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/junit/extension/WebDriverInstance.java" />
-        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/admin/show.freemarker" />
-        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/server/CardPlannerConfigBuilder.java" />
         <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/controller/MainWebController.java" />
-        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/CachedInstance.java" />
-        <option value="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/cardplanner/model/CachedInstanceTest.java" />
-        <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/AdminTest.java" />
-        <option value="$PROJECT_DIR$/CardPlanner/src-resource/META-INF/persistence.xml" />
-        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/view/helper/TagBuilder.java" />
-        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/view/helper/XHtmlTagBuilder.java" />
         <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/tags/list.freemarker" />
-        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/CardPlannerTagBuilder.java" />
         <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/controller/NullController.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/BadRouteTest.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/ValueTypesTest.java" />
@@ -113,8 +236,34 @@
         <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/resizeable.js" />
         <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/css/storyboard.css.freemarker" />
         <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/storyboard_viewer_1_0.js" />
-        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/context/JavascriptAndCssContext.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/ResizeCardTest.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/array_extensions.js" />
+        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/javascript_extensions.js" />
+        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/helpers.js" />
+        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/cardattachments/list.freemarker" />
+        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/context/JavascriptAndCssContext.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/xhtmltagbuilder.js" />
+        <option value="$PROJECT_DIR$/cardplanner.ipr" />
+        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/server/CardPlannerConfigBuilder.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/listener/pagecontent.properties" />
+        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/people/edit.freemarker" />
+        <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/personas/BasicPersona.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/fba82635-9578-4801-b377-05423ea059dd" />
+        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/eedb859f-21a9-49b1-ad4d-65f98ee28841" />
+        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/view/helper/XHtmlTagBuilder.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/view/helper/TagBuilder.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/CardPlannerTagBuilder.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/admin/show.freemarker" />
+        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/SideBarModelView.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/active/Template.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/sidebar.freemarker" />
+        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/CachedInstance.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/src-resource/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/PersonModel.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/People.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/people/list.freemarker" />
+        <option value="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/cardplanner/model/CachedInstanceTest.java" />
+        <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/AdminTest.java" />
       </list>
     </option>
   </component>
@@ -198,6 +347,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cardplanner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cardplanner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="release" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cardplanner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cardplanner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="CardPlanner" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -251,346 +432,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="valuetypes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tags" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storyboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="statuses" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="signupteamtoaccept" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="signupforwork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="signupconfirm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="signup" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resurrection" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -653,720 +494,6 @@
               <option name="myItemId" value="cardplanner" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="notifier" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mycards" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="logs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="excelexport" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emaildetails" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="efforttypes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="databaseviews" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="csv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="countries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardtypes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cards" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardpeople" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardfacts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardattachments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="burnup" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="attachments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="archived" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardPlanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src-resource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itstherules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cardplanner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1400,7 +527,7 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$USER_HOME$/Data/CardPlanner" />
@@ -1442,69 +569,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CardPlannerServer">
-    <configuration default="false" name="StoryBoardTest.canChangeStatusOfCardByDragging" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="uk.co.itstherules.ui.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="CardPlannerFunctionalTests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="uk.co.itstherules.ui" />
-      <option name="MAIN_CLASS_NAME" value="uk.co.itstherules.ui.StoryBoardTest" />
-      <option name="METHOD_NAME" value="canChangeStatusOfCardByDragging" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="StoryBoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="uk.co.itstherules.ui.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="CardPlannerFunctionalTests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="uk.co.itstherules.ui" />
-      <option name="MAIN_CLASS_NAME" value="uk.co.itstherules.ui.StoryBoardTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.AdminTest.canViewThePage">
     <configuration default="false" name="AddTagToCardTest.canAddATagToACard" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1585,6 +650,62 @@
         <option name="LOCAL" value="true" />
       </RunnerSettings>
       <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="CachedInstanceTest.checkThatDefaultObjectsAreStored" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="uk.co.itstherules.cardplanner.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="CardPlanner" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="uk.co.itstherules.cardplanner.model" />
+      <option name="MAIN_CLASS_NAME" value="uk.co.itstherules.cardplanner.model.CachedInstanceTest" />
+      <option name="METHOD_NAME" value="checkThatDefaultObjectsAreStored" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="AdminTest.canViewThePage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="uk.co.itstherules.ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="CardPlannerFunctionalTests" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="uk.co.itstherules.ui" />
+      <option name="MAIN_CLASS_NAME" value="uk.co.itstherules.ui.AdminTest" />
+      <option name="METHOD_NAME" value="canViewThePage" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -1766,19 +887,19 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Application.StandaloneServerApplication" />
       <item index="1" class="java.lang.String" itemvalue="Remote.Debug Server" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.StoryBoardTest.canChangeStatusOfCardByDragging" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.StoryBoardTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.AddTagToCardTest.canAddATagToACard" />
-      <item index="5" class="java.lang.String" itemvalue="Application.CardPlannerServer" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.ResizeCardTest.canResizeCardByDragging" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.AddTagToCardTest.canAddATagToACard" />
+      <item index="3" class="java.lang.String" itemvalue="Application.CardPlannerServer" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.ResizeCardTest.canResizeCardByDragging" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.CachedInstanceTest.checkThatDefaultObjectsAreStored" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.AdminTest.canViewThePage" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.CardPlannerServer" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ResizeCardTest.canResizeCardByDragging" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.AddTagToCardTest.canAddATagToACard" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.StoryBoardTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.StoryBoardTest.canChangeStatusOfCardByDragging" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.AdminTest.canViewThePage" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.CachedInstanceTest.checkThatDefaultObjectsAreStored" />
+        <item index="2" class="java.lang.String" itemvalue="Application.CardPlannerServer" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ResizeCardTest.canResizeCardByDragging" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.AddTagToCardTest.canAddATagToACard" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
@@ -1827,7 +948,7 @@
       <workItem from="1398704564347" duration="16288000" />
       <workItem from="1398796204531" duration="192000" />
       <workItem from="1398799573279" duration="11431000" />
-      <workItem from="1398980018849" duration="6651000" />
+      <workItem from="1398980018849" duration="16555000" />
     </task>
     <task id="LOCAL-00001" summary="BMH: Making the build a little more sane, fixing up a bunch of small errors, in prep to getting the functional tests working again">
       <created>1397597743552</created>
@@ -1837,7 +958,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179326000" />
+    <option name="totallyTimeSpent" value="189230000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="-4" width="1863" height="1084" extended-state="6" />
@@ -1852,14 +973,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39916405" sideWeight="0.5002684" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3576017" sideWeight="0.49973163" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3576017" sideWeight="0.49973163" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24852389" sideWeight="0.5004541" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24766098" sideWeight="0.49954587" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32957596" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32762313" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32762313" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47537473" sideWeight="0.49973163" order="3" side_tool="false" content_ui="tabs" />
@@ -1931,312 +1052,331 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/view/helper/XHtmlTagBuilder.java">
+    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/SignUpForWorkPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45221445" vertical-offset="3420" max-vertical-offset="11730">
-          <caret line="255" column="72" selection-start-line="255" selection-start-column="72" selection-end-line="255" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/TagsPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.045614034" vertical-offset="42" max-vertical-offset="612">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.11352254" vertical-offset="0" max-vertical-offset="599">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/tags/list.freemarker">
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/7b030638-538e-4020-b5eb-589b3722b6f4">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41619587" vertical-offset="0" max-vertical-offset="531">
-          <caret line="13" column="107" selection-start-line="13" selection-start-column="107" selection-end-line="13" selection-end-column="107" />
+        <state vertical-scroll-proportion="0.030852994" vertical-offset="0" max-vertical-offset="551">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/6efda9ea-ef05-4511-b80e-3c5ac2b98f4d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="551">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/6ea38f66-9c49-48a4-8e26-03e3c888de35">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="575">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/1e5da83b-0a9d-4428-af28-7187b8718d2b">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.028380634" vertical-offset="0" max-vertical-offset="599">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/0a312c5f-a8ae-423e-86d9-7f9ddf84d3ff">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="599">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/00a2df98-7293-471d-965e-365a963b5cfa">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/c4a28080-afd2-4c7f-9615-ff1f9c8832a8">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.061705988" vertical-offset="0" max-vertical-offset="551">
+          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/bed78a3f-9c04-40a9-b565-0889f9d782e2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="551">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/b8210464-9268-43b7-9f3f-332a720f68a6">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/26428876-ba4b-44db-a6a4-c22bf34ad584">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="575">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/894301b2-f8d0-4999-af7a-5747a742fefb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="575">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/1952bba9-bee2-43e5-a202-81637bf6e479">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="599">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/89a913c7-baa0-4894-91c5-0c42a2cad7c7">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14190318" vertical-offset="0" max-vertical-offset="599">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/82f0fd2a-c3c0-48c8-8cbd-df999eb4f913">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="551">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/9e54ecdf-9d22-4d22-8186-b73edfc554e8">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="551">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/8d423afc-bc42-47e4-a8ba-f9d0726fa7b9">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="551">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/fba82635-9578-4801-b377-05423ea059dd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11826087" vertical-offset="0" max-vertical-offset="575">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/f828ca79-7cca-43ef-89bd-10b3e5825958">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.029565217" vertical-offset="0" max-vertical-offset="575">
+          <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/f500a322-59c7-4384-ad5c-9dd6ab01e907">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="551">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/eedb859f-21a9-49b1-ad4d-65f98ee28841">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1773913" vertical-offset="0" max-vertical-offset="575">
+          <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/d0ee62e6-7232-4376-ba4f-53e8fbcae34e">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="551">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/ccbd639c-22f1-4bdf-b23f-75eb4fdebbe7">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="551">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/c0972b74-01c4-4d6e-9d01-19dc7b1eceae">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="551">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/CardPlannerTagBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48114902" vertical-offset="2418" max-vertical-offset="6171">
-          <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/view/helper/UrlBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67192984" vertical-offset="909" max-vertical-offset="1836">
-          <caret line="97" column="15" selection-start-line="97" selection-start-column="15" selection-end-line="97" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/controller/NullController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21364452" vertical-offset="0" max-vertical-offset="578">
-          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/ValueTypesTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67948717" vertical-offset="343" max-vertical-offset="1632">
-          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.7679181" vertical-offset="6758" max-vertical-offset="7344">
+          <caret line="424" column="0" selection-start-line="424" selection-start-column="0" selection-end-line="424" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#540#541#0" expanded="true" />
+            <element signature="e#604#605#0" expanded="true" />
+            <element signature="e#659#660#0" expanded="true" />
+            <element signature="e#1345#1346#0" expanded="true" />
+            <element signature="e#1403#1404#0" expanded="true" />
+            <element signature="e#1844#1845#0" expanded="true" />
+            <element signature="e#1901#1902#0" expanded="true" />
+            <element signature="e#2145#2146#0" expanded="true" />
+            <element signature="e#2196#2197#0" expanded="true" />
+            <element signature="e#2444#2445#0" expanded="true" />
+            <element signature="e#2504#2505#0" expanded="true" />
+            <element signature="e#2961#2962#0" expanded="true" />
+            <element signature="e#3022#3023#0" expanded="true" />
+            <element signature="e#3607#3608#0" expanded="true" />
+            <element signature="e#3667#3668#0" expanded="true" />
+            <element signature="e#4820#4821#0" expanded="true" />
+            <element signature="e#4879#4880#0" expanded="true" />
+            <element signature="e#5720#5721#0" expanded="true" />
+            <element signature="e#5778#5779#0" expanded="true" />
+            <element signature="e#6171#6172#0" expanded="true" />
+            <element signature="e#6214#6215#0" expanded="true" />
+            <element signature="e#6577#6578#0" expanded="true" />
+            <element signature="e#6628#6629#0" expanded="true" />
+            <element signature="e#6884#6885#0" expanded="true" />
+            <element signature="e#6941#6942#0" expanded="true" />
+            <element signature="e#6972#6973#0" expanded="true" />
+            <element signature="e#7013#7014#0" expanded="true" />
+            <element signature="e#7073#7074#0" expanded="true" />
+            <element signature="e#7129#7130#0" expanded="true" />
+            <element signature="e#7594#7595#0" expanded="true" />
+            <element signature="e#7645#7646#0" expanded="true" />
+            <element signature="e#8273#8274#0" expanded="true" />
+            <element signature="e#8321#8322#0" expanded="true" />
+            <element signature="e#8399#8400#0" expanded="true" />
+            <element signature="e#8453#8454#0" expanded="true" />
+            <element signature="e#8734#8735#0" expanded="true" />
+            <element signature="e#8793#8794#0" expanded="true" />
+            <element signature="e#9660#9661#0" expanded="true" />
+            <element signature="e#9718#9719#0" expanded="true" />
+            <element signature="e#11843#11844#0" expanded="true" />
+            <element signature="e#11889#11890#0" expanded="true" />
+            <element signature="e#11934#11935#0" expanded="true" />
+            <element signature="e#11982#11983#0" expanded="true" />
+            <element signature="e#12543#12544#0" expanded="true" />
+            <element signature="e#12597#12598#0" expanded="true" />
+            <element signature="e#12645#12646#0" expanded="true" />
+            <element signature="e#12696#12697#0" expanded="true" />
+            <element signature="e#12759#12760#0" expanded="true" />
+            <element signature="e#12818#12819#0" expanded="true" />
+            <element signature="e#13669#13670#0" expanded="true" />
+            <element signature="e#13718#13719#0" expanded="true" />
+            <element signature="e#13777#13778#0" expanded="true" />
+            <element signature="e#13827#13828#0" expanded="true" />
+            <element signature="e#13882#13883#0" expanded="true" />
+            <element signature="e#13928#13929#0" expanded="true" />
+            <element signature="e#13990#13991#0" expanded="true" />
+            <element signature="e#14048#14049#0" expanded="true" />
+            <element signature="e#14739#14740#0" expanded="true" />
+            <element signature="e#14784#14785#0" expanded="true" />
+            <element signature="e#15032#15033#0" expanded="true" />
+            <element signature="e#15085#15086#0" expanded="true" />
+            <element signature="e#15117#15118#0" expanded="true" />
+            <element signature="e#15159#15160#0" expanded="true" />
+            <element signature="e#15383#15384#0" expanded="true" />
+            <element signature="e#15443#15444#0" expanded="true" />
+            <element signature="e#16371#16372#0" expanded="true" />
+            <element signature="e#16421#16422#0" expanded="true" />
+            <element signature="e#16508#16509#0" expanded="true" />
+            <element signature="e#16564#16565#0" expanded="true" />
+            <element signature="e#16632#16633#0" expanded="true" />
+            <element signature="e#16682#16683#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardTypesTest.java">
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/view/helper/TagBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/DeleteTagTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/EffortTypesTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09060773" vertical-offset="3" max-vertical-offset="1275">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="90" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/TestConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11352254" vertical-offset="0" max-vertical-offset="599">
-          <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
+        <state vertical-scroll-proportion="0.8013356" vertical-offset="3311" max-vertical-offset="3910">
+          <caret line="227" column="0" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/BadRouteTest.java">
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/view/helper/XHtmlTagBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CanSignUpForWorkTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-          <caret line="43" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardAttachmentsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1751">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.7389079" vertical-offset="9954" max-vertical-offset="10693">
+          <caret line="653" column="0" selection-start-line="653" selection-start-column="0" selection-end-line="653" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/LogsTest.java">
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/d3fb23f7-e862-4522-974f-c9af0ec4c0ff">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="302" max-vertical-offset="901">
-          <caret line="50" column="67" selection-start-line="50" selection-start-column="67" selection-end-line="50" selection-end-column="67" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
+          <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/ResurrectDeadThingsTest.java">
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/TemplateModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="155" max-vertical-offset="1445">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.14190318" vertical-offset="0" max-vertical-offset="731">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/TempFileWriterTest.java">
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/03e20d90-2957-4524-8723-5931fede5001">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/TagsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="768" max-vertical-offset="2261">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/AdminTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73015875" vertical-offset="0" max-vertical-offset="1071">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/test/unit/junit-4.7.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1787763" vertical-offset="0" max-vertical-offset="1046">
-          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/test/unit/junit-4.7.jar!/org/junit/runners/BlockJUnit4ClassRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1547">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/test/unit/junit-4.7.jar!/org/junit/runners/ParentRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1088">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/persistence/JPAObjectCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1574" max-vertical-offset="2941">
-          <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/DataFixtures.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="673" max-vertical-offset="1241">
-          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/AddTagToCardTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3575526" vertical-offset="119" max-vertical-offset="1190">
-          <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/server/CardPlannerServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12698413" vertical-offset="0" max-vertical-offset="1071">
-          <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/css/storyboard.css.freemarker">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.86614174" vertical-offset="6530" max-vertical-offset="7820">
-          <caret line="410" column="21" selection-start-line="410" selection-start-column="21" selection-end-line="410" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/css/general.css.freemarker">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10268">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="575">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/CardModel.java">
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/3e898331-0492-4dab-863b-56f65c21d4be">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.441331" vertical-offset="0" max-vertical-offset="2091">
-          <caret line="98" column="25" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/StoryBoard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.609319" vertical-offset="3162" max-vertical-offset="4046">
-          <caret line="241" column="40" selection-start-line="241" selection-start-column="26" selection-end-line="241" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/active/StoryBoardShow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4265233" vertical-offset="0" max-vertical-offset="558">
-          <caret line="26" column="107" selection-start-line="26" selection-start-column="107" selection-end-line="26" selection-end-column="107" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/prototype.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33744395" vertical-offset="4782" max-vertical-offset="84745">
-          <caret line="305" column="13" selection-start-line="305" selection-start-column="13" selection-end-line="305" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/resizeable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48839778" vertical-offset="459" max-vertical-offset="4454">
-          <caret line="53" column="51" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="62" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/E4X.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3325967" vertical-offset="2861" max-vertical-offset="5372">
-          <caret line="186" column="14" selection-start-line="186" selection-start-column="14" selection-end-line="186" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/storyboard_viewer_1_0.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36130536" vertical-offset="3158" max-vertical-offset="16677">
-          <caret line="204" column="62" selection-start-line="204" selection-start-column="62" selection-end-line="204" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/StoryBoardPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3325967" vertical-offset="56" max-vertical-offset="1717">
-          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/StoryBoardTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33812153" vertical-offset="68" max-vertical-offset="1292">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/yawf/view/xhtml/error.freemarker">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="575">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/yawf/view/xhtml/multiselect.freemarker">
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/model/defaults/6e7d28dc-9dc2-422e-84a0-6d787d353147">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1717">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/yawf/view/xhtml/template.freemarker">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="905">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="575">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -2244,90 +1384,161 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/admin/show.freemarker">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="289">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/attachments/list.freemarker">
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/SpecialInstances.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2125">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="598" max-vertical-offset="1156">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/burnup/list.freemarker">
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/SideBarModelView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/cardattachments/list.freemarker">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3468">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/cardattachments/edit.freemarker">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="905">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/context/JavascriptAndCssContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67478263" vertical-offset="751" max-vertical-offset="1326">
-          <caret line="76" column="37" selection-start-line="76" selection-start-column="37" selection-end-line="76" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/view/helper/TagBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3321739" vertical-offset="2920" max-vertical-offset="3978">
-          <caret line="188" column="11" selection-start-line="188" selection-start-column="11" selection-end-line="188" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/dumb_mvc_1_0.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.327212" vertical-offset="0" max-vertical-offset="1666">
-          <caret line="187" column="9" selection-start-line="187" selection-start-column="9" selection-end-line="187" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <caret line="23" column="99" selection-start-line="23" selection-start-column="99" selection-end-line="23" selection-end-column="99" />
           <folding>
-            <element signature="e#626#4484#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/js/effects.js">
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/active/Template.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33222038" vertical-offset="8607" max-vertical-offset="19023">
-          <caret line="525" column="12" selection-start-line="525" selection-start-column="12" selection-end-line="525" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="918">
+          <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/feed/CardsFeed.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27031803" vertical-offset="0" max-vertical-offset="680">
+          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/archived/list.freemarker">
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/server/CardPlannerServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60714287" vertical-offset="0" max-vertical-offset="3859">
-          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="116" max-vertical-offset="663">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <element signature="e#1182#1183#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/server/StandaloneServerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1025" max-vertical-offset="1717">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/ResizeCardTest.java">
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/sidebar.freemarker">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36894825" vertical-offset="51" max-vertical-offset="731">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.82448035" vertical-offset="0" max-vertical-offset="866">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/list/PeoplePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07513812" vertical-offset="0" max-vertical-offset="905">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/CardOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/CardPeople.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1003">
+          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/Cards.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/META-INF/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="952">
+          <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/PersonModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/People.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="1139">
+          <caret line="46" column="53" selection-start-line="46" selection-start-column="53" selection-end-line="46" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/people/list.freemarker">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.05" vertical-offset="800" max-vertical-offset="1632">
+          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/CachedInstance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1513">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/cardplanner/model/CachedInstanceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="369" max-vertical-offset="1598">
+          <caret line="61" column="38" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/AdminTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7022767" vertical-offset="109" max-vertical-offset="680">
+          <caret line="44" column="73" selection-start-line="44" selection-start-column="73" selection-end-line="44" selection-end-column="73" />
           <folding />
         </state>
       </provider>
@@ -2396,7 +1607,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>functional_tests</last-edited>
+          <last-edited>release_libs</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

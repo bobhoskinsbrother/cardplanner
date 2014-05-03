@@ -11,25 +11,20 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/x
 		<class>uk.co.itstherules.cardplanner.model.StoryBoardHotspotAreaModel</class>
 		<class>uk.co.itstherules.cardplanner.model.type.EffortTypeModel</class>
 		<class>uk.co.itstherules.cardplanner.model.type.ValueTypeModel</class>
-		<class>uk.co.itstherules.yawf.model.CountryModel</class>
 		<class>uk.co.itstherules.cardplanner.model.DateRangeModel</class>
 		<class>uk.co.itstherules.cardplanner.model.EffortModel</class>
-		<class>uk.co.itstherules.cardplanner.model.EmailDetailsModel</class>
 		<class>uk.co.itstherules.yawf.model.FileModel</class>
 		<class>uk.co.itstherules.cardplanner.model.CardFactModel</class>
 		<class>uk.co.itstherules.cardplanner.model.StoryBoardModel</class>
 		<class>uk.co.itstherules.cardplanner.model.CardModel</class>
 		<class>uk.co.itstherules.cardplanner.model.CardTypeModel</class>
 		<class>uk.co.itstherules.cardplanner.model.LogModel</class>
-		<class>uk.co.itstherules.cardplanner.model.OrganisationModel</class>
 		<class>uk.co.itstherules.cardplanner.model.PersonModel</class>
 		<class>uk.co.itstherules.cardplanner.model.PostItModel</class>
 		<class>uk.co.itstherules.yawf.model.SimpleAttachmentModel</class>
 		<class>uk.co.itstherules.cardplanner.model.StatusModel</class>
-		<class>uk.co.itstherules.cardplanner.model.SyncServerModel</class>
 		<class>uk.co.itstherules.cardplanner.model.TagModel</class>
 		<class>uk.co.itstherules.cardplanner.model.ValueModel</class>
-		<class>uk.co.itstherules.yawf.model.PageModel</class>
 		<class>uk.co.itstherules.yawf.model.TemplateModel</class>
 		<class>uk.co.itstherules.yawf.view.DatabaseStoredModelView</class>
 		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>

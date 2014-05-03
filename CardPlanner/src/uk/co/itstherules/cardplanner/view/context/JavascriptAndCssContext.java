@@ -25,20 +25,15 @@ public class JavascriptAndCssContext extends BaseContext {
         SCRIPTACULOUS,
         UUID,
         DUMB_MVC_1_0,
-        ARRAY_EXTENSIONS,
         JAVASCRIPT_EXTENSIONS,
 		EFFECTS,
 		BUILDER,
 		DATEFORMAT,
 		DRAGDROP,
 		LIGHTWINDOW,
-		VALIDATORS,
 		SIDEBAR,
-		HELPERS,
 		OPENTIP,
 		CONTROLLER,
-		MODELS,
-		PASSWORDSTRENGTH,
 		EXCANVAS
 		;
 		public String toString() { return name().toLowerCase(); };

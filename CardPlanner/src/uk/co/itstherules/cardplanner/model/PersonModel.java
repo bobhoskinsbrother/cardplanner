@@ -12,7 +12,6 @@ import uk.co.itstherules.yawf.model.persistence.ObjectCache;
 import uk.co.itstherules.yawf.model.serializer.Json;
 
 import javax.persistence.*;
-import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity  
@@ -27,7 +26,6 @@ public final class PersonModel extends IdentifiableDeleteableModel<PersonModel> 
 	@QueryKey("initials") private String initials;
 	@Enumerated(EnumType.STRING) @QueryKey("gender") private Gender gender;
 	@ManyToOne @QueryKey(value="picture", cache=CacheInstruction.FromCache) SimpleAttachmentModel picture;
-	@ManyToMany @QueryKey("organisations") private Set<OrganisationModel> organisations = new LinkedHashSet<OrganisationModel>();
 	@ManyToMany(mappedBy="people") private Set<CardModel> cards;
 
 	public PersonModel() { 
@@ -47,12 +45,8 @@ public final class PersonModel extends IdentifiableDeleteableModel<PersonModel> 
 	public Gender getGender() { return this.gender; }
 	public String getInitials() { return this.initials; }
 	public String getLastName() { return this.lastName; }
-	public Set<OrganisationModel> getOrganisations() { return new LinkedHashSet<OrganisationModel>(this.organisations); }
 	public SimpleAttachmentModel getPicture() { return this.picture; }
 	public Set<CardModel> getCards() { return this.cards; }
-	public boolean isAccountNonExpired() { return !getExpired(); }
-	public boolean isAccountNonLocked() { return !getLocked(); }
-	public boolean isCredentialsNonExpired() { return !getExpired(); }
 	public boolean isEnabled() { return getActive(); }
 	public void setInitials(String initials) { this.initials = initials; }
 	public void setPicture(SimpleAttachmentModel picture) { this.picture = picture;  }

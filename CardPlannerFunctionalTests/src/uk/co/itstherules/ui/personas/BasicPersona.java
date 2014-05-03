@@ -3,7 +3,6 @@ package uk.co.itstherules.ui.personas;
 import org.openqa.selenium.WebElement;
 import uk.co.itstherules.ui.pages.Page;
 import uk.co.itstherules.ui.pages.TemplatePage;
-import uk.co.itstherules.ui.pages.add.AddSignUpPage;
 import uk.co.itstherules.ui.pages.change.ChangeCardPage;
 import uk.co.itstherules.ui.pages.change.ChangePersonPage;
 import uk.co.itstherules.ui.pages.change.ChangePostItPage;
@@ -87,35 +86,7 @@ public class BasicPersona extends BaseBasicPersona<Page<?>> implements Editor, V
 	public StatusesPage edit(ChangeStatusPage selected) {
 		return change(selected);
     }
-	
-	@SuppressWarnings("unchecked")
-    public <T extends Page<?>> T signUp(AddSignUpPage signUpPage) {
-		String firstName = personaData.getPersonFirstName();
-		String lastName = personaData.getPersonLastName();
-		String initials = personaData.getPersonInitials();
-		String email = personaData.getPersonEmail();
-		String password = personaData.getPersonPassword();
-		
-		
-		if (!"".equals(firstName)) {
-			signUpPage = signUpPage.setFirstName(firstName);
-		}
-		if (!"".equals(lastName)) {
-			signUpPage = signUpPage.setLastName(lastName);
-		}
-		if (!"".equals(initials)) {
-			signUpPage = signUpPage.setInitials(initials);
-		}
-		if (!"".equals(email)) {
-			signUpPage = signUpPage.setEmail(email);
-		}
-		if (!"".equals(password)) {
-			signUpPage = signUpPage.setPassword(password);
-			signUpPage = signUpPage.setConfirmPassword(password);
-		}
-		return (T) signUpPage.clickComplete();    
-	}
-	
+
 	public Page<?> edit(ChangePersonPage changePersonPage) {
 		String firstName = personaData.getPersonFirstName();
 		String lastName = personaData.getPersonLastName();

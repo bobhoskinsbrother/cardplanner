@@ -4,7 +4,6 @@ import freemarker.template.TemplateHashModelEx;
 import uk.co.itstherules.yawf.model.Entity;
 
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 public interface TagBuilder {
@@ -135,8 +134,6 @@ public interface TagBuilder {
 	String multiSelect(String identifier, Collection<? extends Entity<?>> available,
 	        Collection<? extends Entity<?>> selected);
 
-	String passwordStrengthMeter(String identity, String targetIdentity);
-
 	String passwordText(TemplateHashModelEx hash, String value,
 	        boolean isError, List<String> errorMessage);
 
@@ -228,7 +225,5 @@ public interface TagBuilder {
 	        TemplateHashModelEx queryStringHash);
 
 	String yesNo(String name, Boolean selected, TemplateHashModelEx hash);
-
-	String dateInput(TemplateHashModelEx hash, Date date, List<String> violationMessages);
 
 }

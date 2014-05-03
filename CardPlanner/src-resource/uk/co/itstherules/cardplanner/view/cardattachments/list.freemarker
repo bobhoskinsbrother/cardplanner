@@ -3,7 +3,22 @@ ${tagBuilder.showScript("xhtmltagbuilder.js")}
 
 <script>
 //<![CDATA[
-     
+    function LetterAbbreviator() {
+        this.abbreviate = function (string, letterAmount) {
+            string = string.replace("\<.*?\>", "");
+            var length = string.length;
+            if (length > letterAmount) {
+                letterAmount = Math.min(length, letterAmount);
+                string = string.substring(0, letterAmount);
+                string = string.substring(0, string.lastIndexOf(" "));
+                var buffer = "";
+                buffer += string;
+                buffer += "...";
+                return buffer;
+            }
+            return string;
+        }
+    }
 	var allAttachments = ${jsonSerializer.deepSerialize(attachments)};
 	var cardAttachments = ${jsonSerializer.deepSerialize(card.attachments)};
     var tagBuilder = new XHtmlTagBuilder(root);

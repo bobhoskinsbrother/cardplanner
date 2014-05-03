@@ -86,9 +86,6 @@ public final class CardPlannerConfigBuilder {
         map.put("webAppRootKey", "/CardPlanner.root");
         map.put("defaultHomePage", "/StoryBoard/Show/0/index.xhtml");
         map.put("binaryExtensions", ".gif,.png,.jpg,.jpeg,.zip,.ico");
-        map.put("captcha", "true");
-        map.put("captchaPublicKey", "6LeuO78SAAAAADBSWUk5dBSwwjR_BhyIjiXQvXtf");
-        map.put("captchaPrivateKey", "6LeuO78SAAAAACwS-SJiy3wi2hnBFfRs3_mQoc2Q");
         return map;
     }
 

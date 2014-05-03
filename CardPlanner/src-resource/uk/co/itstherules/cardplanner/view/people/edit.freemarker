@@ -50,7 +50,7 @@ function colour(identity, backgroundColour) {
 
 			<div class="line">
 				<div class="left">
-					${bag["SignUp.change.gender.legend"]} 
+					Gender
 				</div>
 				<div class="right">
 					${tagBuilder.select("gender", genders, instance.gender.name(), {})}
@@ -61,7 +61,7 @@ function colour(identity, backgroundColour) {
 
 			<div class="line">
 				<div class="left">
-					${bag["SignUp.change.firstName.legend"]} 
+					First Name
 				</div>
 				<div class="right">
 					${tagBuilder.inputText({"name":"firstName", "id":"firstName" }, instance.firstName!"", violations.getViolationMessages("firstName"))}
@@ -72,9 +72,7 @@ function colour(identity, backgroundColour) {
 
 				
 			<div class="line">
-				<div class="left">
-					${bag["SignUp.change.lastName.legend"]} 
-				</div>
+				<div class="left">Last Name</div>
 				<div class="right">
 				${tagBuilder.inputText({"name":"lastName", "id":"lastName"}, instance.lastName!"", violations.getViolationMessages("lastName"))}
 				</div>
@@ -84,9 +82,7 @@ function colour(identity, backgroundColour) {
 
 
 			<div class="line">
-				<div class="left">
-					${bag["SignUp.change.initials.legend"]} 
-				</div>
+				<div class="left">Initials</div>
 				<div class="right">
 				${tagBuilder.inputText({"name":"initials", "id":"initials"}, instance.initials!"", violations.getViolationMessages("initials"))}
 				</div>
@@ -96,9 +92,7 @@ function colour(identity, backgroundColour) {
 
 
 			<div class="line">
-				<div class="left">
-					${bag["SignUp.change.emailAddress.legend"]} 
-				</div>
+				<div class="left">Email Address</div>
 				<div class="right">
 				${tagBuilder.inputText({"name":"email", "id":"email" }, instance.email!"", violations.getViolationMessages("email"))}
 				</div>

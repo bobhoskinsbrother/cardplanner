@@ -42,7 +42,6 @@ public class AdminTest {
         assertThat("Card Types", is(textOnThePage(pageLookup)));
         assertThat("Value Types", is(textOnThePage(pageLookup)));
         assertThat("Excel Export", is(textOnThePage(pageLookup)));
-        assertThat("Setup Email Details", is(textOnThePage(pageLookup)));
         assertThat("Resurrect Dead Things", is(textOnThePage(pageLookup)));
     }
 

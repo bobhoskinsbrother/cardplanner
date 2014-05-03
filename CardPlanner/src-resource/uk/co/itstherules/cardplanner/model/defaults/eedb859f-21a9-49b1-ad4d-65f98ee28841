@@ -5,7 +5,3 @@ gender=Female
 initials=GG
 visible=false
 picture.identity=894301b2-f8d0-4999-af7a-5747a742fefb
-user.email=catchall@base.com
-user.groups.0.identity=031a3737-86af-4a45-a66f-31c6f13d9377
-user.password=allseeing
-user.userName=god

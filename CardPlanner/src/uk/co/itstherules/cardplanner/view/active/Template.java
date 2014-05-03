@@ -1,24 +1,20 @@
 package uk.co.itstherules.cardplanner.view.active;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import uk.co.itstherules.cardplanner.model.CachedInstance.Identities;
-import uk.co.itstherules.cardplanner.model.SpecialInstances;
 import uk.co.itstherules.cardplanner.model.TagModel;
 import uk.co.itstherules.cardplanner.view.MergedTextView;
 import uk.co.itstherules.cardplanner.view.ModuleNavigationRegister;
 import uk.co.itstherules.cardplanner.view.context.JavascriptAndCssContext;
 import uk.co.itstherules.yawf.inbound.ValuesProvider;
 import uk.co.itstherules.yawf.inbound.annotations.processor.QueryKeyViolations;
-import uk.co.itstherules.yawf.model.PageModel;
 import uk.co.itstherules.yawf.model.persistence.ObjectCache;
-import uk.co.itstherules.yawf.model.persistence.QueryConditions;
 import uk.co.itstherules.yawf.modelview.BaseModelView;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Template extends BaseModelView {
 
@@ -42,12 +38,9 @@ public class Template extends BaseModelView {
 		if(objectCache==null) { throw new IllegalArgumentException("Object Cache needs to be set.  Have you set requiresObjectCache to true in your controller?"); }
 		ViewContext context = new JavascriptAndCssContext(valuesProvider.getApplicationRoot(), additionalCssList, additionalJavascriptList);
 		if(mixInContext!= null) { context.putAll(mixInContext); }
-		PageModel invisiblePage = SpecialInstances.retrieve(objectCache, Identities.INVISIBLE_PAGE);
 		context.put("controller", valuesProvider.getController());
 		Map<String, Object> fields = new HashMap<String, Object>();
-		fields.put("parent.identity", invisiblePage.getIdentity());
 		fields.put("navigable", Boolean.TRUE);
-		context.put("topLevelPages", objectCache.all(PageModel.class, new QueryConditions("AND").putAll(fields)));
 		context.put("tags", objectCache.all(TagModel.class));
 		context.put("feedMe", Boolean.FALSE);
 		context.put("modulesNav", ModuleNavigationRegister.getView().asText(objectCache, valuesProvider, new EmptyContext(), violations)); 

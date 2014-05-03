@@ -57,14 +57,9 @@ public class CachedInstanceTest {
 		CardTypeModel cardTypeModel = findFirst(CardTypeModel.class, objects);
 		assertThat(cardTypeModel.getIdentity(), is(Identities.USER_STORY_ITEM_TYPE.getIdentity()));
 
-		assertThat(objects, contains(1, EmailDetailsModel.class));
-		EmailDetailsModel emailDetailsModel = findFirst(EmailDetailsModel.class, objects);
-		assertThat(emailDetailsModel.getIdentity(), is(Identities.EMAIL_DETAILS.getIdentity()));
-
 		assertThat(objects, contains(2, PersonModel.class));
 		assertThat(objects, contains(4, StatusModel.class));
-		assertThat(objects, contains(7, PageModel.class));
-		assertThat(objects, contains(10, TemplateModel.class));
+		assertThat(objects, contains(4, TemplateModel.class));
 	}
 	
 	

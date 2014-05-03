@@ -8,6 +8,5 @@ Hey, touch a lot of this stuff at your peril.  Please (at the very least) look a
 	<hr/>
 <h3 style="margin-left: 15px;">
 	${tagBuilder.listLink("ExcelExport", "list.xhtml", "Excel Export")}<br/><br/>
-	${tagBuilder.listLink("EmailDetails", "list.xhtml", "Setup Email Details")}<br/><br/>
 	${tagBuilder.listLink("Resurrection", "list.xhtml", "Resurrect Dead Things")}<br/><br/>
 </h3>

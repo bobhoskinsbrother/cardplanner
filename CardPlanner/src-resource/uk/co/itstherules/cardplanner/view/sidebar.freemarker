@@ -18,7 +18,6 @@
                         ${tagBuilder.listLink("People", "index.xhtml", tagBuilder.showImage("people_small.png") + " People")}
                         ${tagBuilder.listLink("Tags", "index.xhtml",  tagBuilder.showImage("tags_small.png") + " Tags")}
                         <hr/>
-                        ${tagBuilder.listLink("Pages", "list.xhtml",  tagBuilder.showImage("pages_small.png") + " Pages")}
                         ${tagBuilder.showLink("Admin", "index.xhtml", tagBuilder.showImage("admin_small.png") + " Admin")}
                         ${tagBuilder.listLink("Logs", "index.xhtml", tagBuilder.showImage("logs_small.png") + " Logs")}
                     </td>
@@ -35,22 +34,6 @@
                     <td class="left sideBarInfo">
                         <#if tags?size == 0>There are no tags defined</#if>
                         <#list tags as tag>${tagBuilder.showLink("Tags", tag.title?url, tag.identity, tag.title?html)}  </#list>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-            </table>
-            <table border="0" cellpadding="0" cellspacing="0" style="width:272px;">
-                <tr>
-                    <td style="color:#FFFFFF; background-image:url('${tagBuilder.showUrl("Images", "tab.png")}'); height:23px; text-align:center; vertical-align:middle">
-                        Content
-                    </td>
-                </tr>
-                <tr>
-                    <td class="left sideBarInfo">
-                        <#if topLevelPages?size == 0>There is no content defined</#if>
-                        <#list topLevelPages as page>${tagBuilder.showLink("Pages", page.title?url, page.identity, page.title?html)}  </#list>
                     </td>
                 </tr>
                 <tr>

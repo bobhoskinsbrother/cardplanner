@@ -1,7 +1,6 @@
 package uk.co.itstherules.yawf.view.helper;
 
 import freemarker.template.*;
-import uk.co.itstherules.date.DateConverter;
 import uk.co.itstherules.string.manipulation.Chomp;
 import uk.co.itstherules.string.manipulation.CollectionPrinter;
 import uk.co.itstherules.yawf.assertion.Assertion;
@@ -302,23 +301,6 @@ public class XHtmlTagBuilder implements TagBuilder {
 		return new MergedTextView("xhtml/multiselect.freemarker", ModelView.class).asText(context, identifier);
 	}
 
-	public String passwordStrengthMeter(String identity, String targetIdentity) {
-		String lineSeparator = System.getProperty("line.separator");
-		StringBuilder buffer = new StringBuilder();
-		buffer = buffer.append("<div id=\"").append(identity).append("\" class=\"password_strength_meter\">");
-			buffer = buffer.append("<div id=\"").append(identity).append("_bar_container\" class=\"bar_container\" style=\"width: 75px; height: 10px\">");
-				buffer = buffer.append("<div id=\"").append(identity).append("_bar\" class=\"bar pws_empty\">&nbsp;</div>");
-			buffer = buffer.append("</div>");
-			buffer = buffer.append("<script type=\"text/javascript\">//<![CDATA[");
-			buffer = buffer.append(lineSeparator);
-			buffer = buffer.append("$('").append(targetIdentity).append("').observe('keyup', function(event){ PasswordStrength.check('").append(targetIdentity).append("', '").append(identity).append("')});");
-			buffer = buffer.append(lineSeparator);
-			buffer = buffer.append("//]]></script>");
-		buffer = buffer.append("</div>");
-	    
-	    return buffer.toString();
-	 }
-	
 	public String passwordText(TemplateHashModelEx hash, String value, boolean isError, List<String> errorMessage) {
 		return input(hash, InputType.Password, value, isError, errorMessage);
 	}
@@ -669,48 +651,6 @@ public class XHtmlTagBuilder implements TagBuilder {
 		return buffer.toString();
 
 	}
-
-
-	@Override
-    public String dateInput(TemplateHashModelEx hash, Date date, List<String> violationMessages) {
-		TemplateModel name;
-		String lineBreak = System.getProperty("line.separator"); 
-		String nameString = "date";
-        try {
-	        name = hash.get("name");
-        } catch (TemplateModelException e) {
-	        throw new RuntimeException(e);
-        }
-		if(name != null) { nameString = name.toString(); }
-		StringBuffer buffer = new StringBuffer();
-		buffer.append("<script type=\"text/javascript\">");
-		buffer.append(lineBreak);
-		buffer.append("//<![CDATA[");
-		buffer.append(lineBreak);
-		buffer.append("Event.observe(document, \"dom:loaded\",  function() { Calendar.setup({ dateField: '");
-		buffer.append(nameString);
-		buffer.append("', parentElement : '");
-		buffer.append(nameString);
-		buffer.append("Parent', dateFormat: '%Y-%m-%dT00:00:00Z' }); });");
-		buffer.append(lineBreak);
-		buffer.append("//]]>");
-		buffer.append(lineBreak);
-		buffer.append("</script>");
-		buffer.append(lineBreak);
-		buffer.append(lineBreak);
-		buffer.append("<div id=\"");
-		buffer.append(nameString);
-		buffer.append("Parent\" style=\"float:left;\"></div>");
-		buffer.append(lineBreak);
-		buffer.append("<input type=\"text\" style=\"display:none;\" name=\"");
-		buffer.append(nameString);
-		buffer.append("\" id=\"");
-		buffer.append(nameString);
-		buffer.append("\" value=\"");
-		buffer.append(new DateConverter().toISO8601(date));
-		buffer.append("\" />");
-	    return buffer.toString();
-    }
 
 	@Override
 	public String legend(String name, String text) {
