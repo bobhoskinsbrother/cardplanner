@@ -4,7 +4,5 @@
 In order to back up the information to an xls sheet, please click on the link below and save the file somewhere nice and safe.<br/><br/>
 
 <br/>
-<#assign rightNow = .now>
-<#assign file_name = "cardplanner_backup_"+rightNow?string("dd.MM.yyyy_hh.mm") +".xls" />
-${tagBuilder.feedLink("ExcelExport", file_name, "0", "Get me my XLS file please!")} ${tagBuilder.showImage("xls.png")}<br/><br/>
+${tagBuilder.feedLink("ExcelExport", "cardplanner_backup.xls", "0", "Get me my XLS file please!")} ${tagBuilder.showImage("xls.png")}<br/><br/>
 

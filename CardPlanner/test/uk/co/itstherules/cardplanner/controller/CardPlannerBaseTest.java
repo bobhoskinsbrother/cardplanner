@@ -1,30 +1,21 @@
 package uk.co.itstherules.cardplanner.controller;
 
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletResponse;
-
-import net.sf.oval.ConstraintViolation;
-
 import org.junit.Assert;
 import org.junit.Test;
-
 import uk.co.itstherules.yawf.inbound.MapValuesProvider;
 import uk.co.itstherules.yawf.inbound.ValuesProvider;
-import uk.co.itstherules.yawf.inbound.annotations.oval.IsAlphanumericCheck;
 import uk.co.itstherules.yawf.inbound.annotations.processor.QueryKeyViolations;
 import uk.co.itstherules.yawf.model.persistence.ObjectCache;
 import uk.co.itstherules.yawf.modelview.ModelView;
 import uk.co.itstherules.yawf.modelview.ModelViewRegister;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.mockito.Mockito.*;
 
 public class CardPlannerBaseTest {
 	
@@ -233,20 +224,5 @@ public class CardPlannerBaseTest {
 		verify(objectCache).save(object);
 		
 		Assert.assertTrue(unit.isSendChangeCalled());
-	}
-
-	
-	@Test public void unsuccessfulChangeWithViolationsCallsTheChangeViewAgain() throws Exception {
-		IdentityDeleteableImpl object = new IdentityDeleteableImpl();
-
-		QueryKeyViolations violations = new QueryKeyViolations();
-		ArrayList<ConstraintViolation> violationsList = new ArrayList<ConstraintViolation>();
-		violationsList.add(new ConstraintViolation(new IsAlphanumericCheck(), null, null, null, null));
-		violations.add("aViolation", violationsList);
-		BaseExtension2 unit = new BaseExtension2(violations);
-		unit.changeAction(null, null, null, null, null, object);
-		
-		Assert.assertFalse(unit.isSendChangeCalled());
-		Assert.assertTrue(unit.isChangeViewCalled());
 	}
 }

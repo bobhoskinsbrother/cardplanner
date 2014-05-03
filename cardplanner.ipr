@@ -201,11 +201,6 @@
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/libs/release/activation-1.1.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/antlr-2.7.6.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/batik-rasterizer-1.7.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/batik-slideshow-1.7.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/batik-squiggle-1.7.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/batik-svgpp-1.7.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/batik-ttf2svg-1.7.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/c3p0-0.9.1.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/commons-codec-1.4.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/commons-collections-3.1.jar!/" />
@@ -237,7 +232,6 @@
         <root url="jar://$PROJECT_DIR$/libs/release/jetty-webapp.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/jetty-xml.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/jta-1.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/mail-1.4.3.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/oval-1.50.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/poi-3.2.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/poi-contrib-3.2.jar!/" />

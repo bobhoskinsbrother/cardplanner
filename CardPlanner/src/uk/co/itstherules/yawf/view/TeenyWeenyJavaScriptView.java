@@ -1,16 +1,14 @@
 package uk.co.itstherules.yawf.view;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletResponse;
-
 import uk.co.itstherules.yawf.controller.ContentType;
 import uk.co.itstherules.yawf.view.context.ViewContext;
+
+import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 public final class TeenyWeenyJavaScriptView implements View {
 
     private final boolean acceptsGZip;
-    private boolean debug;
     private final List<String> files;
     private String resourceRoot;
 
@@ -18,7 +16,6 @@ public final class TeenyWeenyJavaScriptView implements View {
         this.files = files;
         this.resourceRoot = resourceRoot;
         this.acceptsGZip = acceptsGZip;
-        this.debug = debug;
     }
 
     @Override
@@ -36,11 +33,7 @@ public final class TeenyWeenyJavaScriptView implements View {
         for(String file : files) {
             String filePath = new StringBuffer(resourceRoot).append("js/").append(file).append(".js").toString();
             String uncompressed = new TextResourceView(filePath).asText(null, root);
-            if(debug) {
-                reply.append(uncompressed);
-            } else {
-                reply.append(new JavaScriptMinifierView(uncompressed).asText(context, root));
-            }
+            reply.append(uncompressed);
             reply.append(lineSeparator);
         }
         return reply.toString();

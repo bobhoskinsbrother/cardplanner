@@ -122,13 +122,4 @@ public final class CardModel extends IdentifiableDeleteableModel<CardModel>  {
 		return clone;
     }
 
-    public double calculateEffort() {
-        EffortModel effort = getEffort();
-        return effort.getType().asRate(effort.getAmount());
-    }
-
-    public double calculateValue() {
-        ValueModel value = getValue();
-        return value.getType().asRate(value.getAmount());
-    }
 }

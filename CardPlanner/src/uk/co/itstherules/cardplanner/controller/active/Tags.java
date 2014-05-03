@@ -1,17 +1,9 @@
 package uk.co.itstherules.cardplanner.controller.active;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletResponse;
-
 import uk.co.itstherules.cardplanner.ProviderKey;
 import uk.co.itstherules.cardplanner.controller.CardPlannerBase;
 import uk.co.itstherules.cardplanner.model.CardModel;
 import uk.co.itstherules.cardplanner.model.TagModel;
-import uk.co.itstherules.cardplanner.model.filter.CardFilter;
 import uk.co.itstherules.cardplanner.view.MergedTextView;
 import uk.co.itstherules.yawf.controller.ContentType;
 import uk.co.itstherules.yawf.dispatcher.Action;
@@ -27,8 +19,11 @@ import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
 import uk.co.itstherules.yawf.view.json.JsonView;
 
-
-
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public final class Tags extends CardPlannerBase<TagModel> {
 
@@ -59,19 +54,6 @@ public final class Tags extends CardPlannerBase<TagModel> {
 		ViewContext context = new EmptyContext();
 		context.put("redirect", listUrl(root));
 		new MergedTextView("done.freemarker").renderTo(context, response, root);
-	}
-	
-	@Override @Action("Show")
-	public void show(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory) throws IOException {
-		Set<CardModel> cards = objectCache.all(CardModel.class);
-		TagModel tag = (TagModel) identityModelFromCache(objectCache, provider);
-		View view = new MergedTextView("tags/show.freemarker");
-		ViewContext context = new EmptyContext();
-		context.put("tag", tag);
-		context.put("cards", new CardFilter().filter(cards, tag));
-
-		String root = provider.getApplicationRoot();
-		getTemplate(view.asText(context, root), getTitle(), "").renderTo(objectCache, provider, response, new EmptyContext(), new QueryKeyViolations());
 	}
 
 	@Action("Feed")

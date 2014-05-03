@@ -44,10 +44,10 @@ public final class MyCards extends BaseController {
 		}
 		
 		Set<CardModel> cards = person.getCards();
-		ValueEffortCalculator valueEffortCalculator = new ValueEffortCalculator();
+		EffortCalculator effortCalculator = new EffortCalculator();
 
 		Set<StatusModel> statuses = objectCache.all(StatusModel.class, new QueryConditions("AND").put("identity", QueryConditions.Operator.NotEquals, CachedInstance.Identities.THE_BACKLOG.getIdentity()));
-		EffortModel effort = valueEffortCalculator.calculateEffort(cards, SpecialInstances.<EffortTypeModel>retrieve(objectCache, CachedInstance.Identities.IDEAL_DAY_EFFORT_TYPE));
+		EffortModel effort = effortCalculator.calculateEffort(cards, SpecialInstances.<EffortTypeModel>retrieve(objectCache, CachedInstance.Identities.IDEAL_DAY_EFFORT_TYPE));
 		View view = new MergedTextView("mycards/list.freemarker");
 		ViewContext context = new EmptyContext();
 		context.put("person",  person);
