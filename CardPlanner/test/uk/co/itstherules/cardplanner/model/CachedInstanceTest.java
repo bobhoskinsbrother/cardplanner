@@ -8,7 +8,6 @@ import uk.co.itstherules.cardplanner.model.CachedInstance.Identities;
 import uk.co.itstherules.cardplanner.model.type.EffortTypeModel;
 import uk.co.itstherules.cardplanner.model.type.ValueTypeModel;
 import uk.co.itstherules.yawf.model.SimpleAttachmentModel;
-import uk.co.itstherules.yawf.model.TemplateModel;
 
 import java.util.HashSet;
 import java.util.List;
@@ -59,9 +58,8 @@ public class CachedInstanceTest {
 		CardTypeModel cardTypeModel = findFirst(CardTypeModel.class, objects);
 		assertThat(cardTypeModel.getIdentity(), is(Identities.USER_STORY_ITEM_TYPE.getIdentity()));
 
-		assertThat(objects, contains(2, PersonModel.class));
+		assertThat(objects, contains(1, PersonModel.class));
 		assertThat(objects, contains(4, StatusModel.class));
-		assertThat(objects, contains(4, TemplateModel.class));
 	}
 	
 	

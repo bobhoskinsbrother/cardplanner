@@ -238,7 +238,6 @@
         <root url="jar://$PROJECT_DIR$/libs/release/jetty-xml.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/jta-1.1.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/mail-1.4.3.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/opencsv-2.0.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/oval-1.50.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/poi-3.2.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/release/poi-contrib-3.2.jar!/" />

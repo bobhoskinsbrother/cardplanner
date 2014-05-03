@@ -1,7 +1,13 @@
 package uk.co.itstherules.yawf.model;
 
+import uk.co.itstherules.yawf.inbound.ValuesProvider;
 
 public interface Identity {
-	String getIdentity();
-	Class<? extends IdentityDeleteable<?>> toInstantiate();
+
+    ValuesProvider provider();
+
+    String getIdentity();
+
+    Class<? extends IdentityDeleteable<?>> toInstantiate();
+
 }

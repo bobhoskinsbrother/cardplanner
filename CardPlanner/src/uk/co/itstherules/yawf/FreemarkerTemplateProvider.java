@@ -6,9 +6,6 @@ import freemarker.cache.TemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.TemplateModelException;
 import uk.co.itstherules.yawf.model.serializer.Json;
-import uk.co.itstherules.yawf.view.helper.DateProvider;
-import uk.co.itstherules.yawf.view.helper.LetterAbbreviator;
-import uk.co.itstherules.yawf.view.helper.MathHelper;
 import uk.co.itstherules.yawf.view.helper.WordAbbreviator;
 
 import java.util.Locale;
@@ -39,10 +36,7 @@ public final class FreemarkerTemplateProvider {
 		freeMarker.setURLEscapingCharset("UTF-8");
 		try {
 	        freeMarker.setSharedVariable("abbreviator", new WordAbbreviator());
-	        freeMarker.setSharedVariable("letterAbbreviator", new LetterAbbreviator());
 	        freeMarker.setSharedVariable("jsonSerializer", new Json<Object>());
-	        freeMarker.setSharedVariable("dateProvider", new DateProvider());
-	        freeMarker.setSharedVariable("math", new MathHelper());
         } catch (TemplateModelException e) {
 	        throw new RuntimeException(e);
         }

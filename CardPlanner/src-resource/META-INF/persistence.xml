@@ -25,7 +25,6 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/x
 		<class>uk.co.itstherules.cardplanner.model.StatusModel</class>
 		<class>uk.co.itstherules.cardplanner.model.TagModel</class>
 		<class>uk.co.itstherules.cardplanner.model.ValueModel</class>
-		<class>uk.co.itstherules.yawf.model.TemplateModel</class>
 		<class>uk.co.itstherules.yawf.view.DatabaseStoredModelView</class>
 		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
 		<properties>

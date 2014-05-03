@@ -1,14 +1,8 @@
 package uk.co.itstherules.yawf;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.io.Writer;
+import java.io.*;
 import java.net.URLDecoder;
 import java.util.Properties;
-
-import uk.co.itstherules.yawf.view.helper.DateProvider;
 
 public final class PropertiesHandler {
 	
@@ -38,7 +32,7 @@ public final class PropertiesHandler {
 	        path = URLDecoder.decode(PropertiesHandler.class.getClassLoader().getResource(name).getFile(), "utf8");
 	        System.out.println(path);
 	        Writer writer = new FileWriter(path);
-	        properties.store(writer, "Updated at "+new DateProvider().now()+" from the web interface");
+	        properties.store(writer, "Updated from the web interface");
         } catch (UnsupportedEncodingException e) {
 	        throw new RuntimeException(e);
         } catch (IOException e) {

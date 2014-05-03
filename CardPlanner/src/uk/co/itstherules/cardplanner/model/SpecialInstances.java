@@ -1,8 +1,5 @@
 package uk.co.itstherules.cardplanner.model;
 
-import uk.co.itstherules.collections.PropertiesMap;
-import uk.co.itstherules.yawf.PropertiesHandler;
-import uk.co.itstherules.yawf.inbound.MapValuesProvider;
 import uk.co.itstherules.yawf.inbound.ValuesProvider;
 import uk.co.itstherules.yawf.inbound.annotations.processor.BasicValuesProviderBinder;
 import uk.co.itstherules.yawf.inbound.annotations.processor.QueryKeyViolations;
@@ -10,8 +7,6 @@ import uk.co.itstherules.yawf.model.Identity;
 import uk.co.itstherules.yawf.model.IdentityDeleteable;
 import uk.co.itstherules.yawf.model.instantiator.Instantiator;
 import uk.co.itstherules.yawf.model.persistence.ObjectCache;
-
-import java.util.Properties;
 
 public final class SpecialInstances {
 
@@ -34,10 +29,6 @@ public final class SpecialInstances {
 			instance = bind(objectCache, identity.getIdentity(), instance, provider);
 		}
 		this.objectCache.save(instance); 
-	}
-
-	public void resetOrPersist(Identity identity) {
-        resetOrPersist(identity, getProviderFor(identity));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -63,14 +54,8 @@ public final class SpecialInstances {
 	}
 	
 	private static IdentityDeleteable<?> buildFrom(ObjectCache objectCache, Identity identity) {
-		ValuesProvider provider = getProviderFor(identity);
+		ValuesProvider provider = identity.provider();
 		return buildFrom(objectCache, identity.getIdentity(), identity.toInstantiate(), provider);
-	}
-
-	private static ValuesProvider getProviderFor(Identity identity) {
-		Properties properties = PropertiesHandler.provide("uk/co/itstherules/cardplanner/model/defaults", identity.getIdentity());
-		PropertiesMap map = new PropertiesMap(properties);
-		return new MapValuesProvider(map);
 	}
 
 }
