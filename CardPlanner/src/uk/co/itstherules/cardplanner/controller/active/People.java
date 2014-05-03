@@ -6,7 +6,6 @@ import uk.co.itstherules.cardplanner.model.PersonModel;
 import uk.co.itstherules.cardplanner.model.SpecialInstances;
 import uk.co.itstherules.cardplanner.model.business.Deleter;
 import uk.co.itstherules.cardplanner.view.MergedTextView;
-import uk.co.itstherules.string.manipulation.CamelCase;
 import uk.co.itstherules.yawf.EnumArrayToEntityListConverter;
 import uk.co.itstherules.yawf.dispatcher.Action;
 import uk.co.itstherules.yawf.inbound.ValuesProvider;
@@ -47,7 +46,6 @@ public final class People extends CardPlannerBase<PersonModel> {
 		View view = new MergedTextView("people/list.freemarker");
 		ViewContext context = new EmptyContext();
 		context.put("people", people);
-		context.put("camelCase", new CamelCase());
 		String root = provider.getApplicationRoot();
 		getTemplate(view.asText(context, root), getTitle(), "List People").renderTo(objectCache, provider, response, new EmptyContext(), new QueryKeyViolations());
 	}
@@ -63,7 +61,6 @@ public final class People extends CardPlannerBase<PersonModel> {
 		context.put("genders", new EnumArrayToEntityListConverter().convert(PersonModel.Gender.values()));
 		context.put("action", action);
 		context.put("person", person);
-		context.put("camelCase", new CamelCase());
 		context.put("attachments", attachments);
 		String root = provider.getApplicationRoot();
 		getPop(view.asText(context, root), getTitle(), "").renderTo(objectCache, provider, response, new EmptyContext(), violations);
