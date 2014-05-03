@@ -1,16 +1,7 @@
 package uk.co.itstherules.cardplanner.controller.active;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletResponse;
-
 import uk.co.itstherules.cardplanner.controller.CardPlannerBase;
 import uk.co.itstherules.cardplanner.model.CardModel;
-import uk.co.itstherules.cardplanner.model.atom.CardsAtomModel;
 import uk.co.itstherules.cardplanner.model.business.Archiver;
 import uk.co.itstherules.yawf.dispatcher.Action;
 import uk.co.itstherules.yawf.inbound.ValuesProvider;
@@ -18,9 +9,14 @@ import uk.co.itstherules.yawf.inbound.annotations.processor.QueryKeyViolations;
 import uk.co.itstherules.yawf.model.ObjectState;
 import uk.co.itstherules.yawf.model.persistence.ObjectCache;
 import uk.co.itstherules.yawf.modelview.ModelViewRegister;
-import uk.co.itstherules.yawf.view.atom.AtomView;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.json.JsonView;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 
 
@@ -52,12 +48,6 @@ public final class Archived extends CardPlannerBase<CardModel> {
         Map<String, Object> objects = new HashMap<String, Object>();
         objects.put("cards", cards);
         new JsonView(objects, "people", "facts", "tags").renderTo(new EmptyContext(), response, provider.getApplicationRoot());
-    }
-
-	@Action("Atom") public void atom(ObjectCache cache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory) throws IOException {
-        Set<CardModel> cards = new LinkedHashSet<CardModel>(cache.all(CardModel.class, ObjectState.Archived));
-        String root = provider.getApplicationRoot();
-        new AtomView(new CardsAtomModel("List Archived Cards", "", root, cards)).renderTo(new EmptyContext(), response, root);
     }
 
     @Action("List") public void list(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory) throws IOException {

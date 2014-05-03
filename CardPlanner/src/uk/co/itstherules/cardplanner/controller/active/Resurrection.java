@@ -42,7 +42,7 @@ public final class Resurrection extends BaseController {
 		context.put("all", all);
 
 		String root = provider.getApplicationRoot();
-		new TemplateCompositeModelView(false, view.asText(context, root), getTitle(), "", false).renderTo(objectCache, provider, response, new EmptyContext(), new QueryKeyViolations());
+		new TemplateCompositeModelView(false, view.asText(context, root), getTitle(), "").renderTo(objectCache, provider, response, new EmptyContext(), new QueryKeyViolations());
 	}
 	
 	@Action("Update")

@@ -159,10 +159,6 @@ public class CardPlannerTagBuilder implements TagBuilder {
         return delegate.feedUrl(controller, identity, title);
     }
 
-    public String atomUrl(String controller) {
-        return delegate.atomUrl(controller);
-    }
-
     public String fileUpload(TemplateHashModelEx hash, String value, boolean isError, String errorMessage) {
         return delegate.fileUpload(hash, value, isError, errorMessage);
     }

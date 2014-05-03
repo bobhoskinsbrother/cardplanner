@@ -1,24 +1,10 @@
 package uk.co.itstherules.cardplanner.controller.active;
 
-import java.io.IOException;
-import java.util.Collections;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletResponse;
-
 import uk.co.itstherules.cardplanner.ProviderKey;
 import uk.co.itstherules.cardplanner.controller.shared.SharedObject;
 import uk.co.itstherules.cardplanner.controller.shared.SharedObjectSpaceClient;
 import uk.co.itstherules.cardplanner.controller.shared.SharedObjectSpacesListener;
-import uk.co.itstherules.cardplanner.model.CachedInstance;
-import uk.co.itstherules.cardplanner.model.CardModel;
-import uk.co.itstherules.cardplanner.model.CardTypeModel;
-import uk.co.itstherules.cardplanner.model.EffortModel;
-import uk.co.itstherules.cardplanner.model.LogModel;
-import uk.co.itstherules.cardplanner.model.PersonModel;
-import uk.co.itstherules.cardplanner.model.SpecialInstances;
-import uk.co.itstherules.cardplanner.model.StatusModel;
-import uk.co.itstherules.cardplanner.model.ValueEffortCalculator;
+import uk.co.itstherules.cardplanner.model.*;
 import uk.co.itstherules.cardplanner.model.type.EffortTypeModel;
 import uk.co.itstherules.cardplanner.view.MergedTextView;
 import uk.co.itstherules.cardplanner.view.SerializeModel;
@@ -34,6 +20,11 @@ import uk.co.itstherules.yawf.view.View;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
 import uk.co.itstherules.yawf.view.json.JsonView;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.Set;
 
 
 public final class MyCards extends BaseController {
@@ -68,7 +59,7 @@ public final class MyCards extends BaseController {
 		String root = provider.getApplicationRoot();
 		context.put(ProviderKey.root.name(), root);
 		
-		new TemplateCompositeModelView(false, view.asText(context, root), getTitle(), "", false).renderTo(objectCache, provider, response, new EmptyContext(), new QueryKeyViolations());
+		new TemplateCompositeModelView(false, view.asText(context, root), getTitle(), "").renderTo(objectCache, provider, response, new EmptyContext(), new QueryKeyViolations());
 	}
 
 	@Action("Update") public void update(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory) throws IOException {

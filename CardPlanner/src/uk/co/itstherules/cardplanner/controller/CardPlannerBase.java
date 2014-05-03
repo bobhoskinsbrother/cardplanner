@@ -1,9 +1,5 @@
 package uk.co.itstherules.cardplanner.controller;
 
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletResponse;
-
 import uk.co.itstherules.cardplanner.view.TemplateCompositeModelView;
 import uk.co.itstherules.yawf.controller.BaseController;
 import uk.co.itstherules.yawf.dispatcher.Action;
@@ -16,6 +12,9 @@ import uk.co.itstherules.yawf.modelview.ModelView;
 import uk.co.itstherules.yawf.modelview.ModelViewRegister;
 import uk.co.itstherules.yawf.view.TextStringView;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 
 public abstract class CardPlannerBase<T extends IdentityDeleteable<T>> extends BaseController {
@@ -56,11 +55,11 @@ public abstract class CardPlannerBase<T extends IdentityDeleteable<T>> extends B
     }
 
 	protected ModelView getTemplate(String text, String controller, String title) {
-		return new TemplateCompositeModelView(false, text, controller, title, false);
+		return new TemplateCompositeModelView(false, text, controller, title);
     }
 
 	protected ModelView getPop(String text, String controller, String title) {
-		return new TemplateCompositeModelView(true, text, controller, title, false);
+		return new TemplateCompositeModelView(true, text, controller, title);
     }
 
 	protected String showView(T identityModelFromCache, String root) {

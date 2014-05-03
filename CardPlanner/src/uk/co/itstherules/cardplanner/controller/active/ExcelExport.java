@@ -1,9 +1,5 @@
 package uk.co.itstherules.cardplanner.controller.active;
 
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletResponse;
-
 import uk.co.itstherules.cardplanner.view.MergedTextView;
 import uk.co.itstherules.cardplanner.view.TemplateCompositeModelView;
 import uk.co.itstherules.cardplanner.view.active.ExcelExportXls;
@@ -16,12 +12,15 @@ import uk.co.itstherules.yawf.modelview.ModelViewRegister;
 import uk.co.itstherules.yawf.view.View;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 public final class ExcelExport extends BaseController {
 
 	@Action("List") public void list(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory) throws IOException {
 		View view = new MergedTextView("excelexport/show.freemarker");
 		String root = provider.getApplicationRoot();
-		new TemplateCompositeModelView(false, view.asText(new EmptyContext(), root), getTitle(), "", false).renderTo(objectCache, provider, response, new EmptyContext(), new QueryKeyViolations());
+		new TemplateCompositeModelView(false, view.asText(new EmptyContext(), root), getTitle(), "").renderTo(objectCache, provider, response, new EmptyContext(), new QueryKeyViolations());
 	}
 
 	@Action("Feed") public void feed(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory) throws IOException {

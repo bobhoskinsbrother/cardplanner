@@ -1,16 +1,7 @@
 package uk.co.itstherules.cardplanner.view;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
 import uk.co.itstherules.cardplanner.ProviderKey;
-import uk.co.itstherules.cardplanner.model.CachedInstance;
-import uk.co.itstherules.cardplanner.model.CardModel;
-import uk.co.itstherules.cardplanner.model.CardTypeModel;
-import uk.co.itstherules.cardplanner.model.SpecialInstances;
-import uk.co.itstherules.cardplanner.model.StatusModel;
-import uk.co.itstherules.cardplanner.model.TagModel;
+import uk.co.itstherules.cardplanner.model.*;
 import uk.co.itstherules.cardplanner.model.type.EffortTypeModel;
 import uk.co.itstherules.cardplanner.model.type.ValueTypeModel;
 import uk.co.itstherules.yawf.inbound.ValuesProvider;
@@ -22,6 +13,10 @@ import uk.co.itstherules.yawf.view.context.ChangeContext;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
 import uk.co.itstherules.yawf.view.helper.TitleListHelper;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public abstract class CardChange extends BaseModelView {
 
@@ -63,7 +58,7 @@ public abstract class CardChange extends BaseModelView {
         context.put(ProviderKey.root.name(), root);
 
 
-        return new TemplateCompositeModelView(true, view.asText(context, root), "StoryBoard", "", false).asText(objectCache, provider, new EmptyContext(), violations);
+        return new TemplateCompositeModelView(true, view.asText(context, root), "StoryBoard", "").asText(objectCache, provider, new EmptyContext(), violations);
     }
 
     protected abstract String action();

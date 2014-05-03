@@ -1,10 +1,5 @@
 package uk.co.itstherules.cardplanner.controller.active;
 
-import java.io.IOException;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletResponse;
-
 import uk.co.itstherules.cardplanner.controller.CardPlannerBase;
 import uk.co.itstherules.cardplanner.model.CachedInstance.Identities;
 import uk.co.itstherules.cardplanner.model.CardTypeModel;
@@ -19,6 +14,10 @@ import uk.co.itstherules.yawf.view.View;
 import uk.co.itstherules.yawf.view.context.ChangeContext;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Set;
 
 
 public final class CardTypes extends CardPlannerBase<CardTypeModel> {
@@ -40,7 +39,7 @@ public final class CardTypes extends CardPlannerBase<CardTypeModel> {
 		context.put("nullCardType", defaultCardType);	
 		String root = provider.getApplicationRoot();
 
-		new TemplateCompositeModelView(provider.getBoolean("isNaked", Boolean.FALSE).booleanValue(), view.asText(context, root), getTitle(), "Card Types", Boolean.FALSE).renderTo(objectCache, provider, response, new EmptyContext(), violations);
+		new TemplateCompositeModelView(provider.getBoolean("isNaked", Boolean.FALSE).booleanValue(), view.asText(context, root), getTitle(), "Card Types").renderTo(objectCache, provider, response, new EmptyContext(), violations);
     }
 	
 }

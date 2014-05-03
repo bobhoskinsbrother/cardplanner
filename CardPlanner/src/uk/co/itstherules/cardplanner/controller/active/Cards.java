@@ -1,40 +1,29 @@
 package uk.co.itstherules.cardplanner.controller.active;
 
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletResponse;
-
 import uk.co.itstherules.cardplanner.model.CachedInstance.Identities;
 import uk.co.itstherules.cardplanner.model.CardModel;
 import uk.co.itstherules.cardplanner.model.CardService;
 import uk.co.itstherules.cardplanner.model.CardTypeModel;
 import uk.co.itstherules.cardplanner.model.SpecialInstances;
-import uk.co.itstherules.cardplanner.model.atom.CardsAtomModel;
 import uk.co.itstherules.cardplanner.view.MergedTextView;
 import uk.co.itstherules.cardplanner.view.TemplateCompositeModelView;
 import uk.co.itstherules.yawf.controller.BaseController;
 import uk.co.itstherules.yawf.dispatcher.Action;
 import uk.co.itstherules.yawf.inbound.ValuesProvider;
 import uk.co.itstherules.yawf.inbound.annotations.processor.QueryKeyViolations;
-import uk.co.itstherules.yawf.model.ObjectState;
 import uk.co.itstherules.yawf.model.persistence.ObjectCache;
 import uk.co.itstherules.yawf.modelview.ModelViewRegister;
 import uk.co.itstherules.yawf.view.View;
-import uk.co.itstherules.yawf.view.atom.AtomView;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
 
-public final class Cards extends BaseController {
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
 
-	@Action("Atom") public void atom(ObjectCache cache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory) throws IOException {
-        Set<CardModel> cards = new LinkedHashSet<CardModel>(cache.all(CardModel.class, ObjectState.Active));
-        String root = provider.getApplicationRoot();
-        new AtomView(new CardsAtomModel("List Cards", "", root, cards)).renderTo(new EmptyContext(), response, root);
-    }
+public final class Cards extends BaseController {
 
     @Action("List") public void list(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory) throws IOException {
 		String root = provider.getApplicationRoot();
@@ -44,7 +33,7 @@ public final class Cards extends BaseController {
         ViewContext context = new EmptyContext();
         context.put("topCard", new CardService().invisibleCard(objectCache));
         context.put("types", objectCache.all(CardTypeModel.class));
-        new TemplateCompositeModelView(false, view.asText(context, root), "Cards", "List Cards", false, cssList, javascriptList).renderTo(objectCache, provider, response, context, new QueryKeyViolations());
+        new TemplateCompositeModelView(false, view.asText(context, root), "Cards", "List Cards", cssList, javascriptList).renderTo(objectCache, provider, response, context, new QueryKeyViolations());
     }
 
     @Action("Print") public void print(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory) throws IOException {

@@ -1,7 +1,5 @@
 package uk.co.itstherules.cardplanner.view;
 
-import java.util.Set;
-
 import uk.co.itstherules.cardplanner.model.CachedInstance.Identities;
 import uk.co.itstherules.cardplanner.model.SpecialInstances;
 import uk.co.itstherules.yawf.inbound.ValuesProvider;
@@ -12,6 +10,8 @@ import uk.co.itstherules.yawf.modelview.BaseModelView;
 import uk.co.itstherules.yawf.view.View;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
+
+import java.util.Set;
 
 
 public abstract class AttachmentsChange extends BaseModelView {
@@ -28,7 +28,7 @@ public abstract class AttachmentsChange extends BaseModelView {
 		context.put("violations", violations);
 		View view = new MergedTextView("attachments/list.freemarker");
 		String root = valuesProvider.getApplicationRoot();
-		return new TemplateCompositeModelView(true,  view.asText(context, root), getKey(), "", false).asText(objectCache, valuesProvider, new EmptyContext(), violations);
+		return new TemplateCompositeModelView(true,  view.asText(context, root), getKey(), "").asText(objectCache, valuesProvider, new EmptyContext(), violations);
 	}
 	
 	protected abstract String action();

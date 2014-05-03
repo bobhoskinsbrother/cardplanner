@@ -1,9 +1,5 @@
 package uk.co.itstherules.cardplanner.view.active;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
-
 import uk.co.itstherules.cardplanner.model.CardModel;
 import uk.co.itstherules.cardplanner.model.CardTypeModel;
 import uk.co.itstherules.cardplanner.model.PostItModel;
@@ -17,6 +13,10 @@ import uk.co.itstherules.yawf.modelview.BaseModelView;
 import uk.co.itstherules.yawf.view.View;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
 
 public class ListArchived extends BaseModelView {
 
@@ -33,7 +33,7 @@ public class ListArchived extends BaseModelView {
 	    context.put("types", objectCache.all(CardTypeModel.class));
         List<String> cssList = Arrays.asList("storyboard", "humane");
         List<String> javascriptList = Arrays.asList("browserintelligence_1_0", "pxdecorator_1_0", "humane");
-        return new TemplateCompositeModelView(false,  view.asText(context, root), getKey(), "", false, cssList, javascriptList).asText(objectCache, provider, new EmptyContext(), violations);
+        return new TemplateCompositeModelView(false,  view.asText(context, root), getKey(), "", cssList, javascriptList).asText(objectCache, provider, new EmptyContext(), violations);
     }
 
 }

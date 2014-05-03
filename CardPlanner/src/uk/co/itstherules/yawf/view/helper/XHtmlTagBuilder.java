@@ -162,11 +162,6 @@ public class XHtmlTagBuilder implements TagBuilder {
 		return link(url.feed(controller, identity, title), name);
 	}
 
-    public String atomUrl(String controller){
-        return url.url(controller, "Atom", "0", "atom.xml");
-    }
-
-
 	public String feedUrl(String controller, String identity, String title) {
 		return url.feed(controller, identity, title);
 	}

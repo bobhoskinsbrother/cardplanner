@@ -1,12 +1,5 @@
 package uk.co.itstherules.cardplanner.controller.active;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import javax.servlet.http.HttpServletResponse;
-
 import uk.co.itstherules.cardplanner.ProviderKey;
 import uk.co.itstherules.cardplanner.model.LogModel;
 import uk.co.itstherules.cardplanner.view.MergedTextView;
@@ -21,6 +14,12 @@ import uk.co.itstherules.yawf.view.View;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 
 
 public class Logs extends BaseController {
@@ -33,7 +32,7 @@ public class Logs extends BaseController {
 		String root = provider.getApplicationRoot();
 		context.put(ProviderKey.root.name(), root);
 		View view = new MergedTextView("logs/list.freemarker");
-		new TemplateCompositeModelView(false, view.asText(context, root), getTitle(), "", false).renderTo(objectCache, provider, response, new EmptyContext(), new QueryKeyViolations());
+		new TemplateCompositeModelView(false, view.asText(context, root), getTitle(), "").renderTo(objectCache, provider, response, new EmptyContext(), new QueryKeyViolations());
 	}
 
 }

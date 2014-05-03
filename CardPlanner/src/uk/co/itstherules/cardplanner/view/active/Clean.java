@@ -13,7 +13,6 @@ public class Clean extends BaseModelView {
 
 	@Override public String asText(ObjectCache objectCache, ValuesProvider valuesProvider, ViewContext mixInContext, QueryKeyViolations violations) {
 		ViewContext context = new JavascriptAndCssContext(valuesProvider.getApplicationRoot());
-		context.put("feedMe", false);
 		if(mixInContext!= null) { context.putAll(mixInContext); }
 	    return new MergedTextView("clean.freemarker").asText(context, valuesProvider.getApplicationRoot());
     }

@@ -42,8 +42,7 @@ public class Template extends BaseModelView {
 		Map<String, Object> fields = new HashMap<String, Object>();
 		fields.put("navigable", Boolean.TRUE);
 		context.put("tags", objectCache.all(TagModel.class));
-		context.put("feedMe", Boolean.FALSE);
-		context.put("modulesNav", ModuleNavigationRegister.getView().asText(objectCache, valuesProvider, new EmptyContext(), violations)); 
+		context.put("modulesNav", ModuleNavigationRegister.getView().asText(objectCache, valuesProvider, new EmptyContext(), violations));
 
 	    return new MergedTextView(template()).asText(context, valuesProvider.getApplicationRoot());
     }

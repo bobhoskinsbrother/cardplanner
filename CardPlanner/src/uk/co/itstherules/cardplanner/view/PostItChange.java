@@ -1,7 +1,5 @@
 package uk.co.itstherules.cardplanner.view;
 
-import java.util.Set;
-
 import uk.co.itstherules.cardplanner.ProviderKey;
 import uk.co.itstherules.cardplanner.model.CachedInstance;
 import uk.co.itstherules.cardplanner.model.PostItModel;
@@ -15,6 +13,8 @@ import uk.co.itstherules.yawf.view.View;
 import uk.co.itstherules.yawf.view.context.ChangeContext;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
+
+import java.util.Set;
 
 public abstract class PostItChange extends BaseModelView {
 
@@ -35,7 +35,7 @@ public abstract class PostItChange extends BaseModelView {
         context.put("cardTitle", provider.getString("cardTitle"));
         context.put(ProviderKey.root.name(), root);
         View view = new MergedTextView("storyboard/edit_postit.freemarker");
-        return new TemplateCompositeModelView(true, view.asText(context, root), "StoryBoard", "", false).asText(objectCache, provider, new EmptyContext(), violations);
+        return new TemplateCompositeModelView(true, view.asText(context, root), "StoryBoard", "").asText(objectCache, provider, new EmptyContext(), violations);
     }
 
     protected abstract String action();

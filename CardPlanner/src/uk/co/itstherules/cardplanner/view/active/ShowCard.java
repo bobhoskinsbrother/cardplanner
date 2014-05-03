@@ -21,7 +21,7 @@ public class ShowCard extends BaseModelView {
         ViewContext context = new EmptyContext();
         context.put("card",  card);
         String root = provider.getApplicationRoot();
-        TemplateCompositeModelView pop = new TemplateCompositeModelView(true, view.asText(context, root), "StoryBoard", "", false);
+        TemplateCompositeModelView pop = new TemplateCompositeModelView(true, view.asText(context, root), "StoryBoard", "");
         return pop.asText(objectCache, provider, new EmptyContext(), new QueryKeyViolations());
     }
 }

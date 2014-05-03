@@ -1,10 +1,5 @@
 package uk.co.itstherules.cardplanner.controller.active;
 
-import java.io.IOException;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletResponse;
-
 import uk.co.itstherules.cardplanner.controller.CardPlannerBase;
 import uk.co.itstherules.cardplanner.controller.shared.SharedObject;
 import uk.co.itstherules.cardplanner.controller.shared.SharedObjectSpaceClient;
@@ -26,6 +21,10 @@ import uk.co.itstherules.yawf.view.View;
 import uk.co.itstherules.yawf.view.context.ChangeContext;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Set;
 
 
 
@@ -56,7 +55,7 @@ public final class Statuses extends CardPlannerBase<StatusModel> {
 		ViewContext context = new ChangeContext(getTitle(), action, violations, status);
 		context.put("status", status);
 		context.put("theBacklog", "TheBacklog");
-		new TemplateCompositeModelView(true, view.asText(context, root), getTitle(), "", false).renderTo(objectCache, provider, response, new EmptyContext(), violations);
+		new TemplateCompositeModelView(true, view.asText(context, root), getTitle(), "").renderTo(objectCache, provider, response, new EmptyContext(), violations);
 	}
 	
 	protected void changeAction(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory, String action, StatusModel status) throws IOException {

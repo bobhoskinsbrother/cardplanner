@@ -72,8 +72,6 @@ public interface TagBuilder {
 	String feedLink(String controller, String title, String identity,
 	        String name);
 
-    String atomUrl(String controller);
-
 	String feedUrl(String controller, String identity, String title);
 
 	String fileUpload(TemplateHashModelEx hash, String value, boolean isError,

@@ -1,7 +1,5 @@
 package uk.co.itstherules.cardplanner.view.active;
 
-import java.math.BigInteger;
-
 import uk.co.itstherules.cardplanner.model.StatusModel;
 import uk.co.itstherules.cardplanner.view.MergedTextView;
 import uk.co.itstherules.cardplanner.view.TemplateCompositeModelView;
@@ -14,6 +12,8 @@ import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.SingleValueContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
 
+import java.math.BigInteger;
+
 public class ShowAdmin extends BaseModelView {
 
 	@Override
@@ -22,6 +22,6 @@ public class ShowAdmin extends BaseModelView {
 		View view = new MergedTextView("admin/show.freemarker");
 		ViewContext context = new SingleValueContext("showHardSums", new Boolean(statuses.intValue() > 2));
 		String root = valuesProvider.getApplicationRoot();
-		return new TemplateCompositeModelView(false, view.asText(context, root), getKey(), "", false).asText(objectCache, valuesProvider, new EmptyContext(), violations);
+		return new TemplateCompositeModelView(false, view.asText(context, root), getKey(), "").asText(objectCache, valuesProvider, new EmptyContext(), violations);
     }
 }

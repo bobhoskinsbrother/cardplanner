@@ -1,10 +1,5 @@
 package uk.co.itstherules.cardplanner.controller.active;
 
-import java.io.IOException;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletResponse;
-
 import uk.co.itstherules.cardplanner.controller.CardPlannerBase;
 import uk.co.itstherules.cardplanner.model.CachedInstance.Identities;
 import uk.co.itstherules.cardplanner.model.SpecialInstances;
@@ -20,6 +15,10 @@ import uk.co.itstherules.yawf.modelview.ModelViewRegister;
 import uk.co.itstherules.yawf.view.View;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Set;
 
 
 
@@ -43,7 +42,7 @@ public final class EffortTypes extends CardPlannerBase<EffortTypeModel> {
 		context.put("types", new EnumArrayToEntityListConverter().convert(TypeType.values()));
 		
 		String root = provider.getApplicationRoot();
-		new TemplateCompositeModelView(false, view.asText(context, root), getTitle(), "", false).renderTo(objectCache, provider, response, new EmptyContext(), violations);
+		new TemplateCompositeModelView(false, view.asText(context, root), getTitle(), "").renderTo(objectCache, provider, response, new EmptyContext(), violations);
     }
 
 	@Override
