@@ -14,6 +14,7 @@ import uk.co.itstherules.ui.functions.Wait;
 import uk.co.itstherules.ui.functions.DataFixtures;
 import uk.co.itstherules.ui.pages.list.CardAttachmentsPage;
 import uk.co.itstherules.ui.personas.BasicPersona;
+import uk.co.itstherules.yawf.model.SimpleAttachmentModel;
 
 import java.net.URI;
 
@@ -30,8 +31,9 @@ public class CardAttachmentsTest {
     private static BasicPersona norville;
     private static CardPlannerServer server;
     private static URI uri;
-    private DataFixtures fixtures;
-    private CardModel card;
+    private static DataFixtures fixtures;
+    private static CardModel card;
+    private static SimpleAttachmentModel attachment;
 
     @BeforeClass
     public static void setup() throws Exception {
@@ -39,6 +41,9 @@ public class CardAttachmentsTest {
         pageLookup = WebDriverInstance.get();
         server = new CardPlannerServer(TEST).port(0);
         uri = server.startServer();
+        fixtures = new DataFixtures();
+        attachment = fixtures.saveAttachment();
+        card = fixtures.saveSimpleCard();
     }
 
     @AfterClass
@@ -49,21 +54,18 @@ public class CardAttachmentsTest {
 
     @Before
     public void s() throws Exception {
-        fixtures = new DataFixtures();
-        card = fixtures.saveSimpleCard();
         path = TempFileWriter.write(norville.getMemory().getFilePathForUpload());
     }
 
     @After
     public void t() throws Exception {
-        fixtures.destroy(card);
         TempFileWriter.destroy(path);
     }
 
     @Test
     public void addAnAttachment() throws Exception {
         CardAttachmentsPage page = new CardAttachmentsPage(uri.toString(), pageLookup);
-        page = norville.browseToAttachmentsForCard(page);
+        page = norville.browseToAttachmentsForCard(page, norville.getFirstCard());
         norville.uploadWith(page, path);
         Wait.forText(pageLookup, norville.getMemory().getAttachmentTitle(), 5000);
         norville.clickOnUploadedFileOn(page);
@@ -75,14 +77,14 @@ public class CardAttachmentsTest {
         switcher.toOriginal();
     }
 
-    @Ignore @Test
+    @Test
     public void associateAnExistingAttachment() throws Exception {
         CardAttachmentsPage page = new CardAttachmentsPage(uri.toString(), pageLookup);
-        page = norville.browseToAttachmentsForCard(page);
+        page = norville.browseToAttachmentsForCard(page, card.getIdentity());
         WebElement attachedPanel = page.getAttachedPanel();
         WebElement notAttachedPanel = page.getNotAttachedPanel();
 
-        WebElement notAttached = notAttachedPanel.findElement(By.id(norville.getMemory().getAttachmentIdentity()));
+        WebElement notAttached = notAttachedPanel.findElement(By.id(attachment.getIdentity()));
         Actions builder = new Actions(pageLookup);
         Action dragAndDrop = builder.clickAndHold(notAttached).moveToElement(attachedPanel).release(attachedPanel).build();
         dragAndDrop.perform();
@@ -93,7 +95,7 @@ public class CardAttachmentsTest {
             throw new RuntimeException(e);
         }
 
-        assertTrue(page.getAttachedPanel().getText().contains("BigFreddy"));
+        assertTrue(page.getAttachedPanel().getText().contains("(Empty)"));
     }
 
     private class WindowSwitcher {

@@ -205,8 +205,8 @@ public class BasicPersona extends BaseBasicPersona<Page<?>> implements Editor, V
 		return page;
     }
 
-	public CardAttachmentsPage browseToAttachmentsForCard(CardAttachmentsPage page) {
-		return page.navigateTo(personaData.getFirstCard());
+	public CardAttachmentsPage browseToAttachmentsForCard(CardAttachmentsPage page, String id) {
+		return page.navigateTo(id);
     }
 
 	public Page<?> addPostIt(ChangePostItPage page) {

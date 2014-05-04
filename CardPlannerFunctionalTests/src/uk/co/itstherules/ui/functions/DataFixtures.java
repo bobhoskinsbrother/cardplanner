@@ -12,6 +12,8 @@ import uk.co.itstherules.yawf.inbound.annotations.processor.BasicValuesProviderB
 import uk.co.itstherules.yawf.inbound.annotations.processor.QueryKeyViolations;
 import uk.co.itstherules.yawf.model.EntityManagerListener;
 import uk.co.itstherules.yawf.model.IdentityDeleteable;
+import uk.co.itstherules.yawf.model.NullFileItem;
+import uk.co.itstherules.yawf.model.SimpleAttachmentModel;
 import uk.co.itstherules.yawf.model.persistence.JPAObjectCache;
 
 import java.util.Map;
@@ -80,5 +82,12 @@ public class DataFixtures {
         Map<String, Object> map = new MapBuilder<String, Object>().put("title", title).build();
         bindAndSave(tag, map);
         return tag;
+    }
+
+    public SimpleAttachmentModel saveAttachment() {
+        SimpleAttachmentModel attachment = new SimpleAttachmentModel().defaultSetup(objectCache);
+        Map<String, Object> map = new MapBuilder<String, Object>().put("fileItem", new NullFileItem()).build();
+        bindAndSave(attachment, map);
+        return attachment;
     }
 }
