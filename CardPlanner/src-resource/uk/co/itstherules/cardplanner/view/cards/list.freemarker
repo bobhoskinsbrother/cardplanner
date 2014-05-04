@@ -402,7 +402,7 @@ var StoryBoard = {
 .medium_size_card { position: relative; clear: both; }
 </style>
 <div style="clear:both;"> 
-<div style="float:right;"><#list types as type><span style="float:left;color:#BBBBBB;margin-right:5px;">${type.title?html}</span><div class="rounded" style="float:left;background-color:${type.colour};width:0px;height:20px;margin-right:10px;"></div></#list></div>
+<div style="float:right;"><#list types as type><span style="float:left;color:#BBBBBB;margin-right:5px;">${type.title?html}</span><div class="rounded" style="float:left;background-color:${type.colour};width:20px;height:20px;margin-right:10px;"></div></#list></div>
 <div style="float: right; margin-right: 25px;">
 ${tagBuilder.link("Cards", "Print", "index.xhtml", "0", tagBuilder.showImage("print.png"), {})}
 </div>

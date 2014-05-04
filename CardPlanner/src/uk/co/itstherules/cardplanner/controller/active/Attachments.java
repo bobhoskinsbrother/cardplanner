@@ -1,10 +1,5 @@
 package uk.co.itstherules.cardplanner.controller.active;
 
-import java.io.IOException;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletResponse;
-
 import uk.co.itstherules.cardplanner.controller.CardPlannerBase;
 import uk.co.itstherules.cardplanner.model.CachedInstance.Identities;
 import uk.co.itstherules.cardplanner.model.SpecialInstances;
@@ -12,7 +7,6 @@ import uk.co.itstherules.cardplanner.view.MergedTextView;
 import uk.co.itstherules.yawf.dispatcher.Action;
 import uk.co.itstherules.yawf.inbound.ValuesProvider;
 import uk.co.itstherules.yawf.inbound.annotations.processor.QueryKeyViolations;
-import uk.co.itstherules.yawf.model.FileIdentityDeleteable;
 import uk.co.itstherules.yawf.model.SimpleAttachmentModel;
 import uk.co.itstherules.yawf.model.persistence.ObjectCache;
 import uk.co.itstherules.yawf.modelview.ModelViewRegister;
@@ -20,13 +14,17 @@ import uk.co.itstherules.yawf.view.View;
 import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Set;
+
 
 public final class Attachments extends CardPlannerBase<SimpleAttachmentModel> {
 
 	protected void changeAction(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory, String action, SimpleAttachmentModel object) throws IOException {
 		QueryKeyViolations violations = bind(objectCache, provider, object);
 		if(!violations.isRegistered()) {
-			objectCache.saveExternal((FileIdentityDeleteable<?>) object);
+			objectCache.saveExternal(object);
 			sendChangeActionRedirect(provider, response);
 		} else {
 			changeView(objectCache, provider, response, viewFactory, action, object, violations);
@@ -34,7 +32,7 @@ public final class Attachments extends CardPlannerBase<SimpleAttachmentModel> {
     }
 	
 	@Action("Delete") public void delete(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory) throws IOException {
-    	SimpleAttachmentModel model = (SimpleAttachmentModel) identityModelFromCache(objectCache, provider);
+    	SimpleAttachmentModel model = identityModelFromCache(objectCache, provider);
 		objectCache.delete(model);
     	try {
     		response.sendRedirect(response.encodeRedirectURL(listUrl(provider.getApplicationRoot())));
@@ -44,7 +42,7 @@ public final class Attachments extends CardPlannerBase<SimpleAttachmentModel> {
     }
 
 	@Action("Show") public void show(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory) throws IOException {
-		SimpleAttachmentModel attachment = (SimpleAttachmentModel) identityModelFromCache(objectCache, provider);
+		SimpleAttachmentModel attachment = identityModelFromCache(objectCache, provider);
 		try {
 			if("Thumbnail".equals(provider.getTitle())) {
 				attachment.streamThumbnailTo(response.getOutputStream());

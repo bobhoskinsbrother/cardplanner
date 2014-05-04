@@ -8,7 +8,7 @@ ${tagBuilder.showCss("general.css")}
 <body style="margin:0px;">
 <div style="width:720px;margin:auto;">
 
-<div id="showContainer" class="card_full" style="background-color: ${card.type.colour}; line-height:auto;">
+<div id="showContainer" class="card_full" style="background-color: ${card.type.colour}; line-height:inherit;">
 	<div style="float:left;">
 		<h3 style="margin-top:10px">
 			<span style="float:left;text-align:center;margin-right:10px;">${card.title?html}</span>

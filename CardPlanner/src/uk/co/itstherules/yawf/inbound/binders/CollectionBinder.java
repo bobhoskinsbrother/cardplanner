@@ -1,17 +1,5 @@
 package uk.co.itstherules.yawf.inbound.binders;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import uk.co.itstherules.yawf.inbound.MapValuesProvider;
 import uk.co.itstherules.yawf.inbound.ValuesProvider;
 import uk.co.itstherules.yawf.inbound.annotations.CacheInstruction;
@@ -22,6 +10,11 @@ import uk.co.itstherules.yawf.inbound.binders.objectproviders.ImplementationProv
 import uk.co.itstherules.yawf.model.IdentityDeleteable;
 import uk.co.itstherules.yawf.model.comparator.StringLengthComparator;
 import uk.co.itstherules.yawf.model.persistence.ObjectCache;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.util.*;
 
 public abstract class CollectionBinder extends BaseQueryValueBinder {
 
@@ -49,7 +42,7 @@ public abstract class CollectionBinder extends BaseQueryValueBinder {
 	@SuppressWarnings("unchecked")
 	public Collection<Object> bindInternal(Object model, Field field, String fullQueryKey, String currentQueryKey, ValuesProvider provider, ObjectCache objectCache, QueryKeyViolations violations) {
 		QueryKey queryKeyAnnotation = field.getAnnotation(QueryKey.class);
-		CacheInstruction cache  = null; 
+		CacheInstruction cache;
 		if(queryKeyAnnotation==null) {
 			cache = CacheInstruction.FromCache;
 		} else {
@@ -59,7 +52,7 @@ public abstract class CollectionBinder extends BaseQueryValueBinder {
 		ParameterizedType parameterizedType = (ParameterizedType) genericType;
 		Type[] parameterGenericTypes = parameterizedType.getActualTypeArguments();
 		Class<?> classToInstantiate = (Class<?>) parameterGenericTypes[0];
-		Collection<IdentityDeleteable<?>> collectionAlreadySetOnModel = null;
+		Collection<IdentityDeleteable<?>> collectionAlreadySetOnModel;
 		try {
 	        collectionAlreadySetOnModel = (Collection<IdentityDeleteable<?>>) field.get(model);
         } catch (IllegalArgumentException e1) {

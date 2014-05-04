@@ -26,16 +26,15 @@ public final class EffortTypes extends CardPlannerBase<EffortTypeModel> {
 
 	@Override
     protected void changeView(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory, String action, EffortTypeModel object, QueryKeyViolations violations) throws IOException {
-		EffortTypeModel effortType = (EffortTypeModel)object;
-		Set<EffortTypeModel> effortTypes = objectCache.all(EffortTypeModel.class);
-		effortTypes.remove(effortType);
+        Set<EffortTypeModel> effortTypes = objectCache.all(EffortTypeModel.class);
+		effortTypes.remove(object);
 		EffortTypeModel hourEffortType = SpecialInstances.retrieve(objectCache, Identities.IDEAL_DAY_EFFORT_TYPE);
 		View view = new MergedTextView("efforttypes/list.freemarker");
 		ViewContext context = new EmptyContext();
 		
 		context.put("action", action);
 		context.put("hourEffortType", hourEffortType);
-		context.put("effortType", effortType);
+		context.put("effortType", object);
 		context.put("effortTypes", effortTypes);
 		context.put("violations", violations);
 		context.put("textBased", TypeType.TextBased);

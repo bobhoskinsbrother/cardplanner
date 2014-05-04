@@ -1,17 +1,12 @@
 package uk.co.itstherules.yawf.inbound.annotations.processor;
 
+import uk.co.itstherules.yawf.inbound.annotations.QueryKey;
+import uk.co.itstherules.yawf.inbound.annotations.QueryKeyRoot;
+
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.Callable;
-import java.util.concurrent.CancellationException;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.FutureTask;
-
-import uk.co.itstherules.yawf.inbound.annotations.QueryKey;
-import uk.co.itstherules.yawf.inbound.annotations.QueryKeyRoot;
+import java.util.concurrent.*;
 
 public class ClassFieldDescriptions {
 
@@ -54,7 +49,7 @@ public class ClassFieldDescriptions {
 		return map;
 	}
 	
-	private static void collectFieldsFor(Class<? extends Object> modelClass, Map<String, Field> map) {
+	private static void collectFieldsFor(Class<?> modelClass, Map<String, Field> map) {
 		Field[] declaredFields = modelClass.getDeclaredFields();
 		for (Field field : declaredFields) { 
 			if(field.isAnnotationPresent(QueryKey.class)) { 

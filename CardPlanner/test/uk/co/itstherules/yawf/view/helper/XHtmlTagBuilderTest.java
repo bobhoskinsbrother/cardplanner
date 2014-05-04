@@ -312,25 +312,5 @@ public class XHtmlTagBuilderTest {
 		TagBuilder unit = new XHtmlTagBuilder("/Root");
 		assertEquals("/Root/Controller/Fish/101/Title?bad=good", unit.url("Controller", "Fish", "101", "Title", "?bad=good"));
     }
-	
-	@Test public void yesNo() {
-		TagBuilder unit = new XHtmlTagBuilder("/Root");
-		assertEquals("<select name=\"Name\" bad=\"good\" >" +
-                "<option value=\"true\" selected=\"selected\">Yes</option>" +
-                "<option value=\"false\" >No</option>" +
-                "</select>", unit.yesNo("Name", Boolean.TRUE, new SimpleHash(Collections.singletonMap("bad", "good"))));
-		assertEquals("<select name=\"Name\" bad=\"good\" >" +
-                "<option value=\"true\" >Yes</option>" +
-                "<option value=\"false\" selected=\"selected\">No</option>" +
-                "</select>", unit.yesNo("Name", Boolean.FALSE, new SimpleHash(Collections.singletonMap("bad", "good"))));
-		assertEquals("<select name=\"Name\" >" +
-                "<option value=\"true\" selected=\"selected\">Yes</option>" +
-                "<option value=\"false\" >No</option>" +
-                "</select>", unit.yesNo("Name", Boolean.TRUE, new SimpleHash()));
-		assertEquals("<select name=\"Name\" >" +
-                "<option value=\"true\" >Yes</option>" +
-                "<option value=\"false\" selected=\"selected\">No</option>" +
-                "</select>", unit.yesNo("Name", Boolean.FALSE, new SimpleHash()));
-	}
 
 }

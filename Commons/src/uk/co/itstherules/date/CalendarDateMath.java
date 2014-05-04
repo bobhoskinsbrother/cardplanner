@@ -6,8 +6,8 @@ import java.util.Date;
 public class CalendarDateMath {
 
     public static long dayDiff(Calendar dateOne, Calendar dateTwo) {
-        Calendar startDate = null;
-        Calendar endDate = null;
+        Calendar startDate;
+        Calendar endDate;
         if(dateOne.before(dateTwo)) {
             startDate = Calendar.class.cast(dateOne.clone());
             endDate = dateTwo;

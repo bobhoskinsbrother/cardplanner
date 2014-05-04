@@ -1,5 +1,7 @@
 package uk.co.itstherules.cardplanner.javascript.runner;
 
+import uk.co.itstherules.string.manipulation.Chop;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
@@ -11,8 +13,6 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-
-import uk.co.itstherules.string.manipulation.Chop;
 
 public class JSTestFinder {
 
@@ -68,7 +68,7 @@ public class JSTestFinder {
 	    	JarFile jarFile = new JarFile(new File(new URI(jarFilePath))); 
 	    	Enumeration<JarEntry> entries = jarFile.entries();
 	    	while (entries.hasMoreElements()) {
-	    		JarEntry jarEntry = (JarEntry) entries.nextElement();
+	    		JarEntry jarEntry = entries.nextElement();
 	    		if(jarEntry.isDirectory()) { continue; }
 	    		String candidateFilePath = jarEntry.getName();
 	    		if (candidateFilePath.startsWith(packageName) && candidateFilePath.endsWith(JSTestAndDirectoryFilter.END_IDENTIFIER)) {

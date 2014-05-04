@@ -29,7 +29,7 @@ public abstract class CardChange extends BaseModelView {
         Set<ValueTypeModel> valueTypes = objectCache.all(ValueTypeModel.class);
         Set<EffortTypeModel> effortTypes = objectCache.all(EffortTypeModel.class);
 
-        String parentId = null;
+        String parentId;
         CardModel invisibleCard = SpecialInstances.retrieve(objectCache, CachedInstance.Identities.INVISIBLE_CARD);
         if(card.getParent()==null) {
             parentId = invisibleCard.getIdentity();

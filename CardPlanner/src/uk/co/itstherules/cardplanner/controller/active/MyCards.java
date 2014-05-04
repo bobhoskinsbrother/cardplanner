@@ -32,7 +32,7 @@ public final class MyCards extends BaseController {
 	@Action("List") public void list(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory) throws IOException {
 		Set<CardTypeModel> types = objectCache.all(CardTypeModel.class);
 		String personIdentity = provider.getIdentity();
-		PersonModel person = null;
+		PersonModel person;
 		Set<PersonModel> people = objectCache.all(PersonModel.class, "visible", true);
 		PersonModel invisiblePerson = SpecialInstances.retrieve(objectCache, CachedInstance.Identities.INVISIBLE_PERSON);
 		people.remove(invisiblePerson);

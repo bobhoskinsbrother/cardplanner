@@ -19,13 +19,11 @@ public abstract class BasePathToStringLoader implements StringLoader {
 				buffer.append(line);
 				buffer.append(separator);
 			}
-		} catch (IOException e) {
+		} catch (IOException ignored) {
 		} finally {
 			try {
 				bufferedReader.close();
-			} catch (IOException e) {
-				//TODO: sensible error logging
-				System.err.println(e);
+			} catch (IOException ignored) {
 			}
 		}
 		if(buffer.length() <= separator.length()){
@@ -42,13 +40,11 @@ public abstract class BasePathToStringLoader implements StringLoader {
 			while ((line = bufferedReader.readLine())!=null) {
 				buffer.add(line);
 			}
-		} catch (IOException e) {
+		} catch (IOException ignored) {
 		} finally {
 			try {
 				bufferedReader.close();
-			} catch (IOException e) {
-				//TODO: sensible error logging
-				System.err.println(e);
+			} catch (IOException ignored) {
 			}
 		}
 		return buffer;

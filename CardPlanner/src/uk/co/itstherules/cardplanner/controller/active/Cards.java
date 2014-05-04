@@ -1,10 +1,8 @@
 package uk.co.itstherules.cardplanner.controller.active;
 
-import uk.co.itstherules.cardplanner.model.CachedInstance.Identities;
 import uk.co.itstherules.cardplanner.model.CardModel;
 import uk.co.itstherules.cardplanner.model.CardService;
 import uk.co.itstherules.cardplanner.model.CardTypeModel;
-import uk.co.itstherules.cardplanner.model.SpecialInstances;
 import uk.co.itstherules.cardplanner.view.MergedTextView;
 import uk.co.itstherules.cardplanner.view.TemplateCompositeModelView;
 import uk.co.itstherules.yawf.controller.BaseController;
@@ -38,9 +36,8 @@ public final class Cards extends BaseController {
 
     @Action("Print") public void print(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory) throws IOException {
 		String root = provider.getApplicationRoot();
-		Set<CardModel> cards = objectCache.all(CardModel.class);
+		Set<CardModel> cards = new CardService().everythingButInvisible(objectCache);
         ViewContext context = new EmptyContext();
-        cards.remove(SpecialInstances.retrieve(objectCache, Identities.INVISIBLE_CARD));
         context.put("cards", cards);
         new MergedTextView("cards/print.freemarker").renderTo(context, response, root);
     }

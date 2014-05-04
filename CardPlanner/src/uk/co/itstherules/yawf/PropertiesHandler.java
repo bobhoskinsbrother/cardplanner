@@ -1,6 +1,7 @@
 package uk.co.itstherules.yawf;
 
 import java.io.*;
+import java.net.URL;
 import java.net.URLDecoder;
 import java.util.Properties;
 
@@ -29,13 +30,17 @@ public final class PropertiesHandler {
 	public static void save(String name, Properties properties) {
 		String path;
         try {
-	        path = URLDecoder.decode(PropertiesHandler.class.getClassLoader().getResource(name).getFile(), "utf8");
+            final URL resource = PropertiesHandler.class.getClassLoader().getResource(name);
+            if(resource==null) { throw new NullPointerException("Cannot find fole for: "+ name); }
+            path = URLDecoder.decode(resource.getFile(), "utf8");
 	        System.out.println(path);
 	        Writer writer = new FileWriter(path);
 	        properties.store(writer, "Updated from the web interface");
         } catch (UnsupportedEncodingException e) {
 	        throw new RuntimeException(e);
         } catch (IOException e) {
+	        throw new RuntimeException(e);
+        } catch (NullPointerException e) {
 	        throw new RuntimeException(e);
         }
 

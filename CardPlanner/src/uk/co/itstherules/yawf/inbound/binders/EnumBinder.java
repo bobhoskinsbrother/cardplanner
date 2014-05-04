@@ -1,13 +1,13 @@
 package uk.co.itstherules.yawf.inbound.binders;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Type;
-
 import uk.co.itstherules.yawf.inbound.ValuesProvider;
 import uk.co.itstherules.yawf.inbound.annotations.processor.BaseValuesProviderBinder;
 import uk.co.itstherules.yawf.inbound.annotations.processor.QueryKeyViolations;
 import uk.co.itstherules.yawf.inbound.binders.objectproviders.ImplementationProviderRegister;
 import uk.co.itstherules.yawf.model.persistence.ObjectCache;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Type;
 
 
 public class EnumBinder extends BaseQueryValueBinder {
@@ -25,7 +25,7 @@ public class EnumBinder extends BaseQueryValueBinder {
     	boolean set = false;
         for (Enum constant : constants) {
 	        String value = provider.getString(fullQueryKey, "");
-	        if(value.equals(((Enum)constant).name())){
+	        if(value.equals(constant.name())){
 	        	setValue(field, model, constant, violations, fullQueryKey);
 	        	set = true;
 	        	break;

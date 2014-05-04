@@ -1,7 +1,7 @@
 function TagsHelper(addedTags, tagField, tagsBag) {
 	
 	var addedTags = addedTags;
-	var tagField = $(tagField)
+	var tagField = $(tagField);
 	var tagsBag = $(tagsBag);
 
 	this.render = function() {
@@ -15,7 +15,7 @@ function TagsHelper(addedTags, tagField, tagsBag) {
 			}
 		}
 		tagsBag.innerHTML = tagsHtml;
-	}
+	};
 		
 	this.add = function() {
 		var tagFieldValue = tagField.value;
@@ -24,10 +24,10 @@ function TagsHelper(addedTags, tagField, tagsBag) {
 			tagField.value = '';
 			this.render();
 		}
-	}
+	};
 	
 	this.remove = function(tag) {
-		var newTags = new Array();
+		var newTags = [];
 		for(var i = 0; i < addedTags.length; i++) {
 			if(addedTags[i] != tag) {
 				newTags[newTags.length] = addedTags[i];
@@ -35,7 +35,7 @@ function TagsHelper(addedTags, tagField, tagsBag) {
 		}
 		addedTags = newTags;
 		this.render();
-	}
+	};
 
 	this.toString=function() {
 		return addedTags.join(',');

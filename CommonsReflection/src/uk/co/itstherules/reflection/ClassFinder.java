@@ -1,5 +1,8 @@
 package uk.co.itstherules.reflection;
 
+import uk.co.itstherules.string.manipulation.Chomp;
+import uk.co.itstherules.string.manipulation.Chop;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
@@ -11,9 +14,6 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-
-import uk.co.itstherules.string.manipulation.Chomp;
-import uk.co.itstherules.string.manipulation.Chop;
 
 public class ClassFinder {
 	private static final String _CLASS = ".class";
@@ -72,15 +72,15 @@ public class ClassFinder {
 	    	JarFile jarFile = new JarFile(new File(new URI(jarFilePath))); 
 	    	Enumeration<JarEntry> entries = jarFile.entries();
 	    	while (entries.hasMoreElements()) {
-	    		JarEntry jarEntry = (JarEntry) entries.nextElement();
+	    		JarEntry jarEntry = entries.nextElement();
 	    		if(jarEntry.isDirectory()) { continue; }
 	    		String candidateClass = jarEntry.getName().replace('/', '.');
 	    		if (candidateClass.startsWith(packageName) && candidateClass.endsWith(_CLASS)) {
 	    			classes.add(Class.forName(new Chomp(_CLASS).manipulate(candidateClass)));
 	    		}
 	    	}
-	    } catch (IOException e) {
-	    } catch (ClassNotFoundException e) {
+	    } catch (IOException ignored) {
+	    } catch (ClassNotFoundException ignored) {
         }
 	    return classes;
     }

@@ -27,11 +27,9 @@ public class FileModelBinder implements QueryValueBinder {
 			FileItem fileItem = provider.getFileItem(fullQueryKey);
 			fileModel = new FileModel(fileItem);
 		}
-		if(fileModel != null) {
-			new BasicValuesProviderBinder().bind(provider, fileModel, objectCache);
-            Fields.set(model, fileModelField, fileModel);
-		}
-		violations.add(fullQueryKey, new Validator().validateFieldValue(model, fileModelField, fileModel));
+        new BasicValuesProviderBinder().bind(provider, fileModel, objectCache);
+        Fields.set(model, fileModelField, fileModel);
+        violations.add(fullQueryKey, new Validator().validateFieldValue(model, fileModelField, fileModel));
     }
 
 	public boolean canHandle(Class<?> fieldClass, Type genericType) {

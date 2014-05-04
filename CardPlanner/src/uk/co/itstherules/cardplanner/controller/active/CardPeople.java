@@ -1,12 +1,5 @@
 package uk.co.itstherules.cardplanner.controller.active;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletResponse;
-
 import uk.co.itstherules.cardplanner.controller.CardPlannerBase;
 import uk.co.itstherules.cardplanner.controller.shared.SharedObject;
 import uk.co.itstherules.cardplanner.controller.shared.SharedObjectSpaceClient;
@@ -31,11 +24,17 @@ import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
 import uk.co.itstherules.yawf.view.json.JsonView;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 
 public final class CardPeople extends CardPlannerBase<CardModel> {
 
 	@Action("Update") public void update(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory) throws IOException {
-		CardModel card = (CardModel) identityModelFromCache(objectCache, provider);
+		CardModel card = identityModelFromCache(objectCache, provider);
 		PersonModel selectedPerson = objectCache.retrieveByIdentity(PersonModel.class, provider.getString("personIdentity"));
 		new Changer().addPersonToCard(objectCache, card, selectedPerson);
 		Map<String, Object> objects = new HashMap<String, Object>();
@@ -46,7 +45,7 @@ public final class CardPeople extends CardPlannerBase<CardModel> {
 	}
 	
 	@Action("Delete") public void delete(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory) throws IOException {
-		CardModel card = (CardModel) identityModelFromCache(objectCache, provider);
+		CardModel card = identityModelFromCache(objectCache, provider);
 		PersonModel selectedPerson = objectCache.retrieveByIdentity(PersonModel.class, provider.getString("personIdentity"));
 		new Deleter().delete(objectCache, card, selectedPerson);
 		Map<String, Object> objects = new HashMap<String, Object>();

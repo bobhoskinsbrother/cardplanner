@@ -12,9 +12,7 @@ import uk.co.itstherules.yawf.view.context.EmptyContext;
 import uk.co.itstherules.yawf.view.context.ViewContext;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Template extends BaseModelView {
 
@@ -39,8 +37,6 @@ public class Template extends BaseModelView {
 		ViewContext context = new JavascriptAndCssContext(valuesProvider.getApplicationRoot(), additionalCssList, additionalJavascriptList);
 		if(mixInContext!= null) { context.putAll(mixInContext); }
 		context.put("controller", valuesProvider.getController());
-		Map<String, Object> fields = new HashMap<String, Object>();
-		fields.put("navigable", Boolean.TRUE);
 		context.put("tags", objectCache.all(TagModel.class));
 		context.put("modulesNav", ModuleNavigationRegister.getView().asText(objectCache, valuesProvider, new EmptyContext(), violations));
 

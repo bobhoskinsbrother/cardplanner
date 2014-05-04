@@ -100,8 +100,6 @@ public interface TagBuilder {
 	String inputText(TemplateHashModelEx hash, String value,
 	        List<String> errorMessages);
 
-	String legend(String name, String text);
-
 	String link(String url, String title);
 
 	String link(String url, String title, TemplateHashModelEx hash);
@@ -128,9 +126,6 @@ public interface TagBuilder {
 
 	String listUrl(String controller, String identity, String title,
 	        TemplateHashModelEx queryStringHash);
-
-	String multiSelect(String identifier, Collection<? extends Entity<?>> available,
-	        Collection<? extends Entity<?>> selected);
 
 	String passwordText(TemplateHashModelEx hash, String value,
 	        boolean isError, List<String> errorMessage);
@@ -194,9 +189,6 @@ public interface TagBuilder {
 
 	String showUrl(String controller, String title, TemplateHashModelEx hash);
 
-	String slider(String identifier, Integer value, Integer minimum,
-	        Integer maximum);
-
 	String submit(String value);
 
 	String submitImage(String image);
@@ -207,8 +199,6 @@ public interface TagBuilder {
 	        String errorMessage);
 
 	String tipAttribute(String message);
-
-	String twoHandleSlider(Integer minimum, Integer maximum, Integer number);
 
 	String updateUrl(String controller, String title);
 
@@ -221,7 +211,5 @@ public interface TagBuilder {
 
 	String url(String controller, String action, String identity, String title,
 	        TemplateHashModelEx queryStringHash);
-
-	String yesNo(String name, Boolean selected, TemplateHashModelEx hash);
 
 }

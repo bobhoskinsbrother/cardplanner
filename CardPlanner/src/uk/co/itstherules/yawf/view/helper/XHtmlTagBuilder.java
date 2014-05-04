@@ -1,14 +1,9 @@
 package uk.co.itstherules.yawf.view.helper;
 
 import freemarker.template.*;
-import uk.co.itstherules.string.manipulation.Chomp;
 import uk.co.itstherules.string.manipulation.CollectionPrinter;
 import uk.co.itstherules.yawf.assertion.Assertion;
 import uk.co.itstherules.yawf.model.Entity;
-import uk.co.itstherules.yawf.modelview.ModelView;
-import uk.co.itstherules.yawf.view.MergedTextView;
-import uk.co.itstherules.yawf.view.context.DefaultContext;
-import uk.co.itstherules.yawf.view.context.ViewContext;
 import uk.co.itstherules.yawf.view.xhtml.AttributesBuilder;
 
 import java.io.UnsupportedEncodingException;
@@ -282,20 +277,6 @@ public class XHtmlTagBuilder implements TagBuilder {
 		return url.list(controller, identity, title, hashConverter.convert(queryStringHash));
 	}
 
-	public String multiSelect(String identifier, Collection<? extends Entity<?>> available, Collection<? extends Entity<?>> selected) {
-		ViewContext context = new DefaultContext("", "Add");
-		Collection<Entity<?>> all = new ArrayList<Entity<?>>();
-		all.addAll(available);
-		all.addAll(selected);
-		IdentityListHelper identityListHelper = new IdentityListHelper();
-		context.put("identityListHelper", identityListHelper);
-		context.put("all", all);
-		context.put("available", available);
-		context.put("selected", selected);
-		context.put("identifier", identifier);
-		return new MergedTextView("xhtml/multiselect.freemarker", ModelView.class).asText(context, identifier);
-	}
-
 	public String passwordText(TemplateHashModelEx hash, String value, boolean isError, List<String> errorMessage) {
 		return input(hash, InputType.Password, value, isError, errorMessage);
 	}
@@ -444,8 +425,6 @@ public class XHtmlTagBuilder implements TagBuilder {
         buffer.append("\" rel=\"stylesheet\" type=\"text/css\" media=\"print,projector,screen\"/>");
         return buffer.toString();
     }
-
-
     
 	public String showUrl(String controller, String title) {
 		return url.show(controller, title);
@@ -461,60 +440,6 @@ public class XHtmlTagBuilder implements TagBuilder {
 
 	public String showUrl(String controller, String title, TemplateHashModelEx hash) {
 		return url.show(controller, title, hashConverter.convert(hash));
-	}
-
-	public String slider(String identifier, Integer value, Integer minimum, Integer maximum) {
-		String array = "[";
-		for (int i = minimum; i <= maximum; i++) {
-	        array+=i;
-	        array+=",";
-        }
-		array = new Chomp(",").manipulate(array);
-		array += "]";
-		
-		StringBuffer buffer = new StringBuffer();
-		
-		buffer.append(" <div class=\"sliderContainer\" style=\"float:left;\">");
-		buffer.append("<div id=\"track_");
-		buffer.append(identifier);
-		buffer.append("\" style=\"width:165px; height: 16px; background: url('");
-		buffer.append(url.show("Images", "slider_background.png"));
-		buffer.append("');\"><div id=\"handle_");
-		buffer.append(identifier);
-		buffer.append("\" style=\"width:15px; height:17px; background: url('");
-		buffer.append(url.show("Images", "slider.png"));
-		buffer.append("'); float:left;\"></div></div></div> <div id=\"value_target_");
-		buffer.append(identifier);
-		buffer.append("\" style=\"float: right;margin-left:4px\">");
-		buffer.append(value);
-		buffer.append("</div><input type=\"text\" style=\"display:none;\" name=\"");
-		buffer.append(identifier);
-		buffer.append("\" id=\"");
-		buffer.append(identifier);
-		buffer.append("\" value=\"");
-		buffer.append(value);
-		buffer.append("\"/>");
-		buffer.append("<scr");
-		buffer.append("ipt>");
-		buffer.append("new Control.Slider($(\"handle_");
-		buffer.append(identifier);
-		buffer.append("\"), \"track_");
-		buffer.append(identifier);
-		buffer.append("\", { range:$R(");
-		buffer.append(minimum);
-		buffer.append(", ");
-		buffer.append(maximum);
-		buffer.append("), values: ");
-		buffer.append(array); 
-		buffer.append(", restricted: true, sliderValue: ");
-		buffer.append(value);
-		buffer.append(", increment: 1, onSlide: function(value) { $(\"value_target_");
-		buffer.append(identifier);
-		buffer.append("\").innerHTML = value; $(\"");
-		buffer.append(identifier);
-		buffer.append("\").value=value; }}); </scr");
-		buffer.append("ipt>");
-		return buffer.toString();
 	}
 
 	public String submit(String value) {
@@ -567,41 +492,6 @@ public class XHtmlTagBuilder implements TagBuilder {
 		return new StringBuilder().append("$(this).addTip(").append("Builder.node('div', {},'").append(message).append("')").append(", { target: true, stem: true, showOn: 'creation' });").toString();
 	}
 
-	public String twoHandleSlider(Integer minimum, Integer maximum, Integer number) {
-		String array = "[";
-		for (int i = minimum; i <= maximum; i++) {
-	        array+=i;
-	        array+=",";
-        }
-		array = new Chomp(",").manipulate(array);
-		array += "]";
-		
-		String scaleView = 
-			" <div class=\"sliderContainer\" style=\"float:left;\">" +
-				"<div id=\"track_"+number+"\" style=\"width:165px; height: 16px; background: url('"+url.show("Images", "slider_background.png")+"');\">" +
-						"<div id=\"left_handle_"+number+"\" style=\"width:15px; height:17px; background: url('"+url.show("Images", "slider.png")+"'); float:left;\"></div>" +
-						"<div id=\"right_handle_"+number+"\" style=\"width:15px; height:17px; background: url('"+url.show("Images", "slider.png")+"'); float:left;\"></div>" +
-				"</div>" +
-			"</div>";
-		scaleView += " <div id=\"valueTarget_"+number+"\" style=\"float: right;\">"+minimum+","+maximum+"</div>";
-		scaleView += " <input type=\"text\" style=\"display:none;\" name=\"minimum\" id=\"minimum_"+number+"\" value=\""+minimum+"\"/>";
-		scaleView += " <input type=\"text\" style=\"display:none;\" name=\"maximum\" id=\"maximum_"+number+"\" value=\""+maximum+"\"/>";
-		scaleView += "<scr"+"ipt>";
-		scaleView += "new Control.Slider([$(\"left_handle_"+number+"\"), $(\"right_handle_"+number+"\")], \"track_"+number+"\", {";
-		scaleView += "range:$R("+minimum+", "+maximum+"),";
-		scaleView += "values: "+array+",";
-		scaleView += "restricted: true,";
-		scaleView += "sliderValue: ["+minimum+","+maximum+"],";
-		scaleView += "increment: 1,";
-		scaleView += "onSlide: function(value) {"; 
-		scaleView += "$(\"valueTarget_"+number+"\").innerHTML = value.join(\",\");";
-		scaleView += "$(\"minimum_"+number+"\").value=value[0];"; 
-		scaleView += "$(\"maximum_"+number+"\").value=value[1];"; 
-		scaleView += "}});";
-		scaleView += "</scr"+"ipt>";
-		return scaleView;
-	}
-	
 	public String updateUrl(String controller, String title) {
 		return url.update(controller, title);
 	}
@@ -621,41 +511,5 @@ public class XHtmlTagBuilder implements TagBuilder {
 	public String url(String controller, String action, String identity, String title, TemplateHashModelEx queryStringHash) {
 		return url.url(controller, action, identity, title, hashConverter.convert(queryStringHash));
 	}
-	
-	public String yesNo(String name, Boolean selected, TemplateHashModelEx hash) {
-		StringBuilder buffer = new StringBuilder();
-		buffer.append("<select name=\"");
-		buffer.append(name);
-		buffer.append("\" ");
-		buffer.append(new AttributesBuilder().build(hashConverter.convert(hash)));
-		buffer.append(">");
-		
-		buffer.append("<option value=\"");
-		buffer.append(Boolean.TRUE);
-		buffer.append("\" ");
-		if(selected.booleanValue()) { buffer.append("selected=\"selected\""); }
-		buffer.append(">Yes</option>");
-		
-		buffer.append("<option value=\"");
-		buffer.append(Boolean.FALSE);
-		buffer.append("\" ");
-		if(!selected.booleanValue()) { buffer.append("selected=\"selected\""); }
-		buffer.append(">No</option>");
 
-		buffer.append("</select>");
-		return buffer.toString();
-
-	}
-
-	@Override
-	public String legend(String name, String text) {
-		StringBuffer buffer = new StringBuffer();
-		buffer.append("<span id=\"");
-		buffer.append(name);
-		buffer.append("\" class=\"legend\">");
-		buffer.append(text);
-		buffer.append("</span>");
-	    return buffer.toString();
-	}
-	
 }

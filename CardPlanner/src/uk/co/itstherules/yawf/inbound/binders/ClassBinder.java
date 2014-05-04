@@ -1,9 +1,6 @@
 package uk.co.itstherules.yawf.inbound.binders;
 
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Type;
-
 import net.sf.oval.Validator;
 import uk.co.itstherules.yawf.inbound.ValuesProvider;
 import uk.co.itstherules.yawf.inbound.annotations.CacheInstruction;
@@ -12,6 +9,9 @@ import uk.co.itstherules.yawf.inbound.annotations.processor.BaseValuesProviderBi
 import uk.co.itstherules.yawf.inbound.annotations.processor.QueryKeyViolations;
 import uk.co.itstherules.yawf.inbound.binders.objectproviders.ImplementationProviderRegister;
 import uk.co.itstherules.yawf.model.persistence.ObjectCache;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Type;
 
 public class ClassBinder extends BaseQueryValueBinder {
 	
@@ -22,7 +22,7 @@ public class ClassBinder extends BaseQueryValueBinder {
 
 	public void bind(Object model, Field field, String fullQueryKey, String currentQueryKey, ValuesProvider provider, ObjectCache objectCache, QueryKeyViolations violations) {
 		QueryKey annotation = field.getAnnotation(QueryKey.class);
-		CacheInstruction cache  = null; 
+		CacheInstruction cache;
 		if(annotation==null) {
 			cache = CacheInstruction.NotFromCache;
 		} else {

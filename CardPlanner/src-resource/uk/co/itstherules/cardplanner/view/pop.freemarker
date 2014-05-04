@@ -11,9 +11,6 @@ var root = '${root}';
 ${css}
 ${javascript}
 
-${tagBuilder.showScript("calendarview.js")}
-${tagBuilder.showCss("calendarview.css")}
-
 <link rel="shortcut icon" href="${tagBuilder.showImageUrl("favicon.png")}" type="image/x-icon" />
 
 </head>

@@ -48,7 +48,7 @@ ${cardType.title?html}
 </#if>
 </td>
 <td>
-<div class="rounded" style="float:left;background-color:${cardType.colour!""};width:0px;height:20px;margin-right:10px;"></div>
+<div class="rounded" style="float:left;background-color:${cardType.colour!""};width:20px;height:20px;margin-right:10px;"> </div>
 </td>
 </tr>
 </#list>
