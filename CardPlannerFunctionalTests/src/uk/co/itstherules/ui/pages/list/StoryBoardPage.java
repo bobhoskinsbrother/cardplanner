@@ -71,29 +71,38 @@ public class StoryBoardPage extends CardManipulationPage<StoryBoardPage> {
 
     public void deleteCard(String cardId) {
         toggleBacklog();
-        driver.findElement(By.className("card_info")).click();
-        String deleteButtonId = "delete_card_button" + cardId;
+        expandCard(cardId);
         confirmAs(true);
-        driver.findElement(By.id(deleteButtonId)).click();
+        By delete = By.id("delete_card_button" + cardId);
+        Wait.untilVisible(driver, delete, 5000);
+        driver.findElement(delete).click();
     }
 
-    public StoryBoardPage openInfoFor(String cardId) {
-        WebElement cardElement = driver.findElement(By.id(cardId));
-        WebElement cardInfo = cardElement.findElement(By.className("card_info"));
-        cardInfo.click();
+    public StoryBoardPage collapseCard(String cardId) {
+        WebElement expandElement = driver.findElement(By.id("_collapse"+cardId));
+        expandElement.click();
+        return this;
+    }
+
+    public StoryBoardPage expandCard(String cardId) {
+        WebElement expandElement = driver.findElement(By.id("_expand"+cardId));
+        expandElement.click();
         return this;
     }
 
     public StoryBoardPage clickCardShow(String cardId) {
-        openInfoFor(cardId);
-        WebElement editCard = driver.findElement(By.id("image_show_card_button" + cardId));
+        final By show = By.id("image_show_card_button" + cardId);
+        Wait.untilVisible(driver, show, 5000);
+        WebElement editCard = driver.findElement(show);
         editCard.click();
         return this;
     }
 
     public StoryBoardPage clickCardEdit(String cardId) {
-        openInfoFor(cardId);
-        WebElement editCard = driver.findElement(By.id("image_edit_card_button" + cardId));
+        expandCard(cardId);
+        final By edit = By.id("image_edit_card_button" + cardId);
+        Wait.untilVisible(driver, edit, 5000);
+        WebElement editCard = driver.findElement(edit);
         editCard.click();
         return this;
     }

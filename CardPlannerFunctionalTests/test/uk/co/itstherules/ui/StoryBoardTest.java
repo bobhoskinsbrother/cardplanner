@@ -68,6 +68,7 @@ public class StoryBoardTest {
         StoryBoardPage page = new StoryBoardPage(uri.toString(), pageLookup);
         page.navigateTo("0");
         page.toggleBacklog();
+        page.expandCard(cardId);
         page.clickCardShow(cardId);
 
         Wait.forFrame(pageLookup, Constants.LIGHTWINDOW_IFRAME, 5000);
@@ -76,10 +77,12 @@ public class StoryBoardTest {
         page.closePopOver();
 
         assertTrue(page.containsText("Backlog"));
+        page.collapseCard(cardId);
         page.dragCardFromBacklogToInProgress(cardId);
 
-        page.clickCardShow(cardId);
         page.toggleBacklog();
+        page.expandCard(cardId);
+        page.clickCardShow(cardId);
 
         Wait.forFrame(pageLookup, Constants.LIGHTWINDOW_IFRAME, 5000);
         Wait.forText(pageLookup, "I am an card that requires editing", 5000);

@@ -9,14 +9,14 @@ if (View == undefined) {
             if (content) {
                 if (Object.isString(content)) {
                     node.update(content);
-                } else {
+                } else if(content) {
                     node.appendChild(content);
                 }
             }
             return node;
         }
     };
-};
+}
 
 if (Controller == undefined) {
     var Controller = {};

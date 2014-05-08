@@ -34,6 +34,7 @@ public class JavascriptAndCssContext extends BaseContext {
 		SIDEBAR,
 		OPENTIP,
 		CONTROLLER,
+		CUSTOMEFFECTS,
 		EXCANVAS
 		;
 		public String toString() { return name().toLowerCase(); };

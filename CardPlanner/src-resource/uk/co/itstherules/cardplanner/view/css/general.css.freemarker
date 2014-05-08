@@ -1,5 +1,35 @@
 .center { text-align: center; }
 
+.invisible {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.expand, .collapse {
+    width:9px;
+    height:9px;
+    cursor: pointer;
+    float: right;
+    margin: 1px;
+}
+
+.expand {
+    background: url('${tagBuilder.showImageUrl("down.png")}') #FFFFFF;
+    cursor: zoom-in;
+    cursor: -webkit-zoom-in;
+    cursor: -moz-zoom-in;
+}
+
+.collapse {
+    background: url('${tagBuilder.showImageUrl("up.png")}') #FFFFFF;
+    cursor: zoom-out;
+    cursor: -webkit-zoom-out;
+    cursor: -moz-zoom-out;
+}
+
 .card_text {
 	text-align: left;
 	margin-left:25px;
@@ -44,66 +74,9 @@
 	color: #666666;
 }
 
-.password_strength_meter {
-	float: right;
-	width: 75px;
-	height: 10px;
-}
-
-.password_strength_meter .bar_container {
-	width: 75px;
-	height: 10px;
-}
-
 .bar {
 	width: 75px;
 	height: 10px;	
-}
-
-.password_strength_meter .pws_empty {
-	background-image: url('${tagBuilder.showImageUrl("password-strength-empty.png")}');
-	background-repeat: no-repeat;
-	width: 75px;
-	height: 10px;
-}
-
-.password_strength_meter .pws_bad {
-	background-image: url('${tagBuilder.showImageUrl("password-strength-bad.png")}');
-	background-repeat: no-repeat;
-}
-
-.password_strength_meter .pws_weakest {
-	background-image: url('${tagBuilder.showImageUrl("password-strength-weakest.png")}');
-	background-repeat: no-repeat;
-}
-
-.password_strength_meter .pws_weak {
-	background-image: url('${tagBuilder.showImageUrl("password-strength-weak.png")}');
-	background-repeat: no-repeat;
-}
-
-.password_strength_meter .pws_medium {
-	background-image: url('${tagBuilder.showImageUrl("password-strength-medium.png")}');
-	background-repeat: no-repeat;
-}
-
-.password_strength_meter .pws_strong {
-	background-image: url('${tagBuilder.showImageUrl("password-strength-strong.png")}');
-	background-repeat: no-repeat;
-}
-
-.password_strength_meter .pws_strongest {
-	background-image: url('${tagBuilder.showImageUrl("password-strength-strongest.png")}');
-	background-repeat: no-repeat;
-}
-
-#sign_up_password_meter_bar_text {
-	display: none;
-}
-
-#sign_up_password_meter_bar {
-	width: 75px;
-	height: 10px;
 }
 
 .wiki_table {
@@ -521,6 +494,15 @@ div.autocomplete ul li {
 	width:34px;
 }
 
+.sidebar_title {
+    color:#FFFFFF;
+    background:#777777;
+    height:23px;
+    text-align:center;
+    vertical-align:middle;
+    font-size: 16px;
+}
+
 .sidebar_tab_image,.sidebar_tab_image_active {
 	border:0px solid #FFFFFF;
 	top: 75px;
@@ -555,7 +537,6 @@ div.autocomplete ul li {
 	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 	display: inline-table;
-	margin-bottom: 4px;
 	margin-top: 4px;
 	margin-left: 4px;
 	white-space: nowrap;

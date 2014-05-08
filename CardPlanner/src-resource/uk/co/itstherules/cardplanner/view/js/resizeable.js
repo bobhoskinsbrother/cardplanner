@@ -34,8 +34,11 @@ Resizeable.prototype = {
 			right : 6,
 			minHeight : 0,
 			minWidth : 0,
+			maxHeight : 1280,
+			maxWidth : 768,
 			zindex : 1000,
 			resize : null,
+            onResize: null,
             constrainAspectRatio: false
 		}, arguments[1] || {});
 
@@ -141,7 +144,7 @@ Resizeable.prototype = {
         if(this.options.constrainAspectRatio) {
             if (this.currentDirection.indexOf('e') != -1) {
                 var newWidth = this.startWidth + pointer.x - this.startX;
-                if (newWidth > this.options.minWidth) {
+                if (newWidth > this.options.minWidth && newWidth < this.options.maxWidth) {
                     var ratio = newWidth / this.startWidth;
                     var newHeight = this.startHeight * ratio;
                     style.width = newWidth + "px";
@@ -152,7 +155,7 @@ Resizeable.prototype = {
                 var pointerMoved = this.startX - pointer.x;
                 var margin = Element.getStyle(this.element, 'margin-left') || "0";
                 var newWidth = this.startWidth + pointerMoved;
-                if (newWidth > this.options.minWidth) {
+                if (newWidth > this.options.minWidth && newWidth < this.options.maxWidth) {
                     var ratio = newWidth / this.startWidth;
                     var newHeight = this.startHeight * ratio;
                     style.left = (this.startLeft - pointerMoved - parseInt(margin))
@@ -166,7 +169,7 @@ Resizeable.prototype = {
                 var pointerMoved = this.startY - pointer.y;
                 var margin = Element.getStyle(this.element, 'margin-top') || "0";
                 var newHeight = this.startHeight + pointerMoved;
-                if (newHeight > this.options.minHeight) {
+                if (newHeight > this.options.minHeight && newHeight < this.options.maxHeight) {
                     style.height = newHeight + "px";
                     style.top = (this.startTop - pointerMoved - parseInt(margin))
                             + "px";
@@ -176,7 +179,7 @@ Resizeable.prototype = {
                 var pointerMoved = this.startX - pointer.x;
                 var margin = Element.getStyle(this.element, 'margin-left') || "0";
                 var newWidth = this.startWidth + pointerMoved;
-                if (newWidth > this.options.minWidth) {
+                if (newWidth > this.options.minWidth && newWidth < this.options.maxWidth) {
                     style.left = (this.startLeft - pointerMoved - parseInt(margin))
                             + "px";
                     style.width = newWidth + "px";
@@ -184,13 +187,13 @@ Resizeable.prototype = {
             }
             if (this.currentDirection.indexOf('s') != -1) {
                 var newHeight = this.startHeight + pointer.y - this.startY;
-                if (newHeight > this.options.minHeight) {
+                if (newHeight > this.options.minHeight && newHeight < this.options.maxHeight) {
                     style.height = newHeight + "px";
                 }
             }
             if (this.currentDirection.indexOf('e') != -1) {
                 var newWidth = this.startWidth + pointer.x - this.startX;
-                if (newWidth > this.options.minWidth) {
+                if (newWidth > this.options.minWidth && newWidth < this.options.maxWidth) {
                     style.width = newWidth + "px";
                 }
             }
@@ -244,6 +247,9 @@ Resizeable.prototype = {
 				}
 			}
 			this.draw(event);
+            if(this.options.onResize) {
+                this.options.onResize(this.element);
+            }
 
 			// fix AppleWebKit rendering
 			if (navigator.appVersion.indexOf('AppleWebKit') > 0) {
