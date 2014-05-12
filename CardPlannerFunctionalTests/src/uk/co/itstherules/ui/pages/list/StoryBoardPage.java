@@ -79,13 +79,13 @@ public class StoryBoardPage extends CardManipulationPage<StoryBoardPage> {
     }
 
     public StoryBoardPage collapseCard(String cardId) {
-        WebElement expandElement = driver.findElement(By.id("_collapse"+cardId));
+        WebElement expandElement = driver.findElement(By.id("_collapse" + cardId));
         expandElement.click();
         return this;
     }
 
     public StoryBoardPage expandCard(String cardId) {
-        WebElement expandElement = driver.findElement(By.id("_expand"+cardId));
+        WebElement expandElement = driver.findElement(By.id("_expand" + cardId));
         expandElement.click();
         return this;
     }
@@ -114,6 +114,20 @@ public class StoryBoardPage extends CardManipulationPage<StoryBoardPage> {
         return this;
     }
 
+    public StoryBoardPage dragCardFromBacklogToXY(String cardId, int x, int y) {
+        Wait.forElement(driver, By.id(cardId), 1000);
+        Actions builder = new Actions(driver);
+        Action dragAndDrop = builder.dragAndDropBy(driver.findElement(By.id(cardId)), x, y).build();
+        dragAndDrop.perform();
+        try {
+            //TODO: a less horrible way to handle AJAX events
+            Thread.sleep(750);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        return this;
+    }
+
     public void closePopOver() {
         driver.findElement(By.id("lightwindow_title_bar_close_link")).click();
     }
@@ -129,6 +143,7 @@ public class StoryBoardPage extends CardManipulationPage<StoryBoardPage> {
     public void clickCardAdd() {
         driver.findElement(By.id("add_card_button")).click();
     }
+
     public void clickPostItAdd() {
         driver.findElement(By.id("add_post_it_button")).click();
     }
@@ -170,23 +185,21 @@ public class StoryBoardPage extends CardManipulationPage<StoryBoardPage> {
         return this;
     }
 
-
     public StoryBoardPage completeAction() {
         driver.findElement(By.id("completeAction")).click();
         return this;
     }
 
-
     private void selectByValue(String selectId, String value) {
         final WebElement select = driver.findElement(By.name(selectId));
         List<WebElement> options = select.findElements(By.tagName("option"));
         for (WebElement option : options) {
-            if(value.equals(option.getText())){
+            if (value.equals(option.getText())) {
                 option.click();
                 return;
             }
         }
-        throw new IllegalArgumentException("<select id=\""+selectId+"\"> does not contain "+value);
+        throw new IllegalArgumentException("<select id=\"" + selectId + "\"> does not contain " + value);
     }
 
     private void fillField(String id, String title) {clearAndPopulate(driver.findElement(By.name(id)), title);}

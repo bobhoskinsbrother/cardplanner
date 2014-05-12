@@ -14,7 +14,6 @@ public abstract class Page<T> implements Navigable<T> {
 	public Page(WebDriver driver, String appRoot) {
 		this.driver = driver;
 		this.appRoot = appRoot;
-		//verifyIsCorrectPage();
     }
 	
 	public String identifier() {
@@ -41,12 +40,6 @@ public abstract class Page<T> implements Navigable<T> {
 	public abstract String getAction();
 
 	public abstract String getController();
-	
-	public void verifyIsCorrectPage() throws IllegalStateException{
-		if(driver.getPageSource().contains("YAWF - An error has occurred")) {
-			throw new IllegalStateException();
-		}
-	}
 
 	public boolean containsText(String text) {
 		return containsText(text, 1000);

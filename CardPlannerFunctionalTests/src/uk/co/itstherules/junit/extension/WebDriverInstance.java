@@ -2,46 +2,32 @@ package uk.co.itstherules.junit.extension;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 
 public class WebDriverInstance {
 
-    private static WebDriver DRIVER;
-    private static boolean isSuite = false;
+    public static WebDriver make(boolean useNative) {
+        WebDriver driver;
+        if (useNative) {
+            FirefoxProfile profile = new FirefoxProfile();
+            profile.setEnableNativeEvents(true);
+            driver = new FirefoxDriver(profile);
+        } else {
+            driver = new FirefoxDriver();
+        }
+        driver.manage().window().maximize();
+        return driver;
+    }
 
-    public static void cleanBrowser() {
-        if (DRIVER != null) {
-            try {
-                DRIVER.get("about:blank");
-                DRIVER.manage().deleteAllCookies();
-            } catch (Exception ignored) {
-            }
+    public static WebDriver make() {
+        return make(false);
+    }
+
+    public static void destroy(WebDriver driver) {
+        if (driver != null) {
+            driver.close();
+            driver.quit();
         }
     }
 
-    public static WebDriver get() {
-        init();
-        return DRIVER;
-    }
-
-    public static void asSuite() { isSuite = true; }
-
-    private static void init() {
-        if (DRIVER == null) {
-            WebDriverInstance.DRIVER = new FirefoxDriver();
-        }
-    }
-
-    public static void destroy() {
-        if (!isSuite) {
-            forceDestroy();
-        }
-    }
-
-    public static void forceDestroy() {
-        if (DRIVER != null) {
-            DRIVER.close();
-            DRIVER.quit();
-            DRIVER = null;
-        }
-    }
 }

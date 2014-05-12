@@ -26,15 +26,14 @@ public class StoryBoardTest {
 
     @BeforeClass
     public static void setup() throws Exception {
-        pageLookup = WebDriverInstance.get();
-        pageLookup.manage().window().maximize();
+        pageLookup = WebDriverInstance.make();
         server = new CardPlannerServer(TEST);
         uri = server.port(0).startServer();
     }
 
     @AfterClass
     public static void destroy() {
-        WebDriverInstance.destroy();
+        WebDriverInstance.destroy(pageLookup);
         server.destroy();
     }
 

@@ -2,9 +2,10 @@ package uk.co.itstherules.ui;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import uk.co.itstherules.cardplanner.model.CardModel;
 import uk.co.itstherules.cardplanner.server.CardPlannerServer;
 import uk.co.itstherules.junit.extension.WebDriverInstance;
@@ -13,10 +14,12 @@ import uk.co.itstherules.ui.pages.list.StoryBoardPage;
 
 import java.net.URI;
 
+import static org.junit.Assert.assertThat;
 import static uk.co.itstherules.cardplanner.server.CardPlannerConfigBuilder.TargetEnvironment.TEST;
+import static uk.co.itstherules.junit.extension.WebMatcher.textNotOnThePage;
+import static uk.co.itstherules.junit.extension.WebMatcher.textOnThePage;
 
-@Ignore
-public class ResizeCardTest {
+public class ResizeToMediumCardTest {
 
     private static WebDriver pageLookup;
     private static CardPlannerServer server;
@@ -24,29 +27,35 @@ public class ResizeCardTest {
 
     @BeforeClass
     public static void setup() throws Exception {
-        pageLookup = WebDriverInstance.get();
+        pageLookup = WebDriverInstance.make(true);
         server = new CardPlannerServer(TEST);
         uri = server.port(0).startServer();
     }
 
     @AfterClass
     public static void destroy() {
-        WebDriverInstance.destroy();
+        WebDriverInstance.destroy(pageLookup);
         server.destroy();
     }
 
-    @Test @Ignore
-    public void canResizeCardByDragging() throws Exception {
-        pageLookup.manage().window().maximize();
+    @Test
+    public void canResizeCardToMediumByDragging() throws Exception {
         CardModel card = new DataFixtures().saveSimpleCard();
         String cardId = "_" + card.getIdentity();
         StoryBoardPage page = new StoryBoardPage(uri.toString(), pageLookup);
         page.navigateTo("0");
         page.toggleBacklog();
-        page.dragCardFromBacklogToInProgress(cardId);
-
-
+        page.dragCardFromBacklogToXY(cardId, 0, -300);
+        assertThat("as I may have a few tpyos", textNotOnThePage(pageLookup));
+        assertThat("0 Ideal Day", textNotOnThePage(pageLookup));
+        assertThat("0 Currency", textNotOnThePage(pageLookup));
+        final Actions a = new Actions(pageLookup);
+        a.moveToElement(pageLookup.findElement(By.id(cardId)), 92, 62).clickAndHold().moveByOffset(100,75).release().build().perform();
+        assertThat("as I may have a few tpyos", textOnThePage(pageLookup));
+        assertThat("0 Ideal Day", textNotOnThePage(pageLookup));
+        assertThat("0 Currency", textNotOnThePage(pageLookup));
 
     }
+
 
 }

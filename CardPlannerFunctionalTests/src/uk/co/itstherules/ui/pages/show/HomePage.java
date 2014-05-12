@@ -19,11 +19,4 @@ public class HomePage extends TemplatePage<HomePage> {
 	    return "Home";
     }
 
-	@Override
-    public void verifyIsCorrectPage() throws IllegalStateException {
-		if(!driver.getPageSource().contains("<!--Home Page-->")) {
-			throw new IllegalStateException("Expected \"<!--Home Page-->\" in the source of this page");
-		}
-    }
-
 }

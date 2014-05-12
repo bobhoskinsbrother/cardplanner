@@ -38,7 +38,7 @@ public class CardAttachmentsTest {
     @BeforeClass
     public static void setup() throws Exception {
         norville = new BasicPersona("norville");
-        pageLookup = WebDriverInstance.get();
+        pageLookup = WebDriverInstance.make();
         server = new CardPlannerServer(TEST).port(0);
         uri = server.startServer();
         fixtures = new DataFixtures();
@@ -48,7 +48,7 @@ public class CardAttachmentsTest {
 
     @AfterClass
     public static void destroy() throws Exception {
-        WebDriverInstance.destroy();
+        WebDriverInstance.destroy(pageLookup);
         server.destroy();
     }
 

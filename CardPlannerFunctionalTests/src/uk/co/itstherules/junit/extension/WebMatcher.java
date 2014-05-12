@@ -25,4 +25,20 @@ public final class WebMatcher {
         };
     }
 
+    public static Matcher<String> textNotOnThePage(final WebDriver driver) {
+        return new TypeSafeMatcher<String>() {
+
+            private String text;
+
+            @Override public boolean matchesSafely(String s) {
+                text = driver.findElement(By.tagName("body")).getText();
+                return !text.contains(s);
+            }
+
+            @Override public void describeTo(Description description) {
+                description.appendText(text);
+            }
+        };
+    }
+
 }

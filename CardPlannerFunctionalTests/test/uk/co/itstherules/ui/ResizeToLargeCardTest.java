@@ -5,20 +5,21 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import uk.co.itstherules.cardplanner.model.CardModel;
 import uk.co.itstherules.cardplanner.server.CardPlannerServer;
 import uk.co.itstherules.junit.extension.WebDriverInstance;
 import uk.co.itstherules.ui.functions.DataFixtures;
-import uk.co.itstherules.ui.functions.Wait;
-import uk.co.itstherules.ui.pages.list.LogsPage;
 import uk.co.itstherules.ui.pages.list.StoryBoardPage;
 
 import java.net.URI;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertThat;
 import static uk.co.itstherules.cardplanner.server.CardPlannerConfigBuilder.TargetEnvironment.TEST;
+import static uk.co.itstherules.junit.extension.WebMatcher.textNotOnThePage;
+import static uk.co.itstherules.junit.extension.WebMatcher.textOnThePage;
 
-public class LogsTest {
+public class ResizeToLargeCardTest {
 
     private static WebDriver pageLookup;
     private static CardPlannerServer server;
@@ -26,7 +27,7 @@ public class LogsTest {
 
     @BeforeClass
     public static void setup() throws Exception {
-        pageLookup = WebDriverInstance.make();
+        pageLookup = WebDriverInstance.make(true);
         server = new CardPlannerServer(TEST);
         uri = server.port(0).startServer();
     }
@@ -38,26 +39,22 @@ public class LogsTest {
     }
 
     @Test
-    public void moveACardAroundABitAndSeeLogsAreGenerated() throws Exception {
+    public void canResizeCardToLargeByDragging() throws Exception {
         CardModel card = new DataFixtures().saveSimpleCard();
         String cardId = "_" + card.getIdentity();
-
         StoryBoardPage page = new StoryBoardPage(uri.toString(), pageLookup);
         page.navigateTo("0");
-
         page.toggleBacklog();
-        Wait.forElement(pageLookup, By.id(cardId), 1000);
+        page.dragCardFromBacklogToXY(cardId, 0, -300);
+        assertThat("as I may have a few tpyos", textNotOnThePage(pageLookup));
+        assertThat("0 Ideal Day", textNotOnThePage(pageLookup));
+        assertThat("0 Currency", textNotOnThePage(pageLookup));
+        final Actions a = new Actions(pageLookup);
+        a.moveToElement(pageLookup.findElement(By.id(cardId)), 92, 62).clickAndHold().moveByOffset(200,125).release().build().perform();
+        assertThat("as I may have a few tpyos", textOnThePage(pageLookup));
+        assertThat("0 Ideal Day", textOnThePage(pageLookup));
+        assertThat("0 Currency", textOnThePage(pageLookup));
 
-        String targetPanelId = TestConstants.IN_PROGRESS_HOTSPOT_ID;
-        page.dragOnto(cardId, targetPanelId);
-
-        LogsPage logsPage = new LogsPage(pageLookup, uri.toString());
-        logsPage.navigateTo("0");
-        Wait.forText(pageLookup, "Logs", 5000);
-        assertTrue(logsPage.containsText("I am an card that requires editing"));
-        assertTrue(logsPage.containsText("The Backlog"));
-        assertTrue(logsPage.containsText("In Progress"));
-        assertTrue(logsPage.containsText("Update"));
     }
 
 }
