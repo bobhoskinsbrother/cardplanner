@@ -27,6 +27,7 @@ public class StoryBoardTest {
     @BeforeClass
     public static void setup() throws Exception {
         pageLookup = WebDriverInstance.get();
+        pageLookup.manage().window().maximize();
         server = new CardPlannerServer(TEST);
         uri = server.port(0).startServer();
     }
@@ -58,7 +59,25 @@ public class StoryBoardTest {
                 .completeAction();
         page.focus();
         assertTrue(page.containsText("I'm a new card"));
-        System.out.println();
+    }
+
+    @Test
+    public void canAddAPostIt() throws Exception {
+        StoryBoardPage page = new StoryBoardPage(uri.toString(), pageLookup);
+        page.navigateTo("0");
+
+        page.clickPostItAdd();
+
+        Wait.forFrame(pageLookup, Constants.LIGHTWINDOW_IFRAME, 5000);
+        Wait.forElement(pageLookup, By.id("title"), 5000);
+
+        page
+                .setTitle("I'm a new postit")
+                .setColour("#00FFFF")
+                .setBody("**Well, well, well**  It's all gone a bit runny")
+                .completeAction();
+        page.focus();
+        assertTrue(page.containsText("I'm a new postit"));
     }
 
     @Test

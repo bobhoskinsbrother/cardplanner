@@ -360,8 +360,8 @@ var StoryBoard = {
                 var cardDimensions = StoryBoard.View.dimensionsFor(cardView);
                 return StoryBoard.Card.View.calculateRelativePointFromAbsoluteCardPoint(cardDimensions, hotspotView);
             },
-            flash: function (identity, startcolor) {
-                new Effect.Highlight("_" + identity, { keepBackgroundImage: true, startcolor: startcolor });
+            flash: function (identity, startcolor, endcolor) {
+                new Effect.Highlight("_" + identity, { keepBackgroundImage: true, startcolor: startcolor , endcolor: endcolor });
             }
         },
         Controller: {
@@ -507,7 +507,7 @@ var StoryBoard = {
                     Document.Comms.Failure.View.flash(message);
                 },
                 done: function (model) {
-                    StoryBoard.Card.View.flash(model.identity, "#00FF00");
+                    StoryBoard.Card.View.flash(model.identity, "#00FF00", model.type.colour);
                 }
 
 
@@ -613,17 +613,17 @@ var StoryBoard = {
                     var cardView = $(identity);
                     if (card.status.identity === Model.backlog.identify) {
                         Document.Comms.Notification.Controller.show("The card \"" + card.title + "\" has been moved to the backlog");
-                        StoryBoard.Card.View.flash(card.identity, "#FFFFBB");
+                        StoryBoard.Card.View.flash(card.identity, "#FFFFBB", card.type.colour);
                         $(identity).remove();
                         StoryBoard.Card.View.initialize([card]);
                     } else if (card.parent.identity != Model.card.identity) {
                         Document.Comms.Notification.Controller.show("The card \"" + card.title + "\" has been moved to a different board");
-                        StoryBoard.Card.View.flash(card.identity, "#FFFFBB");
+                        StoryBoard.Card.View.flash(card.identity, "#FFFFBB", card.type.colour);
                         $(identity).remove();
                     } else {
                         if ($(identity)) {
                             Document.Comms.Notification.Controller.show("The card \"" + card.title + "\" has been updated");
-                            StoryBoard.Card.View.flash(card.identity, "#FFFFBB");
+                            StoryBoard.Card.View.flash(card.identity, "#FFFFBB", card.type.colour);
                             new Effect.Move(identity, {"x": card.x, "y": card.y, "mode": "absolute"});
                             new Effect.Resize(cardView, card.width, card.height, { "onUpdate": StoryBoard.Card.Controller.onResize});
                         } else {
@@ -757,6 +757,9 @@ var StoryBoard = {
     },
     PostIt: {
 
+        Max: {width: 320, height: 210},
+        Min: {width: 90, height: 60},
+
         InfoButton: {
 
             View: {
@@ -818,8 +821,8 @@ var StoryBoard = {
             get: function (identity) {
                 return $("_" + identity);
             },
-            flash: function (identity, color) {
-                new Effect.Highlight("_" + identity, { keepBackgroundImage: true, startcolor: color });
+            flash: function (identity, startcolor, endcolor) {
+                new Effect.Highlight("_" + identity, { keepBackgroundImage: true, startcolor: startcolor, endcolor: endcolor  });
             },
             initialize: function (postIts) {
                 postIts.each(function (postIt) {
@@ -871,7 +874,7 @@ var StoryBoard = {
                     Document.Comms.Failure.View.flash(message);
                 },
                 done: function (model) {
-                    StoryBoard.Card.View.flash(model.identity, "#00FF00");
+                    StoryBoard.Card.View.flash(model.identity, "#00FF00", model.colour);
                 }
             },
             Edit: {
@@ -930,7 +933,7 @@ var StoryBoard = {
                 update: function (postIt) {
                     if ($("_" + postIt.identity)) {
                         Document.Comms.Notification.Controller.show("The post it \"" + postIt.title + "\" has been updated");
-                        StoryBoard.PostIt.View.flash(postIt.identity, "#FFFFBB");
+                        StoryBoard.PostIt.View.flash(postIt.identity, "#FFFFBB", postIt.colour);
                         StoryBoard.PostIt.Toolbar.View.removeAll();
                         new Effect.Move("_" + postIt.identity, {"x": postIt.x, "y": postIt.y, "mode": "absolute"});
                     }

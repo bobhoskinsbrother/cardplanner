@@ -129,9 +129,17 @@ public class StoryBoardPage extends CardManipulationPage<StoryBoardPage> {
     public void clickCardAdd() {
         driver.findElement(By.id("add_card_button")).click();
     }
+    public void clickPostItAdd() {
+        driver.findElement(By.id("add_post_it_button")).click();
+    }
 
     public StoryBoardPage setTitle(String title) {
         fillField("title", title);
+        return this;
+    }
+
+    public StoryBoardPage setColour(String colour) {
+        fillField("colour", colour);
         return this;
     }
 

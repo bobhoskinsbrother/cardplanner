@@ -1,24 +1,9 @@
 package uk.co.itstherules.cardplanner.controller.active;
 
-import java.io.IOException;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletResponse;
-
 import uk.co.itstherules.cardplanner.controller.shared.SharedObject;
 import uk.co.itstherules.cardplanner.controller.shared.SharedObjectSpaceClient;
 import uk.co.itstherules.cardplanner.controller.shared.SharedObjectSpacesListener;
-import uk.co.itstherules.cardplanner.model.CardModel;
-import uk.co.itstherules.cardplanner.model.CardService;
-import uk.co.itstherules.cardplanner.model.LogModel;
-import uk.co.itstherules.cardplanner.model.PostItModel;
-import uk.co.itstherules.cardplanner.model.StatusModel;
-import uk.co.itstherules.cardplanner.model.StatusService;
-import uk.co.itstherules.cardplanner.model.StoryBoardModel;
-import uk.co.itstherules.cardplanner.model.StoryBoardService;
-import uk.co.itstherules.cardplanner.model.StoryBoardTemplate;
+import uk.co.itstherules.cardplanner.model.*;
 import uk.co.itstherules.cardplanner.view.SerializeModel;
 import uk.co.itstherules.yawf.MapBuilder;
 import uk.co.itstherules.yawf.controller.BaseController;
@@ -37,6 +22,12 @@ import uk.co.itstherules.yawf.view.context.SingleValueContext;
 import uk.co.itstherules.yawf.view.helper.UrlBuilder;
 import uk.co.itstherules.yawf.view.json.JsonView;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
+
 public class StoryBoard extends BaseController {
 
 
@@ -49,7 +40,7 @@ public class StoryBoard extends BaseController {
         LogModel log = new LogModel(card, fromStatus, toStatus, "Update");
         objectCache.save(log);
         shareCard(provider, card, SharedObject.Action.UPDATE);
-        replyWithIdentity(provider, response, card);
+        replyWithObject(provider, response, card);
     }
 
     @Action("AddCard") public void addCard(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewRegister) throws IOException {
@@ -66,7 +57,7 @@ public class StoryBoard extends BaseController {
         LogModel log = new LogModel(card, card.getStatus(), card.getStatus(), "Delete");
         objectCache.save(log);
         shareCard(provider, card, SharedObject.Action.DELETE);
-        replyWithIdentity(provider, response, card);
+        replyWithObject(provider, response, card);
     }
 
     @Action("ArchiveCard") public void archiveCard(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewRegister) throws IOException {
@@ -77,7 +68,7 @@ public class StoryBoard extends BaseController {
         LogModel log = new LogModel(card, status, status, "Archive");
         objectCache.save(log);
         shareCard(provider, card, SharedObject.Action.ARCHIVE);
-        replyWithIdentity(provider, response, card);
+        replyWithObject(provider, response, card);
     }
 
     @Action("UnArchiveCard") public void unArchiveCard(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewRegister) throws IOException {
@@ -88,7 +79,7 @@ public class StoryBoard extends BaseController {
         LogModel log = new LogModel(card, status, status, "Update");
         objectCache.save(log);
         shareCard(provider, card, SharedObject.Action.UPDATE);
-        replyWithIdentity(provider, response, card);
+        replyWithObject(provider, response, card);
     }
 
     @Action("ShowCard") public void showCard(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewRegister) throws IOException {
@@ -153,7 +144,7 @@ public class StoryBoard extends BaseController {
         objectCache.delete(postIt);
         objectCache.save(storyBoard);
         sharePostIt(provider, postIt, SharedObject.Action.DELETE);
-        replyWithIdentity(provider, response, postIt);
+        replyWithObject(provider, response, postIt);
     }
 
     @Action("ShowPostIt") public void showPostIt(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewRegister) throws IOException {
@@ -198,7 +189,7 @@ public class StoryBoard extends BaseController {
 		new BasicValuesProviderBinder().bind(provider, postIt, objectCache);
 		objectCache.save(postIt);
         sharePostIt(provider, postIt, SharedObject.Action.UPDATE);
-        replyWithIdentity(provider, response, postIt);
+        replyWithObject(provider, response, postIt);
 	}
 
 
@@ -262,7 +253,7 @@ public class StoryBoard extends BaseController {
         return SharedObjectSpacesListener.reAttachClient(provider.getString("clientIdentity"));
     }
 
-    private void replyWithIdentity(ValuesProvider provider, HttpServletResponse response, IdentityDeleteable<?> model) {
-        new JsonView(Collections.singletonMap("identity", model.getIdentity())).renderTo(new EmptyContext(), response, provider.getApplicationRoot());
+    private void replyWithObject(ValuesProvider provider, HttpServletResponse response, IdentityDeleteable<?> model) {
+        new JsonView(model).renderTo(new EmptyContext(), response, provider.getApplicationRoot());
     }
 }

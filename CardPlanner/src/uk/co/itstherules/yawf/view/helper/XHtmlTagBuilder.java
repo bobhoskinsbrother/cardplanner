@@ -443,8 +443,10 @@ public class XHtmlTagBuilder implements TagBuilder {
 	}
 
 	public String submit(String value) {
-		SimpleHash hash = new SimpleHash();
-		hash.put("name", "completeAction");
+        final LinkedHashMap<Object, Object> map = new LinkedHashMap<>();
+		map.put("id", "completeAction");
+		map.put("name", "completeAction");
+        SimpleHash hash = new SimpleHash(map);
 		return input(hash, InputType.Submit, value, false, new ArrayList<String>());
     }
 

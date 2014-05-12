@@ -1,19 +1,14 @@
 package uk.co.itstherules.yawf.model;
 
-import java.util.Date;
-import java.util.GregorianCalendar;
-
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-
 import net.sf.oval.constraint.NotBlank;
 import net.sf.oval.constraint.NotNull;
 import uk.co.itstherules.yawf.assertion.Assertion;
 import uk.co.itstherules.yawf.inbound.annotations.QueryKey;
 import uk.co.itstherules.yawf.model.serializer.Json;
+
+import javax.persistence.*;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 @MappedSuperclass
 public abstract class IdentifiableDeleteableModel<T> implements Entity<T>, Comparable<Entity<T>> {
@@ -101,5 +96,13 @@ public abstract class IdentifiableDeleteableModel<T> implements Entity<T>, Compa
 
     public String toString() {
 		return new Json<IdentifiableDeleteableModel<T>>().serialize(this);
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 }

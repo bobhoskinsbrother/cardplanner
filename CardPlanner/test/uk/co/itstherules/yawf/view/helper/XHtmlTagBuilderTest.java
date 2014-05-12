@@ -130,7 +130,7 @@ public class XHtmlTagBuilderTest {
 		assertEquals("<input type=\"text\"  class=\"errorbackground errorborder\" value=\"Value\" /><div class=\"errorMessageText\">There has been an error<br/></div>", unit.inputText(new SimpleHash(), "Value", true, "There has been an error"));
 		assertEquals("<input type=\"text\" id=\"wilma\"  class=\"errorbackground errorborder\" value=\"Value\" /><div class=\"errorMessageText\">There has been an error<br/></div>", unit.inputText(new SimpleHash(Collections.singletonMap("id", "wilma")), "Value", true, "There has been an error"));
     }
-	
+
 	@Test public void link() {
 		TagBuilder unit = new XHtmlTagBuilder("/Root");
 		assertEquals("<a href=\"http:/www.google.com\" >Name</a>", unit.link("http:/www.google.com", "Name"));
@@ -277,7 +277,7 @@ public class XHtmlTagBuilderTest {
 	
 	@Test public void submit() {
 		TagBuilder unit = new XHtmlTagBuilder("/Root");
-		assertEquals("<input type=\"submit\" name=\"completeAction\" value=\"Create\" />", unit.submit("Create"));
+		assertEquals("<input type=\"submit\" id=\"completeAction\" name=\"completeAction\" value=\"Create\" />", unit.submit("Create"));
     }
 	
 	@Test public void textArea() {
