@@ -34,7 +34,14 @@ var StoryBoard = {
             StoryBoard.Frame.View.get().addEventListener('mousedown', function(event) {
                 if (event.preventDefault) event.preventDefault();
             }, false);
-            StoryBoard.Resizeables.View.add(StoryBoard.View.get(), {'resizeEnd': StoryBoard.Controller.resizeEnd, 'resizeStart': StoryBoard.Controller.resizeStart });
+            StoryBoard.Resizeables.View.add(StoryBoard.View.get(), {
+                'minHeight': 640,
+                'minWidth': 480,
+                'maxHeight': 7680,
+                'maxWidth':  4320,
+                'resizeEnd': StoryBoard.Controller.resizeEnd,
+                'resizeStart': StoryBoard.Controller.resizeStart
+            });
             StoryBoard.CanvasDoodle.View.initialize(board.width, board.height);
         },
 
