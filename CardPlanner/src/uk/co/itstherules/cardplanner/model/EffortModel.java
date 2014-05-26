@@ -21,7 +21,9 @@ public final class EffortModel extends AmountModel<EffortModel, EffortTypeModel>
 	}
 	
 	public EffortModel defaultSetup(ObjectCache objectCache) {
-		this.type = SpecialInstances.<EffortTypeModel>retrieve(objectCache, Identities.IDEAL_DAY_EFFORT_TYPE);
+        setAmount(0.0);
+        setTitle("Default");
+        this.type = SpecialInstances.<EffortTypeModel>retrieve(objectCache, Identities.IDEAL_DAY_EFFORT_TYPE);
 	    return this;
 	}
 

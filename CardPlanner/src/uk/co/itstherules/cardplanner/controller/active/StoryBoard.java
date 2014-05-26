@@ -5,6 +5,7 @@ import uk.co.itstherules.cardplanner.controller.shared.SharedObjectSpaceClient;
 import uk.co.itstherules.cardplanner.controller.shared.SharedObjectSpacesListener;
 import uk.co.itstherules.cardplanner.model.*;
 import uk.co.itstherules.cardplanner.view.SerializeModel;
+import uk.co.itstherules.dimension.coordinate.Coordinate;
 import uk.co.itstherules.yawf.MapBuilder;
 import uk.co.itstherules.yawf.controller.BaseController;
 import uk.co.itstherules.yawf.controller.ContentType;
@@ -91,6 +92,8 @@ public class StoryBoard extends BaseController {
         QueryKeyViolations violations = new BasicValuesProviderBinder().bind(provider, card, objectCache);
         String cardIdentity = provider.getString("cardIdentity");
         String cardTitle = provider.getString("cardTitle");
+        Coordinate offset = card.getParent().getStoryBoard().calculateNextCardOffset();
+        card.setCoords(offset);
         if(!violations.isRegistered()) {
             objectCache.save(card);
             StatusModel backlog = new StatusService().backlog(objectCache);

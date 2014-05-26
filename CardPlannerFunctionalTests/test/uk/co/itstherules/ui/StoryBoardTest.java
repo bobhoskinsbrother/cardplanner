@@ -57,7 +57,11 @@ public class StoryBoardTest {
                 .addTag("Funny")
                 .completeAction();
         page.focus();
+        Wait.forElement(pageLookup, By.className("expand"), 5000);
+        page.maximizeCard();
         assertTrue(page.containsText("I'm a new card"));
+        assertTrue(page.containsText("2.5 Ideal Day"));
+        assertTrue(page.containsText("2100 Currency"));
     }
 
     @Test

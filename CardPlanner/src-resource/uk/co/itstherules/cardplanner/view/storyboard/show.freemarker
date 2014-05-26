@@ -8,7 +8,7 @@ Event.observe(this, 'dom:loaded',  function() {
 var Model = {
 backlog: ${jsonSerializer.serialize(backlog)},
 board: ${jsonSerializer.serialize(card.storyBoard, ["*.points","lines","postIts","hotspotAreas","textAreas"],["*.class", "*.active","*.added","*.archived","*.deleted","*.expired","*.locked", "*.invisible", "*.pending", "*.updated", "*.version", "*.z"])},
-card: ${jsonSerializer.serialize(card, ["identity"], ["*.storyBoard", "*.class", "*.effort", "*.value", "*.status", "*.type"])},
+card: ${jsonSerializer.serialize(card, ["identity"], ["*.storyBoard", "*.class", "*.status", "*.type"])},
 cards: ${jsonSerializer.serialize(cards, ["*.storyBoard", "*.class", "*.parent", "*.effort", "*.value", "*.status", "*.type"])}
 };
 

@@ -4,7 +4,7 @@ import java.util.Date;
 
 import uk.co.itstherules.yawf.model.persistence.ObjectCache;
 
-public interface IdentityDeleteable<T> {
+public interface IdentityDeleteable<T> extends Saveable, Deleteable {
 	
 	T defaultSetup(ObjectCache objectCache);
 	void setIdentity(String identity); 
@@ -14,9 +14,8 @@ public interface IdentityDeleteable<T> {
 	void setSortOrder(Integer sortOrder);
 
 	Boolean getDeleted();
-	void delete();
 
-	Boolean getPending();
+    Boolean getPending();
 	void pending();
 	
 	Boolean getInvisible();
@@ -28,8 +27,7 @@ public interface IdentityDeleteable<T> {
 	Boolean getActive();
 	void activate();
 
-	void updateTimestamp(); 
-	Date getUpdated();
+    Date getUpdated();
 	Date getAdded();
 	
 }

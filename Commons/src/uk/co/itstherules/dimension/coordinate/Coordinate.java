@@ -1,6 +1,6 @@
 package uk.co.itstherules.dimension.coordinate;
 
-public abstract class Coordinate {
+public class Coordinate {
 
 	private final int x;
 	private final int y;

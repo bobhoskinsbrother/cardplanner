@@ -89,6 +89,8 @@ public final class EffortTypeModel extends IdentifiableDeleteableModel<EffortTyp
         return true;
     }
 
-    public EffortTypeModel defaultSetup(ObjectCache objectCache) { return this; }
+    public EffortTypeModel defaultSetup(ObjectCache objectCache) {
+        return this;
+    }
 
 }

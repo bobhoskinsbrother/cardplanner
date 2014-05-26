@@ -10,5 +10,4 @@ import java.lang.annotation.Target;
 public @interface QueryKey {
     public abstract String value();
     public abstract CacheInstruction cache() default CacheInstruction.NotFromCache;
-    public abstract boolean follow() default true;
 }

@@ -1,5 +1,6 @@
 package uk.co.itstherules.cardplanner.model;
 
+import uk.co.itstherules.dimension.coordinate.Coordinate;
 import uk.co.itstherules.yawf.inbound.annotations.QueryKey;
 import uk.co.itstherules.yawf.model.IdentifiableDeleteableModel;
 import uk.co.itstherules.yawf.model.persistence.ObjectCache;
@@ -9,22 +10,32 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class StoryBoardModel extends IdentifiableDeleteableModel<StoryBoardModel> {
 
-    @QueryKey("hotspotAreas") @OneToMany(cascade = CascadeType.ALL) private List<StoryBoardHotspotAreaModel> hotspotAreas;
-    @QueryKey("textAreas") @OneToMany(cascade = CascadeType.ALL) private List<StoryBoardTextAreaModel> textAreas;
-    @QueryKey("postIts") @OneToMany(cascade = CascadeType.ALL) private List<PostItModel> postIts;
-    @QueryKey("lines") @OneToMany(cascade = CascadeType.ALL) private List<StoryBoardLineModel> lines;
-    @QueryKey("width") private Integer width;
-    @QueryKey("height") private Integer height;
-    @QueryKey("frameType") private String frameType;
-    @QueryKey("card") @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "storyBoard") private CardModel card;
+    @QueryKey("hotspotAreas")
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<StoryBoardHotspotAreaModel> hotspotAreas;
+    @QueryKey("textAreas")
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<StoryBoardTextAreaModel> textAreas;
+    @QueryKey("postIts")
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<PostItModel> postIts;
+    @QueryKey("lines")
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<StoryBoardLineModel> lines;
+    @QueryKey("width")
+    private Integer width;
+    @QueryKey("height")
+    private Integer height;
+    @QueryKey("frameType")
+    private String frameType;
+    @QueryKey("card")
+    @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "storyBoard")
+    private CardModel card;
 
     public StoryBoardModel() {
         super();
@@ -71,23 +82,41 @@ public class StoryBoardModel extends IdentifiableDeleteableModel<StoryBoardModel
         }
     }
 
-    public Integer getWidth() { return width; }
+    public Integer getWidth() {
+        return width;
+    }
 
-    public Integer getHeight() { return height; }
+    public Integer getHeight() {
+        return height;
+    }
 
-    public String getFrameType() { return frameType; }
+    public String getFrameType() {
+        return frameType;
+    }
 
-    public List<StoryBoardTextAreaModel> getTextAreas() { return textAreas; }
+    public List<StoryBoardTextAreaModel> getTextAreas() {
+        return textAreas;
+    }
 
-    public List<StoryBoardHotspotAreaModel> getHotspotAreas() { return hotspotAreas; }
+    public List<StoryBoardHotspotAreaModel> getHotspotAreas() {
+        return hotspotAreas;
+    }
 
-    public List<StoryBoardLineModel> getLines() { return lines; }
+    public List<StoryBoardLineModel> getLines() {
+        return lines;
+    }
 
-    public List<PostItModel> getPostIts() { return postIts; }
+    public List<PostItModel> getPostIts() {
+        return postIts;
+    }
 
-    public CardModel getCard() { return this.card; }
+    public CardModel getCard() {
+        return this.card;
+    }
 
-    public void setCard(CardModel card) { this.card = card; }
+    public void setCard(CardModel card) {
+        this.card = card;
+    }
 
     public String toString() {
         return new Json<StoryBoardModel>().serialize(this, "people", "facts", "tags");
@@ -98,25 +127,33 @@ public class StoryBoardModel extends IdentifiableDeleteableModel<StoryBoardModel
     }
 
     public void addPostIt(PostItModel postIt) {
-        final int[] xy = calculatePostItOffset();
-        postIt.setX(xy[0]);
-        postIt.setY(xy[1]);
+        Coordinate xy = calculatePostItOffset();
+        postIt.setX(xy.getX());
+        postIt.setY(xy.getY());
         postIts.add(postIt);
     }
 
-    private int[] calculatePostItOffset() {
+    public Coordinate calculateNextCardOffset() {
+        return calculateOffset(card.getChildren());
+    }
+
+    private Coordinate calculatePostItOffset() {
+        return calculateOffset(postIts);
+    }
+
+    private Coordinate calculateOffset(Collection<?> collection) {
         int offsetX = 5, offsetY = 5;
         final int frameSide = 40;
         int multiplier = 1;
-        if (postIts != null && !postIts.isEmpty()) {
-            multiplier = postIts.size();
+        if (collection != null && !collection.isEmpty()) {
+            multiplier = collection.size();
         }
         final int x = offsetX * multiplier;
         final int y = offsetY * multiplier;
         if (postItsInRectangle(frameSide, frameSide, x, y) >= (multiplier - 2)) {
-            return new int[]{x+ frameSide, y+ frameSide};
+            return new Coordinate(x + frameSide, y + frameSide);
         }
-        return new int[]{offsetX+ frameSide, offsetY+ frameSide};
+        return new Coordinate(offsetX + frameSide, offsetY + frameSide);
     }
 
     private int postItsInRectangle(int topX, int topY, int bottomX, int bottomY) {
@@ -124,7 +161,7 @@ public class StoryBoardModel extends IdentifiableDeleteableModel<StoryBoardModel
         for (PostItModel postIt : postIts) {
             final Integer x = postIt.getX();
             final Integer y = postIt.getY();
-            if(x >= topX && x <= bottomX && y >= topY&& y <=bottomY) {
+            if (x >= topX && x <= bottomX && y >= topY && y <= bottomY) {
                 count++;
             }
         }

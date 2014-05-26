@@ -21,7 +21,9 @@ public final class ValueModel extends AmountModel<ValueModel, ValueTypeModel> {
 	}
 	
 	public ValueModel defaultSetup(ObjectCache objectCache) {
-		this.type = SpecialInstances.<ValueTypeModel>retrieve(objectCache, Identities.CURRENCY_VALUE_TYPE);
+        setAmount(0.0);
+        setTitle("Default");
+        this.type = SpecialInstances.<ValueTypeModel>retrieve(objectCache, Identities.CURRENCY_VALUE_TYPE);
 	    return this;
 	}
 	@Override

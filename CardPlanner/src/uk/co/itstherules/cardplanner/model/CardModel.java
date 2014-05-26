@@ -4,6 +4,7 @@ import net.sf.oval.constraint.NoSelfReference;
 import net.sf.oval.constraint.NotNull;
 import uk.co.itstherules.cardplanner.model.CachedInstance.Identities;
 import uk.co.itstherules.cardplanner.model.binder.TagsBinder;
+import uk.co.itstherules.dimension.coordinate.Coordinate;
 import uk.co.itstherules.yawf.inbound.annotations.CacheInstruction;
 import uk.co.itstherules.yawf.inbound.annotations.QueryKey;
 import uk.co.itstherules.yawf.inbound.annotations.UseBinder;
@@ -86,11 +87,8 @@ public final class CardModel extends IdentifiableDeleteableModel<CardModel>  {
 	public void setExpanded(boolean expanded) { this.expanded = expanded; }
 
 	public boolean containsTag(TagModel tag){
-		if(tags!=null) {
-			return tags.contains(tag);
-		}
-		return false;
-	}
+        return tags != null && tags.contains(tag);
+    }
 
     public String toString() {
     	return new Json<CardModel>().serialize(this, "people", "facts", "tags");
@@ -122,4 +120,8 @@ public final class CardModel extends IdentifiableDeleteableModel<CardModel>  {
 		return clone;
     }
 
+    public void setCoords(Coordinate coordinate) {
+        x = coordinate.getX();
+        y = coordinate.getY();
+    }
 }

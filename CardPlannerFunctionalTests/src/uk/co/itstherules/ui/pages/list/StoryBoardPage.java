@@ -202,6 +202,11 @@ public class StoryBoardPage extends CardManipulationPage<StoryBoardPage> {
         throw new IllegalArgumentException("<select id=\"" + selectId + "\"> does not contain " + value);
     }
 
-    private void fillField(String id, String title) {clearAndPopulate(driver.findElement(By.name(id)), title);}
+    private void fillField(String id, String title) {
+        clearAndPopulate(driver.findElement(By.name(id)), title);
+    }
 
+    public void maximizeCard() {
+        driver.findElement(By.className("expand")).click();
+    }
 }
