@@ -1,39 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e2a0034-e6b2-49ad-a351-34b4f927d7b9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/CardPlanner/CardPlanner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CardPlanner/CardPlanner.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CardPlanner/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CardPlanner/build.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/css/general.css.freemarker" beforeDir="false" afterPath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/css/general.css.freemarker" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/Archived.java" beforeDir="false" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/Archived.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/dispatcher/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/dispatcher/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/file/FileRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/file/FileRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/CardPlannerFunctionalTests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/CardPlannerFunctionalTests.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/binary/io/ContentTypeGuesser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/binary/io/StreamForwarder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/test/uk/co/itstherules/binary/io/ContentTypeGuesserTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/test/uk/co/itstherules/binary/io/StreamForwarderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/test/uk/co/itstherules/binary/io/ThrowOnReadByteArrayInputStream.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/AWTImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/AWTImageOps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/AbstractBufferedImageOp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/BaseImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/BicubicScaleFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/Flip.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/FlipFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/IImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/ImageFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/ImageMath.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/JAIImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/RotateFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/ScaleCalculator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/TransformFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cardplanner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cardplanner.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cardplanner.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/cardplanner.ipr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cardplanner.iws" beforeDir="false" afterPath="$PROJECT_DIR$/cardplanner.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/oval-1.50.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/oval-1.50.jar" afterDir="false" />
-    </list>
+    <list default="true" id="8e2a0034-e6b2-49ad-a351-34b4f927d7b9" name="Default" comment="" />
     <ignored path="cardplanner.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/CardPlanner/classes/" />
@@ -321,22 +289,6 @@
               <item name="cardplanner" type="b2602c69:ProjectViewProjectNode" />
               <item name="cardplanner" type="462c0819:PsiDirectoryNode" />
               <item name="CardPlanner" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cardplanner" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cardplanner" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cardplanner" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cardplanner" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
-              <item name="release" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cardplanner" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cardplanner" type="462c0819:PsiDirectoryNode" />
-              <item name="sh" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1018,7 +970,7 @@
       <workItem from="1488988831676" duration="9000" />
       <workItem from="1489578148806" duration="5152000" />
       <workItem from="1525420115290" duration="6394000" />
-      <workItem from="1525677822197" duration="11269000" />
+      <workItem from="1525677822197" duration="11598000" />
     </task>
     <task id="LOCAL-00001" summary="BMH: Making the build a little more sane, fixing up a bunch of small errors, in prep to getting the functional tests working again">
       <created>1397597743552</created>
@@ -1041,7 +993,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525687200912</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="BMH: more small changes">
+      <created>1525700401937</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1525700401937</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1077,7 +1036,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="313199000" />
+    <option name="totallyTimeSpent" value="313528000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1101,7 +1060,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="945" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32976446" />
@@ -1159,7 +1117,8 @@
     <MESSAGE value="BMH: adding double click feature on cards" />
     <MESSAGE value="BMH: updating selenium, hibernate, and JPA libs.  Fixed a bunch of previously failing functional tests" />
     <MESSAGE value="BMH: collapsing down the modules to make a big monolith (to begin to split in another way)" />
-    <option name="LAST_COMMIT_MESSAGE" value="BMH: collapsing down the modules to make a big monolith (to begin to split in another way)" />
+    <MESSAGE value="BMH: more small changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="BMH: more small changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
