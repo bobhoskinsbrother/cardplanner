@@ -50,6 +50,7 @@ public class LogsTest {
 
         String targetPanelId = TestConstants.IN_PROGRESS_HOTSPOT_ID;
         page.dragOnto(cardId, targetPanelId);
+        Wait.untilVisible(pageLookup, By.id(cardId), 5000);
 
         LogsPage logsPage = new LogsPage(pageLookup, uri.toString());
         logsPage.navigateTo("0");

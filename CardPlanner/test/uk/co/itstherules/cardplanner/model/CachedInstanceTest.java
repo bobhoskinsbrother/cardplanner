@@ -20,7 +20,7 @@ public class CachedInstanceTest {
 	
 	@Test
 	public void checkThatDefaultObjectsAreStored() {
-		FakeObjectCache fakeObjectCache = new FakeObjectCache(new HashSet());
+		FakeObjectCache fakeObjectCache = new FakeObjectCache(new HashSet<>());
 		CachedInstance unit = new CachedInstance();
 		
 		unit.initialise(fakeObjectCache);

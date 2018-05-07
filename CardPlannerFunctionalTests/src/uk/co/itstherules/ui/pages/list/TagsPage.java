@@ -3,6 +3,7 @@ package uk.co.itstherules.ui.pages.list;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import uk.co.itstherules.ui.functions.Wait;
 import uk.co.itstherules.ui.pages.Page;
 
 public class TagsPage extends Page<TagsPage> {
@@ -33,6 +34,7 @@ public class TagsPage extends Page<TagsPage> {
     }
 
     public TagsPage completeAction() {
+        Wait.untilVisible(driver, By.id("completeAction"), 5000);
         driver.findElement(By.id("completeAction")).click();
         return this;
     }

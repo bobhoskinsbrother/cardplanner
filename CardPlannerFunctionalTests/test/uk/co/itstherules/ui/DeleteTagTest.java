@@ -39,8 +39,8 @@ public class DeleteTagTest {
         new DataFixtures().saveTag("Delete Me Tag");
         TagsPage tagsPage = new TagsPage(pageLookup, uri.toString());
         tagsPage.navigateTo("0");
-        tagsPage.confirmAs(true);
         pageLookup.findElement(By.name("deleteButton")).click();
+        tagsPage.confirmAs(true);
         assertFalse(tagsPage.containsText("Delete Me Tag", 1000));
     }
 

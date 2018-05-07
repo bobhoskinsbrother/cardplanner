@@ -1,6 +1,6 @@
-### Welcome to CardPlanner ###
+## CardPlanner
 
-We've a simple aim with CardPlanner; a shared board that can be used in a big visible workspace, or in a terminal.  The idea is simple; you move a story card on your Plasma TV in the bay area, and the rest of the team in Shenzhen can see it move on their SmartBoard, and vice versa.
+CardPlanner has a simple aim; a shared board that can be used in a big visible workspace, or in a terminal.  The idea is simple; you move a story card on your Plasma TV in the bay area, and the rest of the team in Shenzhen can see it move on their SmartBoard, and vice versa.
 
 
 There is one principal in CardPlanner; a card __is__ a board (a bit like everything is a file in unix).  So if you want to make another board, add a card.
@@ -15,11 +15,13 @@ cd cardplanner
 ant
 ```
 
-__Hmm, Not Many Functional Test...__
+__Hmm, Some Functional Tests are @Ignore(d)...__
 
-Yes, I broke the functional tests, and am slowly but surely putting them back.
+Yes, I fixed a bunch of functional tests, but not all of them (due to timing issues on the page).  The rest will be put back too.
 
 
+
+####Running the Server
 To run the server after building:
 
 ```

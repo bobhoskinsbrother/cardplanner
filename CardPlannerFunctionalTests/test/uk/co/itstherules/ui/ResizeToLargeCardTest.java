@@ -27,7 +27,7 @@ public class ResizeToLargeCardTest {
 
     @BeforeClass
     public static void setup() throws Exception {
-        pageLookup = WebDriverInstance.make(true);
+        pageLookup = WebDriverInstance.make();
         server = new CardPlannerServer(TEST);
         uri = server.port(0).startServer();
     }

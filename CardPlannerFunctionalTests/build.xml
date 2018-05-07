@@ -54,12 +54,12 @@
         <include name="*.jar"/>
     </fileset>
 
-    <fileset id="functional.fileset" dir="${cardplanner.functional.basedir}/../libs/test/functional">
+    <fileset id="functional.fileset" dir="${cardplanner.functional.basedir}/../libs/test/functional/selenium_new">
         <include name="*.jar"/>
     </fileset>
 
     <fileset id="release.fileset" dir="${cardplanner.functional.basedir}/..">
-        <include name="libs/release/*.jar"/>
+        <include name="libs/release/new/*.jar"/>
         <include name="${cardplanner}/${dist}/*.jar"/>
         <include name="${commons}/${dist}/*.jar"/>
         <include name="${commons.string}/${dist}/*.jar"/>

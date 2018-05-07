@@ -10,34 +10,26 @@ import java.util.Calendar;
 
 public class Wait {
 
-    public static void tryToClick(WebDriver driver, By finderType, long millis) {
-        Question<By> question = new Question<By>() {
-            public boolean isAnswered(WebDriver driver, By by) throws Exception {
-                driver.findElement(by).click();
-                return true;
-            }
+    public static void tryToClickOnceWithinTimeFrame(WebDriver driver, By finderType, long millis) {
+        Question<By> question = (d, by) -> {
+            d.findElement(by).click();
+            return true;
         };
         forQuestion(driver, question, finderType, millis);
     }
 
     public static void untilVisible(WebDriver driver, By finderType, long millis) {
-        Question<By> question = new Question<By>() {
-            public boolean isAnswered(WebDriver driver, By by) throws Exception {
-                return driver.findElement(by).isDisplayed();
-            }
-        };
+        Question<By> question = (d, by) -> d.findElement(by).isDisplayed();
         forQuestion(driver, question, finderType, millis);
     }
 
     public static void untilElementIsGone(WebDriver driver, By finderType, long millis) {
-        Question<By> question = new Question<By>() {
-            public boolean isAnswered(WebDriver driver, By by) throws Exception {
-                try {
-                    WebElement element = driver.findElement(by);
-                    return !element.isDisplayed();
-                } catch (NoSuchElementException e) {
-                    return true;
-                }
+        Question<By> question = (d, by) -> {
+            try {
+                WebElement element = d.findElement(by);
+                return !element.isDisplayed();
+            } catch (NoSuchElementException e) {
+                return true;
             }
         };
         forQuestion(driver, question, finderType, millis);
@@ -54,28 +46,20 @@ public class Wait {
     }
 
     public static void forFrame(WebDriver driver, String frameIdentity, final long millis) {
-        Question<String> question = new Question<String>() {
-            public boolean isAnswered(WebDriver driver, String name) throws Exception {
-                driver.switchTo().frame(name);
-                return true;
-            }
+        Question<String> question = (driver1, name) -> {
+            driver1.switchTo().frame(name);
+            return true;
         };
         forQuestion(driver, question, frameIdentity, millis);
     }
 
     public static void forPageWithTitle(WebDriver driver, String title, final long millis) {
-        Question<String> question = new Question<String>() {
-            public boolean isAnswered(WebDriver driver, String title) throws Exception { return title.equals(driver.getTitle()); }
-        };
+        Question<String> question = (driver1, title1) -> title1.equals(driver1.getTitle());
         forQuestion(driver, question, title, millis);
     }
 
     public static void forText(WebDriver driver, String text, long millis) {
-        Question<String> question = new Question<String>() {
-            public boolean isAnswered(WebDriver driver, String string) throws Exception {
-                return driver.getPageSource().contains(string);
-            }
-        };
+        Question<String> question = (driver1, string) -> driver1.getPageSource().contains(string);
         forQuestion(driver, question, text, millis);
     }
 
@@ -107,7 +91,6 @@ public class Wait {
     }
 
     private interface Question<T> {
-
         boolean isAnswered(WebDriver driver, T object) throws Exception;
     }
 }

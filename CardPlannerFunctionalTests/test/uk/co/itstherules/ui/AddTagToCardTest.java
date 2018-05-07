@@ -67,7 +67,7 @@ public class AddTagToCardTest {
 
         Wait.untilVisible(pageLookup, By.id(cardId), 3000);
 
-        pageLookup.findElement(By.id(cardId)).click();
+        Wait.tryToClickOnceWithinTimeFrame(pageLookup, By.id(cardId), 5000);
 
         Wait.forFrame(pageLookup, Constants.LIGHTWINDOW_IFRAME, 5000);
         Wait.forText(pageLookup, "I am an card that requires editing", 5000);

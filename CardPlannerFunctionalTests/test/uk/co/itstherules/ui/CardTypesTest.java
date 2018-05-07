@@ -48,7 +48,7 @@ public class CardTypesTest {
         new DataFixtures().saveCardType("Task", "#FF9900");
         BasicPersona norville = new BasicPersona("norville");
         CardTypesPage page = new CardTypesPage(uri.toString(), pageLookup).navigateTo("0");
-        Wait.forElement(pageLookup, By.name("deleteButton"), 5000);
+        Wait.forElement(pageLookup, By.name("deleteButton"), 8000);
         page = norville.delete(page, 0);
         assertFalse(page.containsText(norville.getMemory().getCardTypeTitle(), 0));
     }
@@ -76,6 +76,7 @@ public class CardTypesTest {
         CardTypesPage page = new CardTypesPage(uri.toString(), pageLookup).navigateTo("0");
         page = norville.add(page);
         assertTrue(page.containsText(norville.getMemory().getCardTypeTitle()));
+        Wait.forElement(pageLookup, By.name("deleteButton"), 8000);
         page = norville.delete(page, 0);
         assertFalse(page.containsText(norville.getMemory().getCardTypeTitle(), 0));
     }

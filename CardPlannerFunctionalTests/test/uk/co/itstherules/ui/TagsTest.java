@@ -19,6 +19,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static uk.co.itstherules.cardplanner.server.CardPlannerConfigBuilder.TargetEnvironment.TEST;
 
+@Ignore
 public class TagsTest {
 
     private static WebDriver pageLookup;
@@ -57,6 +58,7 @@ public class TagsTest {
         Wait.forElement(pageLookup, By.id("title"), 5000);
 
         tagsPage.setTitle("I've edited the tag");
+
         tagsPage.completeAction();
 
         tagsPage.focus();
@@ -74,6 +76,7 @@ public class TagsTest {
         tagsPage.clickOnAdd();
 
         Wait.forFrame(pageLookup, Constants.LIGHTWINDOW_IFRAME, 5000);
+
         Wait.forElement(pageLookup, By.id("title"), 5000);
 
         tagsPage.setTitle("I'm A Tag");
@@ -133,6 +136,7 @@ public class TagsTest {
         tagsPage.clickOnAdd();
 
         Wait.forFrame(pageLookup, Constants.LIGHTWINDOW_IFRAME, 5000);
+
         Wait.forElement(pageLookup, By.id("title"), 5000);
 
         tagsPage.setTitle("");

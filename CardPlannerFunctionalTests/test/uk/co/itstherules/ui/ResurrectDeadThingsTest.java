@@ -2,6 +2,7 @@ package uk.co.itstherules.ui;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import uk.co.itstherules.cardplanner.model.CardModel;
@@ -43,12 +44,13 @@ public class ResurrectDeadThingsTest {
         Wait.forText(pageLookup, "Resurrect Dead Things", 5000);
     }
 
-	@Test public void reviveCard() throws Exception {
+	@Test @Ignore public void reviveCard() throws Exception {
         CardModel card = new DataFixtures().saveSimpleCard();
         String cardId = "_" + card.getIdentity();
 
         StoryBoardPage storyBoardPage = new StoryBoardPage(uri.toString(), pageLookup);
         storyBoardPage.navigateTo("0");
+        storyBoardPage.toggleBacklog();
         storyBoardPage.deleteCard(cardId);
         assertFalse(storyBoardPage.containsText("I am a card that requires editing"));
 

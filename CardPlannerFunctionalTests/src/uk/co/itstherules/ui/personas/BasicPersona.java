@@ -234,8 +234,8 @@ public class BasicPersona extends BaseBasicPersona<Page<?>> implements Editor, V
 
 	public EffortTypesPage delete(EffortTypesPage page, int selectableIndex) {
 		WebElement deleteButton = page.getDeleteButton(selectableIndex);
-		page.confirmAs(true);
 		deleteButton.click();
+		page.confirmAs(true);
 	    return page;
     }
 
@@ -257,8 +257,8 @@ public class BasicPersona extends BaseBasicPersona<Page<?>> implements Editor, V
 
 	public ValueTypesPage delete(ValueTypesPage page, int selectableIndex) {
 		WebElement deleteButton = page.getDeleteButton(selectableIndex);
-		page.confirmAs(true);
 		deleteButton.click();
+		page.confirmAs(true);
 	    return page;
     }
 
@@ -279,8 +279,8 @@ public class BasicPersona extends BaseBasicPersona<Page<?>> implements Editor, V
 
 	public CardTypesPage delete(CardTypesPage page, int selectableIndex) {
 		WebElement deleteButton = page.getDeleteButton(selectableIndex);
-		page.confirmAs(true);
 		deleteButton.click();
+		page.confirmAs(true);
 	    return page;
     }
 

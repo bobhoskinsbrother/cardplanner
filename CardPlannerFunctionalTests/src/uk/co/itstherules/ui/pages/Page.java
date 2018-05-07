@@ -1,10 +1,9 @@
 package uk.co.itstherules.ui.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import uk.co.itstherules.ui.functions.Wait;
+
+import static junit.framework.TestCase.fail;
 
 public abstract class Page<T> implements Navigable<T> { 
 	
@@ -64,8 +63,20 @@ public abstract class Page<T> implements Navigable<T> {
     }
 	
 	public void confirmAs(boolean confirm) {
-		//hacky crap to disable the confirm box for that page
-	    ((JavascriptExecutor)driver).executeScript("window.confirm = function(msg){ return "+String.valueOf(confirm)+"; };");
+		try {
+			Alert alert = driver.switchTo().alert();
+			String AlertText = alert.getText();
+			System.out.println(AlertText);
+			if(confirm) {
+				alert.accept();
+			} else {
+				alert.dismiss();
+			}
+		} catch (Exception e) {
+			fail("Expected to be able to click an alert");
+		}
+//		//hacky crap to disable the confirm box for that page
+//	    ((JavascriptExecutor)driver).executeScript("window.confirm = function(msg){ return "+String.valueOf(confirm)+"; };");
 	}
 
 	public void scrollTo(int pixels) {

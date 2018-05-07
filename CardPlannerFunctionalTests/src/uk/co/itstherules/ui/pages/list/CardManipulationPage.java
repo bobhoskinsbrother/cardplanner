@@ -47,8 +47,8 @@ public abstract class CardManipulationPage<T> extends Page<T> implements Editabl
 
     private CardManipulationPage<?> selectConfirmBasedButton(String buttonName, int index) {
         WebElement button = driver.findElements(By.name(buttonName)).get(index);
-        confirmAs(true);
         button.click();
+        confirmAs(true);
         return this;
     }
 

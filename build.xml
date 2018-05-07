@@ -28,7 +28,7 @@
 		<sequential>
 			<zip destfile="${master.basedir}/${dist}/CardPlannerServer.zip">
                 <zipfileset dir="${master.basedir}/sh" prefix="." includes="**/*"/>
-                <zipfileset dir="${master.basedir}/libs/release/" includes="*.jar" prefix="libs"/>
+                <zipfileset dir="${master.basedir}/libs/release/new/" includes="*.jar" prefix="libs"/>
                 <zipfileset dir="${master.basedir}/${cardplanner}/${dist}/" includes="*.jar" prefix="libs"/>
                 <zipfileset dir="${master.basedir}/${commons}/${dist}/" includes="*.jar" prefix="libs"/>
                 <zipfileset dir="${master.basedir}/${commons.string}/${dist}/" includes="*.jar" prefix="libs"/>

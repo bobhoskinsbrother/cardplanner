@@ -60,22 +60,17 @@ public class StoryBoardPage extends CardManipulationPage<StoryBoardPage> {
     }
 
     public StoryBoardPage toggleBacklog() {
-        driver.findElement(By.id("backlog_tab")).click();
-        try {
-            Thread.sleep(750);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        By backlogTab = By.id("backlog_tab");
+        Wait.tryToClickOnceWithinTimeFrame(driver, backlogTab, 3000);
         return this;
     }
 
     public void deleteCard(String cardId) {
         toggleBacklog();
         expandCard(cardId);
-        confirmAs(true);
         By delete = By.id("delete_card_button" + cardId);
-        Wait.untilVisible(driver, delete, 5000);
-        driver.findElement(delete).click();
+        Wait.tryToClickOnceWithinTimeFrame(driver, delete, 5000);
+        confirmAs(true);
     }
 
     public StoryBoardPage collapseCard(String cardId) {
@@ -85,8 +80,8 @@ public class StoryBoardPage extends CardManipulationPage<StoryBoardPage> {
     }
 
     public StoryBoardPage expandCard(String cardId) {
-        WebElement expandElement = driver.findElement(By.id("_expand" + cardId));
-        expandElement.click();
+        By element = By.id("_expand" + cardId);
+        Wait.tryToClickOnceWithinTimeFrame(driver, element, 5000);
         return this;
     }
 
@@ -136,12 +131,13 @@ public class StoryBoardPage extends CardManipulationPage<StoryBoardPage> {
         WebElement tag = driver.findElement(By.id("tag"));
         tag.clear();
         tag.sendKeys(tagString);
-        driver.findElement(By.id("addTagButton")).click();
+        Wait.tryToClickOnceWithinTimeFrame(driver, By.id("addTagButton"), 5000);
         return this;
     }
 
     public void clickCardAdd() {
-        driver.findElement(By.id("add_card_button")).click();
+        WebElement element = driver.findElement(By.id("add_card_button"));
+        element.click();
     }
 
     public void clickPostItAdd() {
