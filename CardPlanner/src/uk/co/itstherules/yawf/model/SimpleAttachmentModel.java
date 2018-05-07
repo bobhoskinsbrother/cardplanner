@@ -12,8 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
 import net.sf.oval.constraint.NotNull;
-import uk.co.itstherules.binary.io.StreamForwarder;
-import uk.co.itstherules.binary.io.image.AWTImageOps;
+import uk.co.itstherules.io.StreamForwarder;
+import uk.co.itstherules.io.image.AWTImageOps;
 import uk.co.itstherules.string.manipulation.Append;
 import uk.co.itstherules.string.manipulation.CompositeStringManipulator;
 import uk.co.itstherules.string.manipulation.Suffix;

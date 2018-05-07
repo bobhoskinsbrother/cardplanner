@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.httpclient.HttpStatus;
 
-import uk.co.itstherules.binary.io.ContentTypeGuesser;
-import uk.co.itstherules.binary.io.StreamForwarder;
+import uk.co.itstherules.io.ContentTypeGuesser;
+import uk.co.itstherules.io.StreamForwarder;
 import uk.co.itstherules.yawf.view.context.ViewContext;
 
 public abstract class BaseBinaryView implements View {

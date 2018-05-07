@@ -3,20 +3,12 @@
     <property file="build.properties" />
     <dirname property="master.basedir" file="${ant.file.cardplanner}"/>
 
-	<import file="${master.basedir}/${commons}/build.xml" />
-	<import file="${master.basedir}/${commons.string}/build.xml" />
-	<import file="${master.basedir}/${commons.reflection}/build.xml" />
-	<import file="${master.basedir}/${commons.image}/build.xml" />
 	<import file="${master.basedir}/${cardplanner}/build.xml" />
 	<import file="${master.basedir}/${cardplanner.functional}/build.xml" />
 
 	<target name="CardPlannerMaster" depends="make.cardplanner.master,test.cardplanner.master, save.cardplanner.master" />
 
 	<target name="make.cardplanner.master">
-		<antcall target="Commons.Commons" />
-		<antcall target="CommonsString.CommonsString" />
-		<antcall target="CommonsReflection.CommonsReflection" />
-		<antcall target="CommonsImage.CommonsImage" />
 		<antcall target="CardPlanner.CardPlanner" />
 	</target>
 
@@ -28,12 +20,8 @@
 		<sequential>
 			<zip destfile="${master.basedir}/${dist}/CardPlannerServer.zip">
                 <zipfileset dir="${master.basedir}/sh" prefix="." includes="**/*"/>
-                <zipfileset dir="${master.basedir}/libs/release/new/" includes="*.jar" prefix="libs"/>
+                <zipfileset dir="${master.basedir}/libs/release/" includes="*.jar" prefix="libs"/>
                 <zipfileset dir="${master.basedir}/${cardplanner}/${dist}/" includes="*.jar" prefix="libs"/>
-                <zipfileset dir="${master.basedir}/${commons}/${dist}/" includes="*.jar" prefix="libs"/>
-                <zipfileset dir="${master.basedir}/${commons.string}/${dist}/" includes="*.jar" prefix="libs"/>
-                <zipfileset dir="${master.basedir}/${commons.reflection}/${dist}/" includes="*.jar" prefix="libs"/>
-                <zipfileset dir="${master.basedir}/${commons.image}/${dist}/" includes="*.jar" prefix="libs"/>
 			</zip>
 		</sequential>
 	</target>
