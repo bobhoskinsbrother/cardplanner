@@ -577,3 +577,6 @@ div.autocomplete ul li {
     background-image: url('${tagBuilder.showImageUrl("card_medium.png")}');
 }
 
+.large_size_card, .medium_size_card, .small_card {
+    display: inline-block;
+}

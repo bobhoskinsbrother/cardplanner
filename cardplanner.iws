@@ -2,313 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e2a0034-e6b2-49ad-a351-34b4f927d7b9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/converter/EnumMapConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/date/CalendarBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/date/CalendarDateFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/date/CalendarDateMath.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/date/DateConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/dimension/DimensionComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/dimension/DimensionSupplier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/dimension/coordinate/BottomLeft.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/dimension/coordinate/BottomRight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/dimension/coordinate/Coordinate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/dimension/coordinate/CoordinateTranslator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/dimension/coordinate/Rectangle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/dimension/coordinate/SimpleRectangle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/dimension/coordinate/TopLeft.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/dimension/coordinate/TopRight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/io/ContentTypeGuesser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/io/StreamForwarder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/io/image/AWTImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/io/image/AWTImageOps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/io/image/AbstractBufferedImageOp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/io/image/BaseImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/io/image/BicubicScaleFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/io/image/Flip.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/io/image/FlipFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/io/image/IImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/io/image/ImageFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/io/image/ImageMath.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/io/image/JAIImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/io/image/RotateFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/io/image/ScaleCalculator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/io/image/TransformFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/reflection/ClassAndDirectoryFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/reflection/ClassFinder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/io/BasePathToStringLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/io/InputStreamToStringLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/io/PassthroughStringLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/io/ResourcePathToStringLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/io/StringLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/Append.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/AppendageRemover.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/Capitalize.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/Chomp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/Chop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/ChopAndPrepend.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/CollectionConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/CollectionPrinter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/CompositeStringManipulator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/Constantize.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/Enumize.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/ExtensionFinder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/ListParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/MultiChomp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/Prefix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/Prepend.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/SplitCamelCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/StringManipulator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/Suffix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/TagCleaner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/TitleifyFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/manipulation/UrlEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/url/QueryStringParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/string/url/Url.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test-resource/JarLoadMe.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test-resource/uk/co/itstherules/string/io/empty.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test-resource/uk/co/itstherules/string/io/resourceloaded.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/blank" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/test/things/to/find/FindMe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/test/things/to/find/FindMeToo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/test/things/to/find/subpackage/PleaseDontIgnoreMe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/converter/EnumConverterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/date/CalendarDateFactoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/date/CalendarMathTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/dimension/DimensionComparatorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/dimension/PassThroughDimensionSupplier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/dimension/coordinate/CoordinateTranslatorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/dimension/coordinate/SimpleRectangleTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/io/ContentTypeGuesserTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/io/StreamForwarderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/io/ThrowOnReadByteArrayInputStream.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/reflection/ClassAndDirectoryFilterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/reflection/ClassFinderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/io/BasePathToStringLoaderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/io/InputStreamToStringLoaderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/io/PassthroughStringLoaderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/io/ResourcePathToStringLoaderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/io/ThrowsWhenReadIsCalledReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/io/ThrowsWhenReadOrCloseIsCalledReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/manipulation/AppendTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/manipulation/AppendageRemoverTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/manipulation/ChompTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/manipulation/ChopAndPrependTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/manipulation/ChopTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/manipulation/CollectionPrinterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/manipulation/CompositeStringManipulatorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/manipulation/ConstantizeTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/manipulation/ExtensionFinderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/manipulation/ListParserTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/manipulation/MultiChompTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/manipulation/PrefixTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/manipulation/SplitCamelCaseTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/manipulation/SuffixTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/manipulation/TagCleanerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/manipulation/TitleifyFileTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/manipulation/UrlEncoderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/url/QueryStringParserTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/string/url/UrlTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CardPlanner/CardPlanner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CardPlanner/CardPlanner.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/SimpleAttachmentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/SimpleAttachmentModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/view/BaseBinaryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/view/BaseBinaryView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/build.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/Commons.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/build.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/converter/EnumMapConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/date/CalendarBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/date/CalendarDateFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/date/CalendarDateMath.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/date/DateConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/dimension/DimensionComparator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/dimension/DimensionSupplier.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/dimension/coordinate/BottomLeft.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/dimension/coordinate/BottomRight.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/dimension/coordinate/Coordinate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/dimension/coordinate/CoordinateTranslator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/dimension/coordinate/Rectangle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/dimension/coordinate/SimpleRectangle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/dimension/coordinate/TopLeft.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/dimension/coordinate/TopRight.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/io/ContentTypeGuesser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/io/StreamForwarder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/test/uk/co/itstherules/converter/EnumConverterTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/test/uk/co/itstherules/date/CalendarDateFactoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/test/uk/co/itstherules/date/CalendarMathTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/test/uk/co/itstherules/dimension/DimensionComparatorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/test/uk/co/itstherules/dimension/PassThroughDimensionSupplier.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/test/uk/co/itstherules/dimension/coordinate/CoordinateTranslatorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/test/uk/co/itstherules/dimension/coordinate/SimpleRectangleTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/test/uk/co/itstherules/io/ContentTypeGuesserTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/test/uk/co/itstherules/io/StreamForwarderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commons/test/uk/co/itstherules/io/ThrowOnReadByteArrayInputStream.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/CommonsImage.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/build.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/io/image/AWTImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/io/image/AWTImageOps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/io/image/AbstractBufferedImageOp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/io/image/BaseImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/io/image/BicubicScaleFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/io/image/Flip.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/io/image/FlipFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/io/image/IImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/io/image/ImageFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/io/image/ImageMath.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/io/image/JAIImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/io/image/RotateFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/io/image/ScaleCalculator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/io/image/TransformFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsImage/test/blank" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsReflection/CommonsReflection.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsReflection/build.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsReflection/src/uk/co/itstherules/reflection/ClassAndDirectoryFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsReflection/src/uk/co/itstherules/reflection/ClassFinder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsReflection/test-resource/JarLoadMe.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsReflection/test/test/things/to/find/FindMe.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsReflection/test/test/things/to/find/FindMeToo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsReflection/test/test/things/to/find/subpackage/PleaseDontIgnoreMe.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsReflection/test/uk/co/itstherules/reflection/ClassAndDirectoryFilterTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsReflection/test/uk/co/itstherules/reflection/ClassFinderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/CommonsString.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/build.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/io/BasePathToStringLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/io/InputStreamToStringLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/io/PassthroughStringLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/io/ResourcePathToStringLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/io/StringLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/Append.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/AppendageRemover.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/Capitalize.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/Chomp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/Chop.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/ChopAndPrepend.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/CollectionConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/CollectionPrinter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/CompositeStringManipulator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/Constantize.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/Enumize.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/ExtensionFinder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/ListParser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/MultiChomp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/Prefix.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/Prepend.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/SplitCamelCase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/StringManipulator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/Suffix.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/TagCleaner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/TitleifyFile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/manipulation/UrlEncoder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/url/QueryStringParser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/src/uk/co/itstherules/string/url/Url.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test-resource/uk/co/itstherules/string/io/empty.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test-resource/uk/co/itstherules/string/io/resourceloaded.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/io/BasePathToStringLoaderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/io/InputStreamToStringLoaderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/io/PassthroughStringLoaderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/io/ResourcePathToStringLoaderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/io/ThrowsWhenReadIsCalledReader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/io/ThrowsWhenReadOrCloseIsCalledReader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/manipulation/AppendTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/manipulation/AppendageRemoverTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/manipulation/ChompTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/manipulation/ChopAndPrependTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/manipulation/ChopTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/manipulation/CollectionPrinterTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/manipulation/CompositeStringManipulatorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/manipulation/ConstantizeTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/manipulation/ExtensionFinderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/manipulation/ListParserTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/manipulation/MultiChompTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/manipulation/PrefixTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/manipulation/SplitCamelCaseTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/manipulation/SuffixTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/manipulation/TagCleanerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/manipulation/TitleifyFileTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/manipulation/UrlEncoderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/url/QueryStringParserTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonsString/test/uk/co/itstherules/string/url/UrlTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CardPlanner/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CardPlanner/build.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/css/general.css.freemarker" beforeDir="false" afterPath="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/css/general.css.freemarker" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/Archived.java" beforeDir="false" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/Archived.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/dispatcher/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/dispatcher/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/file/FileRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/file/FileRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CardPlannerFunctionalTests/CardPlannerFunctionalTests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CardPlannerFunctionalTests/CardPlannerFunctionalTests.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/binary/io/ContentTypeGuesser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commons/src/uk/co/itstherules/binary/io/StreamForwarder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commons/test/uk/co/itstherules/binary/io/ContentTypeGuesserTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commons/test/uk/co/itstherules/binary/io/StreamForwarderTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commons/test/uk/co/itstherules/binary/io/ThrowOnReadByteArrayInputStream.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/AWTImage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/AWTImageOps.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/AbstractBufferedImageOp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/BaseImage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/BicubicScaleFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/Flip.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/FlipFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/IImage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/ImageFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/ImageMath.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/JAIImage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/RotateFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/ScaleCalculator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonsImage/src/uk/co/itstherules/binary/io/image/TransformFilter.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cardplanner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cardplanner.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cardplanner.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/cardplanner.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cardplanner.iws" beforeDir="false" afterPath="$PROJECT_DIR$/cardplanner.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/antlr-2.7.7.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/antlr-2.7.7.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/byte-buddy-1.8.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/byte-buddy-1.8.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/c3p0-0.9.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/c3p0-0.9.1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/classmate-1.3.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/classmate-1.3.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/commons-codec-1.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/commons-codec-1.4.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/commons-collections-3.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/commons-collections-3.1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/commons-fileupload-1.2.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/commons-fileupload-1.2.1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/commons-httpclient-3.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/commons-httpclient-3.1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/commons-io-1.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/commons-io-1.4.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/dom4j-1.6.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/dom4j-1.6.1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/flexjson-1.9.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/flexjson-1.9.2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/freemarker-2.3.16.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/freemarker-2.3.16.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/h2-1.3.165.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/h2-1.3.165.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/hibernate-c3p0-5.2.17.Final.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/hibernate-c3p0-5.2.17.Final.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/hibernate-commons-annotations-5.0.3.Final.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/hibernate-commons-annotations-5.0.3.Final.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/hibernate-core-5.2.17.Final.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/hibernate-core-5.2.17.Final.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/hibernate-ehcache-5.2.17.Final.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/hibernate-ehcache-5.2.17.Final.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/hibernate-java8-5.2.17.Final.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/hibernate-java8-5.2.17.Final.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/hibernate-jpamodelgen-5.2.17.Final.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/hibernate-jpamodelgen-5.2.17.Final.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jandex-2.0.3.Final.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jandex-2.0.3.Final.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/javassist-3.22.0-GA.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/javassist-3.22.0-GA.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/javax.annotation-api-1.3.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/javax.annotation-api-1.3.2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/javax.persistence-api-2.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/javax.persistence-api-2.2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jaxb-api-2.3.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jaxb-api-2.3.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jaxb-core-2.3.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jaxb-core-2.3.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jboss-logging-3.3.2.Final.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jboss-logging-3.3.2.Final.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jboss-transaction-api_1.2_spec-1.0.1.Final.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jboss-transaction-api_1.2_spec-1.0.1.Final.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-alpn-conscrypt-server-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-alpn-conscrypt-server-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-alpn-java-server-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-alpn-java-server-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-alpn-openjdk8-server-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-alpn-openjdk8-server-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-alpn-server-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-alpn-server-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-annotations-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-annotations-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-client-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-client-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-continuation-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-continuation-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-deploy-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-deploy-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-gcloud-session-manager-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-gcloud-session-manager-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-hazelcast-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-hazelcast-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-http-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-http-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-infinispan-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-infinispan-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-io-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-io-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-jaas-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-jaas-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-jaspi-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-jaspi-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-jmx-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-jmx-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-jndi-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-jndi-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-memcached-sessions-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-memcached-sessions-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-nosql-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-nosql-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-plus-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-plus-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-proxy-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-proxy-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-quickstart-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-quickstart-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-rewrite-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-rewrite-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-schemas-3.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-schemas-3.1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-security-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-security-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-server-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-server-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-servlet-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-servlet-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-servlets-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-servlets-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-unixsocket-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-unixsocket-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-util-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-util-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-webapp-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-webapp-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/jetty-xml-9.4.9.v20180320.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/jetty-xml-9.4.9.v20180320.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/markdown4j-2.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/markdown4j-2.2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/oval-1.50.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/oval-1.50.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/poi-3.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/poi-3.2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/poi-contrib-3.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/poi-contrib-3.2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/servlet-api-3.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/servlet-api-3.1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/slf4j-api-1.7.7.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/slf4j-api-1.7.7.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/slf4j-simple-1.7.7.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/slf4j-simple-1.7.7.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/release/new/yuicompressor-2.4.7.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/yuicompressor-2.4.7.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/test/functional/selenium_new/cglib-nodep-3.2.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/test/functional/cglib-nodep-3.2.4.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/test/functional/selenium_new/commons-codec-1.10.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/test/functional/commons-codec-1.10.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/test/functional/selenium_new/commons-exec-1.3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/test/functional/commons-exec-1.3.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/test/functional/selenium_new/commons-logging-1.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/test/functional/commons-logging-1.2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/test/functional/selenium_new/gson-2.8.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/test/functional/gson-2.8.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/test/functional/selenium_new/guava-21.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/test/functional/guava-21.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/test/functional/selenium_new/httpclient-4.5.3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/test/functional/httpclient-4.5.3.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/test/functional/selenium_new/httpcore-4.4.6.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/test/functional/httpcore-4.4.6.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/test/functional/selenium_new/jna-4.1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/test/functional/jna-4.1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/test/functional/selenium_new/jna-platform-4.1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/test/functional/jna-platform-4.1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/test/functional/selenium_new/selenium-api-3.4.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/test/functional/selenium-api-3.4.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/test/functional/selenium_new/selenium-chrome-driver-3.4.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/test/functional/selenium-chrome-driver-3.4.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/test/functional/selenium_new/selenium-remote-driver-3.4.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/test/functional/selenium-remote-driver-3.4.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/release/oval-1.50.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/release/oval-1.50.jar" afterDir="false" />
     </list>
     <ignored path="cardplanner.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -375,8 +99,84 @@
       <file leaf-file-name="build.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CardPlanner/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="710">
-              <caret line="60" column="35" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="35" />
+            <state relative-caret-position="639">
+              <caret line="60" selection-start-line="60" selection-end-line="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataFixtures.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/DataFixtures.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1063#1064#0" expanded="true" />
+                <element signature="e#1160#1161#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebDriverInstance.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/junit/extension/WebDriverInstance.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EntityManagerListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/EntityManagerListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1253#1254#0" expanded="true" />
+                <element signature="e#1289#1290#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ID.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/ID.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="17" column="93" selection-start-line="17" selection-start-column="93" selection-end-line="17" selection-end-column="93" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileRepositoryTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/file/FileRepositoryTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostItModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/PostItModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="335">
+              <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResurrectableThing.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/ResurrectableThing.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -384,17 +184,8 @@
       <file leaf-file-name="build.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/build.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="673">
-              <caret line="65" column="10" lean-forward="true" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+            <state relative-caret-position="391">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -405,7 +196,19 @@
     <findStrings>
       <find>libs/release</find>
       <find>libs/</find>
+      <find>card</find>
+      <find>medium</find>
+      <find>small_card</find>
+      <find>/*</find>
+      <find>new Long</find>
+      <find>libs/release/</find>
+      <find>${cardplanner.basedir}/</find>
     </findStrings>
+    <replaceStrings>
+      <replace>zipfileset dir=&quot;${master.basedir}/</replace>
+      <replace>/&quot; includes=&quot;*</replace>
+      <replace>Long.valueOf</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
     </dirStrings>
@@ -439,7 +242,6 @@
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/Page.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/junit/extension/WebDriverInstance.java" />
         <option value="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/cardplanner/model/CachedInstanceTest.java" />
-        <option value="$PROJECT_DIR$/CardPlanner/build.xml" />
         <option value="$PROJECT_DIR$/CardPlanner/src-resource/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/EntityManagerListener.java" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardTypesTest.java" />
@@ -455,6 +257,12 @@
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/TagsTest.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/build.xml" />
+        <option value="$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/css/general.css.freemarker" />
+        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/dispatcher/Action.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/Archived.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/file/FileRepositoryTest.java" />
+        <option value="$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/DataFixtures.java" />
+        <option value="$PROJECT_DIR$/CardPlanner/build.xml" />
         <option value="$PROJECT_DIR$/build.xml" />
       </list>
     </option>
@@ -473,9 +281,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="851" />
     <option name="y" value="23" />
-    <option name="width" value="1680" />
-    <option name="height" value="953" />
+    <option name="width" value="829" />
+    <option name="height" value="945" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -522,21 +331,12 @@
               <item name="cardplanner" type="b2602c69:ProjectViewProjectNode" />
               <item name="cardplanner" type="462c0819:PsiDirectoryNode" />
               <item name="libs" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="release" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cardplanner" type="b2602c69:ProjectViewProjectNode" />
               <item name="cardplanner" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="functional" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cardplanner" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cardplanner" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="unit" type="462c0819:PsiDirectoryNode" />
+              <item name="sh" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -596,11 +396,11 @@
       <recent name="uk.co.itstherules.yawf.server" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/libs/test/functional" />
       <recent name="$PROJECT_DIR$/libs/release" />
-      <recent name="$PROJECT_DIR$/libs/release/old" />
-      <recent name="$PROJECT_DIR$/libs/release/new" />
-      <recent name="$PROJECT_DIR$/CardPlannerFunctionalTests" />
+      <recent name="$PROJECT_DIR$/libs/release/oval" />
+      <recent name="$PROJECT_DIR$/libs/release/constraint" />
+      <recent name="$PROJECT_DIR$/libs/release/others" />
+      <recent name="$PROJECT_DIR$/libs/release/markdown" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="uk.co.itstherules" />
@@ -1218,7 +1018,7 @@
       <workItem from="1488988831676" duration="9000" />
       <workItem from="1489578148806" duration="5152000" />
       <workItem from="1525420115290" duration="6394000" />
-      <workItem from="1525677822197" duration="5482000" />
+      <workItem from="1525677822197" duration="11269000" />
     </task>
     <task id="LOCAL-00001" summary="BMH: Making the build a little more sane, fixing up a bunch of small errors, in prep to getting the functional tests working again">
       <created>1397597743552</created>
@@ -1234,7 +1034,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525681830995</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="BMH: collapsing down the modules to make a big monolith (to begin to split in another way)">
+      <created>1525687200912</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1525687200912</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1270,7 +1077,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="307412000" />
+    <option name="totallyTimeSpent" value="313199000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1294,10 +1101,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="945" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32976446" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.33293414" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.33212122" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5002684" side_tool="true" weight="0.39916405" />
@@ -1308,11 +1116,11 @@
       <window_info anchor="bottom" id="Terminal" order="12" />
       <window_info id="Persistence" order="2" sideWeight="0.5004541" side_tool="true" weight="0.24821134" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49954587" visible="true" weight="0.24481075" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49954587" visible="true" weight="0.1984127" />
       <window_info anchor="bottom" id="Docker" order="11" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info anchor="right" id="Database" order="4" weight="0.32904148" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32490975" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32484847" />
       <window_info anchor="right" id="SciView" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1350,7 +1158,8 @@
     <MESSAGE value="BMH: Making the build a little more sane, fixing up a bunch of small errors, in prep to getting the functional tests working again" />
     <MESSAGE value="BMH: adding double click feature on cards" />
     <MESSAGE value="BMH: updating selenium, hibernate, and JPA libs.  Fixed a bunch of previously failing functional tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="BMH: updating selenium, hibernate, and JPA libs.  Fixed a bunch of previously failing functional tests" />
+    <MESSAGE value="BMH: collapsing down the modules to make a big monolith (to begin to split in another way)" />
+    <option name="LAST_COMMIT_MESSAGE" value="BMH: collapsing down the modules to make a big monolith (to begin to split in another way)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1430,204 +1239,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/junit/extension/WebMatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/TempFileWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/AdminTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/junit/extension/WebDriverInstance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="61" column="29" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1901" />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/release/hibernate-jpa-2.0-api-1.0.0.Final.jar!/javax/persistence/OneToOne.class" />
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/annotations/QueryKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/CardModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/ValuesProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/view/active/ExcelExportXls.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/cardplanner/model/FakeObjectCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/cardplanner/model/CachedInstanceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-617">
-          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/output/TEST-uk.co.itstherules.ui.AddTagToCardTest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="114" column="87" selection-start-line="114" selection-start-column="87" selection-end-line="114" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/server/CardPlannerServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/inbound/DefaultValuesProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding>
-            <element signature="e#245#246#0" expanded="true" />
-            <element signature="e#263#264#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/release/new/hibernate-core-5.2.17.Final.jar!/org/hibernate/jpa/HibernatePersistenceProvider.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="28" column="41" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/release/new/javax.persistence-api-2.2.jar!/javax/persistence/spi/PersistenceProvider.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/persistence/ObjectCacheFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/persistence/JPAObjectCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/META-INF/persistence.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="64" selection-start-line="4" selection-start-column="64" selection-end-line="4" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/EntityManagerListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/server/StandaloneServerApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
-          <folding>
-            <element signature="e#1037#1038#0" expanded="true" />
-            <element signature="e#1127#1128#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/output/TEST-uk.co.itstherules.ui.CardTypesTest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="114" column="52" selection-start-line="114" selection-start-column="52" selection-end-line="114" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/CardTypesTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/pages/Page.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/output/TEST-uk.co.itstherules.ui.DeleteTagTest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="114" column="52" selection-start-line="114" selection-start-column="52" selection-end-line="114" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/test/uk/co/itstherules/ui/DeleteTagTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/output/TEST-uk.co.itstherules.ui.EffortTypesTest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2295">
@@ -1762,13 +1373,6 @@
     <entry file="file://$PROJECT_DIR$/Commons/build.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/CardPlanner/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="710">
-          <caret line="60" column="35" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/build.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="673">
@@ -1776,10 +1380,213 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
+    <entry file="file://$PROJECT_DIR$/common.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="772">
+          <caret line="82" column="23" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sh/start_cardplanner.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="74" selection-start-line="1" selection-start-column="57" selection-end-line="1" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/server/CardPlannerServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/release/jetty-servlet-9.4.9.v20180320.jar!/org/eclipse/jetty/servlet/ServletContextHandler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/server/StandaloneServerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+          <folding>
+            <element signature="e#1037#1038#0" expanded="true" />
+            <element signature="e#1127#1128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/server/CardPlannerConfigBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/servlet/YAWFServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/Home.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/simple.freemarker">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/css/general.css.freemarker">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="661">
+          <caret line="580" column="26" selection-start-line="580" selection-start-column="26" selection-end-line="580" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/css/storyboard.css.freemarker">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/cards/edit.freemarker">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src-resource/uk/co/itstherules/cardplanner/view/cards/list.freemarker">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2965" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/dispatcher/Action.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/Admin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/Archived.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/controller/active/StatusOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/listener/CardPlannerListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/ResurrectableThing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/cardplanner/model/PostItModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/test/uk/co/itstherules/yawf/file/FileRepositoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/ID.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="93" selection-start-line="17" selection-start-column="93" selection-end-line="17" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/MapBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <folding>
+            <element signature="e#196#197#0" expanded="true" />
+            <element signature="e#246#247#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/junit/extension/WebMatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/junit/extension/WebDriverInstance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/src/uk/co/itstherules/yawf/model/EntityManagerListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1253#1254#0" expanded="true" />
+            <element signature="e#1289#1290#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlannerFunctionalTests/src/uk/co/itstherules/ui/functions/DataFixtures.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1063#1064#0" expanded="true" />
+            <element signature="e#1160#1161#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CardPlanner/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="639">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
@@ -1836,7 +1643,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>CardPlanner</last-edited>
+          <last-edited>CardPlannerFunctionalTests</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1848,7 +1655,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>functional_tests</last-edited>
+          <last-edited>jetty</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

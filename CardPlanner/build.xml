@@ -10,7 +10,7 @@
         <make module="${cardplanner.basedir}" jarname="${cardplanner.jar}" source="src" targetdir="made">
             <make.classpath>
                 <classpath>
-                    <fileset refid="release.fileset"/>
+                    <resources refid="release.fileset"/>
                 </classpath>
             </make.classpath>
         </make>
@@ -18,8 +18,8 @@
             <make.classpath>
                 <classpath>
                     <pathelement location="${cardplanner.basedir}/${made}/${cardplanner.jar}"/>
-                    <fileset refid="release.fileset"/>
-                    <fileset refid="unit.fileset"/>
+                    <resources refid="release.fileset"/>
+                    <resources refid="unit.fileset"/>
                 </classpath>
             </make.classpath>
         </make>
@@ -32,8 +32,8 @@
                 <classpath>
                     <pathelement location="${cardplanner.basedir}/${made}/${cardplanner.test.jar}"/>
                     <pathelement location="${cardplanner.basedir}/${made}/${cardplanner.jar}"/>
-                    <fileset refid="release.fileset"/>
-                    <fileset refid="unit.fileset"/>
+                    <resources refid="release.fileset"/>
+                    <resources refid="unit.fileset"/>
                 </classpath>
             </test.classpath>
         </test>
@@ -52,18 +52,12 @@
         <init.dir dir="${cardplanner.basedir}/${dist}"/>
     </target>
 
+    <union id="unit.fileset">
+        <fileset dir="../libs/test/unit" includes="*.jar"/>
+    </union>
 
-    <fileset id="unit.fileset" dir="${cardplanner.basedir}/../libs/test/unit">
-        <include name="*.jar"/>
-    </fileset>
-
-    <fileset id="release.fileset" dir="${cardplanner.basedir}/..">
-        <include name="libs/release/new/*.jar"/>
-        <include name="${commons}/${dist}/*.jar"/>
-        <include name="${commons.string}/${dist}/*.jar"/>
-        <include name="${commons.reflection}/${dist}/*.jar"/>
-        <include name="${commons.image}/${dist}/*.jar"/>
-
-    </fileset>
+    <union id="release.fileset">
+        <fileset dir="../libs/release/" includes="*.jar"/>
+    </union>
 
 </project>

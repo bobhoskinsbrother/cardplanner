@@ -26,7 +26,7 @@ public final class Archived extends CardPlannerBase<CardModel> {
 	
 	@Action("Update") @Override public void update(ObjectCache objectCache, ValuesProvider provider, HttpServletResponse response, ModelViewRegister viewFactory) throws IOException {
 		Set<CardModel> all = objectCache.all(CardModel.class, "identity", provider.getIdentity());
-    	if(provider.getBoolean("archive", Boolean.FALSE).booleanValue()) {
+    	if(provider.getBoolean("archive", Boolean.FALSE)) {
     		for (CardModel model : all) {
     			new Archiver().archive(objectCache, model);
             }

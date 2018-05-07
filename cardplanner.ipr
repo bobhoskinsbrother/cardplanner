@@ -169,6 +169,32 @@
     <mapping directory="" vcs="Git" />
   </component>
   <component name="libraryTable">
+    <library name="commons">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/release/commons/commons-codec-1.4.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/commons/commons-collections-3.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/commons/commons-fileupload-1.2.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/commons/commons-httpclient-3.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/commons/commons-io-1.4.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="db">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/release/db/c3p0-0.9.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/db/h2-1.3.165.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="freemarker">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/release/freemarker/freemarker-2.3.16.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
     <library name="functional_tests">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/libs/test/functional/cglib-nodep-3.2.4.jar!/" />
@@ -188,73 +214,89 @@
       <JAVADOC />
       <SOURCES />
     </library>
-    <library name="release_libs">
+    <library name="hibernate">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/libs/release/antlr-2.7.7.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/byte-buddy-1.8.0.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/c3p0-0.9.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/classmate-1.3.0.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/commons-codec-1.4.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/commons-collections-3.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/commons-fileupload-1.2.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/commons-httpclient-3.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/commons-io-1.4.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/dom4j-1.6.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/flexjson-1.9.2.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/freemarker-2.3.16.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/h2-1.3.165.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/hibernate-c3p0-5.2.17.Final.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/hibernate-commons-annotations-5.0.3.Final.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/hibernate-core-5.2.17.Final.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/hibernate-ehcache-5.2.17.Final.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/hibernate-jpamodelgen-5.2.17.Final.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jandex-2.0.3.Final.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/javassist-3.22.0-GA.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/javax.annotation-api-1.3.2.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/javax.persistence-api-2.2.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jaxb-api-2.3.0.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jaxb-core-2.3.0.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jboss-logging-3.3.2.Final.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jboss-transaction-api_1.2_spec-1.0.1.Final.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-alpn-conscrypt-server-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-alpn-java-server-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-alpn-openjdk8-server-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-alpn-server-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-annotations-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-client-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-continuation-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-deploy-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-gcloud-session-manager-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-hazelcast-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-http-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-infinispan-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-io-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-jaas-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-jaspi-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-jmx-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-jndi-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-memcached-sessions-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-nosql-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-plus-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-proxy-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-quickstart-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-rewrite-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-security-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-server-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-servlet-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-servlets-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-unixsocket-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-util-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-webapp-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/jetty-xml-9.4.9.v20180320.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/markdown4j-2.2.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/oval-1.50.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/poi-3.2.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/poi-contrib-3.2.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/servlet-api-3.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/slf4j-api-1.7.7.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/slf4j-simple-1.7.7.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/release/yuicompressor-2.4.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/hibernate/hibernate-c3p0-5.2.17.Final.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/hibernate/hibernate-commons-annotations-5.0.3.Final.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/hibernate/hibernate-core-5.2.17.Final.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/hibernate/hibernate-ehcache-5.2.17.Final.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/hibernate/hibernate-jpamodelgen-5.2.17.Final.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/hibernate/javax.annotation-api-1.3.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/hibernate/javax.persistence-api-2.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="jetty">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-alpn-conscrypt-server-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-alpn-java-server-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-alpn-openjdk8-server-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-alpn-server-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-annotations-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-client-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-continuation-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-deploy-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-gcloud-session-manager-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-hazelcast-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-http-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-infinispan-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-io-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-jaas-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-jaspi-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-jmx-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-jndi-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-memcached-sessions-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-nosql-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-plus-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-proxy-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-quickstart-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-rewrite-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-security-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-server-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-servlet-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-servlets-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-unixsocket-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-util-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-webapp-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/jetty-xml-9.4.9.v20180320.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/jetty/servlet-api-3.1.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="markdown">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/release/markdown/markdown4j-2.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="others">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/release/others/antlr-2.7.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/others/byte-buddy-1.8.0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/others/classmate-1.3.0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/others/dom4j-1.6.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/others/flexjson-1.9.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/others/jandex-2.0.3.Final.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/others/javassist-3.22.0-GA.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/others/jaxb-api-2.3.0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/others/jaxb-core-2.3.0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/others/jboss-logging-3.3.2.Final.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/others/jboss-transaction-api_1.2_spec-1.0.1.Final.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/others/poi-3.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/others/poi-contrib-3.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/others/slf4j-api-1.7.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/others/slf4j-simple-1.7.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/release/others/yuicompressor-2.4.7.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="oval">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/release/oval/oval-1.50.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />

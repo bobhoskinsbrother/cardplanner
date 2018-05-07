@@ -9,6 +9,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD})
 public @interface Action {
-    public abstract String value() default "Show";
-    public abstract boolean requiresObjectCache() default true;
+    String value() default "Show";
+    boolean requiresObjectCache() default true;
 }

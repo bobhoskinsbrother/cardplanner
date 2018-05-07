@@ -125,7 +125,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="false">
+  <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/bin" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
@@ -140,9 +140,16 @@
     </content>
     <orderEntry type="module" module-name="CardPlanner" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="9.0" jdkType="JavaSDK" />
     <orderEntry type="library" name="functional_tests" level="project" />
-    <orderEntry type="library" name="release_libs" level="project" />
     <orderEntry type="library" name="unit_tests" level="project" />
+    <orderEntry type="library" name="commons" level="project" />
+    <orderEntry type="library" name="db" level="project" />
+    <orderEntry type="library" name="freemarker" level="project" />
+    <orderEntry type="library" name="hibernate" level="project" />
+    <orderEntry type="library" name="jetty" level="project" />
+    <orderEntry type="library" name="markdown" level="project" />
+    <orderEntry type="library" name="others" level="project" />
+    <orderEntry type="library" name="oval" level="project" />
   </component>
 </module>
